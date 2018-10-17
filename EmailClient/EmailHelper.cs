@@ -10,14 +10,8 @@ using System.Threading.Tasks;
 
 namespace EmailClient
 {
-    class Program
+    public static class EmailHelper
     {
-        static void Main(string[] args)
-        {
-            var messages = FetchAllMessages("pop.gmail.com", 995, true, "figamalum@gmail.com", "ghekkafigamalum1994");
-            //SendEmailAsync().GetAwaiter();
-            Console.Read();
-        }
 
         public static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
         {
