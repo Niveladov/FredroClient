@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace console_klient
+namespace EmailClient
 {
     public class TheMessage
     {
