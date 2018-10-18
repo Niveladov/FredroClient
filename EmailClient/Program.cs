@@ -15,9 +15,11 @@ namespace EmailClient
         static void Main(string[] args)
         {
             var hostname = "pop.gmail.com";
-            var port = 995;
+            var port = 995; 
             var useSsl = true;
-            var username = "figamalum@gmail.com";
+            //"recent:" before username show messages 
+            //that were recieved during last 30 days messages
+            var username = "recent:figamalum@gmail.com"; 
             var password = "ghekkafigamalum1994";
             var messages = EmailHelper.FetchAllMessages(hostname, port, useSsl, username, password);
             //EmailHelper.SendEmailAsync().GetAwaiter();
