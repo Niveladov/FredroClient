@@ -46,14 +46,11 @@
             this.icbeHostname = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnter = new DevExpress.XtraEditors.SimpleButton();
-            this.sleHostname = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tePassword = new DevExpress.XtraEditors.TextEdit();
             this.teLogin = new DevExpress.XtraEditors.TextEdit();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciLogin = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPassword = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciHostname = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciEnter = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciCancel = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciEmailServer = new DevExpress.XtraLayout.LayoutControlItem();
@@ -62,14 +59,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icbeHostname.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sleHostname.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciHostname)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEnter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmailServer)).BeginInit();
@@ -100,31 +94,32 @@
             this.lcMain.Controls.Add(this.icbeHostname);
             this.lcMain.Controls.Add(this.btnCancel);
             this.lcMain.Controls.Add(this.btnEnter);
-            this.lcMain.Controls.Add(this.sleHostname);
             this.lcMain.Controls.Add(this.tePassword);
             this.lcMain.Controls.Add(this.teLogin);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(382, 290);
+            this.lcMain.Size = new System.Drawing.Size(582, 273);
             this.lcMain.TabIndex = 1;
             // 
             // icbeHostname
             // 
-            this.icbeHostname.Location = new System.Drawing.Point(52, 17);
+            this.icbeHostname.Location = new System.Drawing.Point(72, 46);
             this.icbeHostname.Name = "icbeHostname";
+            this.icbeHostname.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.icbeHostname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.icbeHostname.Size = new System.Drawing.Size(277, 28);
+            this.icbeHostname.Properties.NullValuePrompt = "Выберете сервер входящей почты...";
+            this.icbeHostname.Size = new System.Drawing.Size(437, 28);
             this.icbeHostname.StyleController = this.lcMain;
             this.icbeHostname.TabIndex = 9;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(88, 207);
+            this.btnCancel.Location = new System.Drawing.Point(128, 198);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(205, 28);
+            this.btnCancel.Size = new System.Drawing.Size(325, 28);
             this.btnCancel.StyleController = this.lcMain;
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Закрыть";
@@ -132,54 +127,32 @@
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(88, 169);
+            this.btnEnter.Location = new System.Drawing.Point(128, 160);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(205, 28);
+            this.btnEnter.Size = new System.Drawing.Size(325, 28);
             this.btnEnter.StyleController = this.lcMain;
             this.btnEnter.TabIndex = 7;
             this.btnEnter.Text = "Войти";
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // sleHostname
-            // 
-            this.sleHostname.EditValue = "Выберите почтовый сервер";
-            this.sleHostname.Location = new System.Drawing.Point(52, 55);
-            this.sleHostname.Name = "sleHostname";
-            this.sleHostname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.sleHostname.Properties.NullText = "";
-            this.sleHostname.Properties.NullValuePrompt = "Выберите почтовый сервер...";
-            this.sleHostname.Properties.NullValuePromptShowForEmptyValue = true;
-            this.sleHostname.Properties.View = this.searchLookUpEdit1View;
-            this.sleHostname.Size = new System.Drawing.Size(277, 28);
-            this.sleHostname.StyleController = this.lcMain;
-            this.sleHostname.TabIndex = 6;
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
             // tePassword
             // 
-            this.tePassword.Location = new System.Drawing.Point(52, 131);
+            this.tePassword.Location = new System.Drawing.Point(72, 122);
             this.tePassword.Name = "tePassword";
-            this.tePassword.Properties.NullValuePrompt = "Введите пароль...";
+            this.tePassword.Properties.NullValuePrompt = "     Введите пароль...";
             this.tePassword.Properties.NullValuePromptShowForEmptyValue = true;
             this.tePassword.Properties.PasswordChar = '*';
-            this.tePassword.Size = new System.Drawing.Size(277, 28);
+            this.tePassword.Size = new System.Drawing.Size(437, 28);
             this.tePassword.StyleController = this.lcMain;
             this.tePassword.TabIndex = 5;
             // 
             // teLogin
             // 
-            this.teLogin.Location = new System.Drawing.Point(52, 93);
+            this.teLogin.Location = new System.Drawing.Point(72, 84);
             this.teLogin.Name = "teLogin";
-            this.teLogin.Properties.NullValuePrompt = "Введите логин...";
+            this.teLogin.Properties.NullValuePrompt = "     Введите логин...";
             this.teLogin.Properties.NullValuePromptShowForEmptyValue = true;
-            this.teLogin.Size = new System.Drawing.Size(277, 28);
+            this.teLogin.Size = new System.Drawing.Size(437, 28);
             this.teLogin.StyleController = this.lcMain;
             this.teLogin.TabIndex = 4;
             // 
@@ -194,7 +167,6 @@
             this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciLogin,
             this.lciPassword,
-            this.lciHostname,
             this.lciEnter,
             this.lciCancel,
             this.lciEmailServer});
@@ -240,81 +212,69 @@
             rowDefinition5,
             rowDefinition6,
             rowDefinition7});
-            this.lcgMain.Size = new System.Drawing.Size(382, 290);
+            this.lcgMain.Size = new System.Drawing.Size(582, 273);
             this.lcgMain.TextVisible = false;
             // 
             // lciLogin
             // 
             this.lciLogin.Control = this.teLogin;
-            this.lciLogin.Location = new System.Drawing.Point(35, 76);
+            this.lciLogin.Location = new System.Drawing.Point(55, 67);
             this.lciLogin.Name = "lciLogin";
             this.lciLogin.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciLogin.OptionsTableLayoutItem.ColumnSpan = 3;
             this.lciLogin.OptionsTableLayoutItem.RowIndex = 2;
             this.lciLogin.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciLogin.Size = new System.Drawing.Size(287, 38);
+            this.lciLogin.Size = new System.Drawing.Size(447, 38);
             this.lciLogin.TextSize = new System.Drawing.Size(0, 0);
             this.lciLogin.TextVisible = false;
             // 
             // lciPassword
             // 
             this.lciPassword.Control = this.tePassword;
-            this.lciPassword.Location = new System.Drawing.Point(35, 114);
+            this.lciPassword.Location = new System.Drawing.Point(55, 105);
             this.lciPassword.Name = "lciPassword";
             this.lciPassword.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciPassword.OptionsTableLayoutItem.ColumnSpan = 3;
             this.lciPassword.OptionsTableLayoutItem.RowIndex = 3;
             this.lciPassword.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciPassword.Size = new System.Drawing.Size(287, 38);
+            this.lciPassword.Size = new System.Drawing.Size(447, 38);
             this.lciPassword.TextSize = new System.Drawing.Size(0, 0);
             this.lciPassword.TextVisible = false;
-            // 
-            // lciHostname
-            // 
-            this.lciHostname.Control = this.sleHostname;
-            this.lciHostname.Location = new System.Drawing.Point(35, 38);
-            this.lciHostname.Name = "lciHostname";
-            this.lciHostname.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.lciHostname.OptionsTableLayoutItem.ColumnSpan = 3;
-            this.lciHostname.OptionsTableLayoutItem.RowIndex = 1;
-            this.lciHostname.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciHostname.Size = new System.Drawing.Size(287, 38);
-            this.lciHostname.TextSize = new System.Drawing.Size(0, 0);
-            this.lciHostname.TextVisible = false;
             // 
             // lciEnter
             // 
             this.lciEnter.Control = this.btnEnter;
-            this.lciEnter.Location = new System.Drawing.Point(71, 152);
+            this.lciEnter.Location = new System.Drawing.Point(111, 143);
             this.lciEnter.Name = "lciEnter";
             this.lciEnter.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciEnter.OptionsTableLayoutItem.RowIndex = 4;
             this.lciEnter.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciEnter.Size = new System.Drawing.Size(215, 38);
+            this.lciEnter.Size = new System.Drawing.Size(335, 38);
             this.lciEnter.TextSize = new System.Drawing.Size(0, 0);
             this.lciEnter.TextVisible = false;
             // 
             // lciCancel
             // 
             this.lciCancel.Control = this.btnCancel;
-            this.lciCancel.Location = new System.Drawing.Point(71, 190);
+            this.lciCancel.Location = new System.Drawing.Point(111, 181);
             this.lciCancel.Name = "lciCancel";
             this.lciCancel.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciCancel.OptionsTableLayoutItem.RowIndex = 5;
             this.lciCancel.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciCancel.Size = new System.Drawing.Size(215, 38);
+            this.lciCancel.Size = new System.Drawing.Size(335, 38);
             this.lciCancel.TextSize = new System.Drawing.Size(0, 0);
             this.lciCancel.TextVisible = false;
             // 
             // lciEmailServer
             // 
             this.lciEmailServer.Control = this.icbeHostname;
-            this.lciEmailServer.Location = new System.Drawing.Point(35, 0);
+            this.lciEmailServer.Location = new System.Drawing.Point(55, 29);
             this.lciEmailServer.Name = "lciEmailServer";
             this.lciEmailServer.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciEmailServer.OptionsTableLayoutItem.ColumnSpan = 3;
+            this.lciEmailServer.OptionsTableLayoutItem.RowIndex = 1;
             this.lciEmailServer.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciEmailServer.Size = new System.Drawing.Size(287, 38);
+            this.lciEmailServer.Size = new System.Drawing.Size(447, 38);
             this.lciEmailServer.TextSize = new System.Drawing.Size(0, 0);
             this.lciEmailServer.TextVisible = false;
             // 
@@ -322,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 290);
+            this.ClientSize = new System.Drawing.Size(582, 273);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmStart";
@@ -333,14 +293,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.icbeHostname.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sleHostname.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciHostname)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEnter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmailServer)).EndInit();
@@ -358,9 +315,6 @@
         private DevExpress.XtraLayout.LayoutControlItem lciLogin;
         private DevExpress.XtraEditors.TextEdit tePassword;
         private DevExpress.XtraLayout.LayoutControlItem lciPassword;
-        private DevExpress.XtraEditors.SearchLookUpEdit sleHostname;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private DevExpress.XtraLayout.LayoutControlItem lciHostname;
         private DevExpress.XtraEditors.SimpleButton btnEnter;
         private DevExpress.XtraLayout.LayoutControlItem lciEnter;
         private DevExpress.XtraEditors.SimpleButton btnCancel;

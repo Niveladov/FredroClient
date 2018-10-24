@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>email_32x32.ico</ApplicationIcon>
+    <ApplicationIcon>icon_email_32x32.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -64,6 +64,7 @@
       <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtraClasses\FredroAttributes.cs" />
+    <Compile Include="ExtraClasses\FredroEnums.cs" />
     <Compile Include="ExtraClasses\FredroHelper.cs" />
     <Compile Include="Forms\frmStart.cs">
       <SubType>Form</SubType>
@@ -71,6 +72,7 @@
     <Compile Include="Forms\frmStart.Designer.cs">
       <DependentUpon>frmStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CredentialModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">
@@ -104,7 +106,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="email_32x32.ico" />
+    <Content Include="icon_email_32x32.ico" />
     <None Include="Resources\yandex_32x32.png" />
     <None Include="Resources\mailru_32x32.png" />
     <None Include="Resources\gmail_32x32.png" />
