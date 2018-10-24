@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using System;
@@ -22,6 +24,23 @@ namespace FredroClient.Forms
             InitializeComponent();
             //InitControls();
         }
+
+        private void InitImageollection()
+        {
+            var images = new ImageCollection();
+            images.AddImage(Properties.Resources.gmail_32x32);
+            images.AddImage(Properties.Resources.mailru_32x32);
+            images.AddImage(Properties.Resources.yandex_32x32);
+
+            icbMaterial.SmallImages = images;
+            icbAcceptedMaterial.SmallImages = images;
+
+            icbMaterial.Items.Add(new ImageComboBoxItem("Кровушка", (long)101, 0));
+            icbMaterial.Items.Add(new ImageComboBoxItem("Мочушка", (long)103, 1));
+            icbAcceptedMaterial.Items.Add(new ImageComboBoxItem("Кровушка", (long)101, 0));
+            icbAcceptedMaterial.Items.Add(new ImageComboBoxItem("Мочушка", (long)103, 1));
+        }
+
 
         //private void InitControls()
         //{
