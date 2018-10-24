@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using FredroClient.BaseGUI;
+using FredroClient.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,7 @@ namespace FredroClient.Forms
 
         private void InitControls()
         {
-            sleHostname.DataBindings.Add(new Binding("EditValue", DataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+            sleHostname.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.CurrentServer), true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -41,21 +42,19 @@ namespace FredroClient.Forms
         {
             public enum EmailServer
             {
-                [Description("Gmail сервер. Пример: example@gmail.com")]
+                [Description("Сервер входящей почты - pop.gmail.com")]
+                [Port(995)]
                 gmail,
-                [Description("Mail сервер. Пример: example@mail.ru")]
+                [Description("Сервер входящей почты - pop.mail.ru")]
+                [Port(995)]
                 mail,
-                [Description("Yandex сервер. Пример: example@yandex.ru")]
+                [Description("Сервер входящей почты - pop.yandex.ru")]
+                [Port(995)]
                 yandex
             }
             public string UserName { get; set; }
             public string Password { get; set; }
             public EmailServer CurrentServer { get; set; }
-
-        }
-
-        private sealed class EmailServer
-        {
 
         }
 

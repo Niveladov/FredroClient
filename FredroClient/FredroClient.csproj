@@ -63,6 +63,8 @@
     <Compile Include="BaseGUI\FredroBaseXtraForm.Designer.cs">
       <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExtraClasses\FredroAttributes.cs" />
+    <Compile Include="ExtraClasses\FredroHelper.cs" />
     <Compile Include="Forms\frmStart.cs">
       <SubType>Form</SubType>
     </Compile>
