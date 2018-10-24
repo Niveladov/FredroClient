@@ -40,10 +40,10 @@
             DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition7 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition8 = new DevExpress.XtraLayout.RowDefinition();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.icbeHostname = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnter = new DevExpress.XtraEditors.SimpleButton();
             this.sleHostname = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -56,12 +56,12 @@
             this.lciHostname = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciEnter = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciCancel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.icbeHostname = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.lciEmailServer = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icbeHostname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sleHostname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).BeginInit();
@@ -72,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciHostname)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEnter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icbeHostname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmailServer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,12 +107,22 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(382, 356);
+            this.lcMain.Size = new System.Drawing.Size(382, 290);
             this.lcMain.TabIndex = 1;
+            // 
+            // icbeHostname
+            // 
+            this.icbeHostname.Location = new System.Drawing.Point(52, 17);
+            this.icbeHostname.Name = "icbeHostname";
+            this.icbeHostname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.icbeHostname.Size = new System.Drawing.Size(277, 28);
+            this.icbeHostname.StyleController = this.lcMain;
+            this.icbeHostname.TabIndex = 9;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(88, 215);
+            this.btnCancel.Location = new System.Drawing.Point(88, 207);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(205, 28);
             this.btnCancel.StyleController = this.lcMain;
@@ -123,7 +132,7 @@
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(88, 177);
+            this.btnEnter.Location = new System.Drawing.Point(88, 169);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(205, 28);
             this.btnEnter.StyleController = this.lcMain;
@@ -134,7 +143,7 @@
             // sleHostname
             // 
             this.sleHostname.EditValue = "Выберите почтовый сервер";
-            this.sleHostname.Location = new System.Drawing.Point(52, 63);
+            this.sleHostname.Location = new System.Drawing.Point(52, 55);
             this.sleHostname.Name = "sleHostname";
             this.sleHostname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -155,7 +164,7 @@
             // 
             // tePassword
             // 
-            this.tePassword.Location = new System.Drawing.Point(52, 139);
+            this.tePassword.Location = new System.Drawing.Point(52, 131);
             this.tePassword.Name = "tePassword";
             this.tePassword.Properties.NullValuePrompt = "Введите пароль...";
             this.tePassword.Properties.NullValuePromptShowForEmptyValue = true;
@@ -166,7 +175,7 @@
             // 
             // teLogin
             // 
-            this.teLogin.Location = new System.Drawing.Point(52, 101);
+            this.teLogin.Location = new System.Drawing.Point(52, 93);
             this.teLogin.Name = "teLogin";
             this.teLogin.Properties.NullValuePrompt = "Введите логин...";
             this.teLogin.Properties.NullValuePromptShowForEmptyValue = true;
@@ -222,9 +231,7 @@
             rowDefinition6.Height = 38D;
             rowDefinition6.SizeType = System.Windows.Forms.SizeType.AutoSize;
             rowDefinition7.Height = 50D;
-            rowDefinition7.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition8.Height = 50D;
-            rowDefinition8.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition7.SizeType = System.Windows.Forms.SizeType.Percent;
             this.lcgMain.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition1,
             rowDefinition2,
@@ -232,15 +239,14 @@
             rowDefinition4,
             rowDefinition5,
             rowDefinition6,
-            rowDefinition7,
-            rowDefinition8});
-            this.lcgMain.Size = new System.Drawing.Size(382, 356);
+            rowDefinition7});
+            this.lcgMain.Size = new System.Drawing.Size(382, 290);
             this.lcgMain.TextVisible = false;
             // 
             // lciLogin
             // 
             this.lciLogin.Control = this.teLogin;
-            this.lciLogin.Location = new System.Drawing.Point(35, 84);
+            this.lciLogin.Location = new System.Drawing.Point(35, 76);
             this.lciLogin.Name = "lciLogin";
             this.lciLogin.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciLogin.OptionsTableLayoutItem.ColumnSpan = 3;
@@ -253,7 +259,7 @@
             // lciPassword
             // 
             this.lciPassword.Control = this.tePassword;
-            this.lciPassword.Location = new System.Drawing.Point(35, 122);
+            this.lciPassword.Location = new System.Drawing.Point(35, 114);
             this.lciPassword.Name = "lciPassword";
             this.lciPassword.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciPassword.OptionsTableLayoutItem.ColumnSpan = 3;
@@ -266,7 +272,7 @@
             // lciHostname
             // 
             this.lciHostname.Control = this.sleHostname;
-            this.lciHostname.Location = new System.Drawing.Point(35, 46);
+            this.lciHostname.Location = new System.Drawing.Point(35, 38);
             this.lciHostname.Name = "lciHostname";
             this.lciHostname.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciHostname.OptionsTableLayoutItem.ColumnSpan = 3;
@@ -279,7 +285,7 @@
             // lciEnter
             // 
             this.lciEnter.Control = this.btnEnter;
-            this.lciEnter.Location = new System.Drawing.Point(71, 160);
+            this.lciEnter.Location = new System.Drawing.Point(71, 152);
             this.lciEnter.Name = "lciEnter";
             this.lciEnter.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciEnter.OptionsTableLayoutItem.RowIndex = 4;
@@ -291,7 +297,7 @@
             // lciCancel
             // 
             this.lciCancel.Control = this.btnCancel;
-            this.lciCancel.Location = new System.Drawing.Point(71, 198);
+            this.lciCancel.Location = new System.Drawing.Point(71, 190);
             this.lciCancel.Name = "lciCancel";
             this.lciCancel.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciCancel.OptionsTableLayoutItem.RowIndex = 5;
@@ -300,16 +306,6 @@
             this.lciCancel.TextSize = new System.Drawing.Size(0, 0);
             this.lciCancel.TextVisible = false;
             // 
-            // icbeHostname
-            // 
-            this.icbeHostname.Location = new System.Drawing.Point(49, 14);
-            this.icbeHostname.Name = "icbeHostname";
-            this.icbeHostname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.icbeHostname.Size = new System.Drawing.Size(283, 28);
-            this.icbeHostname.StyleController = this.lcMain;
-            this.icbeHostname.TabIndex = 9;
-            // 
             // lciEmailServer
             // 
             this.lciEmailServer.Control = this.icbeHostname;
@@ -317,7 +313,8 @@
             this.lciEmailServer.Name = "lciEmailServer";
             this.lciEmailServer.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciEmailServer.OptionsTableLayoutItem.ColumnSpan = 3;
-            this.lciEmailServer.Size = new System.Drawing.Size(287, 46);
+            this.lciEmailServer.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.lciEmailServer.Size = new System.Drawing.Size(287, 38);
             this.lciEmailServer.TextSize = new System.Drawing.Size(0, 0);
             this.lciEmailServer.TextVisible = false;
             // 
@@ -325,7 +322,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 356);
+            this.ClientSize = new System.Drawing.Size(382, 290);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmStart";
@@ -335,6 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.icbeHostname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sleHostname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).EndInit();
@@ -345,7 +343,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciHostname)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEnter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icbeHostname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmailServer)).EndInit();
             this.ResumeLayout(false);
 

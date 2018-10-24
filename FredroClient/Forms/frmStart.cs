@@ -15,18 +15,18 @@ namespace FredroClient.Forms
 {
     public sealed partial class frmStart : FredroBaseXtraForm
     {
-        private readonly CredentialModel _model;
+        //private readonly CredentialModel _model;
 
         public frmStart()
         {
             InitializeComponent();
-            InitControls();
+            //InitControls();
         }
 
-        private void InitControls()
-        {
-            sleHostname.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.CurrentServer), true, DataSourceUpdateMode.OnPropertyChanged));
-        }
+        //private void InitControls()
+        //{
+        //    sleHostname.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.CurrentServer), true, DataSourceUpdateMode.OnPropertyChanged));
+        //}
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
