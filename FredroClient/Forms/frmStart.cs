@@ -32,13 +32,13 @@ namespace FredroClient.Forms
             images.AddImage(Properties.Resources.mailru_32x32);
             images.AddImage(Properties.Resources.yandex_32x32);
 
-            icbMaterial.SmallImages = images;
-            icbAcceptedMaterial.SmallImages = images;
+            //icbMaterial.SmallImages = images;
+            //icbAcceptedMaterial.SmallImages = images;
 
-            icbMaterial.Items.Add(new ImageComboBoxItem("Кровушка", (long)101, 0));
-            icbMaterial.Items.Add(new ImageComboBoxItem("Мочушка", (long)103, 1));
-            icbAcceptedMaterial.Items.Add(new ImageComboBoxItem("Кровушка", (long)101, 0));
-            icbAcceptedMaterial.Items.Add(new ImageComboBoxItem("Мочушка", (long)103, 1));
+            //icbMaterial.Items.Add(new ImageComboBoxItem("Кровушка", (long)101, 0));
+            //icbMaterial.Items.Add(new ImageComboBoxItem("Мочушка", (long)103, 1));
+            //icbAcceptedMaterial.Items.Add(new ImageComboBoxItem("Кровушка", (long)101, 0));
+            //icbAcceptedMaterial.Items.Add(new ImageComboBoxItem("Мочушка", (long)103, 1));
         }
 
 
