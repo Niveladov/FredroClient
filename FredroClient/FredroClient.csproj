@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>email_32x32.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -54,15 +57,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmStart.cs">
+    <Compile Include="BaseGUI\FredroBaseXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStart.Designer.cs">
+    <Compile Include="BaseGUI\FredroBaseXtraForm.Designer.cs">
+      <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStart.Designer.cs">
       <DependentUpon>frmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmStart.resx">
+    <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">
+      <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStart.resx">
       <DependentUpon>frmStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -87,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="email_32x32.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

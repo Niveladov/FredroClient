@@ -22,7 +22,7 @@ namespace FredroClient
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("Sharp Plus");
 
-            Application.Run(new frmStart());
+            Application.Run(new Forms.frmStart());
         }
         
     }

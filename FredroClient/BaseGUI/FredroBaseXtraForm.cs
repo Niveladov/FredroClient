@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient
+namespace FredroClient.BaseGUI
 {
-    public partial class frmStart : XtraForm
+    public partial class FredroBaseXtraForm : XtraForm
     {
-        public frmStart()
+        public FredroBaseXtraForm()
         {
             InitializeComponent();
         }
