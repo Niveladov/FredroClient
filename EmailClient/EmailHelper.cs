@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 
 namespace EmailClient
 {
-    public static class EmailHelper
+    internal static class EmailHelper
     {
+        const string PLAIN_TEXT = "text/plain";
+        const string HTML_TEXT = "text/html";
 
-        public static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
+        internal static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
         {
             // The client disconnects from the server when being disposed
             using (var client = new Pop3Client())
@@ -61,6 +63,23 @@ namespace EmailClient
             smtp.EnableSsl = true;
             await smtp.SendMailAsync(m);
             Console.WriteLine("Письмо отправлено");
+        }
+
+        //ToDo: extension method 
+        internal static TheMessage ParseMessage(Message message)
+        {
+            var attachmentParts = message.FindAllAttachments();
+            var plainTextParts = message.FindAllMessagePartsWithMediaType(PLAIN_TEXT);
+            var htmlTextParts = message.FindAllMessagePartsWithMediaType(HTML_TEXT);
+            var theMessage = new TheMessage();
+            theMessage.Id = message.Headers.MessageId;
+            theMessage.From = message.Headers.From.Raw;
+            theMessage.To = message.Headers.To.First().Raw;
+            theMessage.Date = message.Headers.Date;
+            theMessage.Subject = message.Headers.Subject;
+            theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??
+                                htmlTextParts.FirstOrDefault()?.GetBodyAsText();
+            return theMessage;
         }
 
     }

@@ -12,6 +12,7 @@ namespace EmailClient
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             var hostname = "pop.gmail.com";
@@ -22,8 +23,30 @@ namespace EmailClient
             var username = "recent:figamalum@gmail.com"; 
             var password = "ghekkafigamalum1994";
             var messages = EmailHelper.FetchAllMessages(hostname, port, useSsl, username, password);
+            var theMessages = new List<TheMessage>();
+            foreach (var message in messages)
+            {
+                theMessages.Add(EmailHelper.ParseMessage(message));
+            }
+            var mCount = messages.Count;
+            var tCount = theMessages.Count;
             //EmailHelper.SendEmailAsync().GetAwaiter();
             Console.Read();
         }
+
+
+        //[STAThread]
+        //static void Main()
+        //{
+        //    Application.EnableVisualStyles();
+        //    Application.SetCompatibleTextRenderingDefault(false);
+
+        //    DevExpress.Skins.SkinManager.EnableFormSkins();
+        //    DevExpress.UserSkins.BonusSkins.Register();
+        //    UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
+        //    Application.Run(new Form1());
+        //}
+
     }
 }

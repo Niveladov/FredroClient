@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmailClient
 {
-    public class TheMessage
+    internal sealed class TheMessage
     {
         public string Id { get; set; }
         public string From { get; set; }
@@ -15,5 +15,6 @@ namespace EmailClient
         public string Subject { get; set; }
         public string MailedBy { get; set; } //отправлено через
         public string SignedBy { get; set; } //подписано
+        public string Body { get; set; }
     }
 }
