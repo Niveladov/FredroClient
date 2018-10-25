@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using FredroClient.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace FredroClient.BaseGUI
 {
     internal partial class FredroBaseXtraForm : XtraForm
     {
-        //protected WaitingHelper _waitingHelper;
+        protected WaitingHelper waitingHelper = null;
 
         public FredroBaseXtraForm()
         {

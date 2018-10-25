@@ -36,8 +36,11 @@ namespace FredroClient.Models
             //"recent:" before username show messages 
             //that were recieved during last 30 days messages
             var username = $"recent:{Login}";
+
             var messages = FredroHelper.FetchAllMessages(hostParams.Hostname, hostParams.Port.Value,
                 hostParams.UseSsl.Value, username, Password);
+            if (messages == null) return null;
+            
             var theMessages = new List<TheMessage>();
             foreach (var message in messages)
             {

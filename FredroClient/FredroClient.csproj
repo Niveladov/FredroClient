@@ -80,9 +80,16 @@
     <Compile Include="BaseGUI\FredroBaseXtraForm.Designer.cs">
       <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseGUI\WaitLoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\WaitLoadingForm.Designer.cs">
+      <DependentUpon>WaitLoadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExtraClasses\FredroAttributes.cs" />
     <Compile Include="ExtraClasses\FredroEnums.cs" />
     <Compile Include="ExtraClasses\FredroHelper.cs" />
+    <Compile Include="ExtraClasses\WaitingHelper.cs" />
     <Compile Include="Forms\frmMessages.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +109,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">
       <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseGUI\WaitLoadingForm.resx">
+      <DependentUpon>WaitLoadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMessages.resx">
       <DependentUpon>frmMessages.cs</DependentUpon>

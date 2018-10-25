@@ -1,4 +1,5 @@
-﻿using FredroClient.Models;
+﻿using DevExpress.XtraEditors;
+using FredroClient.Models;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
@@ -85,26 +86,35 @@ namespace FredroClient.ExtraClasses
 
         internal static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
         {
-            // The client disconnects from the server when being disposed
-            using (var client = new Pop3Client())
+            try
             {
-                // Connect to the server
-                client.Connect(hostname, port, useSsl);
-                // Authenticate ourselves towards the server
-                client.Authenticate(username, password);
-                // Get the number of messages in the inbox
-                var messageCount = client.GetMessageCount();
-                // We want to download all messages
-                var allMessages = new List<Message>(messageCount);
-                // Messages are numbered in the interval: [1, messageCount]
-                // Ergo: message numbers are 1-based.
-                // Most servers give the latest message the highest number
-                for (int i = messageCount; i > 0; i--)
+                // The client disconnects from the server when being disposed
+                using (var client = new Pop3Client())
                 {
-                    allMessages.Add(client.GetMessage(i));
+                    // Connect to the server
+                    client.Connect(hostname, port, useSsl);
+                    // Authenticate ourselves towards the server
+                    client.Authenticate(username, password);
+                    // Get the number of messages in the inbox
+                    var messageCount = client.GetMessageCount();
+                    // We want to download all messages
+                    var allMessages = new List<Message>(messageCount);
+                    // Messages are numbered in the interval: [1, messageCount]
+                    // Ergo: message numbers are 1-based.
+                    // Most servers give the latest message the highest number
+                    for (int i = messageCount; i > 0; i--)
+                    {
+                        allMessages.Add(client.GetMessage(i));
+                    }
+                    // Now return the fetched messages
+                    return allMessages;
                 }
-                // Now return the fetched messages
-                return allMessages;
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Ошибка",
+                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
             }
         }
 

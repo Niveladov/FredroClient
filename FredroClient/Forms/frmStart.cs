@@ -15,13 +15,14 @@ using System.Windows.Forms;
 
 namespace FredroClient.Forms
 {
-    public sealed partial class frmStart : FredroBaseXtraForm
+    internal sealed partial class frmStart : FredroBaseXtraForm
     {
         private readonly CredentialModel _model;
 
         public frmStart()
         {
             InitializeComponent();
+            waitingHelper = new WaitingHelper(this);
             _model = new CredentialModel();
             InitControls();
         }
@@ -48,7 +49,10 @@ namespace FredroClient.Forms
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
+            waitingHelper.Show();
             var theMessages = _model.GetTheMessageList();
+            waitingHelper.Hide();
+            if (theMessages == null) return;
             using (var frm = new frmMessages(theMessages))
             {
                 frm.ShowDialog();

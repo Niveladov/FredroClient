@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FredroClient.ExtraClasses
 {
-    public enum Hostname
+    internal enum Hostname
     {
         [Description("Сервер входящей почты - pop.gmail.com")]
         [Host("pop.gmail.com")]
