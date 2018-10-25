@@ -29,5 +29,23 @@ namespace FredroClient.Models
         public string Login { get; set; }
         public string Password { get; set; }
         
+
+        public List<TheMessage> GetTheMessageList()
+        {
+            var hostParams = _currentServer.Value.GetHostParameters();
+            //"recent:" before username show messages 
+            //that were recieved during last 30 days messages
+            var username = $"recent:{Login}";
+            var messages = FredroHelper.FetchAllMessages(hostParams.Hostname, hostParams.Port.Value,
+                hostParams.UseSsl.Value, username, Password);
+            var theMessages = new List<TheMessage>();
+            foreach (var message in messages)
+            {
+                theMessages.Add(message.GetTheMessage());
+            }
+            return theMessages;
+        }
+
+
     }
 }

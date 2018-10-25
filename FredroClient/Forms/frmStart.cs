@@ -48,7 +48,11 @@ namespace FredroClient.Forms
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            var model = _model;
+            var theMessages = _model.GetTheMessageList();
+            using (var frm = new frmMessages(theMessages))
+            {
+                frm.ShowDialog();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using FredroClient.BaseGUI;
+using FredroClient.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,15 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.BaseGUI
+namespace FredroClient.Forms
 {
-    internal partial class FredroBaseXtraForm : XtraForm
+    internal sealed partial class frmMessages : FredroBaseXtraForm
     {
-        //protected WaitingHelper _waitingHelper;
-
-        public FredroBaseXtraForm()
+        public frmMessages(List<TheMessage> messages)
         {
             InitializeComponent();
+            gcMessages.DataSource = messages;
         }
+
     }
 }
