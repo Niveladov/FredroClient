@@ -20,6 +20,7 @@ namespace FredroClient.Forms
             InitializeComponent();
             InitEvents();
             gcMessages.DataSource = messages;
+            wevMessages.FocusedRowHandle = 0;
             Text = $"Входящие - {login} - Почтовый клиент";
         }
 

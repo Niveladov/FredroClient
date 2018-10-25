@@ -97,10 +97,10 @@
             // 
             // wevMessages
             // 
-            this.wevMessages.Appearance.ItemDescriptionNormal.ForeColor = System.Drawing.Color.Moccasin;
+            this.wevMessages.Appearance.ItemDescriptionNormal.ForeColor = System.Drawing.Color.LightYellow;
             this.wevMessages.Appearance.ItemDescriptionNormal.Options.UseForeColor = true;
             this.wevMessages.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.wevMessages.Appearance.ItemNormal.ForeColor = System.Drawing.Color.Moccasin;
+            this.wevMessages.Appearance.ItemNormal.ForeColor = System.Drawing.Color.LightYellow;
             this.wevMessages.Appearance.ItemNormal.Options.UseFont = true;
             this.wevMessages.Appearance.ItemNormal.Options.UseForeColor = true;
             this.wevMessages.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
