@@ -287,7 +287,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Вход";
+            this.Text = "Почтовый клиент";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
