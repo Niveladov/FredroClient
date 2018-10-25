@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\user_64x64.png" />
     <None Include="Resources\unread_32x32.png" />
     <None Include="Resources\read_32x38.png" />
     <None Include="Resources\unread_email_512x512.png" />

@@ -18,8 +18,8 @@ namespace FredroClient.Forms
         public frmMessages(List<TheMessage> messages, string login)
         {
             InitializeComponent();
-            gcMessages.DataSource = messages;
             InitEvents();
+            gcMessages.DataSource = messages;
             Text = $"Входящие - {login} - Почтовый клиент";
         }
 
@@ -34,6 +34,10 @@ namespace FredroClient.Forms
             {
                 var row = wevMessages.GetFocusedRow() as TheMessage;
                 row.IsRead = true;
+                labelSubject.Text = $"Тема: {row.Subject}";
+                labelFrom.Text = row.FromFullRaw;
+                labelTo.Text = $"кому: {row.To}";
+                labelDate.Text = row.Date;
                 gcMessages.RefreshDataSource();
             }
         }

@@ -123,6 +123,16 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("user_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap yandex_32x32 {
             get {
                 object obj = ResourceManager.GetObject("yandex_32x32", resourceCulture);
