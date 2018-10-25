@@ -47,29 +47,36 @@
             // 
             this.splitMessages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitMessages.Location = new System.Drawing.Point(0, 0);
+            this.splitMessages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitMessages.Name = "splitMessages";
             this.splitMessages.Panel1.Controls.Add(this.gcMessages);
             this.splitMessages.Panel1.Text = "Panel1";
             this.splitMessages.Panel2.Text = "Panel2";
-            this.splitMessages.Size = new System.Drawing.Size(782, 553);
-            this.splitMessages.SplitterPosition = 421;
+            this.splitMessages.Size = new System.Drawing.Size(670, 449);
+            this.splitMessages.SplitterPosition = 419;
             this.splitMessages.TabIndex = 0;
             // 
             // gcMessages
             // 
             this.gcMessages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcMessages.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMessages.Location = new System.Drawing.Point(0, 0);
             this.gcMessages.MainView = this.wevMessages;
+            this.gcMessages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMessages.Name = "gcMessages";
-            this.gcMessages.Size = new System.Drawing.Size(421, 553);
+            this.gcMessages.Size = new System.Drawing.Size(419, 449);
             this.gcMessages.TabIndex = 1;
             this.gcMessages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.wevMessages});
             // 
             // wevMessages
             // 
+            this.wevMessages.Appearance.ItemDescriptionNormal.ForeColor = System.Drawing.Color.Moccasin;
+            this.wevMessages.Appearance.ItemDescriptionNormal.Options.UseForeColor = true;
             this.wevMessages.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.wevMessages.Appearance.ItemNormal.ForeColor = System.Drawing.Color.Moccasin;
             this.wevMessages.Appearance.ItemNormal.Options.UseFont = true;
+            this.wevMessages.Appearance.ItemNormal.Options.UseForeColor = true;
             this.wevMessages.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFromDisplayName,
             this.colSubject,
@@ -82,8 +89,9 @@
             this.wevMessages.GridControl = this.gcMessages;
             this.wevMessages.Name = "wevMessages";
             this.wevMessages.OptionsBehavior.Editable = false;
+            this.wevMessages.OptionsView.ImageLayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
             this.wevMessages.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Content;
-            this.wevMessages.OptionsViewStyles.Content.ItemWidth = 407;
+            this.wevMessages.OptionsViewStyles.Content.ItemWidth = 405;
             this.wevMessages.OptionsViewStyles.Content.ShowDescription = DevExpress.Utils.DefaultBoolean.True;
             // 
             // colFromDisplayName
@@ -130,9 +138,9 @@
             // 
             // frmMessages
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.ClientSize = new System.Drawing.Size(670, 449);
             this.Controls.Add(this.splitMessages);
             this.Name = "frmMessages";
             this.Text = "";

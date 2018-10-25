@@ -32,13 +32,13 @@ namespace FredroClient.Models
                     _isRead = value;
                     if (_isRead)
                     {
-                        PictureMail = Resources.read_email_512x612;
+                        PictureMail = Resources.read_32x38;
                     }
                 }
             }
         }
 
-        public Bitmap  PictureMail { get; private set; } = Resources.unread_email_512x512;
+        public Bitmap  PictureMail { get; private set; } = Resources.unread_32x32;
 
 
     }
