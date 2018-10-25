@@ -150,7 +150,9 @@ namespace FredroClient.ExtraClasses
             var htmlTextParts = message.FindAllMessagePartsWithMediaType(HTML_TEXT);
             var theMessage = new TheMessage();
             theMessage.Id = message.Headers.MessageId;
-            theMessage.From = message.Headers.From.Raw;
+            theMessage.FromFullRaw = message.Headers.From.Raw;
+            theMessage.FromAddress = message.Headers.From.Address;
+            theMessage.FromDisplayName = message.Headers.From.DisplayName;
             theMessage.To = message.Headers.To.First().Raw;
             theMessage.Date = message.Headers.Date;
             theMessage.Subject = message.Headers.Subject;

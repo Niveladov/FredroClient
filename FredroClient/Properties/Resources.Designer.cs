@@ -83,6 +83,26 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap read_email_512x612 {
+            get {
+                object obj = ResourceManager.GetObject("read_email_512x612", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unread_email_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("unread_email_512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap yandex_32x32 {
             get {
                 object obj = ResourceManager.GetObject("yandex_32x32", resourceCulture);

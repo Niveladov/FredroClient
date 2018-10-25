@@ -31,10 +31,12 @@
             this.splitMessages = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcMessages = new DevExpress.XtraGrid.GridControl();
             this.wevMessages = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
-            this.colFrom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFromDisplayName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSubject = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBody = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPictureMail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFrom = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMessages)).BeginInit();
@@ -66,13 +68,17 @@
             // 
             // wevMessages
             // 
+            this.wevMessages.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.wevMessages.Appearance.ItemNormal.Options.UseFont = true;
             this.wevMessages.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colFrom,
+            this.colFromDisplayName,
             this.colSubject,
             this.colBody,
-            this.colDate});
-            this.wevMessages.ColumnSet.DescriptionColumn = this.colBody;
-            this.wevMessages.ColumnSet.TextColumn = this.colSubject;
+            this.colDate,
+            this.colPictureMail});
+            this.wevMessages.ColumnSet.DescriptionColumn = this.colSubject;
+            this.wevMessages.ColumnSet.SmallImageColumn = this.colPictureMail;
+            this.wevMessages.ColumnSet.TextColumn = this.colFromDisplayName;
             this.wevMessages.GridControl = this.gcMessages;
             this.wevMessages.Name = "wevMessages";
             this.wevMessages.OptionsBehavior.Editable = false;
@@ -80,12 +86,12 @@
             this.wevMessages.OptionsViewStyles.Content.ItemWidth = 407;
             this.wevMessages.OptionsViewStyles.Content.ShowDescription = DevExpress.Utils.DefaultBoolean.True;
             // 
-            // colFrom
+            // colFromDisplayName
             // 
-            this.colFrom.FieldName = "From";
-            this.colFrom.Name = "colFrom";
-            this.colFrom.Visible = true;
-            this.colFrom.VisibleIndex = 0;
+            this.colFromDisplayName.FieldName = "FromDisplayName";
+            this.colFromDisplayName.Name = "colFromDisplayName";
+            this.colFromDisplayName.Visible = true;
+            this.colFromDisplayName.VisibleIndex = 0;
             // 
             // colSubject
             // 
@@ -99,7 +105,7 @@
             this.colBody.FieldName = "Body";
             this.colBody.Name = "colBody";
             this.colBody.Visible = true;
-            this.colBody.VisibleIndex = 0;
+            this.colBody.VisibleIndex = 1;
             // 
             // colDate
             // 
@@ -107,6 +113,20 @@
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 0;
+            // 
+            // colPictureMail
+            // 
+            this.colPictureMail.FieldName = "PictureMail";
+            this.colPictureMail.Name = "colPictureMail";
+            this.colPictureMail.Visible = true;
+            this.colPictureMail.VisibleIndex = 2;
+            // 
+            // colFrom
+            // 
+            this.colFrom.FieldName = "From";
+            this.colFrom.Name = "colFrom";
+            this.colFrom.Visible = true;
+            this.colFrom.VisibleIndex = 0;
             // 
             // frmMessages
             // 
@@ -116,6 +136,8 @@
             this.Controls.Add(this.splitMessages);
             this.Name = "frmMessages";
             this.Text = "";
+            this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).EndInit();
             this.splitMessages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcMessages)).EndInit();
@@ -129,9 +151,11 @@
         private DevExpress.XtraEditors.SplitContainerControl splitMessages;
         private DevExpress.XtraGrid.GridControl gcMessages;
         private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevMessages;
-        private DevExpress.XtraGrid.Columns.GridColumn colFrom;
+        private DevExpress.XtraGrid.Columns.GridColumn colFromDisplayName;
         private DevExpress.XtraGrid.Columns.GridColumn colSubject;
         private DevExpress.XtraGrid.Columns.GridColumn colBody;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colPictureMail;
+        private DevExpress.XtraGrid.Columns.GridColumn colFrom;
     }
 }

@@ -18,6 +18,7 @@ namespace FredroClient.Forms
     internal sealed partial class frmStart : FredroBaseXtraForm
     {
         private readonly CredentialModel _model;
+        private bool _isEnterPressed;
 
         public frmStart()
         {
@@ -25,6 +26,33 @@ namespace FredroClient.Forms
             waitingHelper = new WaitingHelper(this);
             _model = new CredentialModel();
             InitControls();
+            InitEvents();
+        }
+
+        private void InitEvents()
+        {
+            teLogin.KeyDown += CredentialControl_KeyDown;
+            tePassword.KeyDown += CredentialControl_KeyDown;
+            icbeHostname.KeyDown += CredentialControl_KeyDown;
+            
+            teLogin.KeyPress += CredentialControl_KeyPress;
+            tePassword.KeyPress += CredentialControl_KeyPress;
+            icbeHostname.KeyPress += CredentialControl_KeyPress;
+        }
+
+        private void CredentialControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (_isEnterPressed)
+            {
+                ShowMessages();
+            }
+        }
+
+        private void CredentialControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            _isEnterPressed = false;
+            if (e.KeyCode == Keys.Enter)
+                _isEnterPressed = true;
         }
 
         private void InitControls()
@@ -47,16 +75,21 @@ namespace FredroClient.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void ShowMessages()
         {
             waitingHelper.Show();
             var theMessages = _model.GetTheMessageList();
             waitingHelper.Hide();
             if (theMessages == null) return;
-            using (var frm = new frmMessages(theMessages))
+            using (var frm = new frmMessages(theMessages, _model.Login))
             {
                 frm.ShowDialog();
             }
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            ShowMessages();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
