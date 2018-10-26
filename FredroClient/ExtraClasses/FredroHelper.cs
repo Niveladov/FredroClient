@@ -154,7 +154,7 @@ namespace FredroClient.ExtraClasses
             theMessage.FromAddress = message.Headers.From.Address;
             theMessage.FromDisplayName = message.Headers.From.DisplayName;
             theMessage.To = message.Headers.To.First().Raw;
-            theMessage.Date = message.Headers.Date;
+            theMessage.Date = message.Headers.DateSent;
             theMessage.Subject = message.Headers.Subject;
             theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??
                                 htmlTextParts.FirstOrDefault()?.GetBodyAsText();

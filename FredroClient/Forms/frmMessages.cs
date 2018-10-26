@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,13 @@ namespace FredroClient.Forms
         {
             InitializeComponent();
             gcMessages.DataSource = messages;
+            gcMessageTypes.DataSource = new List<MessageTypes>()
+            {
+                new MessageTypes("Входящие"),
+                new MessageTypes("Готовые"),
+                new MessageTypes("Отправленные"),
+                new MessageTypes("Удалённые")
+            };
             Text = $"Входящие - {login} - Почтовый клиент";
         }
 
@@ -55,14 +63,26 @@ namespace FredroClient.Forms
             {
                 var row = wevMessages.GetFocusedRow() as TheMessage;
                 row.IsRead = true;
-                labelSubject.Text = $"Тема: {row.Subject}";
+                labelSubject.Text = row.Subject;
                 labelFrom.Text = row.FromFullRaw;
                 labelTo.Text = $"кому: {row.To}";
-                labelDate.Text = row.Date;
+                labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
                 meBody.Text = row.Body;
                 SetScrollBarVisibility();
                 gcMessages.RefreshDataSource();
             }
         }
+
+        private sealed class MessageTypes
+        {
+            public string MessageType { get; set; }
+
+            public MessageTypes(string messageType)
+            {
+                MessageType = messageType;
+            }
+        }
+
+
     }
 }

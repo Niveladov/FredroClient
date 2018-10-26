@@ -15,7 +15,7 @@ namespace FredroClient.Models
         public string FromAddress { get; set; }
         public string FromDisplayName { get; set; }
         public string To { get; set; }
-        public string Date { get; set; }
+        public DateTime? Date { get; set; }
         public string Subject { get; set; }
         public string MailedBy { get; set; } //отправлено через
         public string SignedBy { get; set; } //подписано

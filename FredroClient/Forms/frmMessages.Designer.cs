@@ -37,6 +37,10 @@
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPictureMail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lcMessage = new DevExpress.XtraLayout.LayoutControl();
+            this.ddbMove = new DevExpress.XtraEditors.DropDownButton();
+            this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddDeal = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddClient = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnResend = new DevExpress.XtraEditors.SimpleButton();
             this.btnReply = new DevExpress.XtraEditors.SimpleButton();
@@ -55,11 +59,23 @@
             this.lciPictureUser = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciBody = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciReply = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciResend = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciRemove = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lciAddClient = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciAddDeal = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciAddTask = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lciMove = new DevExpress.XtraLayout.LayoutControlItem();
             this.colFrom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.splitMain = new DevExpress.XtraEditors.SplitContainerControl();
+            this.lcMessageTypes = new DevExpress.XtraLayout.LayoutControl();
+            this.gcMessageTypes = new DevExpress.XtraGrid.GridControl();
+            this.wevMessageTypes = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
+            this.colMessageType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lcgMessageTypes = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciMessageTypes = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMessages)).BeginInit();
@@ -77,10 +93,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBody)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciReply)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciResend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAddTask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMove)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
+            this.splitMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMessageTypes)).BeginInit();
+            this.lcMessageTypes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMessageTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wevMessageTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMessageTypes)).BeginInit();
             this.SuspendLayout();
             // 
             // splitMessages
@@ -93,7 +122,7 @@
             this.splitMessages.Panel1.Text = "Panel1";
             this.splitMessages.Panel2.Controls.Add(this.lcMessage);
             this.splitMessages.Panel2.Text = "Panel2";
-            this.splitMessages.Size = new System.Drawing.Size(989, 562);
+            this.splitMessages.Size = new System.Drawing.Size(973, 653);
             this.splitMessages.SplitterPosition = 419;
             this.splitMessages.TabIndex = 0;
             // 
@@ -105,7 +134,7 @@
             this.gcMessages.MainView = this.wevMessages;
             this.gcMessages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMessages.Name = "gcMessages";
-            this.gcMessages.Size = new System.Drawing.Size(419, 562);
+            this.gcMessages.Size = new System.Drawing.Size(419, 653);
             this.gcMessages.TabIndex = 1;
             this.gcMessages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.wevMessages});
@@ -175,6 +204,10 @@
             // 
             this.lcMessage.Appearance.Control.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lcMessage.Appearance.Control.Options.UseFont = true;
+            this.lcMessage.Controls.Add(this.ddbMove);
+            this.lcMessage.Controls.Add(this.btnAddTask);
+            this.lcMessage.Controls.Add(this.btnAddDeal);
+            this.lcMessage.Controls.Add(this.btnAddClient);
             this.lcMessage.Controls.Add(this.btnRemove);
             this.lcMessage.Controls.Add(this.btnResend);
             this.lcMessage.Controls.Add(this.btnReply);
@@ -190,9 +223,45 @@
             this.lcMessage.Name = "lcMessage";
             this.lcMessage.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(424, 341, 633, 350);
             this.lcMessage.Root = this.lcgMessage;
-            this.lcMessage.Size = new System.Drawing.Size(564, 562);
+            this.lcMessage.Size = new System.Drawing.Size(548, 653);
             this.lcMessage.TabIndex = 0;
             this.lcMessage.Text = "layoutControl1";
+            // 
+            // ddbMove
+            // 
+            this.ddbMove.Location = new System.Drawing.Point(370, 7);
+            this.ddbMove.Name = "ddbMove";
+            this.ddbMove.Size = new System.Drawing.Size(126, 28);
+            this.ddbMove.StyleController = this.lcMessage;
+            this.ddbMove.TabIndex = 17;
+            this.ddbMove.Text = "Переместить";
+            // 
+            // btnAddTask
+            // 
+            this.btnAddTask.Location = new System.Drawing.Point(257, 125);
+            this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.Size = new System.Drawing.Size(121, 28);
+            this.btnAddTask.StyleController = this.lcMessage;
+            this.btnAddTask.TabIndex = 15;
+            this.btnAddTask.Text = "Новая задача";
+            // 
+            // btnAddDeal
+            // 
+            this.btnAddDeal.Location = new System.Drawing.Point(132, 125);
+            this.btnAddDeal.Name = "btnAddDeal";
+            this.btnAddDeal.Size = new System.Drawing.Size(121, 28);
+            this.btnAddDeal.StyleController = this.lcMessage;
+            this.btnAddDeal.TabIndex = 14;
+            this.btnAddDeal.Text = "Новая сделка";
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.Location = new System.Drawing.Point(7, 125);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(121, 28);
+            this.btnAddClient.StyleController = this.lcMessage;
+            this.btnAddClient.TabIndex = 13;
+            this.btnAddClient.Text = "Новый клиент";
             // 
             // btnRemove
             // 
@@ -223,11 +292,11 @@
             // 
             // meBody
             // 
-            this.meBody.Location = new System.Drawing.Point(7, 128);
+            this.meBody.Location = new System.Drawing.Point(7, 160);
             this.meBody.Name = "meBody";
             this.meBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.meBody.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.meBody.Size = new System.Drawing.Size(550, 427);
+            this.meBody.Size = new System.Drawing.Size(534, 486);
             this.meBody.StyleController = this.lcMessage;
             this.meBody.TabIndex = 9;
             // 
@@ -248,7 +317,7 @@
             // labelDate
             // 
             this.labelDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelDate.Location = new System.Drawing.Point(486, 71);
+            this.labelDate.Location = new System.Drawing.Point(470, 71);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(71, 21);
             this.labelDate.StyleController = this.lcMessage;
@@ -259,7 +328,7 @@
             // 
             this.labelTo.Location = new System.Drawing.Point(54, 96);
             this.labelTo.Name = "labelTo";
-            this.labelTo.Size = new System.Drawing.Size(503, 18);
+            this.labelTo.Size = new System.Drawing.Size(487, 18);
             this.labelTo.StyleController = this.lcMessage;
             this.labelTo.TabIndex = 6;
             this.labelTo.Text = "labelTo";
@@ -278,7 +347,7 @@
             // 
             this.labelFrom.Location = new System.Drawing.Point(54, 71);
             this.labelFrom.Name = "labelFrom";
-            this.labelFrom.Size = new System.Drawing.Size(428, 21);
+            this.labelFrom.Size = new System.Drawing.Size(412, 21);
             this.labelFrom.StyleController = this.lcMessage;
             this.labelFrom.TabIndex = 4;
             this.labelFrom.Text = "lableFrom";
@@ -300,14 +369,19 @@
             this.lciPictureUser,
             this.lciBody,
             this.emptySpaceItem1,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.emptySpaceItem2});
+            this.lciReply,
+            this.lciResend,
+            this.lciRemove,
+            this.emptySpaceItem2,
+            this.lciAddClient,
+            this.lciAddDeal,
+            this.lciAddTask,
+            this.emptySpaceItem3,
+            this.lciMove});
             this.lcgMessage.Location = new System.Drawing.Point(0, 0);
             this.lcgMessage.Name = "Root";
             this.lcgMessage.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lcgMessage.Size = new System.Drawing.Size(564, 562);
+            this.lcgMessage.Size = new System.Drawing.Size(548, 653);
             this.lcgMessage.TextVisible = false;
             // 
             // lciFrom
@@ -316,7 +390,7 @@
             this.lciFrom.Location = new System.Drawing.Point(47, 64);
             this.lciFrom.MinSize = new System.Drawing.Size(50, 17);
             this.lciFrom.Name = "lciFrom";
-            this.lciFrom.Size = new System.Drawing.Size(432, 25);
+            this.lciFrom.Size = new System.Drawing.Size(416, 25);
             this.lciFrom.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciFrom.TextSize = new System.Drawing.Size(0, 0);
             this.lciFrom.TextVisible = false;
@@ -327,7 +401,7 @@
             this.lciTo.Location = new System.Drawing.Point(47, 89);
             this.lciTo.MinSize = new System.Drawing.Size(46, 20);
             this.lciTo.Name = "lciTo";
-            this.lciTo.Size = new System.Drawing.Size(507, 22);
+            this.lciTo.Size = new System.Drawing.Size(491, 22);
             this.lciTo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTo.TextSize = new System.Drawing.Size(0, 0);
             this.lciTo.TextVisible = false;
@@ -337,14 +411,14 @@
             this.lciSubject.Control = this.labelSubject;
             this.lciSubject.Location = new System.Drawing.Point(0, 32);
             this.lciSubject.Name = "lciSubject";
-            this.lciSubject.Size = new System.Drawing.Size(554, 32);
+            this.lciSubject.Size = new System.Drawing.Size(538, 32);
             this.lciSubject.TextSize = new System.Drawing.Size(0, 0);
             this.lciSubject.TextVisible = false;
             // 
             // lciDate
             // 
             this.lciDate.Control = this.labelDate;
-            this.lciDate.Location = new System.Drawing.Point(479, 64);
+            this.lciDate.Location = new System.Drawing.Point(463, 64);
             this.lciDate.Name = "lciDate";
             this.lciDate.Size = new System.Drawing.Size(75, 25);
             this.lciDate.TextSize = new System.Drawing.Size(0, 0);
@@ -355,7 +429,7 @@
             this.separator.AllowHotTrack = false;
             this.separator.Location = new System.Drawing.Point(0, 116);
             this.separator.Name = "separator";
-            this.separator.Size = new System.Drawing.Size(554, 2);
+            this.separator.Size = new System.Drawing.Size(538, 2);
             // 
             // lciPictureUser
             // 
@@ -372,10 +446,10 @@
             // lciBody
             // 
             this.lciBody.Control = this.meBody;
-            this.lciBody.Location = new System.Drawing.Point(0, 118);
+            this.lciBody.Location = new System.Drawing.Point(0, 150);
             this.lciBody.Name = "lciBody";
             this.lciBody.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 2);
-            this.lciBody.Size = new System.Drawing.Size(554, 434);
+            this.lciBody.Size = new System.Drawing.Size(538, 493);
             this.lciBody.TextSize = new System.Drawing.Size(0, 0);
             this.lciBody.TextVisible = false;
             // 
@@ -386,53 +460,109 @@
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 5);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 5);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(554, 5);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(538, 5);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem1
+            // lciReply
             // 
-            this.layoutControlItem1.Control = this.btnReply;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(121, 32);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(121, 32);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(121, 32);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.lciReply.Control = this.btnReply;
+            this.lciReply.Location = new System.Drawing.Point(0, 0);
+            this.lciReply.MaxSize = new System.Drawing.Size(121, 32);
+            this.lciReply.MinSize = new System.Drawing.Size(121, 32);
+            this.lciReply.Name = "lciReply";
+            this.lciReply.Size = new System.Drawing.Size(121, 32);
+            this.lciReply.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciReply.TextSize = new System.Drawing.Size(0, 0);
+            this.lciReply.TextVisible = false;
             // 
-            // layoutControlItem2
+            // lciResend
             // 
-            this.layoutControlItem2.Control = this.btnResend;
-            this.layoutControlItem2.Location = new System.Drawing.Point(121, 0);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(121, 32);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(121, 32);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(121, 32);
-            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.lciResend.Control = this.btnResend;
+            this.lciResend.Location = new System.Drawing.Point(121, 0);
+            this.lciResend.MaxSize = new System.Drawing.Size(121, 32);
+            this.lciResend.MinSize = new System.Drawing.Size(121, 32);
+            this.lciResend.Name = "lciResend";
+            this.lciResend.Size = new System.Drawing.Size(121, 32);
+            this.lciResend.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciResend.TextSize = new System.Drawing.Size(0, 0);
+            this.lciResend.TextVisible = false;
             // 
-            // layoutControlItem3
+            // lciRemove
             // 
-            this.layoutControlItem3.Control = this.btnRemove;
-            this.layoutControlItem3.Location = new System.Drawing.Point(242, 0);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(121, 32);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(121, 32);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(121, 32);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.lciRemove.Control = this.btnRemove;
+            this.lciRemove.Location = new System.Drawing.Point(242, 0);
+            this.lciRemove.MaxSize = new System.Drawing.Size(121, 32);
+            this.lciRemove.MinSize = new System.Drawing.Size(121, 32);
+            this.lciRemove.Name = "lciRemove";
+            this.lciRemove.Size = new System.Drawing.Size(121, 32);
+            this.lciRemove.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciRemove.TextSize = new System.Drawing.Size(0, 0);
+            this.lciRemove.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(363, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(493, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(191, 32);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(45, 32);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lciAddClient
+            // 
+            this.lciAddClient.Control = this.btnAddClient;
+            this.lciAddClient.Location = new System.Drawing.Point(0, 118);
+            this.lciAddClient.MaxSize = new System.Drawing.Size(125, 32);
+            this.lciAddClient.MinSize = new System.Drawing.Size(125, 32);
+            this.lciAddClient.Name = "lciAddClient";
+            this.lciAddClient.Size = new System.Drawing.Size(125, 32);
+            this.lciAddClient.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciAddClient.TextSize = new System.Drawing.Size(0, 0);
+            this.lciAddClient.TextVisible = false;
+            // 
+            // lciAddDeal
+            // 
+            this.lciAddDeal.Control = this.btnAddDeal;
+            this.lciAddDeal.Location = new System.Drawing.Point(125, 118);
+            this.lciAddDeal.MaxSize = new System.Drawing.Size(125, 32);
+            this.lciAddDeal.MinSize = new System.Drawing.Size(125, 32);
+            this.lciAddDeal.Name = "lciAddDeal";
+            this.lciAddDeal.Size = new System.Drawing.Size(125, 32);
+            this.lciAddDeal.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciAddDeal.TextSize = new System.Drawing.Size(0, 0);
+            this.lciAddDeal.TextVisible = false;
+            // 
+            // lciAddTask
+            // 
+            this.lciAddTask.Control = this.btnAddTask;
+            this.lciAddTask.Location = new System.Drawing.Point(250, 118);
+            this.lciAddTask.MaxSize = new System.Drawing.Size(125, 32);
+            this.lciAddTask.MinSize = new System.Drawing.Size(125, 32);
+            this.lciAddTask.Name = "lciAddTask";
+            this.lciAddTask.Size = new System.Drawing.Size(125, 32);
+            this.lciAddTask.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciAddTask.TextSize = new System.Drawing.Size(0, 0);
+            this.lciAddTask.TextVisible = false;
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(375, 118);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(163, 32);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lciMove
+            // 
+            this.lciMove.Control = this.ddbMove;
+            this.lciMove.Location = new System.Drawing.Point(363, 0);
+            this.lciMove.MaxSize = new System.Drawing.Size(130, 32);
+            this.lciMove.MinSize = new System.Drawing.Size(130, 32);
+            this.lciMove.Name = "lciMove";
+            this.lciMove.Size = new System.Drawing.Size(130, 32);
+            this.lciMove.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciMove.TextSize = new System.Drawing.Size(0, 0);
+            this.lciMove.TextVisible = false;
             // 
             // colFrom
             // 
@@ -441,12 +571,90 @@
             this.colFrom.Visible = true;
             this.colFrom.VisibleIndex = 0;
             // 
+            // splitMain
+            // 
+            this.splitMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitMain.Location = new System.Drawing.Point(0, 0);
+            this.splitMain.Name = "splitMain";
+            this.splitMain.Panel1.Controls.Add(this.lcMessageTypes);
+            this.splitMain.Panel1.Text = "Panel1";
+            this.splitMain.Panel2.Controls.Add(this.splitMessages);
+            this.splitMain.Panel2.Text = "Panel2";
+            this.splitMain.Size = new System.Drawing.Size(1182, 653);
+            this.splitMain.SplitterPosition = 203;
+            this.splitMain.TabIndex = 1;
+            this.splitMain.Text = "splitContainerControl1";
+            // 
+            // lcMessageTypes
+            // 
+            this.lcMessageTypes.Controls.Add(this.gcMessageTypes);
+            this.lcMessageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMessageTypes.Location = new System.Drawing.Point(0, 0);
+            this.lcMessageTypes.Name = "lcMessageTypes";
+            this.lcMessageTypes.Root = this.lcgMessageTypes;
+            this.lcMessageTypes.Size = new System.Drawing.Size(203, 653);
+            this.lcMessageTypes.TabIndex = 0;
+            this.lcMessageTypes.Text = "layoutControl1";
+            // 
+            // gcMessageTypes
+            // 
+            this.gcMessageTypes.Location = new System.Drawing.Point(0, 0);
+            this.gcMessageTypes.MainView = this.wevMessageTypes;
+            this.gcMessageTypes.Name = "gcMessageTypes";
+            this.gcMessageTypes.Size = new System.Drawing.Size(203, 653);
+            this.gcMessageTypes.TabIndex = 4;
+            this.gcMessageTypes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.wevMessageTypes});
+            // 
+            // wevMessageTypes
+            // 
+            this.wevMessageTypes.Appearance.ItemHovered.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.wevMessageTypes.Appearance.ItemHovered.Options.UseFont = true;
+            this.wevMessageTypes.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.wevMessageTypes.Appearance.ItemNormal.Options.UseFont = true;
+            this.wevMessageTypes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.wevMessageTypes.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMessageType});
+            this.wevMessageTypes.ColumnSet.TextColumn = this.colMessageType;
+            this.wevMessageTypes.GridControl = this.gcMessageTypes;
+            this.wevMessageTypes.Name = "wevMessageTypes";
+            this.wevMessageTypes.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Small;
+            // 
+            // colMessageType
+            // 
+            this.colMessageType.FieldName = "MessageType";
+            this.colMessageType.Name = "colMessageType";
+            this.colMessageType.Visible = true;
+            this.colMessageType.VisibleIndex = 0;
+            // 
+            // lcgMessageTypes
+            // 
+            this.lcgMessageTypes.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
+            this.lcgMessageTypes.GroupBordersVisible = false;
+            this.lcgMessageTypes.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lciMessageTypes});
+            this.lcgMessageTypes.Location = new System.Drawing.Point(0, 0);
+            this.lcgMessageTypes.Name = "lcgMessageTypes";
+            this.lcgMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.lcgMessageTypes.Size = new System.Drawing.Size(203, 653);
+            this.lcgMessageTypes.TextVisible = false;
+            // 
+            // lciMessageTypes
+            // 
+            this.lciMessageTypes.Control = this.gcMessageTypes;
+            this.lciMessageTypes.Location = new System.Drawing.Point(0, 0);
+            this.lciMessageTypes.Name = "lciMessageTypes";
+            this.lciMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lciMessageTypes.Size = new System.Drawing.Size(203, 653);
+            this.lciMessageTypes.TextSize = new System.Drawing.Size(0, 0);
+            this.lciMessageTypes.TextVisible = false;
+            // 
             // frmMessages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 562);
-            this.Controls.Add(this.splitMessages);
+            this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.Controls.Add(this.splitMain);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMessages";
             this.Text = "";
@@ -468,10 +676,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPictureUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBody)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciReply)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciResend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAddTask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMove)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
+            this.splitMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lcMessageTypes)).EndInit();
+            this.lcMessageTypes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcMessageTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wevMessageTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMessageTypes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -506,9 +727,25 @@
         private DevExpress.XtraEditors.SimpleButton btnRemove;
         private DevExpress.XtraEditors.SimpleButton btnResend;
         private DevExpress.XtraEditors.SimpleButton btnReply;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem lciReply;
+        private DevExpress.XtraLayout.LayoutControlItem lciResend;
+        private DevExpress.XtraLayout.LayoutControlItem lciRemove;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.SimpleButton btnAddTask;
+        private DevExpress.XtraEditors.SimpleButton btnAddDeal;
+        private DevExpress.XtraEditors.SimpleButton btnAddClient;
+        private DevExpress.XtraLayout.LayoutControlItem lciAddDeal;
+        private DevExpress.XtraLayout.LayoutControlItem lciAddTask;
+        private DevExpress.XtraLayout.LayoutControlItem lciAddClient;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraEditors.DropDownButton ddbMove;
+        private DevExpress.XtraLayout.LayoutControlItem lciMove;
+        private DevExpress.XtraEditors.SplitContainerControl splitMain;
+        private DevExpress.XtraLayout.LayoutControl lcMessageTypes;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgMessageTypes;
+        private DevExpress.XtraGrid.GridControl gcMessageTypes;
+        private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevMessageTypes;
+        private DevExpress.XtraLayout.LayoutControlItem lciMessageTypes;
+        private DevExpress.XtraGrid.Columns.GridColumn colMessageType;
     }
 }
