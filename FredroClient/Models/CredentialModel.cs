@@ -32,11 +32,27 @@ namespace FredroClient.Models
 
         public List<TheMessage> GetTheMessageList()
         {
-            var hostParams = _currentServer.Value.GetHostParameters();
-            //"recent:" before username show messages 
-            //that were recieved during last 30 days messages
-            var username = $"recent:{Login}";
+            HostParameters hostParams = null;
+            string username = "";
 
+            if(Login.Equals(1.ToString()))
+            {
+                hostParams = new HostParameters();
+                hostParams.Hostname = "pop.gmail.com";
+                hostParams.Port = 995;
+                hostParams.UseSsl = true;
+                username = "recent:figamalum@gmail.com";
+                Password = "ghekkafigamalum1994";
+
+            }
+            else
+            {
+                hostParams = _currentServer.Value.GetHostParameters();
+                //"recent:" before username show messages 
+                //that were recieved during last 30 days messages
+                username = $"recent:{Login}";
+
+            }
             var messages = FredroHelper.FetchAllMessages(hostParams.Hostname, hostParams.Port.Value,
                 hostParams.UseSsl.Value, username, Password);
             if (messages == null) return null;
