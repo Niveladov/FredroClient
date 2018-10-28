@@ -84,6 +84,9 @@
     <Compile Include="BaseGUI\FredroBaseXtraForm.Designer.cs">
       <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseGUI\RoundedPictureEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaseGUI\WaitLoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
