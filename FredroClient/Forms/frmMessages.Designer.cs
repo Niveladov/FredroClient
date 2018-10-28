@@ -38,8 +38,8 @@
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPictureMail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lcMessage = new DevExpress.XtraLayout.LayoutControl();
-            this.btnSend = new DevExpress.XtraEditors.SimpleButton();
-            this.meReplyBody = new DevExpress.XtraEditors.MemoEdit();
+            this.btnSendResponse = new DevExpress.XtraEditors.SimpleButton();
+            this.meResponseBody = new DevExpress.XtraEditors.MemoEdit();
             this.ddbMove = new DevExpress.XtraEditors.DropDownButton();
             this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddDeal = new DevExpress.XtraEditors.SimpleButton();
@@ -71,36 +71,45 @@
             this.lciAddTask = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciMove = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciReplyBody = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciSend = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceReplyBody = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lciResponseBody = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciSendResponse = new DevExpress.XtraLayout.LayoutControlItem();
+            this.esResponseArea = new DevExpress.XtraLayout.EmptySpaceItem();
             this.colFrom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.lcMessageTypes = new DevExpress.XtraLayout.LayoutControl();
-            this.btnNewEmail = new DevExpress.XtraEditors.SimpleButton();
-            this.gcMessageTypes = new DevExpress.XtraGrid.GridControl();
-            this.wevMessageTypes = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
-            this.colMessageType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnSendNew = new DevExpress.XtraEditors.SimpleButton();
+            this.gcFolders = new DevExpress.XtraGrid.GridControl();
+            this.wevFolders = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
+            this.colCaption = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lcgMessageTypes = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciMessageTypes = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciNewEmail = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciSendNew = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tsslLeftText = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslRightText = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelTop = new DevExpress.XtraEditors.PanelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.lcTopPanel = new DevExpress.XtraLayout.LayoutControl();
+            this.peFredroLabel = new DevExpress.XtraEditors.PictureEdit();
+            this.peSettings = new DevExpress.XtraEditors.PictureEdit();
+            this.peAva = new DevExpress.XtraEditors.PictureEdit();
+            this.lcgTopPanel = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciAva = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lciSettings = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciFredroLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciSplitMain = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPanelTop = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciStatusStrip = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tsslRightText = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wevMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMessage)).BeginInit();
             this.lcMessage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.meReplyBody.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meResponseBody.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.meBody.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessage)).BeginInit();
@@ -121,24 +130,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciAddTask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMove)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciReplyBody)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciSend)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceReplyBody)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciResponseBody)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSendResponse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esResponseArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMessageTypes)).BeginInit();
             this.lcMessageTypes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMessageTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wevMessageTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcFolders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wevFolders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMessageTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNewEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelTop)).BeginInit();
             this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcTopPanel)).BeginInit();
+            this.lcTopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.peFredroLabel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peSettings.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peAva.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgTopPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAva)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFredroLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).BeginInit();
@@ -238,8 +257,8 @@
             // 
             this.lcMessage.Appearance.Control.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lcMessage.Appearance.Control.Options.UseFont = true;
-            this.lcMessage.Controls.Add(this.btnSend);
-            this.lcMessage.Controls.Add(this.meReplyBody);
+            this.lcMessage.Controls.Add(this.btnSendResponse);
+            this.lcMessage.Controls.Add(this.meResponseBody);
             this.lcMessage.Controls.Add(this.ddbMove);
             this.lcMessage.Controls.Add(this.btnAddTask);
             this.lcMessage.Controls.Add(this.btnAddDeal);
@@ -262,29 +281,31 @@
             this.lcMessage.TabIndex = 0;
             this.lcMessage.Text = "layoutControl1";
             // 
-            // btnSend
+            // btnSendResponse
             // 
-            this.btnSend.Location = new System.Drawing.Point(432, 424);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(74, 23);
-            this.btnSend.StyleController = this.lcMessage;
-            this.btnSend.TabIndex = 19;
-            this.btnSend.Text = "Отправить";
+            this.btnSendResponse.AllowFocus = false;
+            this.btnSendResponse.Location = new System.Drawing.Point(432, 424);
+            this.btnSendResponse.Name = "btnSendResponse";
+            this.btnSendResponse.Size = new System.Drawing.Size(74, 23);
+            this.btnSendResponse.StyleController = this.lcMessage;
+            this.btnSendResponse.TabIndex = 19;
+            this.btnSendResponse.Text = "Отправить";
             // 
-            // meReplyBody
+            // meResponseBody
             // 
-            this.meReplyBody.Location = new System.Drawing.Point(7, 339);
-            this.meReplyBody.Name = "meReplyBody";
-            this.meReplyBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
-            this.meReplyBody.Properties.NullValuePrompt = "Ответить...";
-            this.meReplyBody.Properties.NullValuePromptShowForEmptyValue = true;
-            this.meReplyBody.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.meReplyBody.Size = new System.Drawing.Size(499, 81);
-            this.meReplyBody.StyleController = this.lcMessage;
-            this.meReplyBody.TabIndex = 18;
+            this.meResponseBody.Location = new System.Drawing.Point(7, 339);
+            this.meResponseBody.Name = "meResponseBody";
+            this.meResponseBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
+            this.meResponseBody.Properties.NullValuePrompt = "Ответить...";
+            this.meResponseBody.Properties.NullValuePromptShowForEmptyValue = true;
+            this.meResponseBody.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.meResponseBody.Size = new System.Drawing.Size(499, 81);
+            this.meResponseBody.StyleController = this.lcMessage;
+            this.meResponseBody.TabIndex = 18;
             // 
             // ddbMove
             // 
+            this.ddbMove.AllowFocus = false;
             this.ddbMove.Location = new System.Drawing.Point(370, 7);
             this.ddbMove.Name = "ddbMove";
             this.ddbMove.Size = new System.Drawing.Size(126, 28);
@@ -294,6 +315,7 @@
             // 
             // btnAddTask
             // 
+            this.btnAddTask.AllowFocus = false;
             this.btnAddTask.Location = new System.Drawing.Point(257, 120);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(121, 28);
@@ -303,6 +325,7 @@
             // 
             // btnAddDeal
             // 
+            this.btnAddDeal.AllowFocus = false;
             this.btnAddDeal.Location = new System.Drawing.Point(132, 120);
             this.btnAddDeal.Name = "btnAddDeal";
             this.btnAddDeal.Size = new System.Drawing.Size(121, 28);
@@ -312,6 +335,7 @@
             // 
             // btnAddClient
             // 
+            this.btnAddClient.AllowFocus = false;
             this.btnAddClient.Location = new System.Drawing.Point(7, 120);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(121, 28);
@@ -321,6 +345,7 @@
             // 
             // btnRemove
             // 
+            this.btnRemove.AllowFocus = false;
             this.btnRemove.Location = new System.Drawing.Point(249, 7);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(117, 28);
@@ -330,6 +355,7 @@
             // 
             // btnResend
             // 
+            this.btnResend.AllowFocus = false;
             this.btnResend.Location = new System.Drawing.Point(128, 7);
             this.btnResend.Name = "btnResend";
             this.btnResend.Size = new System.Drawing.Size(117, 28);
@@ -339,6 +365,7 @@
             // 
             // btnReply
             // 
+            this.btnReply.AllowFocus = false;
             this.btnReply.Location = new System.Drawing.Point(7, 7);
             this.btnReply.Name = "btnReply";
             this.btnReply.Size = new System.Drawing.Size(117, 28);
@@ -434,9 +461,9 @@
             this.lciAddTask,
             this.emptySpaceItem3,
             this.lciMove,
-            this.lciReplyBody,
-            this.lciSend,
-            this.emptySpaceReplyBody});
+            this.lciResponseBody,
+            this.lciSendResponse,
+            this.esResponseArea});
             this.lcgMessage.Location = new System.Drawing.Point(0, 0);
             this.lcgMessage.Name = "Root";
             this.lcgMessage.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -623,32 +650,32 @@
             this.lciMove.TextSize = new System.Drawing.Size(0, 0);
             this.lciMove.TextVisible = false;
             // 
-            // lciReplyBody
+            // lciResponseBody
             // 
-            this.lciReplyBody.Control = this.meReplyBody;
-            this.lciReplyBody.Location = new System.Drawing.Point(0, 332);
-            this.lciReplyBody.Name = "lciReplyBody";
-            this.lciReplyBody.Size = new System.Drawing.Size(503, 85);
-            this.lciReplyBody.TextSize = new System.Drawing.Size(0, 0);
-            this.lciReplyBody.TextVisible = false;
-            this.lciReplyBody.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.lciResponseBody.Control = this.meResponseBody;
+            this.lciResponseBody.Location = new System.Drawing.Point(0, 332);
+            this.lciResponseBody.Name = "lciResponseBody";
+            this.lciResponseBody.Size = new System.Drawing.Size(503, 85);
+            this.lciResponseBody.TextSize = new System.Drawing.Size(0, 0);
+            this.lciResponseBody.TextVisible = false;
+            this.lciResponseBody.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // lciSend
+            // lciSendResponse
             // 
-            this.lciSend.Control = this.btnSend;
-            this.lciSend.Location = new System.Drawing.Point(425, 417);
-            this.lciSend.Name = "lciSend";
-            this.lciSend.Size = new System.Drawing.Size(78, 27);
-            this.lciSend.TextSize = new System.Drawing.Size(0, 0);
-            this.lciSend.TextVisible = false;
+            this.lciSendResponse.Control = this.btnSendResponse;
+            this.lciSendResponse.Location = new System.Drawing.Point(425, 417);
+            this.lciSendResponse.Name = "lciSendResponse";
+            this.lciSendResponse.Size = new System.Drawing.Size(78, 27);
+            this.lciSendResponse.TextSize = new System.Drawing.Size(0, 0);
+            this.lciSendResponse.TextVisible = false;
             // 
-            // emptySpaceReplyBody
+            // esResponseArea
             // 
-            this.emptySpaceReplyBody.AllowHotTrack = false;
-            this.emptySpaceReplyBody.Location = new System.Drawing.Point(0, 417);
-            this.emptySpaceReplyBody.Name = "emptySpaceReplyBody";
-            this.emptySpaceReplyBody.Size = new System.Drawing.Size(425, 27);
-            this.emptySpaceReplyBody.TextSize = new System.Drawing.Size(0, 0);
+            this.esResponseArea.AllowHotTrack = false;
+            this.esResponseArea.Location = new System.Drawing.Point(0, 417);
+            this.esResponseArea.Name = "esResponseArea";
+            this.esResponseArea.Size = new System.Drawing.Size(425, 27);
+            this.esResponseArea.TextSize = new System.Drawing.Size(0, 0);
             // 
             // colFrom
             // 
@@ -673,8 +700,8 @@
             // 
             // lcMessageTypes
             // 
-            this.lcMessageTypes.Controls.Add(this.btnNewEmail);
-            this.lcMessageTypes.Controls.Add(this.gcMessageTypes);
+            this.lcMessageTypes.Controls.Add(this.btnSendNew);
+            this.lcMessageTypes.Controls.Add(this.gcFolders);
             this.lcMessageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcMessageTypes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -684,52 +711,52 @@
             this.lcMessageTypes.TabIndex = 0;
             this.lcMessageTypes.Text = "layoutControl1";
             // 
-            // btnNewEmail
+            // btnSendNew
             // 
-            this.btnNewEmail.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNewEmail.Appearance.Options.UseFont = true;
-            this.btnNewEmail.CausesValidation = false;
-            this.btnNewEmail.Location = new System.Drawing.Point(5, 5);
-            this.btnNewEmail.Name = "btnNewEmail";
-            this.btnNewEmail.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btnNewEmail.Size = new System.Drawing.Size(193, 19);
-            this.btnNewEmail.StyleController = this.lcMessageTypes;
-            this.btnNewEmail.TabIndex = 5;
-            this.btnNewEmail.Text = "Написать";
+            this.btnSendNew.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSendNew.Appearance.Options.UseFont = true;
+            this.btnSendNew.CausesValidation = false;
+            this.btnSendNew.Location = new System.Drawing.Point(5, 5);
+            this.btnSendNew.Name = "btnSendNew";
+            this.btnSendNew.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btnSendNew.Size = new System.Drawing.Size(193, 37);
+            this.btnSendNew.StyleController = this.lcMessageTypes;
+            this.btnSendNew.TabIndex = 5;
+            this.btnSendNew.Text = "Написать";
             // 
-            // gcMessageTypes
+            // gcFolders
             // 
-            this.gcMessageTypes.Location = new System.Drawing.Point(0, 29);
-            this.gcMessageTypes.MainView = this.wevMessageTypes;
-            this.gcMessageTypes.Name = "gcMessageTypes";
-            this.gcMessageTypes.Size = new System.Drawing.Size(203, 442);
-            this.gcMessageTypes.TabIndex = 4;
-            this.gcMessageTypes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.wevMessageTypes});
+            this.gcFolders.Location = new System.Drawing.Point(0, 47);
+            this.gcFolders.MainView = this.wevFolders;
+            this.gcFolders.Name = "gcFolders";
+            this.gcFolders.Size = new System.Drawing.Size(203, 424);
+            this.gcFolders.TabIndex = 4;
+            this.gcFolders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.wevFolders});
             // 
-            // wevMessageTypes
+            // wevFolders
             // 
-            this.wevMessageTypes.Appearance.ItemHovered.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.wevMessageTypes.Appearance.ItemHovered.Options.UseFont = true;
-            this.wevMessageTypes.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.wevMessageTypes.Appearance.ItemNormal.Options.UseFont = true;
-            this.wevMessageTypes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.wevMessageTypes.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMessageType});
-            this.wevMessageTypes.ColumnSet.TextColumn = this.colMessageType;
-            this.wevMessageTypes.GridControl = this.gcMessageTypes;
-            this.wevMessageTypes.Name = "wevMessageTypes";
-            this.wevMessageTypes.OptionsBehavior.Editable = false;
-            this.wevMessageTypes.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Small;
-            this.wevMessageTypes.OptionsViewStyles.Small.ImageToTextIndent = -10;
-            this.wevMessageTypes.OptionsViewStyles.Small.ShowDescription = DevExpress.Utils.DefaultBoolean.False;
+            this.wevFolders.Appearance.ItemHovered.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.wevFolders.Appearance.ItemHovered.Options.UseFont = true;
+            this.wevFolders.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.wevFolders.Appearance.ItemNormal.Options.UseFont = true;
+            this.wevFolders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.wevFolders.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCaption});
+            this.wevFolders.ColumnSet.TextColumn = this.colCaption;
+            this.wevFolders.GridControl = this.gcFolders;
+            this.wevFolders.Name = "wevFolders";
+            this.wevFolders.OptionsBehavior.Editable = false;
+            this.wevFolders.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Small;
+            this.wevFolders.OptionsViewStyles.Small.ImageToTextIndent = -10;
+            this.wevFolders.OptionsViewStyles.Small.ShowDescription = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // colMessageType
+            // colCaption
             // 
-            this.colMessageType.FieldName = "MessageType";
-            this.colMessageType.Name = "colMessageType";
-            this.colMessageType.Visible = true;
-            this.colMessageType.VisibleIndex = 0;
+            this.colCaption.FieldName = "Caption";
+            this.colCaption.Name = "colCaption";
+            this.colCaption.Visible = true;
+            this.colCaption.VisibleIndex = 0;
             // 
             // lcgMessageTypes
             // 
@@ -737,7 +764,7 @@
             this.lcgMessageTypes.GroupBordersVisible = false;
             this.lcgMessageTypes.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciMessageTypes,
-            this.lciNewEmail});
+            this.lciSendNew});
             this.lcgMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcgMessageTypes.Name = "lcgMessageTypes";
             this.lcgMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -746,25 +773,26 @@
             // 
             // lciMessageTypes
             // 
-            this.lciMessageTypes.Control = this.gcMessageTypes;
-            this.lciMessageTypes.Location = new System.Drawing.Point(0, 29);
+            this.lciMessageTypes.Control = this.gcFolders;
+            this.lciMessageTypes.Location = new System.Drawing.Point(0, 47);
             this.lciMessageTypes.Name = "lciMessageTypes";
             this.lciMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciMessageTypes.Size = new System.Drawing.Size(203, 442);
+            this.lciMessageTypes.Size = new System.Drawing.Size(203, 424);
             this.lciMessageTypes.TextSize = new System.Drawing.Size(0, 0);
             this.lciMessageTypes.TextVisible = false;
             // 
-            // lciNewEmail
+            // lciSendNew
             // 
-            this.lciNewEmail.Control = this.btnNewEmail;
-            this.lciNewEmail.Location = new System.Drawing.Point(0, 0);
-            this.lciNewEmail.MinSize = new System.Drawing.Size(63, 26);
-            this.lciNewEmail.Name = "lciNewEmail";
-            this.lciNewEmail.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciNewEmail.Size = new System.Drawing.Size(203, 29);
-            this.lciNewEmail.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciNewEmail.TextSize = new System.Drawing.Size(0, 0);
-            this.lciNewEmail.TextVisible = false;
+            this.lciSendNew.Control = this.btnSendNew;
+            this.lciSendNew.Location = new System.Drawing.Point(0, 0);
+            this.lciSendNew.MaxSize = new System.Drawing.Size(0, 47);
+            this.lciSendNew.MinSize = new System.Drawing.Size(63, 47);
+            this.lciSendNew.Name = "lciSendNew";
+            this.lciSendNew.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.lciSendNew.Size = new System.Drawing.Size(203, 47);
+            this.lciSendNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciSendNew.TextSize = new System.Drawing.Size(0, 0);
+            this.lciSendNew.TextVisible = false;
             // 
             // lcMain
             // 
@@ -800,30 +828,153 @@
             this.tsslLeftText.Size = new System.Drawing.Size(101, 15);
             this.tsslLeftText.Text = "toolStripLeftText";
             // 
+            // tsslRightText
+            // 
+            this.tsslRightText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tsslRightText.Name = "tsslRightText";
+            this.tsslRightText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tsslRightText.Size = new System.Drawing.Size(897, 15);
+            this.tsslRightText.Spring = true;
+            this.tsslRightText.Text = "tsslRightText";
+            this.tsslRightText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.pictureEdit1);
+            this.panelTop.Controls.Add(this.lcTopPanel);
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1013, 40);
             this.panelTop.TabIndex = 2;
             // 
-            // pictureEdit1
+            // lcTopPanel
             // 
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(975, 2);
-            this.pictureEdit1.MaximumSize = new System.Drawing.Size(36, 36);
-            this.pictureEdit1.MinimumSize = new System.Drawing.Size(36, 36);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.AllowFocused = false;
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEdit1.Size = new System.Drawing.Size(36, 36);
-            this.pictureEdit1.TabIndex = 0;
+            this.lcTopPanel.Controls.Add(this.peFredroLabel);
+            this.lcTopPanel.Controls.Add(this.peSettings);
+            this.lcTopPanel.Controls.Add(this.peAva);
+            this.lcTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcTopPanel.Location = new System.Drawing.Point(2, 2);
+            this.lcTopPanel.Name = "lcTopPanel";
+            this.lcTopPanel.Root = this.lcgTopPanel;
+            this.lcTopPanel.Size = new System.Drawing.Size(1009, 36);
+            this.lcTopPanel.TabIndex = 1;
+            this.lcTopPanel.Text = "layoutControl1";
+            // 
+            // peFredroLabel
+            // 
+            this.peFredroLabel.EditValue = global::FredroClient.Properties.Resources.FredroClient3;
+            this.peFredroLabel.Location = new System.Drawing.Point(2, 2);
+            this.peFredroLabel.Name = "peFredroLabel";
+            this.peFredroLabel.Properties.AllowFocused = false;
+            this.peFredroLabel.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.peFredroLabel.Properties.Appearance.Options.UseBackColor = true;
+            this.peFredroLabel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.peFredroLabel.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.peFredroLabel.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.peFredroLabel.Size = new System.Drawing.Size(118, 32);
+            this.peFredroLabel.StyleController = this.lcTopPanel;
+            this.peFredroLabel.TabIndex = 6;
+            // 
+            // peSettings
+            // 
+            this.peSettings.EditValue = global::FredroClient.Properties.Resources.menu_icon3_64x64;
+            this.peSettings.Location = new System.Drawing.Point(935, 8);
+            this.peSettings.Name = "peSettings";
+            this.peSettings.Properties.AllowFocused = false;
+            this.peSettings.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.peSettings.Properties.Appearance.Options.UseBackColor = true;
+            this.peSettings.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.peSettings.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.peSettings.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.peSettings.Size = new System.Drawing.Size(20, 20);
+            this.peSettings.StyleController = this.lcTopPanel;
+            this.peSettings.TabIndex = 5;
+            // 
+            // peAva
+            // 
+            this.peAva.EditValue = ((object)(resources.GetObject("peAva.EditValue")));
+            this.peAva.Location = new System.Drawing.Point(965, 2);
+            this.peAva.Name = "peAva";
+            this.peAva.Properties.AllowFocused = false;
+            this.peAva.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.peAva.Properties.Appearance.Options.UseBackColor = true;
+            this.peAva.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.peAva.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.peAva.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.peAva.Size = new System.Drawing.Size(32, 32);
+            this.peAva.StyleController = this.lcTopPanel;
+            this.peAva.TabIndex = 4;
+            // 
+            // lcgTopPanel
+            // 
+            this.lcgTopPanel.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lcgTopPanel.GroupBordersVisible = false;
+            this.lcgTopPanel.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lciAva,
+            this.emptySpaceItem4,
+            this.emptySpaceItem5,
+            this.lciSettings,
+            this.lciFredroLabel});
+            this.lcgTopPanel.Location = new System.Drawing.Point(0, 0);
+            this.lcgTopPanel.Name = "lcgTopPanel";
+            this.lcgTopPanel.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lcgTopPanel.Size = new System.Drawing.Size(1009, 36);
+            this.lcgTopPanel.TextVisible = false;
+            // 
+            // lciAva
+            // 
+            this.lciAva.Control = this.peAva;
+            this.lciAva.Location = new System.Drawing.Point(963, 0);
+            this.lciAva.MaxSize = new System.Drawing.Size(36, 36);
+            this.lciAva.MinSize = new System.Drawing.Size(36, 36);
+            this.lciAva.Name = "lciAva";
+            this.lciAva.Size = new System.Drawing.Size(36, 36);
+            this.lciAva.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciAva.TextSize = new System.Drawing.Size(0, 0);
+            this.lciAva.TextVisible = false;
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(122, 0);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(805, 36);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.Location = new System.Drawing.Point(999, 0);
+            this.emptySpaceItem5.MaxSize = new System.Drawing.Size(10, 36);
+            this.emptySpaceItem5.MinSize = new System.Drawing.Size(10, 36);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(10, 36);
+            this.emptySpaceItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lciSettings
+            // 
+            this.lciSettings.Control = this.peSettings;
+            this.lciSettings.Location = new System.Drawing.Point(927, 0);
+            this.lciSettings.MaxSize = new System.Drawing.Size(36, 36);
+            this.lciSettings.MinSize = new System.Drawing.Size(36, 36);
+            this.lciSettings.Name = "lciSettings";
+            this.lciSettings.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.lciSettings.Size = new System.Drawing.Size(36, 36);
+            this.lciSettings.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciSettings.TextSize = new System.Drawing.Size(0, 0);
+            this.lciSettings.TextVisible = false;
+            // 
+            // lciFredroLabel
+            // 
+            this.lciFredroLabel.Control = this.peFredroLabel;
+            this.lciFredroLabel.Location = new System.Drawing.Point(0, 0);
+            this.lciFredroLabel.MaxSize = new System.Drawing.Size(122, 36);
+            this.lciFredroLabel.MinSize = new System.Drawing.Size(122, 36);
+            this.lciFredroLabel.Name = "lciFredroLabel";
+            this.lciFredroLabel.Size = new System.Drawing.Size(122, 36);
+            this.lciFredroLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciFredroLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.lciFredroLabel.TextVisible = false;
             // 
             // lcgMain
             // 
@@ -874,16 +1025,6 @@
             this.lciStatusStrip.TextSize = new System.Drawing.Size(0, 0);
             this.lciStatusStrip.TextVisible = false;
             // 
-            // tsslRightText
-            // 
-            this.tsslRightText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tsslRightText.Name = "tsslRightText";
-            this.tsslRightText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tsslRightText.Size = new System.Drawing.Size(866, 15);
-            this.tsslRightText.Spring = true;
-            this.tsslRightText.Text = "tsslRightText";
-            this.tsslRightText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // frmMessages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -900,7 +1041,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.wevMessages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMessage)).EndInit();
             this.lcMessage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.meReplyBody.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meResponseBody.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.meBody.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessage)).EndInit();
@@ -921,25 +1062,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciAddTask)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMove)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciReplyBody)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciSend)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceReplyBody)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciResponseBody)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSendResponse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esResponseArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMessageTypes)).EndInit();
             this.lcMessageTypes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcMessageTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wevMessageTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcFolders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wevFolders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMessageTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNewEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelTop)).EndInit();
             this.panelTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcTopPanel)).EndInit();
+            this.lcTopPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.peFredroLabel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peSettings.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peAva.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgTopPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAva)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFredroLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).EndInit();
@@ -994,26 +1145,35 @@
         private DevExpress.XtraEditors.SplitContainerControl splitMain;
         private DevExpress.XtraLayout.LayoutControl lcMessageTypes;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMessageTypes;
-        private DevExpress.XtraGrid.GridControl gcMessageTypes;
-        private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevMessageTypes;
+        private DevExpress.XtraGrid.GridControl gcFolders;
+        private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevFolders;
         private DevExpress.XtraLayout.LayoutControlItem lciMessageTypes;
-        private DevExpress.XtraGrid.Columns.GridColumn colMessageType;
-        private DevExpress.XtraEditors.SimpleButton btnNewEmail;
-        private DevExpress.XtraLayout.LayoutControlItem lciNewEmail;
-        private DevExpress.XtraEditors.MemoEdit meReplyBody;
-        private DevExpress.XtraLayout.LayoutControlItem lciReplyBody;
-        private DevExpress.XtraEditors.SimpleButton btnSend;
-        private DevExpress.XtraLayout.LayoutControlItem lciSend;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceReplyBody;
+        private DevExpress.XtraGrid.Columns.GridColumn colCaption;
+        private DevExpress.XtraEditors.SimpleButton btnSendNew;
+        private DevExpress.XtraLayout.LayoutControlItem lciSendNew;
+        private DevExpress.XtraEditors.MemoEdit meResponseBody;
+        private DevExpress.XtraLayout.LayoutControlItem lciResponseBody;
+        private DevExpress.XtraEditors.SimpleButton btnSendResponse;
+        private DevExpress.XtraLayout.LayoutControlItem lciSendResponse;
+        private DevExpress.XtraLayout.EmptySpaceItem esResponseArea;
         private DevExpress.XtraLayout.LayoutControl lcMain;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         private DevExpress.XtraLayout.LayoutControlItem lciSplitMain;
         private DevExpress.XtraEditors.PanelControl panelTop;
         private DevExpress.XtraLayout.LayoutControlItem lciPanelTop;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private System.Windows.Forms.StatusStrip statusStrip;
         private DevExpress.XtraLayout.LayoutControlItem lciStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tsslLeftText;
         private System.Windows.Forms.ToolStripStatusLabel tsslRightText;
+        private DevExpress.XtraLayout.LayoutControl lcTopPanel;
+        private DevExpress.XtraEditors.PictureEdit peAva;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgTopPanel;
+        private DevExpress.XtraLayout.LayoutControlItem lciAva;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
+        private DevExpress.XtraEditors.PictureEdit peSettings;
+        private DevExpress.XtraLayout.LayoutControlItem lciSettings;
+        private DevExpress.XtraEditors.PictureEdit peFredroLabel;
+        private DevExpress.XtraLayout.LayoutControlItem lciFredroLabel;
     }
 }

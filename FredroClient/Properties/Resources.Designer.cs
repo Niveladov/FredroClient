@@ -63,6 +63,36 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FredroClient {
+            get {
+                object obj = ResourceManager.GetObject("FredroClient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FredroClient2 {
+            get {
+                object obj = ResourceManager.GetObject("FredroClient2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FredroClient3 {
+            get {
+                object obj = ResourceManager.GetObject("FredroClient3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gmail_32x32 {
             get {
                 object obj = ResourceManager.GetObject("gmail_32x32", resourceCulture);
@@ -83,6 +113,36 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu_icon1_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("menu_icon1_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_icon2_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("menu_icon2_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_icon3_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("menu_icon3_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap read_32x38 {
             get {
                 object obj = ResourceManager.GetObject("read_32x38", resourceCulture);
@@ -96,6 +156,26 @@ namespace FredroClient.Properties {
         internal static System.Drawing.Bitmap read_email_512x612 {
             get {
                 object obj = ResourceManager.GetObject("read_email_512x612", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_icon1_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("settings_icon1_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_icon2_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("settings_icon2_64x64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

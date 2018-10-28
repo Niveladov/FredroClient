@@ -12,7 +12,7 @@ namespace FredroClient.Models
     {
         private Hostname? _currentServer { get; set; }
 
-        private int? _hostnameId;
+        private int? _hostnameId = null;
         public int? HostnameId
         {
             get { return _hostnameId; }
@@ -28,15 +28,16 @@ namespace FredroClient.Models
 
         public string Login { get; set; }
         public string Password { get; set; }
-        
+        public List<TheMessage> Messages { get; private set; }
 
-        public List<TheMessage> GetTheMessageList()
+        public void InitMessages()
         {
             HostParameters hostParams = null;
-            string username = "";
+            string username = "figamalum@gmail.com";
 
             if(Login.Equals(1.ToString()))
             {
+                Login = "figamalum@gmail.com";
                 hostParams = new HostParameters();
                 hostParams.Hostname = "pop.gmail.com";
                 hostParams.Port = 995;
@@ -55,16 +56,19 @@ namespace FredroClient.Models
             }
             var messages = FredroHelper.FetchAllMessages(hostParams.Hostname, hostParams.Port.Value,
                 hostParams.UseSsl.Value, username, Password);
-            if (messages == null) return null;
+            if (messages == null) return;
             
-            var theMessages = new List<TheMessage>();
+            Messages = new List<TheMessage>();
             foreach (var message in messages)
             {
-                theMessages.Add(message.GetTheMessage());
+                Messages.Add(message.GetTheMessage());
             }
-            return theMessages;
         }
 
+        public void SendNew(TheMessage message, string login, string password)
+        {
+            FredroHelper.SendEmailAsync(message, login, password).GetAwaiter();
+        }
 
     }
 }

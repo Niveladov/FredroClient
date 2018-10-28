@@ -14,7 +14,9 @@ namespace FredroClient.Models
         public string FromFullRaw { get; set; }
         public string FromAddress { get; set; }
         public string FromDisplayName { get; set; }
-        public string To { get; set; }
+        public string ToFullRaw { get; set; }
+        public string ToAddress { get; set; }
+        public string ToDisplayName { get; set; }
         public DateTime? Date { get; set; }
         public string Subject { get; set; }
         public string MailedBy { get; set; } //отправлено через

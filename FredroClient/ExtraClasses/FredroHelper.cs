@@ -118,29 +118,53 @@ namespace FredroClient.ExtraClasses
             }
         }
 
-        private static async Task SendEmailAsync()
+        public static async Task SendEmailAsync(TheMessage message, string login, string password)
         {
             // отправитель - устанавливаем адрес и отображаемое в письме имя
-            MailAddress from = new MailAddress("ghekka@mail.ru", "Eugeen");
+            MailAddress from = new MailAddress(message.FromAddress, message.FromDisplayName);
             // кому отправляем
-            MailAddress to = new MailAddress("figamalum@gmail.com");
+            MailAddress to = new MailAddress(message.ToAddress);
             // создаем объект сообщения
             MailMessage m = new MailMessage(from, to);
             //вложения
-            m.Attachments.Add(new Attachment("E://colors.txt"));
+            //m.Attachments.Add(new Attachment("E://colors.txt"));
             // тема письма
-            m.Subject = "Второй";
+            m.Subject = message.Subject;
             // текст письма
-            m.Body = "<h2>Второе письмо-тест работы smtp-клиента</h2>";
+            m.Body = message.Body;
             // письмо представляет код html
             m.IsBodyHtml = true;
             // адрес smtp-сервера и порт, с которого будем отправлять письмо
-            SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            //SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
             // логин и пароль
-            smtp.Credentials = new NetworkCredential("ghekka@mail.ru", "24021974ghekka");
+            smtp.Credentials = new NetworkCredential(login, password);
             smtp.EnableSsl = true;
             await smtp.SendMailAsync(m);
-            Console.WriteLine("Письмо отправлено");
+            XtraMessageBox.Show("Письмо отправлено!", "Успешно", 
+                System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+
+            // отправитель - устанавливаем адрес и отображаемое в письме имя
+            //MailAddress from = new MailAddress("ghekka@mail.ru", "Eugeen");
+            // кому отправляем
+            //MailAddress to = new MailAddress("figamalum@gmail.com");
+            // создаем объект сообщения
+            //MailMessage m = new MailMessage(from, to);
+            //вложения
+            //m.Attachments.Add(new Attachment("E://colors.txt"));
+            // тема письма
+            //m.Subject = "Второй";
+            // текст письма
+            //m.Body = "<h2>Второе письмо-тест работы smtp-клиента</h2>";
+            // письмо представляет код html
+            //m.IsBodyHtml = true;
+            // адрес smtp-сервера и порт, с которого будем отправлять письмо
+            //SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
+            // логин и пароль
+            //smtp.Credentials = new NetworkCredential("ghekka@mail.ru", "24021974ghekka");
+            //smtp.EnableSsl = true;
+            //await smtp.SendMailAsync(m);
+            //Console.WriteLine("Письмо отправлено");
         }
         
         internal static TheMessage GetTheMessage(this Message message)
@@ -153,7 +177,9 @@ namespace FredroClient.ExtraClasses
             theMessage.FromFullRaw = message.Headers.From.Raw;
             theMessage.FromAddress = message.Headers.From.Address;
             theMessage.FromDisplayName = message.Headers.From.DisplayName;
-            theMessage.To = message.Headers.To.First().Raw;
+            theMessage.ToFullRaw = message.Headers.To.First().Raw;
+            theMessage.ToAddress = message.Headers.To.First().Address;
+            theMessage.ToDisplayName = message.Headers.To.First().DisplayName;
             theMessage.Date = message.Headers.DateSent;
             theMessage.Subject = message.Headers.Subject;
             theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??

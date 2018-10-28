@@ -78,10 +78,10 @@ namespace FredroClient.Forms
         private void ShowMessages()
         {
             waitingHelper.Show();
-            var theMessages = _model.GetTheMessageList();
+            _model.InitMessages();
             waitingHelper.Hide();
-            if (theMessages == null) return;
-            using (var frm = new frmMessages(theMessages, _model.Login))
+            if (_model.Messages == null) return;
+            using (var frm = new frmMessages(_model))
             {
                 frm.ShowDialog();
             }

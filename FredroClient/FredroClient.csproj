@@ -153,6 +153,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\FredroClient3.png" />
+    <None Include="Resources\FredroClient2.png" />
+    <None Include="Resources\FredroClient.png" />
+    <None Include="Resources\menu_icon3_64x64.png" />
+    <None Include="Resources\menu_icon2_64x64.png" />
+    <None Include="Resources\menu_icon1_64x64.png" />
+    <None Include="Resources\settings_icon1_64x64.png" />
+    <None Include="Resources\settings_icon2_64x64.png" />
     <None Include="Resources\user_64x64.png" />
     <None Include="Resources\unread_32x32.png" />
     <None Include="Resources\read_32x38.png" />

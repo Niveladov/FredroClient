@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition4 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition5 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition4 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition7 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition6 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition7 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition8 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition9 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition10 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition8 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition9 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition10 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition11 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition12 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition13 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition14 = new DevExpress.XtraLayout.RowDefinition();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
@@ -71,10 +71,11 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Location = new System.Drawing.Point(320, 136);
+            this.layoutControl1.Location = new System.Drawing.Point(274, 110);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(180, 120);
+            this.layoutControl1.Size = new System.Drawing.Size(154, 98);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -84,7 +85,7 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(180, 120);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(154, 98);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lcMain
@@ -98,28 +99,30 @@
             this.lcMain.Controls.Add(this.teLogin);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 0);
+            this.lcMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(582, 273);
+            this.lcMain.Size = new System.Drawing.Size(499, 222);
             this.lcMain.TabIndex = 1;
             // 
             // icbeHostname
             // 
-            this.icbeHostname.Location = new System.Drawing.Point(72, 46);
+            this.icbeHostname.Location = new System.Drawing.Point(63, 35);
             this.icbeHostname.Name = "icbeHostname";
             this.icbeHostname.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.icbeHostname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.icbeHostname.Properties.NullValuePrompt = "Выберете сервер входящей почты...";
-            this.icbeHostname.Size = new System.Drawing.Size(437, 28);
+            this.icbeHostname.Size = new System.Drawing.Size(373, 22);
             this.icbeHostname.StyleController = this.lcMain;
             this.icbeHostname.TabIndex = 9;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(128, 198);
+            this.btnCancel.AllowFocus = false;
+            this.btnCancel.Location = new System.Drawing.Point(111, 164);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(325, 28);
+            this.btnCancel.Size = new System.Drawing.Size(277, 23);
             this.btnCancel.StyleController = this.lcMain;
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Закрыть";
@@ -127,9 +130,10 @@
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(128, 160);
+            this.btnEnter.AllowFocus = false;
+            this.btnEnter.Location = new System.Drawing.Point(111, 131);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(325, 28);
+            this.btnEnter.Size = new System.Drawing.Size(277, 23);
             this.btnEnter.StyleController = this.lcMain;
             this.btnEnter.TabIndex = 7;
             this.btnEnter.Text = "Войти";
@@ -137,22 +141,22 @@
             // 
             // tePassword
             // 
-            this.tePassword.Location = new System.Drawing.Point(72, 122);
+            this.tePassword.Location = new System.Drawing.Point(63, 99);
             this.tePassword.Name = "tePassword";
             this.tePassword.Properties.NullValuePrompt = "     Введите пароль...";
             this.tePassword.Properties.NullValuePromptShowForEmptyValue = true;
             this.tePassword.Properties.PasswordChar = '*';
-            this.tePassword.Size = new System.Drawing.Size(437, 28);
+            this.tePassword.Size = new System.Drawing.Size(373, 22);
             this.tePassword.StyleController = this.lcMain;
             this.tePassword.TabIndex = 5;
             // 
             // teLogin
             // 
-            this.teLogin.Location = new System.Drawing.Point(72, 84);
+            this.teLogin.Location = new System.Drawing.Point(63, 67);
             this.teLogin.Name = "teLogin";
             this.teLogin.Properties.NullValuePrompt = "     Введите логин...";
             this.teLogin.Properties.NullValuePromptShowForEmptyValue = true;
-            this.teLogin.Size = new System.Drawing.Size(437, 28);
+            this.teLogin.Size = new System.Drawing.Size(373, 22);
             this.teLogin.StyleController = this.lcMain;
             this.teLogin.TabIndex = 4;
             // 
@@ -174,120 +178,120 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.OptionsTableLayoutGroup.AutoSizeDefaultDefinitionLength = 50;
-            columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition1.Width = 10D;
-            columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition2.Width = 10D;
-            columnDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition3.Width = 60D;
-            columnDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition4.Width = 10D;
-            columnDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition5.Width = 10D;
+            columnDefinition6.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition6.Width = 10D;
+            columnDefinition7.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition7.Width = 10D;
+            columnDefinition8.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition8.Width = 60D;
+            columnDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition9.Width = 10D;
+            columnDefinition10.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition10.Width = 10D;
             this.lcgMain.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition1,
-            columnDefinition2,
-            columnDefinition3,
-            columnDefinition4,
-            columnDefinition5});
-            rowDefinition1.Height = 50D;
-            rowDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition2.Height = 38D;
-            rowDefinition2.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition3.Height = 38D;
-            rowDefinition3.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition4.Height = 38D;
-            rowDefinition4.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition5.Height = 38D;
-            rowDefinition5.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition6.Height = 38D;
-            rowDefinition6.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition7.Height = 50D;
-            rowDefinition7.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition6,
+            columnDefinition7,
+            columnDefinition8,
+            columnDefinition9,
+            columnDefinition10});
+            rowDefinition8.Height = 50D;
+            rowDefinition8.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition9.Height = 32D;
+            rowDefinition9.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition10.Height = 32D;
+            rowDefinition10.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition11.Height = 32D;
+            rowDefinition11.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition12.Height = 33D;
+            rowDefinition12.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition13.Height = 33D;
+            rowDefinition13.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition14.Height = 50D;
+            rowDefinition14.SizeType = System.Windows.Forms.SizeType.Percent;
             this.lcgMain.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition1,
-            rowDefinition2,
-            rowDefinition3,
-            rowDefinition4,
-            rowDefinition5,
-            rowDefinition6,
-            rowDefinition7});
-            this.lcgMain.Size = new System.Drawing.Size(582, 273);
+            rowDefinition8,
+            rowDefinition9,
+            rowDefinition10,
+            rowDefinition11,
+            rowDefinition12,
+            rowDefinition13,
+            rowDefinition14});
+            this.lcgMain.Size = new System.Drawing.Size(499, 222);
             this.lcgMain.TextVisible = false;
             // 
             // lciLogin
             // 
             this.lciLogin.Control = this.teLogin;
-            this.lciLogin.Location = new System.Drawing.Point(55, 67);
+            this.lciLogin.Location = new System.Drawing.Point(48, 52);
             this.lciLogin.Name = "lciLogin";
             this.lciLogin.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciLogin.OptionsTableLayoutItem.ColumnSpan = 3;
             this.lciLogin.OptionsTableLayoutItem.RowIndex = 2;
             this.lciLogin.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciLogin.Size = new System.Drawing.Size(447, 38);
+            this.lciLogin.Size = new System.Drawing.Size(383, 32);
             this.lciLogin.TextSize = new System.Drawing.Size(0, 0);
             this.lciLogin.TextVisible = false;
             // 
             // lciPassword
             // 
             this.lciPassword.Control = this.tePassword;
-            this.lciPassword.Location = new System.Drawing.Point(55, 105);
+            this.lciPassword.Location = new System.Drawing.Point(48, 84);
             this.lciPassword.Name = "lciPassword";
             this.lciPassword.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciPassword.OptionsTableLayoutItem.ColumnSpan = 3;
             this.lciPassword.OptionsTableLayoutItem.RowIndex = 3;
             this.lciPassword.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciPassword.Size = new System.Drawing.Size(447, 38);
+            this.lciPassword.Size = new System.Drawing.Size(383, 32);
             this.lciPassword.TextSize = new System.Drawing.Size(0, 0);
             this.lciPassword.TextVisible = false;
             // 
             // lciEnter
             // 
             this.lciEnter.Control = this.btnEnter;
-            this.lciEnter.Location = new System.Drawing.Point(111, 143);
+            this.lciEnter.Location = new System.Drawing.Point(96, 116);
             this.lciEnter.Name = "lciEnter";
             this.lciEnter.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciEnter.OptionsTableLayoutItem.RowIndex = 4;
             this.lciEnter.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciEnter.Size = new System.Drawing.Size(335, 38);
+            this.lciEnter.Size = new System.Drawing.Size(287, 33);
             this.lciEnter.TextSize = new System.Drawing.Size(0, 0);
             this.lciEnter.TextVisible = false;
             // 
             // lciCancel
             // 
             this.lciCancel.Control = this.btnCancel;
-            this.lciCancel.Location = new System.Drawing.Point(111, 181);
+            this.lciCancel.Location = new System.Drawing.Point(96, 149);
             this.lciCancel.Name = "lciCancel";
             this.lciCancel.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciCancel.OptionsTableLayoutItem.RowIndex = 5;
             this.lciCancel.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciCancel.Size = new System.Drawing.Size(335, 38);
+            this.lciCancel.Size = new System.Drawing.Size(287, 33);
             this.lciCancel.TextSize = new System.Drawing.Size(0, 0);
             this.lciCancel.TextVisible = false;
             // 
             // lciEmailServer
             // 
             this.lciEmailServer.Control = this.icbeHostname;
-            this.lciEmailServer.Location = new System.Drawing.Point(55, 29);
+            this.lciEmailServer.Location = new System.Drawing.Point(48, 20);
             this.lciEmailServer.Name = "lciEmailServer";
             this.lciEmailServer.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciEmailServer.OptionsTableLayoutItem.ColumnSpan = 3;
             this.lciEmailServer.OptionsTableLayoutItem.RowIndex = 1;
             this.lciEmailServer.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciEmailServer.Size = new System.Drawing.Size(447, 38);
+            this.lciEmailServer.Size = new System.Drawing.Size(383, 32);
             this.lciEmailServer.TextSize = new System.Drawing.Size(0, 0);
             this.lciEmailServer.TextVisible = false;
             // 
             // frmStart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 273);
+            this.ClientSize = new System.Drawing.Size(499, 222);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Почтовый клиент";
+            this.Text = "Почтовый бизнес-клиент";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();

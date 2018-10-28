@@ -20,18 +20,21 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmMessages : FredroBaseXtraForm
     {
-        public frmMessages(List<TheMessage> messages, string login)
+        private readonly CredentialModel _model;
+
+        public frmMessages(CredentialModel model)
         {
             InitializeComponent();
-            gcMessages.DataSource = messages;
-            gcMessageTypes.DataSource = new List<MessageTypes>()
+            _model = model;
+            gcMessages.DataSource = _model.Messages;
+            gcFolders.DataSource = new List<Folders>()
             {
-                new MessageTypes($"Входящие                 {messages.Count.ToString()}"),
-                new MessageTypes("Готовые"),
-                new MessageTypes("Отправленные"),
-                new MessageTypes("Удалённые")
+                new Folders($"Входящие                 {_model.Messages.Count.ToString()}"),
+                new Folders("Готовые"),
+                new Folders("Отправленные"),
+                new Folders("Удалённые")
             };
-            Text = $"Входящие - {login} - Почтовый клиент";
+            Text = $"Входящие - {_model.Login} - Почтовый бизнес-клиент";
         }
 
         protected override void OnLoad(EventArgs e)
@@ -40,7 +43,7 @@ namespace FredroClient.Forms
             InitEvents();
             wevMessages.FocusedRowHandle = 0;
             meBody.BackColor = lcMessage.BackColor;
-            statusStrip.BackColor = meReplyBody.BackColor;
+            //statusStrip.BackColor = meReplyBody.BackColor;
             statusStrip.Items[0].Text = "Демо версия почтового клиента.";
             statusStrip.Items[1].Text = "Евгений Федорук, +7(952)383-23-01";
             //panelTop.Appearance.BackColor = meReplyBody.BackColor;
@@ -51,9 +54,10 @@ namespace FredroClient.Forms
         {
             wevMessages.FocusedRowChanged += WevMessages_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
+            btnSendResponse.Click += BtnSendResponse_Click;
             //meReplyBody.Leave += MeReplyBody_Leave;
             //meReplyBody.LostFocus += MeReplyBody_LostFocus;
-            meReplyBody.TextChanged += MeReplyBody_TextChanged;
+            meResponseBody.TextChanged += MeResponseBody_TextChanged;
         }
 
         private void SetMessageBodyScrollBarVisibility()
@@ -68,22 +72,22 @@ namespace FredroClient.Forms
             meBody.Properties.ScrollBars = rect.Height > meBody.Height ? ScrollBars.Vertical : ScrollBars.None;
         }
 
-        private void SetReplyBodyScrollBarVisibility()
+        private void SetResponseBodyScrollBarVisibility()
         {
-            MemoEditViewInfo vi = this.meReplyBody.GetViewInfo() as MemoEditViewInfo;
+            MemoEditViewInfo vi = this.meResponseBody.GetViewInfo() as MemoEditViewInfo;
             GraphicsCache cache = new GraphicsCache(meBody.CreateGraphics());
             int h = (vi as IHeightAdaptable).CalcHeight(cache, vi.MaskBoxRect.Width);
             ObjectInfoArgs args = new ObjectInfoArgs();
             args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
             Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
             cache.Dispose();
-            meReplyBody.Properties.ScrollBars = rect.Height > meReplyBody.Height ? ScrollBars.Vertical : ScrollBars.None;
+            meResponseBody.Properties.ScrollBars = rect.Height > meResponseBody.Height ? ScrollBars.Vertical : ScrollBars.None;
         }
 
-        private void SetReplyBodyVisibility(bool isVisible)
+        private void SetResponseBodyVisibility(bool isVisible)
         {
 
-            lciReplyBody.Visibility = lciSend.Visibility = emptySpaceReplyBody.Visibility =
+            lciResponseBody.Visibility = lciSendResponse.Visibility = esResponseArea.Visibility =
                 isVisible ? LayoutVisibility.Always : LayoutVisibility.Never;
         }
 
@@ -96,41 +100,58 @@ namespace FredroClient.Forms
                 labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "...": row.Subject;
                 labelSubject.ToolTip = row.Subject;
                 labelFrom.Text = row.FromFullRaw;
-                labelTo.Text = $"кому: {row.To}".Length > 85 ? $"кому: {row.To}".Substring(0, 85) + "..." : $"кому: {row.To}";
-                labelTo.ToolTip = $"кому: {row.To}";
+                labelTo.Text = $"кому: {row.ToFullRaw}".Length > 85 ? $"кому: {row.ToFullRaw}".Substring(0, 85) + "..." : $"кому: {row.ToFullRaw}";
+                labelTo.ToolTip = $"кому: {row.ToFullRaw}";
                 labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
                 meBody.Text = row.Body;
-                SetReplyBodyVisibility(false);
+                SetResponseBodyVisibility(false);
                 SetMessageBodyScrollBarVisibility();
                 gcMessages.RefreshDataSource();
             }
         }
 
-        private void MeReplyBody_TextChanged(object sender, EventArgs e)
+        private void MeResponseBody_TextChanged(object sender, EventArgs e)
         {
-            SetReplyBodyScrollBarVisibility();
+            SetResponseBodyScrollBarVisibility();
         }
 
         private void BtnReply_Click(object sender, EventArgs e)
         {
-            SetReplyBodyVisibility(true);
+            SetResponseBodyVisibility(true);
             SetMessageBodyScrollBarVisibility();
         }
 
-        private void MeReplyBody_Leave(object sender, EventArgs e)
+        //private void MeReplyBody_Leave(object sender, EventArgs e)
+        //{
+        //    meReplyBody.Text = "";
+        //    SetReplyBodyVisibility(false);
+        //    SetMessageBodyScrollBarVisibility();
+        //}
+
+        private void BtnSendResponse_Click(object sender, EventArgs e)
         {
-            meReplyBody.Text = "";
-            SetReplyBodyVisibility(false);
+            var focusedMessage = wevMessages.GetFocusedRow() as TheMessage;
+            var responseMessage = new TheMessage();
+            responseMessage.Body = meResponseBody.Text;
+            responseMessage.FromAddress = focusedMessage.ToAddress;
+            responseMessage.FromDisplayName = $"ФрэдроКлиент: {focusedMessage.ToDisplayName}";
+            responseMessage.ToAddress = focusedMessage.FromAddress;
+            responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
+            responseMessage.Subject = focusedMessage.Subject;
+            _model.SendNew(responseMessage, _model.Login, _model.Password);
+
+            meResponseBody.Text = "";
+            SetResponseBodyVisibility(false);
             SetMessageBodyScrollBarVisibility();
         }
 
-        private sealed class MessageTypes
+        private sealed class Folders
         {
-            public string MessageType { get; set; }
+            public string Caption { get; set; }
 
-            public MessageTypes(string messageType)
+            public Folders(string caption)
             {
-                MessageType = messageType;
+                Caption = caption;
             }
         }
 
