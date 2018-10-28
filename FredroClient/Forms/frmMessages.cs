@@ -1,5 +1,6 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors.ViewInfo;
+using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
 using FredroClient.Models;
 using System;
@@ -11,6 +12,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +26,7 @@ namespace FredroClient.Forms
             gcMessages.DataSource = messages;
             gcMessageTypes.DataSource = new List<MessageTypes>()
             {
-                new MessageTypes("Входящие"),
+                new MessageTypes($"Входящие                 {messages.Count.ToString()}"),
                 new MessageTypes("Готовые"),
                 new MessageTypes("Отправленные"),
                 new MessageTypes("Удалённые")
@@ -43,6 +45,7 @@ namespace FredroClient.Forms
         private void InitEvents()
         {
             wevMessages.FocusedRowChanged += WevMessages_FocusedRowChanged;
+            btnReply.Click += BtnReply_Click;
         }
 
         private void SetScrollBarVisibility()
@@ -63,14 +66,21 @@ namespace FredroClient.Forms
             {
                 var row = wevMessages.GetFocusedRow() as TheMessage;
                 row.IsRead = true;
-                labelSubject.Text = row.Subject;
+                labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "...": row.Subject;
+                labelSubject.ToolTip = row.Subject;
                 labelFrom.Text = row.FromFullRaw;
-                labelTo.Text = $"кому: {row.To}";
-                labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
+                labelTo.Text = $"кому: {row.To}".Length > 85 ? $"кому: {row.To}".Substring(0, 85) + "..." : $"кому: {row.To}";
+                labelTo.ToolTip = $"кому: {row.To}";
+                labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
                 meBody.Text = row.Body;
                 SetScrollBarVisibility();
                 gcMessages.RefreshDataSource();
             }
+        }
+
+        private void BtnReply_Click(object sender, EventArgs e)
+        {
+            lciReplyBody.Visibility = LayoutVisibility.Always;
         }
 
         private sealed class MessageTypes

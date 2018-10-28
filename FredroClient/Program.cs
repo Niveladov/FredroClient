@@ -1,7 +1,9 @@
 ﻿using DevExpress.LookAndFeel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,6 +23,10 @@ namespace FredroClient
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("Sharp Plus");
+            //new CultureInfo("ru-RU");
+            CultureInfo culture = CultureInfo.GetCultureInfo("ru-RU");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
             Application.Run(new Forms.frmStart());
         }
