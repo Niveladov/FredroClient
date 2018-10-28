@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils.Drawing;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
@@ -130,19 +131,27 @@ namespace FredroClient.Forms
 
         private void BtnSendResponse_Click(object sender, EventArgs e)
         {
-            var focusedMessage = wevMessages.GetFocusedRow() as TheMessage;
-            var responseMessage = new TheMessage();
-            responseMessage.Body = meResponseBody.Text;
-            responseMessage.FromAddress = focusedMessage.ToAddress;
-            responseMessage.FromDisplayName = $"ФрэдроКлиент: {focusedMessage.ToDisplayName}";
-            responseMessage.ToAddress = focusedMessage.FromAddress;
-            responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
-            responseMessage.Subject = focusedMessage.Subject;
-            _model.SendNew(responseMessage, _model.Login, _model.Password);
+            if (!string.IsNullOrWhiteSpace(meResponseBody.Text))
+            {
+                var focusedMessage = wevMessages.GetFocusedRow() as TheMessage;
+                var responseMessage = new TheMessage();
+                responseMessage.Body = meResponseBody.Text;
+                responseMessage.FromAddress = focusedMessage.ToAddress;
+                responseMessage.FromDisplayName = $"ФрэдроКлиент: {focusedMessage.ToDisplayName}";
+                responseMessage.ToAddress = focusedMessage.FromAddress;
+                responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
+                responseMessage.Subject = focusedMessage.Subject;
+                _model.SendNew(responseMessage, _model.Login, _model.Password);
 
-            meResponseBody.Text = "";
-            SetResponseBodyVisibility(false);
-            SetMessageBodyScrollBarVisibility();
+                meResponseBody.Text = "";
+                SetResponseBodyVisibility(false);
+                SetMessageBodyScrollBarVisibility();
+            }
+            else
+            {
+                XtraMessageBox.Show("Нельзя отправить пустой ответ!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private sealed class Folders
