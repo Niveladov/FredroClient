@@ -65,11 +65,11 @@
             this.lciReply = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciResend = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciRemove = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.esMessageButtons = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciAddClient = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAddDeal = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAddTask = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.esClientButtons = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciMove = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciResponseBody = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciSendResponse = new DevExpress.XtraLayout.LayoutControlItem();
@@ -127,11 +127,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciReply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esMessageButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddTask)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esClientButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResponseBody)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendResponse)).BeginInit();
@@ -468,11 +468,11 @@
             this.lciReply,
             this.lciResend,
             this.lciRemove,
-            this.emptySpaceItem2,
+            this.esMessageButtons,
             this.lciAddClient,
             this.lciAddDeal,
             this.lciAddTask,
-            this.emptySpaceItem3,
+            this.esClientButtons,
             this.lciMove,
             this.lciResponseBody,
             this.lciSendResponse,
@@ -599,13 +599,13 @@
             this.lciRemove.TextSize = new System.Drawing.Size(0, 0);
             this.lciRemove.TextVisible = false;
             // 
-            // emptySpaceItem2
+            // esMessageButtons
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(493, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(45, 32);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.esMessageButtons.AllowHotTrack = false;
+            this.esMessageButtons.Location = new System.Drawing.Point(493, 0);
+            this.esMessageButtons.Name = "esMessageButtons";
+            this.esMessageButtons.Size = new System.Drawing.Size(45, 32);
+            this.esMessageButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciAddClient
             // 
@@ -643,13 +643,13 @@
             this.lciAddTask.TextSize = new System.Drawing.Size(0, 0);
             this.lciAddTask.TextVisible = false;
             // 
-            // emptySpaceItem3
+            // esClientButtons
             // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(375, 118);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(163, 32);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.esClientButtons.AllowHotTrack = false;
+            this.esClientButtons.Location = new System.Drawing.Point(375, 118);
+            this.esClientButtons.Name = "esClientButtons";
+            this.esClientButtons.Size = new System.Drawing.Size(163, 32);
+            this.esClientButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciMove
             // 
@@ -1115,11 +1115,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciReply)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esMessageButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddTask)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esClientButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMove)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResponseBody)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendResponse)).EndInit();
@@ -1193,14 +1193,14 @@
         private DevExpress.XtraLayout.LayoutControlItem lciReply;
         private DevExpress.XtraLayout.LayoutControlItem lciResend;
         private DevExpress.XtraLayout.LayoutControlItem lciRemove;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem esMessageButtons;
         private DevExpress.XtraEditors.SimpleButton btnAddTask;
         private DevExpress.XtraEditors.SimpleButton btnAddDeal;
         private DevExpress.XtraEditors.SimpleButton btnAddClient;
         private DevExpress.XtraLayout.LayoutControlItem lciAddDeal;
         private DevExpress.XtraLayout.LayoutControlItem lciAddTask;
         private DevExpress.XtraLayout.LayoutControlItem lciAddClient;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraLayout.EmptySpaceItem esClientButtons;
         private DevExpress.XtraEditors.DropDownButton ddbMove;
         private DevExpress.XtraLayout.LayoutControlItem lciMove;
         private DevExpress.XtraEditors.SplitContainerControl splitMain;

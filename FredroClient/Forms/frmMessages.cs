@@ -56,6 +56,7 @@ namespace FredroClient.Forms
             wevMessages.FocusedRowChanged += WevMessages_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
+            btnSendNew.Click += BtnSendNew_Click;
             //meReplyBody.Leave += MeReplyBody_Leave;
             //meReplyBody.LostFocus += MeReplyBody_LostFocus;
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
@@ -122,12 +123,10 @@ namespace FredroClient.Forms
             SetMessageBodyScrollBarVisibility();
         }
 
-        //private void MeReplyBody_Leave(object sender, EventArgs e)
-        //{
-        //    meReplyBody.Text = "";
-        //    SetReplyBodyVisibility(false);
-        //    SetMessageBodyScrollBarVisibility();
-        //}
+        private void BtnSendNew_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
 
         private void BtnSendResponse_Click(object sender, EventArgs e)
         {
