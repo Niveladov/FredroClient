@@ -77,7 +77,7 @@ namespace FredroClient.Forms
         private void SetResponseBodyScrollBarVisibility()
         {
             MemoEditViewInfo vi = this.meResponseBody.GetViewInfo() as MemoEditViewInfo;
-            GraphicsCache cache = new GraphicsCache(meBody.CreateGraphics());
+            GraphicsCache cache = new GraphicsCache(meResponseBody.CreateGraphics());
             int h = (vi as IHeightAdaptable).CalcHeight(cache, vi.MaskBoxRect.Width);
             ObjectInfoArgs args = new ObjectInfoArgs();
             args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
