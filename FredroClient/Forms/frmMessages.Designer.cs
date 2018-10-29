@@ -90,6 +90,7 @@
             this.tsslRightText = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelTop = new DevExpress.XtraEditors.PanelControl();
             this.lcTopPanel = new DevExpress.XtraLayout.LayoutControl();
+            this.labelFredro = new DevExpress.XtraEditors.LabelControl();
             this.peFredroLabel = new DevExpress.XtraEditors.PictureEdit();
             this.peSettings = new DevExpress.XtraEditors.PictureEdit();
             this.peAva = new DevExpress.XtraEditors.PictureEdit();
@@ -99,6 +100,8 @@
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciSettings = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFredroLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciSplitMain = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPanelTop = new DevExpress.XtraLayout.LayoutControlItem();
@@ -158,6 +161,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFredroLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).BeginInit();
@@ -672,8 +677,11 @@
             // 
             this.lciSendResponse.Control = this.btnSendResponse;
             this.lciSendResponse.Location = new System.Drawing.Point(439, 552);
+            this.lciSendResponse.MaxSize = new System.Drawing.Size(99, 32);
+            this.lciSendResponse.MinSize = new System.Drawing.Size(99, 32);
             this.lciSendResponse.Name = "lciSendResponse";
             this.lciSendResponse.Size = new System.Drawing.Size(99, 32);
+            this.lciSendResponse.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciSendResponse.TextSize = new System.Drawing.Size(0, 0);
             this.lciSendResponse.TextVisible = false;
             // 
@@ -859,6 +867,7 @@
             // 
             // lcTopPanel
             // 
+            this.lcTopPanel.Controls.Add(this.labelFredro);
             this.lcTopPanel.Controls.Add(this.peFredroLabel);
             this.lcTopPanel.Controls.Add(this.peSettings);
             this.lcTopPanel.Controls.Add(this.peAva);
@@ -870,10 +879,21 @@
             this.lcTopPanel.TabIndex = 1;
             this.lcTopPanel.Text = "layoutControl1";
             // 
+            // labelFredro
+            // 
+            this.labelFredro.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelFredro.Appearance.ForeColor = System.Drawing.Color.LavenderBlush;
+            this.labelFredro.Location = new System.Drawing.Point(136, 4);
+            this.labelFredro.Name = "labelFredro";
+            this.labelFredro.Size = new System.Drawing.Size(207, 28);
+            this.labelFredro.StyleController = this.lcTopPanel;
+            this.labelFredro.TabIndex = 7;
+            this.labelFredro.Text = "Фрэдро клиент";
+            // 
             // peFredroLabel
             // 
             this.peFredroLabel.EditValue = global::FredroClient.Properties.Resources.FredroClient3;
-            this.peFredroLabel.Location = new System.Drawing.Point(2, 2);
+            this.peFredroLabel.Location = new System.Drawing.Point(12, 2);
             this.peFredroLabel.Name = "peFredroLabel";
             this.peFredroLabel.Properties.AllowFocused = false;
             this.peFredroLabel.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -887,6 +907,7 @@
             // 
             // peSettings
             // 
+            this.peSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.peSettings.EditValue = global::FredroClient.Properties.Resources.menu_icon3_64x64;
             this.peSettings.Location = new System.Drawing.Point(1104, 8);
             this.peSettings.Name = "peSettings";
@@ -902,6 +923,7 @@
             // 
             // peAva
             // 
+            this.peAva.Cursor = System.Windows.Forms.Cursors.Hand;
             this.peAva.EditValue = ((object)(resources.GetObject("peAva.EditValue")));
             this.peAva.Location = new System.Drawing.Point(1134, 2);
             this.peAva.Name = "peAva";
@@ -924,7 +946,9 @@
             this.emptySpaceItem4,
             this.emptySpaceItem5,
             this.lciSettings,
-            this.lciFredroLabel});
+            this.lciFredroLabel,
+            this.lciLabel,
+            this.emptySpaceItem6});
             this.lcgTopPanel.Location = new System.Drawing.Point(0, 0);
             this.lcgTopPanel.Name = "lcgTopPanel";
             this.lcgTopPanel.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -946,9 +970,9 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(122, 0);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(347, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(974, 36);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(749, 36);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
@@ -978,7 +1002,7 @@
             // lciFredroLabel
             // 
             this.lciFredroLabel.Control = this.peFredroLabel;
-            this.lciFredroLabel.Location = new System.Drawing.Point(0, 0);
+            this.lciFredroLabel.Location = new System.Drawing.Point(10, 0);
             this.lciFredroLabel.MaxSize = new System.Drawing.Size(122, 36);
             this.lciFredroLabel.MinSize = new System.Drawing.Size(122, 36);
             this.lciFredroLabel.Name = "lciFredroLabel";
@@ -986,6 +1010,30 @@
             this.lciFredroLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciFredroLabel.TextSize = new System.Drawing.Size(0, 0);
             this.lciFredroLabel.TextVisible = false;
+            this.lciFredroLabel.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // lciLabel
+            // 
+            this.lciLabel.Control = this.labelFredro;
+            this.lciLabel.Location = new System.Drawing.Point(132, 0);
+            this.lciLabel.MinSize = new System.Drawing.Size(215, 32);
+            this.lciLabel.Name = "lciLabel";
+            this.lciLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.lciLabel.Size = new System.Drawing.Size(215, 36);
+            this.lciLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.lciLabel.TextVisible = false;
+            // 
+            // emptySpaceItem6
+            // 
+            this.emptySpaceItem6.AllowHotTrack = false;
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem6.MaxSize = new System.Drawing.Size(10, 0);
+            this.emptySpaceItem6.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem6.Name = "emptySpaceItem6";
+            this.emptySpaceItem6.Size = new System.Drawing.Size(10, 36);
+            this.emptySpaceItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lcgMain
             // 
@@ -1102,6 +1150,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFredroLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).EndInit();
@@ -1186,5 +1236,8 @@
         private DevExpress.XtraLayout.LayoutControlItem lciSettings;
         private DevExpress.XtraEditors.PictureEdit peFredroLabel;
         private DevExpress.XtraLayout.LayoutControlItem lciFredroLabel;
+        private DevExpress.XtraEditors.LabelControl labelFredro;
+        private DevExpress.XtraLayout.LayoutControlItem lciLabel;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
     }
 }
