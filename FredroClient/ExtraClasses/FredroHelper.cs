@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace FredroClient.ExtraClasses
@@ -184,6 +185,10 @@ namespace FredroClient.ExtraClasses
             theMessage.Subject = message.Headers.Subject;
             theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??
                                 htmlTextParts.FirstOrDefault()?.GetBodyAsText();
+
+            var messageBytes = message.RawMessage;
+            var messageString = Encoding.UTF8.GetString(messageBytes);
+            
             return theMessage;
         }
 
