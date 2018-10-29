@@ -125,7 +125,10 @@ namespace FredroClient.Forms
 
         private void BtnSendNew_Click(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            using (var frm = new frmSendNew())
+            {
+                frm.ShowDialog();
+            }
         }
 
         private void BtnSendResponse_Click(object sender, EventArgs e)

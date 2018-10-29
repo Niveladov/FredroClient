@@ -103,6 +103,12 @@
     <Compile Include="Forms\frmMessages.Designer.cs">
       <DependentUpon>frmMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSendNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSendNew.Designer.cs">
+      <DependentUpon>frmSendNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMessages.resx">
       <DependentUpon>frmMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSendNew.resx">
+      <DependentUpon>frmSendNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStart.resx">
       <DependentUpon>frmStart.cs</DependentUpon>

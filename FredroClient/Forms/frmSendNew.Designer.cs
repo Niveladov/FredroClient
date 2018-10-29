@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
             this.Name = "frmSendNew";
-            this.Text = "frmSendNew";
+            this.Text = "Новое сообщение";
             this.ResumeLayout(false);
 
         }
