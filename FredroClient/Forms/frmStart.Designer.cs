@@ -121,9 +121,9 @@
             // 
             this.btnCancel.AllowFocus = false;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Location = new System.Drawing.Point(128, 198);
+            this.btnCancel.Location = new System.Drawing.Point(184, 198);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(325, 28);
+            this.btnCancel.Size = new System.Drawing.Size(213, 28);
             this.btnCancel.StyleController = this.lcMain;
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Закрыть";
@@ -133,9 +133,9 @@
             // 
             this.btnEnter.AllowFocus = false;
             this.btnEnter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEnter.Location = new System.Drawing.Point(128, 160);
+            this.btnEnter.Location = new System.Drawing.Point(184, 160);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(325, 28);
+            this.btnEnter.Size = new System.Drawing.Size(213, 28);
             this.btnEnter.StyleController = this.lcMain;
             this.btnEnter.TabIndex = 7;
             this.btnEnter.Text = "Войти";
@@ -183,11 +183,11 @@
             columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition1.Width = 10D;
             columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition2.Width = 10D;
+            columnDefinition2.Width = 20D;
             columnDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition3.Width = 60D;
+            columnDefinition3.Width = 40D;
             columnDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition4.Width = 10D;
+            columnDefinition4.Width = 20D;
             columnDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition5.Width = 10D;
             this.lcgMain.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
@@ -250,24 +250,30 @@
             // lciEnter
             // 
             this.lciEnter.Control = this.btnEnter;
-            this.lciEnter.Location = new System.Drawing.Point(111, 143);
+            this.lciEnter.Location = new System.Drawing.Point(167, 143);
+            this.lciEnter.MaxSize = new System.Drawing.Size(0, 38);
+            this.lciEnter.MinSize = new System.Drawing.Size(68, 38);
             this.lciEnter.Name = "lciEnter";
             this.lciEnter.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciEnter.OptionsTableLayoutItem.RowIndex = 4;
             this.lciEnter.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciEnter.Size = new System.Drawing.Size(335, 38);
+            this.lciEnter.Size = new System.Drawing.Size(223, 38);
+            this.lciEnter.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciEnter.TextSize = new System.Drawing.Size(0, 0);
             this.lciEnter.TextVisible = false;
             // 
             // lciCancel
             // 
             this.lciCancel.Control = this.btnCancel;
-            this.lciCancel.Location = new System.Drawing.Point(111, 181);
+            this.lciCancel.Location = new System.Drawing.Point(167, 181);
+            this.lciCancel.MaxSize = new System.Drawing.Size(0, 38);
+            this.lciCancel.MinSize = new System.Drawing.Size(85, 38);
             this.lciCancel.Name = "lciCancel";
             this.lciCancel.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciCancel.OptionsTableLayoutItem.RowIndex = 5;
             this.lciCancel.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciCancel.Size = new System.Drawing.Size(335, 38);
+            this.lciCancel.Size = new System.Drawing.Size(223, 38);
+            this.lciCancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCancel.TextSize = new System.Drawing.Size(0, 0);
             this.lciCancel.TextVisible = false;
             // 
