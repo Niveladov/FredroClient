@@ -29,37 +29,35 @@ namespace FredroClient.Forms
             InitializeComponent();
             _model = model;
             gcMessages.DataSource = _model.Messages;
+            var inMessCount = _model.Messages.Where(x => x.IsIncoming).Count();
+            var outMessCount = _model.Messages.Where(x => x.IsOutcoming).Count();
             gcFolders.DataSource = new List<Folder>()
             {
-                new Folder($"Входящие            {_model.Messages.Count.ToString()}"),
-                new Folder("Готовые"),
-                new Folder("Отправленные"),
-                new Folder("Удалённые")
+                new Folder($"Входящие            {inMessCount.ToString()}"),
+                new Folder($"Готовые"),
+                new Folder($"Отправленные     {outMessCount.ToString()}"),
+                new Folder($"Удалённые")
             };
-            Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             InitEvents();
+            wevFolders.FocusedRowHandle = 0;
             wevMessages.FocusedRowHandle = 0;
             meBody.BackColor = lcMessage.BackColor;
-            //statusStrip.BackColor = meReplyBody.BackColor;
             statusStrip.Items[0].Text = "Демо версия почтового клиента.";
             statusStrip.Items[1].Text = "Евгений Федорук, +7(952)383-23-01";
-            //panelTop.Appearance.BackColor = meReplyBody.BackColor;
-            //panelTop.Appearance.Options.UseBackColor = true;
         }
 
         private void InitEvents()
         {
+            wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             wevMessages.FocusedRowChanged += WevMessages_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
             btnSendNew.Click += BtnSendNew_Click;
-            //meReplyBody.Leave += MeReplyBody_Leave;
-            //meReplyBody.LostFocus += MeReplyBody_LostFocus;
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
         }
 
@@ -72,7 +70,8 @@ namespace FredroClient.Forms
             args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
             Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
             cache.Dispose();
-            meBody.Properties.ScrollBars = rect.Height > meBody.Height ? ScrollBars.Vertical : ScrollBars.None;
+            meBody.Properties.ScrollBars = rect.Height > meBody.Height ? 
+                ScrollBars.Vertical : ScrollBars.None;
         }
 
         private void SetResponseBodyScrollBarVisibility()
@@ -84,14 +83,26 @@ namespace FredroClient.Forms
             args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
             Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
             cache.Dispose();
-            meResponseBody.Properties.ScrollBars = rect.Height > meResponseBody.Height ? ScrollBars.Vertical : ScrollBars.None;
+            meResponseBody.Properties.ScrollBars = rect.Height > meResponseBody.Height ? 
+                ScrollBars.Vertical : ScrollBars.None;
         }
 
         private void SetResponseBodyVisibility(bool isVisible)
         {
 
-            lciResponseBody.Visibility = lciSendResponse.Visibility = esResponseArea.Visibility =
-                isVisible ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciResponseBody.Visibility = lciSendResponse.Visibility = 
+            esResponseArea.Visibility = isVisible ? 
+                LayoutVisibility.Always : LayoutVisibility.Never;
+        }
+
+        private void SetMessageButtonsVisibility(bool isVisible)
+        {
+            lciReply.Visibility = lciResend.Visibility =
+            lciRemove.Visibility = lciMove.Visibility =
+            lciAddClient.Visibility = lciAddDeal.Visibility =
+            lciAddTask.Visibility =  esMessageButtons.Visibility =
+            esClientButtons.Visibility = isVisible ? 
+                LayoutVisibility.Always : LayoutVisibility.Never;
         }
 
         private void WevMessages_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -110,6 +121,28 @@ namespace FredroClient.Forms
                 SetResponseBodyVisibility(false);
                 SetMessageBodyScrollBarVisibility();
                 gcMessages.RefreshDataSource();
+            }
+        }
+
+        private void WevFolders_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (wevFolders.IsDataRow(wevFolders.FocusedRowHandle))
+            {
+                wevFolders.FocusedRowChanged -= WevFolders_FocusedRowChanged;
+                var row = wevFolders.GetFocusedRow() as Folder;
+                if (row.Caption.Contains("Входящие"))
+                {
+                    SetMessageButtonsVisibility(true);
+                    gcMessages.DataSource = _model.Messages.Where(x => x.IsIncoming);
+                    Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                }
+                else if (row.Caption.Contains("Отправленные"))
+                {
+                    SetMessageButtonsVisibility(false);
+                    gcMessages.DataSource = _model.Messages.Where(x => x.IsOutcoming);
+                    Text = $"Отправленные - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                }
+                wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             }
         }
 

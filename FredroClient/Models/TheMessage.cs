@@ -41,6 +41,8 @@ namespace FredroClient.Models
         }
 
         public Bitmap  PictureMail { get; private set; } = Resources.unread_32x32;
+        public bool IsOutcoming { get; set; }
+        public bool IsIncoming { get; set; }
 
 
     }

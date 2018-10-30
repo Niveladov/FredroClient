@@ -70,7 +70,10 @@ namespace FredroClient.Models
             Messages = new List<TheMessage>();
             foreach (var message in messages)
             {
-                Messages.Add(message.GetTheMessage());
+                var mess = message.GetTheMessage();
+                mess.IsOutcoming = mess.FromAddress.Equals(Creds.Username);
+                mess.IsIncoming = mess.ToAddress.Equals(Creds.Username);
+                Messages.Add(mess);
             }
         }
 

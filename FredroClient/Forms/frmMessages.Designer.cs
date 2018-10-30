@@ -603,8 +603,11 @@
             // 
             this.esMessageButtons.AllowHotTrack = false;
             this.esMessageButtons.Location = new System.Drawing.Point(493, 0);
+            this.esMessageButtons.MaxSize = new System.Drawing.Size(0, 32);
+            this.esMessageButtons.MinSize = new System.Drawing.Size(10, 32);
             this.esMessageButtons.Name = "esMessageButtons";
             this.esMessageButtons.Size = new System.Drawing.Size(45, 32);
+            this.esMessageButtons.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.esMessageButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciAddClient
@@ -647,8 +650,11 @@
             // 
             this.esClientButtons.AllowHotTrack = false;
             this.esClientButtons.Location = new System.Drawing.Point(375, 118);
+            this.esClientButtons.MaxSize = new System.Drawing.Size(0, 32);
+            this.esClientButtons.MinSize = new System.Drawing.Size(10, 32);
             this.esClientButtons.Name = "esClientButtons";
             this.esClientButtons.Size = new System.Drawing.Size(163, 32);
+            this.esClientButtons.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.esClientButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciMove
