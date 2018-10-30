@@ -116,7 +116,7 @@
       <DependentUpon>frmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CredentialModel.cs" />
-    <Compile Include="Models\HostParameters.cs" />
+    <Compile Include="Models\ServerSettings.cs" />
     <Compile Include="Models\TheMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

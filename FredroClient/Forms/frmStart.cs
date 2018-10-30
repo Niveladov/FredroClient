@@ -63,22 +63,22 @@ namespace FredroClient.Forms
             images.AddImage(Properties.Resources.yandex_32x32);
 
             icbeHostname.Properties.LargeImages = images;
-            icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Hostname.gmail.GetDescription(), (int)Hostname.gmail, 0));
-            icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Hostname.mail.GetDescription(), (int)Hostname.mail, 1));
-            icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Hostname.yandex.GetDescription(), (int)Hostname.yandex, 2));
+            icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.gmail.GetDescription(), (int)Server.gmail, 0));
+            icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.mail.GetDescription(), (int)Server.mail, 1));
+            icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.yandex.GetDescription(), (int)Server.yandex, 2));
 
-            teLogin.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.Login), 
+            teLogin.DataBindings.Add(new Binding("EditValue", _model.Creds, nameof(_model.Creds.Username), 
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            tePassword.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.Password),
+            tePassword.DataBindings.Add(new Binding("EditValue", _model.Creds, nameof(_model.Creds.Password),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            icbeHostname.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.HostnameId),
+            icbeHostname.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.CurrentServerId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
         private void ShowMessages()
         {
             waitingHelper.Show();
-            _model.InitMessages();
+            _model.LoadMessages();
             waitingHelper.Hide();
             if (_model.Messages == null) return;
             using (var frm = new frmMessages(_model))

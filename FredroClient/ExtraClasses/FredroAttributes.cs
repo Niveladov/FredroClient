@@ -6,34 +6,17 @@ using System.Threading.Tasks;
 
 namespace FredroClient.ExtraClasses
 {
-    internal class PortAttribute : Attribute
+    internal sealed class PopAttribute : ProtocolAttribute { }
+
+    internal sealed class SmtpAttribute : ProtocolAttribute { }
+
+    internal sealed class ImapAttribute : ProtocolAttribute { }
+
+    internal abstract class ProtocolAttribute : Attribute
     {
-        public int Port { get; set; }
-
-        public PortAttribute(int port)
-        {
-            Port = port;
-        }
-    }
-
-    internal class HostAttribute : Attribute
-    {
-        public string Host { get; set; }
-
-        public HostAttribute(string host)
-        {
-            Host = host;
-        }
-    }
-
-    internal class UseSslAttribute : Attribute
-    {
+        public string Hostname { get; set; }
         public bool UseSsl { get; set; }
-
-        public UseSslAttribute(bool useSsl)
-        {
-            UseSsl = useSsl;
-        }
+        public int Port { get; set; }
     }
 
 

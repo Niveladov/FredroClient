@@ -1,61 +1,70 @@
-﻿using FredroClient.ExtraClasses;
+﻿using DevExpress.XtraEditors;
+using FredroClient.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FredroClient.Models
 {
     internal sealed class CredentialModel
     {
-        private Hostname? _currentServer { get; set; }
-
-        private int? _hostnameId = null;
-        public int? HostnameId
+        private int? _currentServerId = null;
+        public int? CurrentServerId
         {
-            get { return _hostnameId; }
+            get { return _currentServerId; }
             set
             {
-                if (value != _hostnameId)
+                if (value != _currentServerId)
                 {
-                    _hostnameId = value;
-                    _currentServer = (Hostname)_hostnameId;
+                    _currentServerId = value;
+                    RefreshServerSettings();
                 }
             }
         }
 
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public Credentials Creds { get; set; } = new Credentials();
         public List<TheMessage> Messages { get; private set; }
+        public ServerSettings Settings { get; private set; }
 
-        public void InitMessages()
+        private void RefreshServerSettings()
         {
-            HostParameters hostParams = null;
-            string username = "figamalum@gmail.com";
+            var currentServer = (Server)_currentServerId;
+            Settings = currentServer.GetServerSettings();
+        }
 
-            if(Login.Equals(1.ToString()))
+        public void LoadMessages()
+        {
+            string username = "";
+            if(Creds.Username.Equals(1.ToString()))
             {
-                Login = "figamalum@gmail.com";
-                hostParams = new HostParameters();
-                hostParams.Hostname = "pop.gmail.com";
-                hostParams.Port = 995;
-                hostParams.UseSsl = true;
+                Creds.Username = "figamalum@gmail.com";
+                Settings = new ServerSettings();
+                Settings.Pop.Hostname = "pop.gmail.com";
+                Settings.Pop.Port = 995;
+                Settings.Pop.UseSsl = true;
+                Settings.Smtp.Hostname = "smtp.gmail.com";
+                Settings.Smtp.Port = 587;
+                Settings.Smtp.UseSsl = true;
                 username = "recent:figamalum@gmail.com";
-                Password = "ghekkafigamalum1994";
-
+                Creds.Password = "ghekkafigamalum1994";
             }
             else
             {
-                hostParams = _currentServer.Value.GetHostParameters();
                 //"recent:" before username show messages 
                 //that were recieved during last 30 days messages
-                username = $"recent:{Login}";
-
+                username = $"recent:{Creds.Username}";
             }
-            var messages = FredroHelper.FetchAllMessages(hostParams.Hostname, hostParams.Port.Value,
-                hostParams.UseSsl.Value, username, Password);
+            if (Settings == null)
+            {
+                XtraMessageBox.Show("Не выбран почтовый сервер!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            var messages = FredroHelper.FetchAllMessages(Settings.Pop.Hostname, Settings.Pop.Port,
+                Settings.Pop.UseSsl, username, Creds.Password);
             if (messages == null) return;
             
             Messages = new List<TheMessage>();
@@ -65,10 +74,12 @@ namespace FredroClient.Models
             }
         }
 
-        public void SendNew(TheMessage message, string login, string password)
-        {
-            FredroHelper.SendEmailAsync(message, login, password).GetAwaiter();
-        }
-
     }
+
+    internal sealed class Credentials
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+
 }

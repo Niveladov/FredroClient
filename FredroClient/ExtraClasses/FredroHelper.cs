@@ -39,51 +39,54 @@ namespace FredroClient.ExtraClasses
             return enumerationValue.ToString();
         }
 
-        public static HostParameters GetHostParameters(this Enum enumValue)
+        public static ServerSettings GetServerSettings(this Enum enumValue)
         {
-            HostParameters hostParams = new HostParameters();
+            ServerSettings serverSettings = new ServerSettings();
             MemberInfo[] memberInfo = enumValue.GetType().GetMember(enumValue.ToString());
             if (memberInfo != null && memberInfo.Length > 0)
             {
-                object[] hostAttrs = memberInfo[0].GetCustomAttributes(typeof(HostAttribute), false);
-                if (hostAttrs != null && hostAttrs.Length > 0)
+                object[] protocolAttrs = memberInfo[0].GetCustomAttributes(typeof(ProtocolAttribute), true);
+                if (protocolAttrs != null && protocolAttrs.Length > 0)
                 {
-                    hostParams.Hostname = ((HostAttribute)hostAttrs[0]).Host;
-                }
-                object[] useSslAttrs = memberInfo[0].GetCustomAttributes(typeof(UseSslAttribute), false);
-                if (useSslAttrs != null && useSslAttrs.Length > 0)
-                {
-                    hostParams.UseSsl = ((UseSslAttribute)useSslAttrs[0]).UseSsl;
-                }
-                object[] portAttrs = memberInfo[0].GetCustomAttributes(typeof(PortAttribute), false);
-                if (portAttrs != null && portAttrs.Length > 0)
-                {
-                    hostParams.Port = ((PortAttribute)portAttrs[0]).Port;
+                    var popAttr = protocolAttrs.OfType<PopAttribute>().Single();
+                    serverSettings.Pop.Hostname = popAttr.Hostname;
+                    serverSettings.Pop.UseSsl = popAttr.UseSsl;
+                    serverSettings.Pop.Port = popAttr.Port;
+
+                    var smtpAttr = protocolAttrs.OfType<SmtpAttribute>().Single();
+                    serverSettings.Smtp.Hostname = smtpAttr.Hostname;
+                    serverSettings.Smtp.UseSsl = smtpAttr.UseSsl;
+                    serverSettings.Smtp.Port = smtpAttr.Port;
+
+                    var imapAttr = protocolAttrs.OfType<ImapAttribute>().Single();
+                    serverSettings.Imap.Hostname = imapAttr.Hostname;
+                    serverSettings.Imap.UseSsl = imapAttr.UseSsl;
+                    serverSettings.Imap.Port = imapAttr.Port;
                 }
             }
-            return hostParams;
+            return serverSettings;
         }
 
-        public static int GetPort<T>(this T enumerationValue) where T : struct
-        {
-            Type type = enumerationValue.GetType();
-            if (!type.IsEnum)
-            {
-                throw new ArgumentException("EnumerationValue must be of Enum type", "enumerationValue");
-            }
+        //public static int GetPort<T>(this T enumerationValue) where T : struct
+        //{
+        //    Type type = enumerationValue.GetType();
+        //    if (!type.IsEnum)
+        //    {
+        //        throw new ArgumentException("EnumerationValue must be of Enum type", "enumerationValue");
+        //    }
 
-            MemberInfo[] memberInfo = type.GetMember(enumerationValue.ToString());
-            if (memberInfo != null && memberInfo.Length > 0)
-            {
-                object[] attrs = memberInfo[0].GetCustomAttributes(typeof(PortAttribute), false);
+        //    MemberInfo[] memberInfo = type.GetMember(enumerationValue.ToString());
+        //    if (memberInfo != null && memberInfo.Length > 0)
+        //    {
+        //        object[] attrs = memberInfo[0].GetCustomAttributes(typeof(PortAttribute), false);
 
-                if (attrs != null && attrs.Length > 0)
-                {
-                    return ((PortAttribute)attrs[0]).Port;
-                }
-            }
-            return -1;
-        }
+        //        if (attrs != null && attrs.Length > 0)
+        //        {
+        //            return ((PortAttribute)attrs[0]).Port;
+        //        }
+        //    }
+        //    return -1;
+        //}
 
         internal static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
         {
@@ -119,55 +122,33 @@ namespace FredroClient.ExtraClasses
             }
         }
 
-        public static async Task SendEmailAsync(TheMessage message, string login, string password)
+        public static async Task SendEmailAsync(TheMessage message, Credentials creds, SmtpProtocol smtp)
         {
-            // отправитель - устанавливаем адрес и отображаемое в письме имя
-            MailAddress from = new MailAddress(message.FromAddress, message.FromDisplayName);
-            // кому отправляем
-            MailAddress to = new MailAddress(message.ToAddress);
-            // создаем объект сообщения
-            MailMessage m = new MailMessage(from, to);
-            //вложения
-            //m.Attachments.Add(new Attachment("E://colors.txt"));
-            // тема письма
-            m.Subject = message.Subject;
-            // текст письма
-            m.Body = message.Body;
-            // письмо представляет код html
-            m.IsBodyHtml = true;
-            // адрес smtp-сервера и порт, с которого будем отправлять письмо
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            //SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
-            // логин и пароль
-            smtp.Credentials = new NetworkCredential(login, password);
-            smtp.EnableSsl = true;
-            await smtp.SendMailAsync(m);
-            XtraMessageBox.Show("Письмо отправлено!", "Успешно", 
-                System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            try
+            {
+                MailAddress from = new MailAddress(message.FromAddress, message.FromDisplayName);
+                MailAddress to = new MailAddress(message.ToAddress);
+                MailMessage m = new MailMessage(from, to);
 
-            // отправитель - устанавливаем адрес и отображаемое в письме имя
-            //MailAddress from = new MailAddress("ghekka@mail.ru", "Eugeen");
-            // кому отправляем
-            //MailAddress to = new MailAddress("figamalum@gmail.com");
-            // создаем объект сообщения
-            //MailMessage m = new MailMessage(from, to);
-            //вложения
-            //m.Attachments.Add(new Attachment("E://colors.txt"));
-            // тема письма
-            //m.Subject = "Второй";
-            // текст письма
-            //m.Body = "<h2>Второе письмо-тест работы smtp-клиента</h2>";
-            // письмо представляет код html
-            //m.IsBodyHtml = true;
-            // адрес smtp-сервера и порт, с которого будем отправлять письмо
-            //SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
-            // логин и пароль
-            //smtp.Credentials = new NetworkCredential("ghekka@mail.ru", "24021974ghekka");
-            //smtp.EnableSsl = true;
-            //await smtp.SendMailAsync(m);
-            //Console.WriteLine("Письмо отправлено");
+                //m.Attachments.Add(new Attachment("E://colors.txt"));
+                m.Subject = message.Subject;
+                m.Body = message.Body;
+                m.IsBodyHtml = true;
+
+                SmtpClient smtpClient = new SmtpClient(smtp.Hostname, smtp.Port);
+                smtpClient.Credentials = new NetworkCredential(creds.Username, creds.Password);
+                smtpClient.EnableSsl = smtp.UseSsl;
+                await smtpClient.SendMailAsync(m);
+                XtraMessageBox.Show("Письмо отправлено!", "Успешно",
+                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Ошибка",
+                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
         }
-        
+
         internal static TheMessage GetTheMessage(this Message message)
         {
             var attachmentParts = message.FindAllAttachments();
@@ -186,21 +167,24 @@ namespace FredroClient.ExtraClasses
             theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??
                                 htmlTextParts.FirstOrDefault()?.GetBodyAsText();
             //---↓↓↓---костыль---↓↓↓---
-            if (theMessage.FromDisplayName.Contains("??"))
+            if (theMessage.FromDisplayName.Contains("??") || theMessage.Subject.Contains("??"))
             {
                 var messageBytes = message.RawMessage;
                 var messageString = Encoding.UTF8.GetString(messageBytes);
-                var regex = new Regex("From:\\s(.*)\r\n");
-                var match = regex.Match(messageString);
-                var fullMatchString = match.Value.Trim().Substring(6); //6 = "From: ".length
-                theMessage.FromFullRaw = fullMatchString;
-                theMessage.FromDisplayName = fullMatchString.Substring(0, fullMatchString.IndexOf('<') - 1);
+                if (theMessage.FromDisplayName.Contains("??"))
+                {
+                    var regexFrom = new Regex("From:\\s(.*)\r\n");
+                    var matchFrom = regexFrom.Match(messageString);
+                    var fullFromString = matchFrom.Value.Trim().Substring(6).Replace("\"", ""); //6 = "From: ".length
+                    theMessage.FromFullRaw = fullFromString;
+                    theMessage.FromDisplayName = fullFromString.Substring(0, fullFromString.IndexOf('<') - 1);
+                }
                 if (theMessage.Subject.Contains("??"))
                 {
-                    regex = new Regex("Subject:\\s(.*)\r\n");
-                    match = regex.Match(messageString);
-                    fullMatchString = match.Value.Trim().Substring(9); // = "Subject: ".length
-                    theMessage.Subject = fullMatchString;
+                    var regexSubj = new Regex("Subject:\\s(.*)\r\n");
+                    var matchSubj = regexSubj.Match(messageString);
+                    var fullSubjString = matchSubj.Value.Trim().Substring(9); // = "Subject: ".length
+                    theMessage.Subject = fullSubjString;
                 }
             }
             //---↑↑↑---костыль---↑↑↑---

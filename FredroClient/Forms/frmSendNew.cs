@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.BaseGUI;
+using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using System;
 using System.Collections.Generic;
@@ -17,12 +18,14 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmSendNew : FredroBaseXtraForm
     {
-        private readonly CredentialModel _model;
+        private readonly Credentials _creds;
+        private readonly SmtpProtocol _smtp;
 
-        public frmSendNew(CredentialModel model)
+        public frmSendNew(Credentials creds, SmtpProtocol smtp)
         {
             InitializeComponent();
-            _model = model;
+            _creds = creds;
+            _smtp = smtp;
             InitEvents();
         }
 
@@ -50,11 +53,13 @@ namespace FredroClient.Forms
             {
                 var responseMessage = new TheMessage();
                 responseMessage.Body = meBody.Text;
-                responseMessage.FromAddress = _model.Login;
+                responseMessage.FromAddress = _creds.Username;
                 responseMessage.FromDisplayName = "ФрэдроКлиент";
                 responseMessage.ToAddress = teTo.Text;
                 responseMessage.Subject = teSubject.Text;
-                _model.SendNew(responseMessage, _model.Login, _model.Password);
+
+                FredroHelper.SendEmailAsync(responseMessage, _creds, _smtp).GetAwaiter();
+                
                 Close();
             }
             else

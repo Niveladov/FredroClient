@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
+using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using System;
 using System.Collections.Generic;
@@ -28,14 +29,14 @@ namespace FredroClient.Forms
             InitializeComponent();
             _model = model;
             gcMessages.DataSource = _model.Messages;
-            gcFolders.DataSource = new List<Folders>()
+            gcFolders.DataSource = new List<Folder>()
             {
-                new Folders($"Входящие                 {_model.Messages.Count.ToString()}"),
-                new Folders("Готовые"),
-                new Folders("Отправленные"),
-                new Folders("Удалённые")
+                new Folder($"Входящие            {_model.Messages.Count.ToString()}"),
+                new Folder("Готовые"),
+                new Folder("Отправленные"),
+                new Folder("Удалённые")
             };
-            Text = $"Входящие - {_model.Login} - Почтовый бизнес-клиент";
+            Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
         }
 
         protected override void OnLoad(EventArgs e)
@@ -125,7 +126,7 @@ namespace FredroClient.Forms
 
         private void BtnSendNew_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmSendNew(_model))
+            using (var frm = new frmSendNew(_model.Creds, _model.Settings.Smtp))
             {
                 frm.ShowDialog();
             }
@@ -143,7 +144,8 @@ namespace FredroClient.Forms
                 responseMessage.ToAddress = focusedMessage.FromAddress;
                 responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
                 responseMessage.Subject = focusedMessage.Subject;
-                _model.SendNew(responseMessage, _model.Login, _model.Password);
+
+                FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp).GetAwaiter();
 
                 meResponseBody.Text = "";
                 SetResponseBodyVisibility(false);
@@ -156,11 +158,11 @@ namespace FredroClient.Forms
             }
         }
 
-        private sealed class Folders
+        private sealed class Folder
         {
             public string Caption { get; set; }
 
-            public Folders(string caption)
+            public Folder(string caption)
             {
                 Caption = caption;
             }
