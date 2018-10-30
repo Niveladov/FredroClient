@@ -39,7 +39,7 @@ namespace FredroClient.Models
         public void LoadMessages()
         {
             string username = "";
-            if(Creds.Username.Equals(1.ToString()))
+            if(Creds.Username.Equals(7.ToString()))
             {
                 Creds.Username = "figamalum@gmail.com";
                 Settings = new ServerSettings();
