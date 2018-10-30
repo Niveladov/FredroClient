@@ -139,7 +139,7 @@ namespace FredroClient.Forms
                 var responseMessage = new TheMessage();
                 responseMessage.Body = meResponseBody.Text;
                 responseMessage.FromAddress = focusedMessage.ToAddress;
-                responseMessage.FromDisplayName = $"ФрэдроКлиент: {focusedMessage.ToDisplayName}";
+                responseMessage.FromDisplayName = $"ФрэдроКлиент";
                 responseMessage.ToAddress = focusedMessage.FromAddress;
                 responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
                 responseMessage.Subject = focusedMessage.Subject;

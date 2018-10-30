@@ -51,7 +51,7 @@ namespace FredroClient.Forms
                 var responseMessage = new TheMessage();
                 responseMessage.Body = meBody.Text;
                 responseMessage.FromAddress = _model.Login;
-                responseMessage.FromDisplayName = $"ФрэдроКлиент";
+                responseMessage.FromDisplayName = "ФрэдроКлиент";
                 responseMessage.ToAddress = teTo.Text;
                 responseMessage.Subject = teSubject.Text;
                 _model.SendNew(responseMessage, _model.Login, _model.Password);

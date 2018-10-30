@@ -185,10 +185,25 @@ namespace FredroClient.ExtraClasses
             theMessage.Subject = message.Headers.Subject;
             theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??
                                 htmlTextParts.FirstOrDefault()?.GetBodyAsText();
-
-            var messageBytes = message.RawMessage;
-            var messageString = Encoding.UTF8.GetString(messageBytes);
-            
+            //---↓↓↓---костыль---↓↓↓---
+            if (theMessage.FromDisplayName.Contains("??"))
+            {
+                var messageBytes = message.RawMessage;
+                var messageString = Encoding.UTF8.GetString(messageBytes);
+                var regex = new Regex("From:\\s(.*)\r\n");
+                var match = regex.Match(messageString);
+                var fullMatchString = match.Value.Trim().Substring(6); //6 = "From: ".length
+                theMessage.FromFullRaw = fullMatchString;
+                theMessage.FromDisplayName = fullMatchString.Substring(0, fullMatchString.IndexOf('<') - 1);
+                if (theMessage.Subject.Contains("??"))
+                {
+                    regex = new Regex("Subject:\\s(.*)\r\n");
+                    match = regex.Match(messageString);
+                    fullMatchString = match.Value.Trim().Substring(9); // = "Subject: ".length
+                    theMessage.Subject = fullMatchString;
+                }
+            }
+            //---↑↑↑---костыль---↑↑↑---
             return theMessage;
         }
 
