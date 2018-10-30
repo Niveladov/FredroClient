@@ -159,9 +159,9 @@ namespace FredroClient.ExtraClasses
             theMessage.FromFullRaw = message.Headers.From.Raw;
             theMessage.FromAddress = message.Headers.From.Address;
             theMessage.FromDisplayName = message.Headers.From.DisplayName;
-            theMessage.ToFullRaw = message.Headers.To.First().Raw;
-            theMessage.ToAddress = message.Headers.To.First().Address;
-            theMessage.ToDisplayName = message.Headers.To.First().DisplayName;
+            theMessage.ToFullRaw = message.Headers.To.FirstOrDefault()?.Raw;
+            theMessage.ToAddress = message.Headers.To.FirstOrDefault()?.Address;
+            theMessage.ToDisplayName = message.Headers.To.FirstOrDefault()?.DisplayName;
             theMessage.Date = message.Headers.DateSent;
             theMessage.Subject = message.Headers.Subject;
             theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??

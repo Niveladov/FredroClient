@@ -56,7 +56,7 @@ namespace FredroClient.Models
             {
                 //"recent:" before username show messages 
                 //that were recieved during last 30 days messages
-                username = $"recent:{Creds.Username}";
+                username = _currentServerId == 0 ? $"recent:{Creds.Username}" : Creds.Username;
             }
             if (Settings == null)
             {
@@ -71,8 +71,8 @@ namespace FredroClient.Models
             foreach (var message in messages)
             {
                 var mess = message.GetTheMessage();
-                mess.IsOutcoming = mess.FromAddress.Equals(Creds.Username);
-                mess.IsIncoming = mess.ToAddress.Equals(Creds.Username);
+                mess.IsOutcoming = Creds.Username.Equals(mess.FromAddress);
+                mess.IsIncoming = Creds.Username.Equals(mess.ToAddress);
                 Messages.Add(mess);
             }
         }
