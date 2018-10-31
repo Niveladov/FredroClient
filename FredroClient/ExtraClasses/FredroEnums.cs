@@ -11,7 +11,7 @@ namespace FredroClient.ExtraClasses
     {
         [Description("Сервер входящей почты - pop.gmail.com")]
         [Pop(Hostname = "pop.gmail.com", Port = 995, UseSsl = true)]
-        [Smtp(Hostname = "smtp.gmail.com", Port = 465, UseSsl = true)]//Port = 587, UseSsl = false
+        [Smtp(Hostname = "smtp.gmail.com", Port = 587, UseSsl = true)]//Port = 587, UseSsl = false
         [Imap(Hostname = "imap.gmail.com", Port = 993, UseSsl = true)]
         gmail = 0,
 
