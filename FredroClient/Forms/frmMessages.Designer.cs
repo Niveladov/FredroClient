@@ -313,6 +313,7 @@
             // 
             this.ddbMove.AllowFocus = false;
             this.ddbMove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddbMove.Enabled = false;
             this.ddbMove.Location = new System.Drawing.Point(370, 7);
             this.ddbMove.Name = "ddbMove";
             this.ddbMove.Size = new System.Drawing.Size(126, 28);
@@ -324,6 +325,7 @@
             // 
             this.btnAddTask.AllowFocus = false;
             this.btnAddTask.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddTask.Enabled = false;
             this.btnAddTask.Location = new System.Drawing.Point(257, 125);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(121, 28);
@@ -335,6 +337,7 @@
             // 
             this.btnAddDeal.AllowFocus = false;
             this.btnAddDeal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddDeal.Enabled = false;
             this.btnAddDeal.Location = new System.Drawing.Point(132, 125);
             this.btnAddDeal.Name = "btnAddDeal";
             this.btnAddDeal.Size = new System.Drawing.Size(121, 28);
@@ -346,6 +349,7 @@
             // 
             this.btnAddClient.AllowFocus = false;
             this.btnAddClient.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddClient.Enabled = false;
             this.btnAddClient.Location = new System.Drawing.Point(7, 125);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(121, 28);
@@ -357,6 +361,7 @@
             // 
             this.btnRemove.AllowFocus = false;
             this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemove.Enabled = false;
             this.btnRemove.Location = new System.Drawing.Point(249, 7);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(117, 28);
@@ -368,6 +373,7 @@
             // 
             this.btnResend.AllowFocus = false;
             this.btnResend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResend.Enabled = false;
             this.btnResend.Location = new System.Drawing.Point(128, 7);
             this.btnResend.Name = "btnResend";
             this.btnResend.Size = new System.Drawing.Size(117, 28);
