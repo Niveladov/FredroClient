@@ -34,7 +34,6 @@ namespace FredroClient.Forms
             gcFolders.DataSource = new List<Folder>()
             {
                 new Folder($"Входящие            {inMessCount.ToString()}"),
-                new Folder($"Готовые"),
                 new Folder($"Отправленные     {outMessCount.ToString()}"),
                 new Folder($"Удалённые")
             };
@@ -48,7 +47,7 @@ namespace FredroClient.Forms
             wevMessages.FocusedRowHandle = 0;
             meBody.BackColor = lcMessage.BackColor;
             statusStrip.Items[0].Text = "Демо версия почтового клиента.";
-            statusStrip.Items[1].Text = "Евгений Федорук, +7(952)383-23-01";
+            statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
         }
 
         private void InitEvents()
