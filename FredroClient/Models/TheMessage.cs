@@ -1,6 +1,7 @@
 ﻿using FredroClient.Properties;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace FredroClient.Models
 {
     internal sealed class TheMessage
     {
+        [Key]
         public string Id { get; set; }
         public string FromFullRaw { get; set; }
         public string FromAddress { get; set; }
@@ -34,13 +36,13 @@ namespace FredroClient.Models
                     _isRead = value;
                     if (_isRead)
                     {
-                        PictureMail = Resources.read_32x38;
+                        //PictureMail = Resources.read_32x38;
                     }
                 }
             }
         }
 
-        public Bitmap  PictureMail { get; private set; } = Resources.unread_32x32;
+        //public Bitmap  PictureMail { get; private set; } = Resources.unread_32x32;
         public bool IsOutcoming { get; set; }
         public bool IsIncoming { get; set; }
 

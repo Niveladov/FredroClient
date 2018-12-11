@@ -5,6 +5,7 @@ using OpenPop.Pop3;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -188,9 +189,46 @@ namespace FredroClient.ExtraClasses
                 }
             }
             //---↑↑↑---костыль---↑↑↑---
+            //--
+            //SaveTestData();
+            //--
             return theMessage;
         }
 
+        internal static async void SaveTestData()
+        {
+            using (var db = new TheMessageContext())
+            {
+                var theMessage1 = new TheMessage()
+                {
+                    Id = "1",
+                    Subject = "TEST1",
+                    Body = "TEST1",
+                    Date = DateTime.Now 
+                };
+                var theMessage2 = new TheMessage()
+                {
+                    Id = "2",
+                    Subject = "TEST2",
+                    Body = "TEST2",
+                    Date = DateTime.Now
+                };
+
+                db.Messages.Add(theMessage1);
+                db.Messages.Add(theMessage2);
+                await db.SaveChangesAsync();
+            }
+        }
+
+        internal static DbSet<TheMessage> GetData()
+        {
+            DbSet<TheMessage> messages = null;
+            using (var db = new TheMessageContext())
+            {
+                messages = db.Messages;
+            }
+            return messages;
+        }
 
     }
 }
