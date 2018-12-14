@@ -27,7 +27,7 @@ namespace FredroClient.Models
         }
 
         public Credentials Creds { get; set; } = new Credentials();
-        public List<TheMessage> Messages { get; private set; }
+        public BindingList<TheMessage> Messages { get; private set; }
         public ServerSettings Settings { get; private set; }
 
         private void RefreshServerSettings()
@@ -63,18 +63,24 @@ namespace FredroClient.Models
                 XtraMessageBox.Show("Не выбран почтовый сервер!", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            //чистим все имэйлы из бд
+            //FredroHelper.TruncateMessages();
+            //получаем все имэйлы из удалённого сервера по хосту, порту и пользователю. 
             var messages = FredroHelper.FetchAllMessages(Settings.Pop.Hostname, Settings.Pop.Port,
                 Settings.Pop.UseSsl, username, Creds.Password);
-            if (messages == null) return;
-            
-            Messages = new List<TheMessage>();
+            if (messages == null || messages.Count == 0) return;
+            //преобразовываем
+            var myMessages = new List<TheMessage>();
             foreach (var message in messages)
             {
                 var mess = message.GetTheMessage();
                 mess.IsOutcoming = Creds.Username.Equals(mess.FromAddress);
                 mess.IsIncoming = Creds.Username.Equals(mess.ToAddress);
-                Messages.Add(mess);
+                myMessages.Add(mess);
             }
+            //сохраяняем в бд имэйлы
+            FredroHelper.SaveNewMessages(myMessages);
+            Messages = FredroHelper.GetData();
         }
 
     }

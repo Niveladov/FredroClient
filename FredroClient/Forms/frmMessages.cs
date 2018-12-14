@@ -110,6 +110,7 @@ namespace FredroClient.Forms
             {
                 var row = wevMessages.GetFocusedRow() as TheMessage;
                 row.IsRead = true;
+                FredroHelper.UpdateMessage(row);
                 labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "...": row.Subject;
                 labelSubject.ToolTip = row.Subject;
                 labelFrom.Text = row.FromFullRaw;

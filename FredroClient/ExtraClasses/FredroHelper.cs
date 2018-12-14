@@ -68,27 +68,6 @@ namespace FredroClient.ExtraClasses
             return serverSettings;
         }
 
-        //public static int GetPort<T>(this T enumerationValue) where T : struct
-        //{
-        //    Type type = enumerationValue.GetType();
-        //    if (!type.IsEnum)
-        //    {
-        //        throw new ArgumentException("EnumerationValue must be of Enum type", "enumerationValue");
-        //    }
-
-        //    MemberInfo[] memberInfo = type.GetMember(enumerationValue.ToString());
-        //    if (memberInfo != null && memberInfo.Length > 0)
-        //    {
-        //        object[] attrs = memberInfo[0].GetCustomAttributes(typeof(PortAttribute), false);
-
-        //        if (attrs != null && attrs.Length > 0)
-        //        {
-        //            return ((PortAttribute)attrs[0]).Port;
-        //        }
-        //    }
-        //    return -1;
-        //}
-
         internal static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
         {
             try
@@ -195,39 +174,71 @@ namespace FredroClient.ExtraClasses
             return theMessage;
         }
 
-        internal static async void SaveTestData()
+        internal static async void SaveNewMessages(List<TheMessage> allMessages)
         {
             using (var db = new TheMessageContext())
             {
-                var theMessage1 = new TheMessage()
+                foreach (var message in allMessages)
                 {
-                    Id = "1",
-                    Subject = "TEST1",
-                    Body = "TEST1",
-                    Date = DateTime.Now 
-                };
-                var theMessage2 = new TheMessage()
-                {
-                    Id = "2",
-                    Subject = "TEST2",
-                    Body = "TEST2",
-                    Date = DateTime.Now
-                };
-
-                db.Messages.Add(theMessage1);
-                db.Messages.Add(theMessage2);
+                    db.Messages.AddIfNotExists(message);
+                }
                 await db.SaveChangesAsync();
             }
         }
 
-        internal static DbSet<TheMessage> GetData()
+        internal static BindingList<TheMessage> GetData()
         {
-            DbSet<TheMessage> messages = null;
+            BindingList<TheMessage> messages = null;
             using (var db = new TheMessageContext())
             {
-                messages = db.Messages;
+                db.Messages.Load();
+                messages = db.Messages.Local.ToBindingList();
             }
             return messages;
+        }
+
+        internal static void TruncateMessages()
+        {
+            using (var db = new TheMessageContext())
+            {
+                db.Database.ExecuteSqlCommand("TRUNCATE TABLE TheMessages");
+            }
+        }
+
+        internal static async void UpdateMessage(TheMessage message)
+        {
+            using (var db = new TheMessageContext())
+            {
+                db.Entry(message).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+        }
+
+        internal static async void SaveTestData()
+        {
+            using (var db = new DealContext())
+            {
+                var deal1 = new Deal()
+                {
+                    Id = 1,
+                    CreationDate = DateTime.Now,
+                    CreatedBy = -1
+                };
+                db.Deals.Add(deal1);
+                await db.SaveChangesAsync();
+            }
+
+            using (var db = new VehicleContext())
+            {
+                var vehicle1 = new Vehicle()
+                {
+                    Id = 1,
+                    Name = "Ferrari XXX 666",
+                    RegistrationNumber = "x666x999"
+                };
+                db.Vehicles.Add(vehicle1);
+                await db.SaveChangesAsync();
+            }
         }
 
     }
