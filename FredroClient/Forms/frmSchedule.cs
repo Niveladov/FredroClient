@@ -1,4 +1,5 @@
-﻿using FredroClient.BaseGUI;
+﻿using DevExpress.XtraScheduler;
+using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using System;
@@ -21,16 +22,22 @@ namespace FredroClient.Forms
             InitData();
         }
 
+        private void FrmSchedule_Load(object sender, EventArgs e)
+        {
+            schedulerMain.TimelineView.Scales[4].Width = schedulerMain.Bounds.Width;
+            schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
+            schedulerMain.ActiveView.LayoutChanged();
+        }
+
         public void InitData()
         {
-            resourcesTreeMain.SchedulerControl = schedulerMain;
-
             storageMain.Resources.DataSource = FredroHelper.GetAllVehicles();
             storageMain.Resources.Mappings.Id = nameof(Vehicle.Id);
             storageMain.Resources.Mappings.Caption = nameof(Vehicle.Name);
 
             storageMain.Appointments.DataSource = FredroHelper.GetAllDeals();
             storageMain.Appointments.Mappings.AppointmentId = nameof(Deal.Id);
+            storageMain.Appointments.Mappings.ResourceId = nameof(Deal.TransportId);
             storageMain.Appointments.Mappings.Subject = nameof(Deal.Route);
             storageMain.Appointments.Mappings.Start = nameof(Deal.DateStart);
             storageMain.Appointments.Mappings.End = nameof(Deal.DateEnd);
@@ -38,6 +45,5 @@ namespace FredroClient.Forms
             storageMain.Appointments.Mappings.Status = nameof(Deal.DealStatusId);
             
         }
-
     }
 }

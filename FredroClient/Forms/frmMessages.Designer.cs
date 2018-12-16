@@ -337,13 +337,13 @@
             // 
             this.btnAddDeal.AllowFocus = false;
             this.btnAddDeal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDeal.Enabled = false;
             this.btnAddDeal.Location = new System.Drawing.Point(132, 120);
             this.btnAddDeal.Name = "btnAddDeal";
             this.btnAddDeal.Size = new System.Drawing.Size(121, 28);
             this.btnAddDeal.StyleController = this.lcMessage;
             this.btnAddDeal.TabIndex = 14;
             this.btnAddDeal.Text = "Новая сделка";
+            this.btnAddDeal.Click += new System.EventHandler(this.btnAddDeal_Click);
             // 
             // btnAddClient
             // 
@@ -863,7 +863,7 @@
             this.tsslRightText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsslRightText.Name = "tsslRightText";
             this.tsslRightText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tsslRightText.Size = new System.Drawing.Size(897, 15);
+            this.tsslRightText.Size = new System.Drawing.Size(866, 15);
             this.tsslRightText.Spring = true;
             this.tsslRightText.Text = "tsslRightText";
             this.tsslRightText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1101,7 +1101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 531);
             this.Controls.Add(this.lcMain);
-            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmMessages";
             this.Text = "";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

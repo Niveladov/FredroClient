@@ -201,6 +201,12 @@ namespace FredroClient.Forms
             }
         }
 
-
+        private void btnAddDeal_Click(object sender, EventArgs e)
+        {
+            using (var frm = new frmSchedule())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }
