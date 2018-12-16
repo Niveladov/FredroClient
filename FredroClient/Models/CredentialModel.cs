@@ -80,7 +80,7 @@ namespace FredroClient.Models
             }
             //сохраяняем в бд имэйлы
             FredroHelper.SaveNewMessages(myMessages);
-            Messages = FredroHelper.GetData();
+            Messages = FredroHelper.GetMessages();
         }
 
     }

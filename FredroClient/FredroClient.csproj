@@ -96,6 +96,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -156,7 +157,7 @@
     <Compile Include="Models\ServerSettings.cs" />
     <Compile Include="Models\TheMessage.cs" />
     <Compile Include="Models\DbContexts.cs" />
-    <Compile Include="Models\Transport.cs" />
+    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">

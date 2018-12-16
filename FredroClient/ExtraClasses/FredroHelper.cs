@@ -168,9 +168,6 @@ namespace FredroClient.ExtraClasses
                 }
             }
             //---↑↑↑---костыль---↑↑↑---
-            //--
-            //SaveTestData();
-            //--
             return theMessage;
         }
 
@@ -186,7 +183,7 @@ namespace FredroClient.ExtraClasses
             }
         }
 
-        internal static BindingList<TheMessage> GetData()
+        internal static BindingList<TheMessage> GetMessages()
         {
             BindingList<TheMessage> messages = null;
             using (var db = new TheMessageContext())
@@ -222,7 +219,7 @@ namespace FredroClient.ExtraClasses
                 {
                     Id = 1,
                     CreationDate = DateTime.Now,
-                    CreatedBy = -1
+                    CreatedBy = -1,
                 };
                 db.Deals.Add(deal1);
                 await db.SaveChangesAsync();
@@ -241,5 +238,28 @@ namespace FredroClient.ExtraClasses
             }
         }
 
+
+        internal static BindingList<Vehicle> GetAllVehicles()
+        {
+            BindingList<Vehicle> vehicles = null;
+            using (var db = new VehicleContext())
+            {
+                db.Vehicles.Load();
+                vehicles = db.Vehicles.Local.ToBindingList();
+            }
+            return vehicles;
+        }
+
+
+        internal static BindingList<Deal> GetAllDeals()
+        {
+            BindingList<Deal> deals = null;
+            using (var db = new DealContext())
+            {
+                db.Deals.Load();
+                deals = db.Deals.Local.ToBindingList();
+            }
+            return deals;
+        }
     }
 }
