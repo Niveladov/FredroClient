@@ -323,15 +323,15 @@
             // 
             // btnAddTask
             // 
-            this.btnAddTask.AllowFocus = false;
             this.btnAddTask.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddTask.Enabled = false;
             this.btnAddTask.Location = new System.Drawing.Point(257, 120);
             this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnAddTask.Size = new System.Drawing.Size(121, 28);
             this.btnAddTask.StyleController = this.lcMessage;
             this.btnAddTask.TabIndex = 15;
             this.btnAddTask.Text = "Новая задача";
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
             // btnAddDeal
             // 
@@ -863,7 +863,7 @@
             this.tsslRightText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsslRightText.Name = "tsslRightText";
             this.tsslRightText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tsslRightText.Size = new System.Drawing.Size(866, 15);
+            this.tsslRightText.Size = new System.Drawing.Size(897, 15);
             this.tsslRightText.Spring = true;
             this.tsslRightText.Text = "tsslRightText";
             this.tsslRightText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -134,6 +134,12 @@
     <Compile Include="Forms\frmMessages.Designer.cs">
       <DependentUpon>frmMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmNewDeal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewDeal.Designer.cs">
+      <DependentUpon>frmNewDeal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,13 +159,17 @@
       <DependentUpon>frmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CredentialModel.cs" />
-    <Compile Include="Models\Deal.cs" />
-    <Compile Include="Models\Dictionary_VehicleType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Customer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\Dictionary_VehicleType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
+    <Compile Include="Models\NewDealForeignsModel.cs" />
+    <Compile Include="Models\NewDealModel.cs" />
     <Compile Include="Models\ServerSettings.cs" />
-    <Compile Include="Models\TheMessage.cs" />
-    <Compile Include="Models\DbContexts.cs" />
-    <Compile Include="Models\Vehicle.cs" />
-    <Compile Include="Models\ViewVehicle.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\TheMessage.cs" />
+    <Compile Include="Models\Contexts\DbContexts.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Vehicle.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Views\ViewVehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">
@@ -170,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMessages.resx">
       <DependentUpon>frmMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewDeal.resx">
+      <DependentUpon>frmNewDeal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSchedule.resx">
       <DependentUpon>frmSchedule.cs</DependentUpon>

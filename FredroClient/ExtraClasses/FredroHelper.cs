@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using FredroClient.Models;
+using FredroClient.Models.Contexts;
+using FredroClient.Models.DatabaseObjectModels.Tables;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
@@ -213,22 +215,55 @@ namespace FredroClient.ExtraClasses
 
         internal static async void SaveTestData()
         {
-            using (var db = new Dictionary_VehicleTypeContext())
+            using (var db = new CustomerContext())
             {
-                var vt1 = new Dictionary_VehicleType()
+                var vt1 = new Customer()
                 {
                     Id = 1,
-                    Name = "Автопарк наш"
+                    IsDel = false,
+                    CreatedBy = -1,
+                    CreationDate = DateTime.Now,
+                    EmailAddress = "test@test.test",
+                    PhoneNumber = "+7(777)777-77-77",
+                    SubjectName = "Customer Fredro Company"
                 };
-                var vt2 = new Dictionary_VehicleType()
-                {
-                    Id = 2,
-                    Name = "Автопарк партнёров"
-                };
-                db.VehicleTypes.Add(vt1);
-                db.VehicleTypes.Add(vt2);
+                db.Customers.Add(vt1);
                 await db.SaveChangesAsync();
             }
+
+            using (var db = new PerformerContext())
+            {
+                var vt2 = new Performer()
+                {
+                    Id = 2,
+                    IsDel = false,
+                    CreatedBy = -1,
+                    CreationDate = DateTime.Now,
+                    EmailAddress = "test@test.test",
+                    PhoneNumber = "+7(777)777-77-77",
+                    SubjectName = "Performer Fredro Company",
+                    Source = "xXx"
+                };
+                db.Performers.Add(vt2);
+                await db.SaveChangesAsync();
+            }
+
+            //using (var db = new Dictionary_VehicleTypeContext())
+            //{
+            //    var vt1 = new Dictionary_VehicleType()
+            //    {
+            //        Id = 1,
+            //        Name = "Автопарк наш"
+            //    };
+            //    var vt2 = new Dictionary_VehicleType()
+            //    {
+            //        Id = 2,
+            //        Name = "Автопарк партнёров"
+            //    };
+            //    db.VehicleTypes.Add(vt1);
+            //    db.VehicleTypes.Add(vt2);
+            //    await db.SaveChangesAsync();
+            //}
 
             //using (var db = new DealContext())
             //{
@@ -286,6 +321,28 @@ namespace FredroClient.ExtraClasses
             {
                 db.Deals.Load();
                 deals = db.Deals.Local.ToBindingList();
+            }
+            return deals;
+        }
+
+        internal static BindingList<Customer> GetAllCustomers()
+        {
+            BindingList<Customer> deals = null;
+            using (var db = new CustomerContext())
+            {
+                db.Customers.Load();
+                deals = db.Customers.Local.ToBindingList();
+            }
+            return deals;
+        }
+
+        internal static BindingList<Performer> GetAllPerformes()
+        {
+            BindingList<Performer> deals = null;
+            using (var db = new PerformerContext())
+            {
+                db.Performers.Load();
+                deals = db.Performers.Local.ToBindingList();
             }
             return deals;
         }

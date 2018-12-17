@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FredroClient.Models.DatabaseObjectModels.Tables;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -6,8 +7,20 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroClient.Models
+namespace FredroClient.Models.Contexts
 {
+    internal sealed class CustomerContext : DbContext
+    {
+        public DbSet<Customer> Customers { get; set; }
+        public CustomerContext() : base("FredroDbConnection") { }
+    }
+
+    internal sealed class PerformerContext : DbContext
+    {
+        public DbSet<Performer> Performers { get; set; }
+        public PerformerContext() : base("FredroDbConnection") { }
+    }
+
     internal sealed class ViewVehicleContext : DbContext
     {
         public DbSet<ViewVehicle> ViewVehicles { get; set; }
