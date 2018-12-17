@@ -47,5 +47,22 @@ namespace FredroClient.Forms
             storageMain.Appointments.Mappings.Status = nameof(Deal.DealStatusId);
             
         }
+
+        private void groupControlMain_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
+        {
+            if ("Назад".Equals(e.Button.Properties.Caption))
+            {
+
+            }
+            else if ("Вперёд".Equals(e.Button.Properties.Caption))
+            {
+
+            }
+            else if ("На дату".Equals(e.Button.Properties.Caption))
+            {
+
+            }
+        }
+
     }
 }

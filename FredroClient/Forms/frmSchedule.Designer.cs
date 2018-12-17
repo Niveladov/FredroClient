@@ -39,11 +39,13 @@
             DevExpress.XtraScheduler.TimeScaleHour timeScaleHour1 = new DevExpress.XtraScheduler.TimeScaleHour();
             DevExpress.XtraScheduler.TimeScale15Minutes timeScale15Minutes1 = new DevExpress.XtraScheduler.TimeScale15Minutes();
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSchedule));
             this.schedulerMain = new DevExpress.XtraScheduler.SchedulerControl();
             this.storageMain = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.splitMain = new System.Windows.Forms.SplitContainer();
             this.resourcesTreeMain = new DevExpress.XtraScheduler.UI.ResourcesTree();
             this.resourceTreeColumn = new DevExpress.XtraScheduler.Native.ResourceTreeColumn();
+            this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
@@ -51,6 +53,8 @@
             this.splitMain.Panel2.SuspendLayout();
             this.splitMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resourcesTreeMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
+            this.groupControlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // schedulerMain
@@ -61,7 +65,7 @@
             this.schedulerMain.Location = new System.Drawing.Point(0, 0);
             this.schedulerMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schedulerMain.Name = "schedulerMain";
-            this.schedulerMain.Size = new System.Drawing.Size(652, 506);
+            this.schedulerMain.Size = new System.Drawing.Size(791, 576);
             this.schedulerMain.Start = new System.DateTime(2018, 12, 10, 0, 0, 0, 0);
             this.schedulerMain.Storage = this.storageMain;
             this.schedulerMain.TabIndex = 0;
@@ -89,18 +93,20 @@
             // 
             this.splitMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitMain.Location = new System.Drawing.Point(0, 0);
+            this.splitMain.Location = new System.Drawing.Point(2, 45);
             this.splitMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitMain.Name = "splitMain";
             // 
             // splitMain.Panel1
             // 
             this.splitMain.Panel1.Controls.Add(this.resourcesTreeMain);
+            this.splitMain.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitMain.Panel2
             // 
             this.splitMain.Panel2.Controls.Add(this.schedulerMain);
-            this.splitMain.Size = new System.Drawing.Size(859, 506);
+            this.splitMain.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitMain.Size = new System.Drawing.Size(998, 576);
             this.splitMain.SplitterDistance = 204;
             this.splitMain.SplitterWidth = 3;
             this.splitMain.TabIndex = 1;
@@ -119,7 +125,7 @@
             this.resourcesTreeMain.ParentFieldName = "ParentId";
             this.resourcesTreeMain.PreviewFieldName = "Name";
             this.resourcesTreeMain.SchedulerControl = this.schedulerMain;
-            this.resourcesTreeMain.Size = new System.Drawing.Size(204, 506);
+            this.resourcesTreeMain.Size = new System.Drawing.Size(204, 576);
             this.resourcesTreeMain.TabIndex = 0;
             // 
             // resourceTreeColumn
@@ -134,12 +140,33 @@
             this.resourceTreeColumn.Visible = true;
             this.resourceTreeColumn.VisibleIndex = 0;
             // 
+            // groupControlMain
+            // 
+            this.groupControlMain.AutoSize = true;
+            this.groupControlMain.Controls.Add(this.splitMain);
+            this.groupControlMain.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupControlMain.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Previous", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons"))), false, true, "Назад"),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons1"))), false, true, "На дату"),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Next", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons2"))), false, true, "Вперёд")});
+            this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControlMain.Location = new System.Drawing.Point(0, 0);
+            this.groupControlMain.Name = "groupControlMain";
+            this.groupControlMain.Size = new System.Drawing.Size(1002, 623);
+            this.groupControlMain.TabIndex = 2;
+            this.groupControlMain.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.groupControlMain_CustomButtonClick);
+            // 
             // frmSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 506);
-            this.Controls.Add(this.splitMain);
+            this.ClientSize = new System.Drawing.Size(1002, 623);
+            this.Controls.Add(this.groupControlMain);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(800, 545);
             this.Name = "frmSchedule";
             this.Text = "Календарь сделок";
@@ -152,7 +179,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.resourcesTreeMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).EndInit();
+            this.groupControlMain.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,5 +193,6 @@
         private System.Windows.Forms.SplitContainer splitMain;
         private DevExpress.XtraScheduler.UI.ResourcesTree resourcesTreeMain;
         private DevExpress.XtraScheduler.Native.ResourceTreeColumn resourceTreeColumn;
+        private DevExpress.XtraEditors.GroupControl groupControlMain;
     }
 }
