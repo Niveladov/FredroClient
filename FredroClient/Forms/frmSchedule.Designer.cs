@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeScaleYear timeScaleYear1 = new DevExpress.XtraScheduler.TimeScaleYear();
@@ -40,10 +41,10 @@
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSchedule));
             this.schedulerMain = new DevExpress.XtraScheduler.SchedulerControl();
-            this.storageMain = new DevExpress.XtraScheduler.SchedulerStorage();
+            this.storageMain = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.splitVertical = new System.Windows.Forms.SplitContainer();
             this.resourcesTreeMain = new DevExpress.XtraScheduler.UI.ResourcesTree();
-            this.resourceTreeColumn = new DevExpress.XtraScheduler.Native.ResourceTreeColumn();
+            this.ы = new DevExpress.XtraScheduler.Native.ResourceTreeColumn();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.splitHorizontal = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcFreeDeals = new DevExpress.XtraGrid.GridControl();
@@ -77,7 +78,8 @@
             this.schedulerMain.Location = new System.Drawing.Point(0, 0);
             this.schedulerMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schedulerMain.Name = "schedulerMain";
-            this.schedulerMain.Size = new System.Drawing.Size(791, 331);
+            this.schedulerMain.OptionsView.ResourceHeaders.Height = 40;
+            this.schedulerMain.Size = new System.Drawing.Size(648, 242);
             this.schedulerMain.Start = new System.DateTime(2018, 12, 10, 0, 0, 0, 0);
             this.schedulerMain.Storage = this.storageMain;
             this.schedulerMain.TabIndex = 0;
@@ -87,6 +89,7 @@
             this.schedulerMain.Views.FullWeekView.TimeRulers.Add(timeRuler2);
             this.schedulerMain.Views.GanttView.Enabled = false;
             this.schedulerMain.Views.MonthView.Enabled = false;
+            this.schedulerMain.Views.TimelineView.ResourcesPerPage = 14;
             timeScaleYear1.Enabled = false;
             timeScaleQuarter1.Enabled = false;
             timeScaleMonth1.Enabled = false;
@@ -121,7 +124,7 @@
             // 
             this.splitVertical.Panel2.Controls.Add(this.schedulerMain);
             this.splitVertical.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitVertical.Size = new System.Drawing.Size(998, 331);
+            this.splitVertical.Size = new System.Drawing.Size(855, 242);
             this.splitVertical.SplitterDistance = 204;
             this.splitVertical.SplitterWidth = 3;
             this.splitVertical.TabIndex = 1;
@@ -129,7 +132,7 @@
             // resourcesTreeMain
             // 
             this.resourcesTreeMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.resourceTreeColumn});
+            this.ы});
             this.resourcesTreeMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resourcesTreeMain.KeyFieldName = "Id";
             this.resourcesTreeMain.Location = new System.Drawing.Point(0, 0);
@@ -140,20 +143,20 @@
             this.resourcesTreeMain.ParentFieldName = "ParentId";
             this.resourcesTreeMain.PreviewFieldName = "Name";
             this.resourcesTreeMain.SchedulerControl = this.schedulerMain;
-            this.resourcesTreeMain.Size = new System.Drawing.Size(204, 331);
+            this.resourcesTreeMain.Size = new System.Drawing.Size(204, 242);
             this.resourcesTreeMain.TabIndex = 0;
             // 
-            // resourceTreeColumn
+            // ы
             // 
-            this.resourceTreeColumn.Caption = "Транспортное средство";
-            this.resourceTreeColumn.FieldName = "Name";
-            this.resourceTreeColumn.ImageIndex = -10;
-            this.resourceTreeColumn.Name = "resourceTreeColumn";
-            this.resourceTreeColumn.OptionsColumn.AllowFocus = false;
-            this.resourceTreeColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
-            this.resourceTreeColumn.SortOrder = System.Windows.Forms.SortOrder.Ascending;
-            this.resourceTreeColumn.Visible = true;
-            this.resourceTreeColumn.VisibleIndex = 0;
+            this.ы.Caption = "Транспортное средство";
+            this.ы.FieldName = "Name";
+            this.ы.ImageIndex = -10;
+            this.ы.Name = "ы";
+            this.ы.OptionsColumn.AllowFocus = false;
+            this.ы.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            this.ы.SortOrder = System.Windows.Forms.SortOrder.Ascending;
+            this.ы.Visible = true;
+            this.ы.VisibleIndex = 0;
             // 
             // groupControlMain
             // 
@@ -169,8 +172,9 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Вперёд", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons3"))), false, true, "Вперёд")});
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlMain.Location = new System.Drawing.Point(0, 0);
+            this.groupControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(1002, 623);
+            this.groupControlMain.Size = new System.Drawing.Size(859, 506);
             this.groupControlMain.TabIndex = 2;
             this.groupControlMain.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.groupControlMain_CustomButtonClick);
             // 
@@ -183,23 +187,26 @@
             this.splitHorizontal.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitHorizontal.Horizontal = false;
             this.splitHorizontal.Location = new System.Drawing.Point(2, 45);
+            this.splitHorizontal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitHorizontal.Name = "splitHorizontal";
             this.splitHorizontal.Panel1.Controls.Add(this.splitVertical);
             this.splitHorizontal.Panel1.Text = "Panel1";
             this.splitHorizontal.Panel2.Controls.Add(this.gcFreeDeals);
             this.splitHorizontal.Panel2.Text = "Panel2";
-            this.splitHorizontal.Size = new System.Drawing.Size(998, 576);
-            this.splitHorizontal.SplitterPosition = 239;
+            this.splitHorizontal.Size = new System.Drawing.Size(855, 459);
+            this.splitHorizontal.SplitterPosition = 212;
             this.splitHorizontal.TabIndex = 2;
             this.splitHorizontal.Text = "splitContainerControl1";
             // 
             // gcFreeDeals
             // 
             this.gcFreeDeals.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcFreeDeals.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFreeDeals.Location = new System.Drawing.Point(0, 0);
             this.gcFreeDeals.MainView = this.gvFreeDeals;
+            this.gcFreeDeals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFreeDeals.Name = "gcFreeDeals";
-            this.gcFreeDeals.Size = new System.Drawing.Size(998, 239);
+            this.gcFreeDeals.Size = new System.Drawing.Size(855, 212);
             this.gcFreeDeals.TabIndex = 0;
             this.gcFreeDeals.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFreeDeals});
@@ -272,14 +279,14 @@
             // 
             // frmSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 623);
+            this.ClientSize = new System.Drawing.Size(859, 506);
             this.Controls.Add(this.groupControlMain);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.MinimumSize = new System.Drawing.Size(800, 545);
             this.Name = "frmSchedule";
-            this.Text = "Календарь сделок";
+            this.Text = "";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmSchedule_Load);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerMain)).EndInit();
@@ -306,7 +313,7 @@
         private DevExpress.XtraScheduler.SchedulerStorage storageMain;
         private System.Windows.Forms.SplitContainer splitVertical;
         private DevExpress.XtraScheduler.UI.ResourcesTree resourcesTreeMain;
-        private DevExpress.XtraScheduler.Native.ResourceTreeColumn resourceTreeColumn;
+        private DevExpress.XtraScheduler.Native.ResourceTreeColumn ы;
         private DevExpress.XtraEditors.GroupControl groupControlMain;
         private DevExpress.XtraEditors.SplitContainerControl splitHorizontal;
         private DevExpress.XtraGrid.GridControl gcFreeDeals;

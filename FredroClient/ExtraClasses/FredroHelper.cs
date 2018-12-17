@@ -213,22 +213,22 @@ namespace FredroClient.ExtraClasses
 
         internal static async void SaveTestData()
         {
-            //using (var db = new Dictionary_VehicleTypesContext())
-            //{
-            //    var vt1 = new Dictionary_VehicleTypes()
-            //    {
-            //        Id = 1,
-            //        Name = "Наш автопарк"
-            //    };
-            //    var vt2 = new Dictionary_VehicleTypes()
-            //    {
-            //        Id = 2,
-            //        Name = "Автопарк партнёров"
-            //    };
-            //    db.VehicleTypes.Add(vt1);
-            //    db.VehicleTypes.Add(vt2);
-            //    await db.SaveChangesAsync();
-            //}
+            using (var db = new Dictionary_VehicleTypeContext())
+            {
+                var vt1 = new Dictionary_VehicleType()
+                {
+                    Id = 1,
+                    Name = "Автопарк наш"
+                };
+                var vt2 = new Dictionary_VehicleType()
+                {
+                    Id = 2,
+                    Name = "Автопарк партнёров"
+                };
+                db.VehicleTypes.Add(vt1);
+                db.VehicleTypes.Add(vt2);
+                await db.SaveChangesAsync();
+            }
 
             //using (var db = new DealContext())
             //{

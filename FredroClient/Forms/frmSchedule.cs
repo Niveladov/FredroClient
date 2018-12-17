@@ -31,12 +31,10 @@ namespace FredroClient.Forms
 
         private void FrmSchedule_Load(object sender, EventArgs e)
         {
-            schedulerMain.BeginUpdate();
             schedulerMain.Start = DateTime.Today;
             schedulerMain.TimelineView.Scales[4].Width = schedulerMain.Bounds.Width;
             schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 25;
             schedulerMain.ActiveView.LayoutChanged();
-            schedulerMain.EndUpdate();
         }
 
         private void InitEvents()
