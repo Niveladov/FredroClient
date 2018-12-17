@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace FredroClient.Models
 {
-    internal sealed class Vehicle
+    internal sealed class ViewVehicle
     {
         public int? Id { get; set; }
         public string Name { get; set; } //марка, модель
         public string RegistrationNumber { get; set; } //номер
         public short? PassengersNumber { get; set; } //кол-во пассажиров
-        public int? TypeId { get; set; } //тип ТС
+        public int? ParentId { get; set; } 
     }
 }

@@ -213,31 +213,59 @@ namespace FredroClient.ExtraClasses
 
         internal static async void SaveTestData()
         {
-            using (var db = new DealContext())
-            {
-                var deal1 = new Deal()
-                {
-                    Id = 1,
-                    CreationDate = DateTime.Now,
-                    CreatedBy = -1,
-                };
-                db.Deals.Add(deal1);
-                await db.SaveChangesAsync();
-            }
+            //using (var db = new Dictionary_VehicleTypesContext())
+            //{
+            //    var vt1 = new Dictionary_VehicleTypes()
+            //    {
+            //        Id = 1,
+            //        Name = "Наш автопарк"
+            //    };
+            //    var vt2 = new Dictionary_VehicleTypes()
+            //    {
+            //        Id = 2,
+            //        Name = "Автопарк партнёров"
+            //    };
+            //    db.VehicleTypes.Add(vt1);
+            //    db.VehicleTypes.Add(vt2);
+            //    await db.SaveChangesAsync();
+            //}
 
-            using (var db = new VehicleContext())
-            {
-                var vehicle1 = new Vehicle()
-                {
-                    Id = 1,
-                    Name = "Ferrari XXX 666",
-                    RegistrationNumber = "x666x999"
-                };
-                db.Vehicles.Add(vehicle1);
-                await db.SaveChangesAsync();
-            }
+            //using (var db = new DealContext())
+            //{
+            //    var deal1 = new Deal()
+            //    {
+            //        Id = 1,
+            //        CreationDate = DateTime.Now,
+            //        CreatedBy = -1,
+            //    };
+            //    db.Deals.Add(deal1);
+            //    await db.SaveChangesAsync();
+            //}
+
+            //using (var db = new VehicleContext())
+            //{
+            //    var vehicle1 = new Vehicle()
+            //    {
+            //        Id = 1,
+            //        Name = "Ferrari XXX 666",
+            //        RegistrationNumber = "x666x999"
+            //    };
+            //    db.Vehicles.Add(vehicle1);
+            //    await db.SaveChangesAsync();
+            //}
         }
 
+
+        internal static BindingList<ViewVehicle> GetAllViewVehicles()
+        {
+            BindingList<ViewVehicle> viewVehicles = null;
+            using (var db = new ViewVehicleContext())
+            {
+                db.ViewVehicles.Load();
+                viewVehicles = db.ViewVehicles.Local.ToBindingList();
+            }
+            return viewVehicles;
+        }
 
         internal static BindingList<Vehicle> GetAllVehicles()
         {

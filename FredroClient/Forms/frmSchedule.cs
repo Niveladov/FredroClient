@@ -32,9 +32,10 @@ namespace FredroClient.Forms
 
         public void InitData()
         {
-            storageMain.Resources.DataSource = FredroHelper.GetAllVehicles();
-            storageMain.Resources.Mappings.Id = nameof(Vehicle.Id);
-            storageMain.Resources.Mappings.Caption = nameof(Vehicle.Name);
+            storageMain.Resources.DataSource = FredroHelper.GetAllViewVehicles();
+            storageMain.Resources.Mappings.Id = nameof(ViewVehicle.Id);
+            storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
+            storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
 
             storageMain.Appointments.DataSource = FredroHelper.GetAllDeals();
             storageMain.Appointments.Mappings.AppointmentId = nameof(Deal.Id);

@@ -8,10 +8,28 @@ using System.Threading.Tasks;
 
 namespace FredroClient.Models
 {
+    internal sealed class ViewVehicleContext : DbContext
+    {
+        public DbSet<ViewVehicle> ViewVehicles { get; set; }
+        public ViewVehicleContext() : base("FredroDbConnection") { }
+    }
+
+    internal sealed class Dictionary_VehicleTypeContext : DbContext
+    {
+        public DbSet<Dictionary_VehicleType> VehicleTypes { get; set; }
+        public Dictionary_VehicleTypeContext() : base("FredroDbConnection") { }
+    }
+
     internal sealed class VehicleContext : DbContext
     {
         public DbSet<Vehicle> Vehicles { get; set; }
         public VehicleContext() : base("FredroDbConnection") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<VehicleContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
     internal sealed class DealContext : DbContext

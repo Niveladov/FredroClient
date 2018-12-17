@@ -154,10 +154,12 @@
     </Compile>
     <Compile Include="Models\CredentialModel.cs" />
     <Compile Include="Models\Deal.cs" />
+    <Compile Include="Models\Dictionary_VehicleType.cs" />
     <Compile Include="Models\ServerSettings.cs" />
     <Compile Include="Models\TheMessage.cs" />
     <Compile Include="Models\DbContexts.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\ViewVehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">
