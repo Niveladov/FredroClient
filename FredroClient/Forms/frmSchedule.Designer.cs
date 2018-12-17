@@ -81,6 +81,7 @@
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleDay1);
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleHour1);
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScale15Minutes1);
+            this.schedulerMain.Views.TimelineView.ShowResourceHeaders = false;
             this.schedulerMain.Views.WeekView.Enabled = false;
             this.schedulerMain.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             // 
