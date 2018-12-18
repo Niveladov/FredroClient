@@ -16,7 +16,7 @@ namespace FredroClient.Models
         public string Route { get; set; } //маршрут
         public int? CustomerId { get; set; } //заказчик
         public int? PerformerId { get; set; } //исполнитель
-        public int? TransportId { get; set; } //автобус
+        public int? VehicleId { get; set; } //автобус
         public int? DealStatusId { get; set; } //статус сделки
         public string Description { get; set; } //описание
     }

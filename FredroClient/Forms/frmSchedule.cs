@@ -1,10 +1,12 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraScheduler;
+using DevExpress.XtraScheduler.Native;
 using DevExpress.XtraScheduler.Services;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
+using FredroClient.Models.Contexts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +35,7 @@ namespace FredroClient.Forms
         {
             schedulerMain.Start = DateTime.Today;
             schedulerMain.TimelineView.Scales[4].Width = schedulerMain.Bounds.Width;
-            schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 25;
+            schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
             schedulerMain.ActiveView.LayoutChanged();
         }
 
@@ -52,21 +54,22 @@ namespace FredroClient.Forms
             storageMain.Resources.Mappings.Id = nameof(ViewVehicle.Id);
             storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
             storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
-
-            storageMain.Appointments.DataSource = FredroHelper.GetAllDeals();
+            
+            storageMain.Appointments.DataSource = FredroHelper.GetAssignedDeals();
             storageMain.Appointments.Mappings.AppointmentId = nameof(Deal.Id);
-            storageMain.Appointments.Mappings.ResourceId = nameof(Deal.TransportId);
+            storageMain.Appointments.Mappings.ResourceId = nameof(Deal.VehicleId);
             storageMain.Appointments.Mappings.Subject = nameof(Deal.Route);
             storageMain.Appointments.Mappings.Start = nameof(Deal.DateStart);
             storageMain.Appointments.Mappings.End = nameof(Deal.DateEnd);
             storageMain.Appointments.Mappings.Description = nameof(Deal.Description);
             storageMain.Appointments.Mappings.Status = nameof(Deal.DealStatusId);
-            
+
+            storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("Id", nameof(Deal.Id)));
         }
 
         private void InitGrids()
         {
-            gcFreeDeals.DataSource = FredroHelper.GetAllDeals();
+            gcFreeDeals.DataSource = FredroHelper.GetNotAssignedDeals();
         }
 
         private SchedulerDragData GetDragData(GridView view)
@@ -80,6 +83,7 @@ namespace FredroClient.Forms
             apt.Start = row.DateStart.Value;
             apt.End = row.DateEnd.Value;
             apt.Description = row.Description;
+            apt.CustomFields["Id"] = row.Id;
 
             AppointmentBaseCollection appointments = new AppointmentBaseCollection();
             appointments.Add(apt);
@@ -130,9 +134,65 @@ namespace FredroClient.Forms
             //throw new NotImplementedException();
         }
 
-        private void SchedulerMain_AppointmentDrop(object sender, AppointmentDragEventArgs e)
+        private async void SchedulerMain_AppointmentDrop(object sender, AppointmentDragEventArgs e)
         {
-            //throw new NotImplementedException();
+            try
+            {
+                if (e.EditedAppointment.ResourceId is EmptyResource || Convert.ToInt32(e.EditedAppointment.ResourceId) <= 0)
+                {
+                    FredroMessageBox.ShowError("Заяка не будет назначена: выбран пустой ресурс(ТС)");
+                    e.Allow = false;
+                    return;
+                }
+                var start = e.SourceAppointment.Start;
+                if (start <= DateTime.Now)
+                {
+                    FredroMessageBox.ShowError("Заяка не будет назначена: невозможно назначить заяку на прошедшее время");
+                    e.Allow = false;
+                    return;
+                }
+                var vehicleId = Convert.ToInt32(e.EditedAppointment.ResourceId);
+                var sourceDealId = e.SourceAppointment.Id;
+                if (sourceDealId == null)
+                {
+                    var dealId = e.SourceAppointment.CustomFields["Id"];
+                    //-->
+                    using (var db = new DealContext())
+                    {
+                        var deal = await db.Deals.FindAsync(dealId);
+                        deal.VehicleId = vehicleId;
+                        await db.SaveChangesAsync();
+                    }
+                    //<--
+                }
+                else
+                {
+                    var dealId = sourceDealId;
+                    //-->
+                    using (var db = new DealContext())
+                    {
+                        var deal = await db.Deals.FindAsync(dealId);
+                        deal.VehicleId = vehicleId;
+                        await db.SaveChangesAsync();
+                    }
+                    //<--
+                }
+                e.Allow = true;
+                schedulerMain.BeginUpdate();
+                RefreshData();
+                schedulerMain.EndUpdate();
+            }
+            catch(Exception ex)
+            {
+                FredroMessageBox.ShowError($"Заявка не назначена: {ex.Message}");
+                e.Allow = false;
+            }
+        }
+
+        private void RefreshData()
+        {
+            storageMain.Appointments.DataSource = FredroHelper.GetAssignedDeals();
+            gcFreeDeals.DataSource = FredroHelper.GetNotAssignedDeals();
         }
 
         private void groupControlMain_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)

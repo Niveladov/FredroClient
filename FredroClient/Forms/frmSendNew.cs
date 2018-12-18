@@ -1,17 +1,10 @@
 ﻿using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FredroClient.Forms
@@ -47,25 +40,35 @@ namespace FredroClient.Forms
             meBody.Properties.ScrollBars = rect.Height > meBody.Height ? ScrollBars.Vertical : ScrollBars.None;
         }
 
-        private void BtnSend_Click(object sender, EventArgs e)
+        private async void BtnSend_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(meBody.Text))
             {
-                var responseMessage = new TheMessage();
-                responseMessage.Body = meBody.Text;
-                responseMessage.FromAddress = _creds.Username;
-                responseMessage.FromDisplayName = "ФрэдроКлиент";
-                responseMessage.ToAddress = teTo.Text;
-                responseMessage.Subject = teSubject.Text;
+                try
+                {
+                    var responseMessage = new TheMessage();
+                    responseMessage.Body = meBody.Text;
+                    responseMessage.FromAddress = _creds.Username;
+                    responseMessage.FromDisplayName = "ФрэдроКлиент";
+                    responseMessage.ToAddress = teTo.Text;
+                    responseMessage.Subject = teSubject.Text;
+                    
+                    await FredroHelper.SendEmailAsync(responseMessage, _creds, _smtp);
 
-                FredroHelper.SendEmailAsync(responseMessage, _creds, _smtp).GetAwaiter();
-                
-                Close();
+                    FredroMessageBox.ShowSucces("Письмо отправлено!");
+                }
+                catch (Exception ex)
+                {
+                    FredroMessageBox.ShowError($"Письмо не отправлено! {ex.Message}");
+                }
+                finally
+                {
+                    Close();
+                }
             }
             else
             {
-                XtraMessageBox.Show("Нельзя отправить пустое сообщение!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FredroMessageBox.ShowError("Нельзя отправить пустое сообщение!");
             }
         }
 

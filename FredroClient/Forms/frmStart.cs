@@ -38,6 +38,16 @@ namespace FredroClient.Forms
             teLogin.KeyPress += CredentialControl_KeyPress;
             tePassword.KeyPress += CredentialControl_KeyPress;
             icbeHostname.KeyPress += CredentialControl_KeyPress;
+            
+            //teLogin.Validating += TeLogin_Validating;
+        }
+
+        private void TeLogin_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(_model.Creds.Username))
+            {
+                e.Cancel = true;
+            }
         }
 
         private void CredentialControl_KeyPress(object sender, KeyPressEventArgs e)

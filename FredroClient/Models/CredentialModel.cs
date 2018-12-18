@@ -60,8 +60,7 @@ namespace FredroClient.Models
             }
             if (Settings == null)
             {
-                XtraMessageBox.Show("Не выбран почтовый сервер!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FredroMessageBox.ShowError("Не выбран почтовый сервер!");
             }
             //чистим все имэйлы из бд
             //FredroHelper.TruncateMessages();

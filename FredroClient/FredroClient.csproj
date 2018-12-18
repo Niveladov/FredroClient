@@ -127,6 +127,7 @@
     <Compile Include="ExtraClasses\FredroAttributes.cs" />
     <Compile Include="ExtraClasses\FredroEnums.cs" />
     <Compile Include="ExtraClasses\FredroHelper.cs" />
+    <Compile Include="ExtraClasses\FredroMessageBox.cs" />
     <Compile Include="ExtraClasses\WaitingHelper.cs" />
     <Compile Include="Forms\frmMessages.cs">
       <SubType>Form</SubType>

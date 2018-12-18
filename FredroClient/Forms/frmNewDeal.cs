@@ -1,4 +1,5 @@
-﻿using FredroClient.BaseGUI;
+﻿using DevExpress.XtraEditors;
+using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using FredroClient.Models.DatabaseObjectModels.Tables;
@@ -24,7 +25,7 @@ namespace FredroClient.Forms
             InitializeComponent();
             _dealModel = new NewDealModel();
             _loadingModel = new NewDealForeignsModel();
-            
+            InitControls();
         }
 
         private void InitControls()
@@ -41,19 +42,34 @@ namespace FredroClient.Forms
             customer.Properties.DataSource = _loadingModel.Customers;
             customer.Properties.DisplayMember = nameof(Customer.SubjectName);
             customer.Properties.ValueMember = nameof(Customer.Id);
+            customer.Properties.PopulateViewColumns();
+            customer.Properties.View.Columns[nameof(Customer.Id)].Visible = false;
+            customer.Properties.View.Columns[nameof(Customer.IsDel)].Visible = false;
+            customer.Properties.View.Columns[nameof(Customer.CreatedBy)].Visible = false;
+            customer.Properties.View.Columns[nameof(Customer.CreationDate)].Visible = false;
             customer.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.CustomerId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
 
             performer.Properties.DataSource = _loadingModel.Performers;
             performer.Properties.DisplayMember = nameof(Performer.SubjectName);
             performer.Properties.ValueMember = nameof(Performer.Id);
+            performer.Properties.PopulateViewColumns();
+            performer.Properties.View.Columns[nameof(Performer.Id)].Visible = false;
+            performer.Properties.View.Columns[nameof(Performer.IsDel)].Visible = false;
+            performer.Properties.View.Columns[nameof(Performer.CreatedBy)].Visible = false;
+            performer.Properties.View.Columns[nameof(Performer.CreationDate)].Visible = false;
             performer.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.PerformerId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
 
             vehicle.Properties.DataSource = _loadingModel.Vehicles;
             vehicle.Properties.DisplayMember = nameof(Vehicle.Name);
             vehicle.Properties.ValueMember = nameof(Vehicle.Id);
-            vehicle.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.TransportId),
+            vehicle.Properties.PopulateViewColumns();
+            vehicle.Properties.View.Columns[nameof(Vehicle.Id)].Visible = false;
+            //vehicle.Properties.View.Columns[nameof(Vehicle.IsDel)].Visible = false;
+            //vehicle.Properties.View.Columns[nameof(Vehicle.CreatedBy)].Visible = false;
+            //vehicle.Properties.View.Columns[nameof(Vehicle.CreationDate)].Visible = false;
+            vehicle.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.VehicleId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
@@ -61,10 +77,19 @@ namespace FredroClient.Forms
         {
             Close();
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            _dealModel.Save();
+            try
+            {
+                await _dealModel.Save();
+                FredroMessageBox.ShowSucces("Заяка(сделка) успешно сохранена!");
+                Close();
+            }
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError($"Заяка(сделка) не сохранена! {ex.Message}");
+            }
         }
 
 

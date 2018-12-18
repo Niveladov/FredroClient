@@ -98,8 +98,7 @@ namespace FredroClient.ExtraClasses
             }
             catch(Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Ошибка",
-                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                FredroMessageBox.ShowError(ex.Message);
                 return null;
             }
         }
@@ -121,13 +120,10 @@ namespace FredroClient.ExtraClasses
                 smtpClient.Credentials = new NetworkCredential(creds.Username, creds.Password);
                 smtpClient.EnableSsl = smtp.UseSsl;
                 await smtpClient.SendMailAsync(m);
-                XtraMessageBox.Show("Письмо отправлено!", "Успешно",
-                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch
             {
-                XtraMessageBox.Show(ex.Message, "Ошибка",
-                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                throw;
             }
         }
 
@@ -312,8 +308,7 @@ namespace FredroClient.ExtraClasses
             }
             return vehicles;
         }
-
-
+        
         internal static BindingList<Deal> GetAllDeals()
         {
             BindingList<Deal> deals = null;
@@ -321,6 +316,28 @@ namespace FredroClient.ExtraClasses
             {
                 db.Deals.Load();
                 deals = db.Deals.Local.ToBindingList();
+            }
+            return deals;
+        }
+
+        internal static List<Deal> GetAssignedDeals()
+        {
+            List<Deal> deals = null;
+            using (var db = new DealContext())
+            {
+                db.Deals.Load();
+                deals = db.Deals.Where(x => x.VehicleId != null).ToList();
+            }
+            return deals;
+        }
+
+        internal static List<Deal> GetNotAssignedDeals()
+        {
+            List<Deal> deals = null;
+            using (var db = new DealContext())
+            {
+                db.Deals.Load();
+                deals = db.Deals.Where(x => x.VehicleId == null).ToList();
             }
             return deals;
         }

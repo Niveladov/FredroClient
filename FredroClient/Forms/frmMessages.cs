@@ -1,5 +1,4 @@
 ﻿using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
@@ -7,15 +6,10 @@ using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FredroClient.Forms
@@ -165,39 +159,37 @@ namespace FredroClient.Forms
             }
         }
 
-        private void BtnSendResponse_Click(object sender, EventArgs e)
+        private async void BtnSendResponse_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(meResponseBody.Text))
             {
-                var focusedMessage = wevMessages.GetFocusedRow() as TheMessage;
-                var responseMessage = new TheMessage();
-                responseMessage.Body = meResponseBody.Text;
-                responseMessage.FromAddress = focusedMessage.ToAddress;
-                responseMessage.FromDisplayName = $"ФрэдроКлиент";
-                responseMessage.ToAddress = focusedMessage.FromAddress;
-                responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
-                responseMessage.Subject = focusedMessage.Subject;
+                try
+                {
+                    var focusedMessage = wevMessages.GetFocusedRow() as TheMessage;
+                    var responseMessage = new TheMessage();
+                    responseMessage.Body = meResponseBody.Text;
+                    responseMessage.FromAddress = focusedMessage.ToAddress;
+                    responseMessage.FromDisplayName = $"ФрэдроКлиент";
+                    responseMessage.ToAddress = focusedMessage.FromAddress;
+                    responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
+                    responseMessage.Subject = focusedMessage.Subject;
 
-                FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp).GetAwaiter();
+                    await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
 
-                meResponseBody.Text = "";
-                SetResponseBodyVisibility(false);
-                SetMessageBodyScrollBarVisibility();
+                    FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    
+                    meResponseBody.Text = "";
+                    SetResponseBodyVisibility(false);
+                    SetMessageBodyScrollBarVisibility();
+                }
+                catch (Exception ex)
+                {
+                    FredroMessageBox.ShowError($"Ответ не отправлен! {ex.Message}");
+                }
             }
             else
             {
-                XtraMessageBox.Show("Нельзя отправить пустой ответ!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private sealed class Folder
-        {
-            public string Caption { get; set; }
-
-            public Folder(string caption)
-            {
-                Caption = caption;
+                FredroMessageBox.ShowError("Нельзя отправить пустой ответ!");
             }
         }
 
@@ -214,6 +206,16 @@ namespace FredroClient.Forms
             using (var frm = new frmSchedule())
             {
                 frm.ShowDialog();
+            }
+        }
+
+        private sealed class Folder
+        {
+            public string Caption { get; set; }
+
+            public Folder(string caption)
+            {
+                Caption = caption;
             }
         }
 

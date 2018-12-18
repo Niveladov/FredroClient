@@ -11,7 +11,7 @@ namespace FredroClient.Models
     {
         public Deal NewDeal { get; set; } = new Deal();
 
-        public async void Save()
+        public async Task Save()
         {
             try
             {
@@ -23,9 +23,9 @@ namespace FredroClient.Models
                     await db.SaveChangesAsync();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
     }

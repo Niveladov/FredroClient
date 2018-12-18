@@ -78,7 +78,7 @@
             this.schedulerMain.Location = new System.Drawing.Point(0, 0);
             this.schedulerMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schedulerMain.Name = "schedulerMain";
-            this.schedulerMain.OptionsView.ResourceHeaders.Height = 40;
+            this.schedulerMain.OptionsView.ShowOnlyResourceAppointments = true;
             this.schedulerMain.Size = new System.Drawing.Size(648, 242);
             this.schedulerMain.Start = new System.DateTime(2018, 12, 10, 0, 0, 0, 0);
             this.schedulerMain.Storage = this.storageMain;
@@ -224,6 +224,7 @@
             this.gvFreeDeals.GridControl = this.gcFreeDeals;
             this.gvFreeDeals.Name = "gvFreeDeals";
             this.gvFreeDeals.OptionsBehavior.Editable = false;
+            this.gvFreeDeals.OptionsFind.AlwaysVisible = true;
             // 
             // colDateStart
             // 
