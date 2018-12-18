@@ -134,6 +134,14 @@ namespace FredroClient.Forms
             //throw new NotImplementedException();
         }
 
+        private bool CheckIfResourceIsBusy(object resourceId, DateTime start, DateTime end)
+        {
+            var appointments = storageMain.Appointments.Items.Where(x => !(x.ResourceId is EmptyResource) &&
+            x.ResourceId.Equals(resourceId) && (x.End > start && x.Start < end));
+            var itHas = appointments.Any();
+            return itHas;
+        }
+
         private async void SchedulerMain_AppointmentDrop(object sender, AppointmentDragEventArgs e)
         {
             try
@@ -151,7 +159,14 @@ namespace FredroClient.Forms
                     e.Allow = false;
                     return;
                 }
+                var end = e.SourceAppointment.End;
                 var vehicleId = Convert.ToInt32(e.EditedAppointment.ResourceId);
+                if (CheckIfResourceIsBusy(vehicleId, start, end))
+                {
+                    FredroMessageBox.ShowError("Заяка не будет назначена: выбранный ресурс(ТС) занят");
+                    e.Allow = false;
+                    return;
+                }
                 var sourceDealId = e.SourceAppointment.Id;
                 if (sourceDealId == null)
                 {
