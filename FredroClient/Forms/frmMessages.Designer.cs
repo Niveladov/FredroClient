@@ -106,6 +106,9 @@
             this.lciSplitMain = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPanelTop = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciStatusStrip = new DevExpress.XtraLayout.LayoutControlItem();
+            this.xtraTabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPageMails = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPageScheduler = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMessages)).BeginInit();
@@ -167,6 +170,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStatusStrip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl)).BeginInit();
+            this.xtraTabControl.SuspendLayout();
+            this.xtraTabPageMails.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitMessages
@@ -179,7 +185,7 @@
             this.splitMessages.Panel1.Text = "Panel1";
             this.splitMessages.Panel2.Controls.Add(this.lcMessage);
             this.splitMessages.Panel2.Text = "Panel2";
-            this.splitMessages.Size = new System.Drawing.Size(805, 471);
+            this.splitMessages.Size = new System.Drawing.Size(799, 443);
             this.splitMessages.SplitterPosition = 419;
             this.splitMessages.TabIndex = 0;
             // 
@@ -191,7 +197,7 @@
             this.gcMessages.MainView = this.wevMessages;
             this.gcMessages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMessages.Name = "gcMessages";
-            this.gcMessages.Size = new System.Drawing.Size(419, 471);
+            this.gcMessages.Size = new System.Drawing.Size(419, 443);
             this.gcMessages.TabIndex = 1;
             this.gcMessages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.wevMessages});
@@ -282,7 +288,7 @@
             this.lcMessage.Name = "lcMessage";
             this.lcMessage.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(424, 341, 633, 350);
             this.lcMessage.Root = this.lcgMessage;
-            this.lcMessage.Size = new System.Drawing.Size(381, 471);
+            this.lcMessage.Size = new System.Drawing.Size(375, 443);
             this.lcMessage.TabIndex = 0;
             this.lcMessage.Text = "layoutControl1";
             // 
@@ -290,7 +296,7 @@
             // 
             this.btnSendResponse.AllowFocus = false;
             this.btnSendResponse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSendResponse.Location = new System.Drawing.Point(411, 419);
+            this.btnSendResponse.Location = new System.Drawing.Point(411, 391);
             this.btnSendResponse.Name = "btnSendResponse";
             this.btnSendResponse.Size = new System.Drawing.Size(95, 28);
             this.btnSendResponse.StyleController = this.lcMessage;
@@ -299,13 +305,13 @@
             // 
             // meResponseBody
             // 
-            this.meResponseBody.Location = new System.Drawing.Point(7, 339);
+            this.meResponseBody.Location = new System.Drawing.Point(7, 321);
             this.meResponseBody.Name = "meResponseBody";
             this.meResponseBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.meResponseBody.Properties.NullValuePrompt = "Ответить...";
             this.meResponseBody.Properties.NullValuePromptShowForEmptyValue = true;
             this.meResponseBody.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.meResponseBody.Size = new System.Drawing.Size(499, 76);
+            this.meResponseBody.Size = new System.Drawing.Size(499, 66);
             this.meResponseBody.StyleController = this.lcMessage;
             this.meResponseBody.TabIndex = 18;
             // 
@@ -373,13 +379,13 @@
             // 
             this.btnResend.AllowFocus = false;
             this.btnResend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResend.Enabled = false;
             this.btnResend.Location = new System.Drawing.Point(128, 7);
             this.btnResend.Name = "btnResend";
             this.btnResend.Size = new System.Drawing.Size(117, 28);
             this.btnResend.StyleController = this.lcMessage;
             this.btnResend.TabIndex = 11;
             this.btnResend.Text = "Переслать";
+            this.btnResend.Click += new System.EventHandler(this.btnResend_Click);
             // 
             // btnReply
             // 
@@ -398,7 +404,7 @@
             this.meBody.Name = "meBody";
             this.meBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.meBody.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.meBody.Size = new System.Drawing.Size(499, 180);
+            this.meBody.Size = new System.Drawing.Size(499, 162);
             this.meBody.StyleController = this.lcMessage;
             this.meBody.TabIndex = 9;
             // 
@@ -486,7 +492,7 @@
             this.lcgMessage.Location = new System.Drawing.Point(0, 0);
             this.lcgMessage.Name = "Root";
             this.lcgMessage.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lcgMessage.Size = new System.Drawing.Size(513, 454);
+            this.lcgMessage.Size = new System.Drawing.Size(513, 426);
             this.lcgMessage.TextVisible = false;
             // 
             // lciFrom
@@ -554,7 +560,7 @@
             this.lciBody.Location = new System.Drawing.Point(0, 145);
             this.lciBody.Name = "lciBody";
             this.lciBody.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 2);
-            this.lciBody.Size = new System.Drawing.Size(503, 187);
+            this.lciBody.Size = new System.Drawing.Size(503, 169);
             this.lciBody.TextSize = new System.Drawing.Size(0, 0);
             this.lciBody.TextVisible = false;
             // 
@@ -678,9 +684,9 @@
             // lciResponseBody
             // 
             this.lciResponseBody.Control = this.meResponseBody;
-            this.lciResponseBody.Location = new System.Drawing.Point(0, 332);
+            this.lciResponseBody.Location = new System.Drawing.Point(0, 314);
             this.lciResponseBody.Name = "lciResponseBody";
-            this.lciResponseBody.Size = new System.Drawing.Size(503, 80);
+            this.lciResponseBody.Size = new System.Drawing.Size(503, 70);
             this.lciResponseBody.TextSize = new System.Drawing.Size(0, 0);
             this.lciResponseBody.TextVisible = false;
             this.lciResponseBody.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -688,7 +694,7 @@
             // lciSendResponse
             // 
             this.lciSendResponse.Control = this.btnSendResponse;
-            this.lciSendResponse.Location = new System.Drawing.Point(404, 412);
+            this.lciSendResponse.Location = new System.Drawing.Point(404, 384);
             this.lciSendResponse.MaxSize = new System.Drawing.Size(99, 32);
             this.lciSendResponse.MinSize = new System.Drawing.Size(99, 32);
             this.lciSendResponse.Name = "lciSendResponse";
@@ -700,7 +706,7 @@
             // esResponseArea
             // 
             this.esResponseArea.AllowHotTrack = false;
-            this.esResponseArea.Location = new System.Drawing.Point(0, 412);
+            this.esResponseArea.Location = new System.Drawing.Point(0, 384);
             this.esResponseArea.Name = "esResponseArea";
             this.esResponseArea.Size = new System.Drawing.Size(404, 32);
             this.esResponseArea.TextSize = new System.Drawing.Size(0, 0);
@@ -721,7 +727,7 @@
             this.splitMain.Panel1.Text = "Panel1";
             this.splitMain.Panel2.Controls.Add(this.splitMessages);
             this.splitMain.Panel2.Text = "Panel2";
-            this.splitMain.Size = new System.Drawing.Size(1013, 471);
+            this.splitMain.Size = new System.Drawing.Size(1007, 443);
             this.splitMain.SplitterPosition = 203;
             this.splitMain.TabIndex = 1;
             this.splitMain.Text = "splitContainerControl1";
@@ -735,7 +741,7 @@
             this.lcMessageTypes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lcMessageTypes.Name = "lcMessageTypes";
             this.lcMessageTypes.Root = this.lcgMessageTypes;
-            this.lcMessageTypes.Size = new System.Drawing.Size(203, 471);
+            this.lcMessageTypes.Size = new System.Drawing.Size(203, 443);
             this.lcMessageTypes.TabIndex = 0;
             this.lcMessageTypes.Text = "layoutControl1";
             // 
@@ -758,7 +764,7 @@
             this.gcFolders.Location = new System.Drawing.Point(0, 47);
             this.gcFolders.MainView = this.wevFolders;
             this.gcFolders.Name = "gcFolders";
-            this.gcFolders.Size = new System.Drawing.Size(203, 424);
+            this.gcFolders.Size = new System.Drawing.Size(203, 396);
             this.gcFolders.TabIndex = 4;
             this.gcFolders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.wevFolders});
@@ -797,7 +803,7 @@
             this.lcgMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcgMessageTypes.Name = "lcgMessageTypes";
             this.lcgMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lcgMessageTypes.Size = new System.Drawing.Size(203, 471);
+            this.lcgMessageTypes.Size = new System.Drawing.Size(203, 443);
             this.lcgMessageTypes.TextVisible = false;
             // 
             // lciMessageTypes
@@ -806,7 +812,7 @@
             this.lciMessageTypes.Location = new System.Drawing.Point(0, 47);
             this.lciMessageTypes.Name = "lciMessageTypes";
             this.lciMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciMessageTypes.Size = new System.Drawing.Size(203, 424);
+            this.lciMessageTypes.Size = new System.Drawing.Size(203, 396);
             this.lciMessageTypes.TextSize = new System.Drawing.Size(0, 0);
             this.lciMessageTypes.TextVisible = false;
             // 
@@ -832,7 +838,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(1013, 531);
+            this.lcMain.Size = new System.Drawing.Size(1007, 503);
             this.lcMain.TabIndex = 2;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -845,9 +851,9 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslLeftText,
             this.tsslRightText});
-            this.statusStrip.Location = new System.Drawing.Point(0, 511);
+            this.statusStrip.Location = new System.Drawing.Point(0, 483);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1013, 20);
+            this.statusStrip.Size = new System.Drawing.Size(1007, 20);
             this.statusStrip.TabIndex = 4;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -863,7 +869,7 @@
             this.tsslRightText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tsslRightText.Name = "tsslRightText";
             this.tsslRightText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tsslRightText.Size = new System.Drawing.Size(897, 15);
+            this.tsslRightText.Size = new System.Drawing.Size(891, 15);
             this.tsslRightText.Spring = true;
             this.tsslRightText.Text = "tsslRightText";
             this.tsslRightText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -873,7 +879,7 @@
             this.panelTop.Controls.Add(this.lcTopPanel);
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1013, 40);
+            this.panelTop.Size = new System.Drawing.Size(1007, 40);
             this.panelTop.TabIndex = 2;
             // 
             // lcTopPanel
@@ -886,7 +892,7 @@
             this.lcTopPanel.Location = new System.Drawing.Point(2, 2);
             this.lcTopPanel.Name = "lcTopPanel";
             this.lcTopPanel.Root = this.lcgTopPanel;
-            this.lcTopPanel.Size = new System.Drawing.Size(1009, 36);
+            this.lcTopPanel.Size = new System.Drawing.Size(1003, 36);
             this.lcTopPanel.TabIndex = 1;
             this.lcTopPanel.Text = "layoutControl1";
             // 
@@ -896,7 +902,7 @@
             this.labelFredro.Appearance.ForeColor = System.Drawing.Color.LavenderBlush;
             this.labelFredro.Location = new System.Drawing.Point(136, 4);
             this.labelFredro.Name = "labelFredro";
-            this.labelFredro.Size = new System.Drawing.Size(207, 28);
+            this.labelFredro.Size = new System.Drawing.Size(213, 28);
             this.labelFredro.StyleController = this.lcTopPanel;
             this.labelFredro.TabIndex = 7;
             this.labelFredro.Text = "Фрэдро клиент";
@@ -920,7 +926,7 @@
             // 
             this.peSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.peSettings.EditValue = global::FredroClient.Properties.Resources.menu_icon3_64x64;
-            this.peSettings.Location = new System.Drawing.Point(935, 8);
+            this.peSettings.Location = new System.Drawing.Point(929, 8);
             this.peSettings.Name = "peSettings";
             this.peSettings.Properties.AllowFocused = false;
             this.peSettings.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -936,7 +942,7 @@
             // 
             this.peAva.Cursor = System.Windows.Forms.Cursors.Hand;
             this.peAva.EditValue = ((object)(resources.GetObject("peAva.EditValue")));
-            this.peAva.Location = new System.Drawing.Point(965, 2);
+            this.peAva.Location = new System.Drawing.Point(959, 2);
             this.peAva.Name = "peAva";
             this.peAva.Properties.AllowFocused = false;
             this.peAva.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -963,13 +969,13 @@
             this.lcgTopPanel.Location = new System.Drawing.Point(0, 0);
             this.lcgTopPanel.Name = "lcgTopPanel";
             this.lcgTopPanel.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgTopPanel.Size = new System.Drawing.Size(1009, 36);
+            this.lcgTopPanel.Size = new System.Drawing.Size(1003, 36);
             this.lcgTopPanel.TextVisible = false;
             // 
             // lciAva
             // 
             this.lciAva.Control = this.peAva;
-            this.lciAva.Location = new System.Drawing.Point(963, 0);
+            this.lciAva.Location = new System.Drawing.Point(957, 0);
             this.lciAva.MaxSize = new System.Drawing.Size(36, 36);
             this.lciAva.MinSize = new System.Drawing.Size(36, 36);
             this.lciAva.Name = "lciAva";
@@ -981,15 +987,15 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(347, 0);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(353, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(580, 36);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(568, 36);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(999, 0);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(993, 0);
             this.emptySpaceItem5.MaxSize = new System.Drawing.Size(10, 36);
             this.emptySpaceItem5.MinSize = new System.Drawing.Size(10, 36);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
@@ -1000,7 +1006,7 @@
             // lciSettings
             // 
             this.lciSettings.Control = this.peSettings;
-            this.lciSettings.Location = new System.Drawing.Point(927, 0);
+            this.lciSettings.Location = new System.Drawing.Point(921, 0);
             this.lciSettings.MaxSize = new System.Drawing.Size(36, 36);
             this.lciSettings.MinSize = new System.Drawing.Size(36, 36);
             this.lciSettings.Name = "lciSettings";
@@ -1030,7 +1036,7 @@
             this.lciLabel.MinSize = new System.Drawing.Size(215, 32);
             this.lciLabel.Name = "lciLabel";
             this.lciLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.lciLabel.Size = new System.Drawing.Size(215, 36);
+            this.lciLabel.Size = new System.Drawing.Size(221, 36);
             this.lciLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciLabel.TextSize = new System.Drawing.Size(0, 0);
             this.lciLabel.TextVisible = false;
@@ -1056,7 +1062,7 @@
             this.lciStatusStrip});
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
-            this.lcgMain.Size = new System.Drawing.Size(1013, 531);
+            this.lcgMain.Size = new System.Drawing.Size(1007, 503);
             this.lcgMain.TextVisible = false;
             // 
             // lciSplitMain
@@ -1065,7 +1071,7 @@
             this.lciSplitMain.Location = new System.Drawing.Point(0, 40);
             this.lciSplitMain.Name = "lciSplitMain";
             this.lciSplitMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciSplitMain.Size = new System.Drawing.Size(1013, 471);
+            this.lciSplitMain.Size = new System.Drawing.Size(1007, 443);
             this.lciSplitMain.TextSize = new System.Drawing.Size(0, 0);
             this.lciSplitMain.TextVisible = false;
             // 
@@ -1077,7 +1083,7 @@
             this.lciPanelTop.MinSize = new System.Drawing.Size(5, 40);
             this.lciPanelTop.Name = "lciPanelTop";
             this.lciPanelTop.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciPanelTop.Size = new System.Drawing.Size(1013, 40);
+            this.lciPanelTop.Size = new System.Drawing.Size(1007, 40);
             this.lciPanelTop.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciPanelTop.TextSize = new System.Drawing.Size(0, 0);
             this.lciPanelTop.TextVisible = false;
@@ -1085,22 +1091,47 @@
             // lciStatusStrip
             // 
             this.lciStatusStrip.Control = this.statusStrip;
-            this.lciStatusStrip.Location = new System.Drawing.Point(0, 511);
+            this.lciStatusStrip.Location = new System.Drawing.Point(0, 483);
             this.lciStatusStrip.MaxSize = new System.Drawing.Size(0, 20);
             this.lciStatusStrip.MinSize = new System.Drawing.Size(100, 20);
             this.lciStatusStrip.Name = "lciStatusStrip";
             this.lciStatusStrip.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciStatusStrip.Size = new System.Drawing.Size(1013, 20);
+            this.lciStatusStrip.Size = new System.Drawing.Size(1007, 20);
             this.lciStatusStrip.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciStatusStrip.TextSize = new System.Drawing.Size(0, 0);
             this.lciStatusStrip.TextVisible = false;
+            // 
+            // xtraTabControl
+            // 
+            this.xtraTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl.Location = new System.Drawing.Point(0, 0);
+            this.xtraTabControl.Name = "xtraTabControl";
+            this.xtraTabControl.SelectedTabPage = this.xtraTabPageMails;
+            this.xtraTabControl.Size = new System.Drawing.Size(1013, 531);
+            this.xtraTabControl.TabIndex = 3;
+            this.xtraTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPageMails,
+            this.xtraTabPageScheduler});
+            // 
+            // xtraTabPageMails
+            // 
+            this.xtraTabPageMails.Controls.Add(this.lcMain);
+            this.xtraTabPageMails.Name = "xtraTabPageMails";
+            this.xtraTabPageMails.Size = new System.Drawing.Size(1007, 503);
+            this.xtraTabPageMails.Text = "Почта";
+            // 
+            // xtraTabPageScheduler
+            // 
+            this.xtraTabPageScheduler.Name = "xtraTabPageScheduler";
+            this.xtraTabPageScheduler.Size = new System.Drawing.Size(1007, 503);
+            this.xtraTabPageScheduler.Text = "Календарь";
             // 
             // frmMessages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 531);
-            this.Controls.Add(this.lcMain);
+            this.Controls.Add(this.xtraTabControl);
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmMessages";
             this.Text = "";
@@ -1167,6 +1198,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStatusStrip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl)).EndInit();
+            this.xtraTabControl.ResumeLayout(false);
+            this.xtraTabPageMails.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1250,5 +1284,8 @@
         private DevExpress.XtraEditors.LabelControl labelFredro;
         private DevExpress.XtraLayout.LayoutControlItem lciLabel;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPageMails;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPageScheduler;
     }
 }
