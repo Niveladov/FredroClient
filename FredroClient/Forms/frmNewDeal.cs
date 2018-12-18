@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.Drawing;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
@@ -26,6 +28,13 @@ namespace FredroClient.Forms
             _dealModel = new NewDealModel();
             _loadingModel = new NewDealForeignsModel();
             InitControls();
+            InitEvents();
+        }
+
+        private void InitEvents()
+        {
+            description.TextChanged += MemoEdit_TextChanged;
+            route.TextChanged += MemoEdit_TextChanged;
         }
 
         private void InitControls()
@@ -71,6 +80,25 @@ namespace FredroClient.Forms
             //vehicle.Properties.View.Columns[nameof(Vehicle.CreationDate)].Visible = false;
             vehicle.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.VehicleId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
+        }
+
+        private void SetMemoEditScrollBarVisibility(MemoEdit memoEdit)
+        {
+            MemoEditViewInfo vi = memoEdit.GetViewInfo() as MemoEditViewInfo;
+            GraphicsCache cache = new GraphicsCache(memoEdit.CreateGraphics());
+            int h = (vi as IHeightAdaptable).CalcHeight(cache, vi.MaskBoxRect.Width);
+            ObjectInfoArgs args = new ObjectInfoArgs();
+            args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
+            Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
+            cache.Dispose();
+            memoEdit.Properties.ScrollBars = rect.Height > memoEdit.Height ?
+                ScrollBars.Vertical : ScrollBars.None;
+        }
+
+        private void MemoEdit_TextChanged(object sender, EventArgs e)
+        {
+            var memoEdit = sender as MemoEdit;
+            if (memoEdit != null) SetMemoEditScrollBarVisibility(memoEdit);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
