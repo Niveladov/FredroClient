@@ -271,7 +271,7 @@ namespace FredroClient.UserControls
                 args.Title.Font = font;
                 args.Contents.Text = aptViewInfo.DisplayText + Environment.NewLine + aptViewInfo.Description;
                 args.Contents.Font = font;
-                args.Contents.Image = Properties.Resources.info_32x32__2_;
+                args.Contents.Image = Properties.Resources.info_32x32;
                 args.ShowFooterSeparator = true;
                 args.Footer.Font = font;
                 args.Footer.Text = "фрэдро...";
