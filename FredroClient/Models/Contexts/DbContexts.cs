@@ -13,12 +13,24 @@ namespace FredroClient.Models.Contexts
     {
         public DbSet<Customer> Customers { get; set; }
         public CustomerContext() : base("FredroDbConnection") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<CustomerContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
     internal sealed class PerformerContext : DbContext
     {
         public DbSet<Performer> Performers { get; set; }
         public PerformerContext() : base("FredroDbConnection") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<PerformerContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
     internal sealed class ViewVehicleContext : DbContext
@@ -31,6 +43,12 @@ namespace FredroClient.Models.Contexts
     {
         public DbSet<Dictionary_VehicleType> VehicleTypes { get; set; }
         public Dictionary_VehicleTypeContext() : base("FredroDbConnection") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<Dictionary_VehicleTypeContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
     internal sealed class VehicleContext : DbContext
@@ -49,6 +67,12 @@ namespace FredroClient.Models.Contexts
     {
         public DbSet<Deal> Deals { get; set; }
         public DealContext() : base("FredroDbConnection") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<DealContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
     internal sealed class TheMessageContext : DbContext

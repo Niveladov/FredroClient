@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucScheduler));
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeScaleYear timeScaleYear1 = new DevExpress.XtraScheduler.TimeScaleYear();
-            DevExpress.XtraScheduler.TimeScaleQuarter timeScaleQuarter1 = new DevExpress.XtraScheduler.TimeScaleQuarter();
-            DevExpress.XtraScheduler.TimeScaleMonth timeScaleMonth1 = new DevExpress.XtraScheduler.TimeScaleMonth();
-            DevExpress.XtraScheduler.TimeScaleWeek timeScaleWeek1 = new DevExpress.XtraScheduler.TimeScaleWeek();
-            DevExpress.XtraScheduler.TimeScaleDay timeScaleDay1 = new DevExpress.XtraScheduler.TimeScaleDay();
-            DevExpress.XtraScheduler.TimeScaleHour timeScaleHour1 = new DevExpress.XtraScheduler.TimeScaleHour();
-            DevExpress.XtraScheduler.TimeScale15Minutes timeScale15Minutes1 = new DevExpress.XtraScheduler.TimeScale15Minutes();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeScaleYear timeScaleYear2 = new DevExpress.XtraScheduler.TimeScaleYear();
+            DevExpress.XtraScheduler.TimeScaleQuarter timeScaleQuarter2 = new DevExpress.XtraScheduler.TimeScaleQuarter();
+            DevExpress.XtraScheduler.TimeScaleMonth timeScaleMonth2 = new DevExpress.XtraScheduler.TimeScaleMonth();
+            DevExpress.XtraScheduler.TimeScaleWeek timeScaleWeek2 = new DevExpress.XtraScheduler.TimeScaleWeek();
+            DevExpress.XtraScheduler.TimeScaleDay timeScaleDay2 = new DevExpress.XtraScheduler.TimeScaleDay();
+            DevExpress.XtraScheduler.TimeScaleHour timeScaleHour2 = new DevExpress.XtraScheduler.TimeScaleHour();
+            DevExpress.XtraScheduler.TimeScale15Minutes timeScale15Minutes2 = new DevExpress.XtraScheduler.TimeScale15Minutes();
+            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.splitHorizontal = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitVertical = new System.Windows.Forms.SplitContainer();
@@ -47,6 +47,7 @@
             this.ы = new DevExpress.XtraScheduler.Native.ResourceTreeColumn();
             this.schedulerMain = new DevExpress.XtraScheduler.SchedulerControl();
             this.storageMain = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.toolTipController = new DevExpress.Utils.ToolTipController(this.components);
             this.gcFreeDeals = new DevExpress.XtraGrid.GridControl();
             this.gvFreeDeals = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDateStart = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -169,33 +170,40 @@
             this.schedulerMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schedulerMain.Name = "schedulerMain";
             this.schedulerMain.OptionsView.ShowOnlyResourceAppointments = true;
+            this.schedulerMain.OptionsView.ToolTipVisibility = DevExpress.XtraScheduler.ToolTipVisibility.Always;
             this.schedulerMain.Size = new System.Drawing.Size(769, 259);
             this.schedulerMain.Start = new System.DateTime(2018, 12, 10, 0, 0, 0, 0);
             this.schedulerMain.Storage = this.storageMain;
             this.schedulerMain.TabIndex = 1;
             this.schedulerMain.Text = "scMain";
+            this.schedulerMain.ToolTipController = this.toolTipController;
             this.schedulerMain.Views.DayView.Enabled = false;
-            this.schedulerMain.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerMain.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerMain.Views.DayView.TimeRulers.Add(timeRuler4);
+            this.schedulerMain.Views.FullWeekView.TimeRulers.Add(timeRuler5);
             this.schedulerMain.Views.GanttView.Enabled = false;
             this.schedulerMain.Views.MonthView.Enabled = false;
             this.schedulerMain.Views.TimelineView.ResourcesPerPage = 14;
-            timeScaleYear1.Enabled = false;
-            timeScaleQuarter1.Enabled = false;
-            timeScaleMonth1.Enabled = false;
-            timeScaleWeek1.Enabled = false;
-            timeScale15Minutes1.Enabled = false;
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleYear1);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleQuarter1);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleMonth1);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleWeek1);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleDay1);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleHour1);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScale15Minutes1);
+            timeScaleYear2.Enabled = false;
+            timeScaleQuarter2.Enabled = false;
+            timeScaleMonth2.Enabled = false;
+            timeScaleWeek2.Enabled = false;
+            timeScale15Minutes2.Enabled = false;
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleYear2);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleQuarter2);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleMonth2);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleWeek2);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleDay2);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleHour2);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScale15Minutes2);
             this.schedulerMain.Views.TimelineView.ShowResourceHeaders = false;
             this.schedulerMain.Views.WeekView.Enabled = false;
             this.schedulerMain.Views.WorkWeekView.Enabled = false;
-            this.schedulerMain.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schedulerMain.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            // 
+            // toolTipController
+            // 
+            this.toolTipController.AutoPopDelay = 15000;
+            this.toolTipController.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
             // 
             // gcFreeDeals
             // 
@@ -319,5 +327,6 @@
         private DevExpress.XtraScheduler.UI.ResourcesTree resourcesTreeMain;
         private DevExpress.XtraScheduler.Native.ResourceTreeColumn ы;
         private DevExpress.XtraScheduler.SchedulerControl schedulerMain;
+        private DevExpress.Utils.ToolTipController toolTipController;
     }
 }

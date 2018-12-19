@@ -8,9 +8,12 @@ namespace FredroClient.Models
 {
     internal sealed class Deal
     {
+        //shared properties
         public int? Id { get; set; }
-        public DateTime? CreationDate { get; set; } //дата создания
-        public int? CreatedBy { get; set; } //кем создано
+        public bool? IsDel { get; set; }
+        public DateTime? CreationDate { get; set; }
+        public int? CreatedBy { get; set; }
+        //my properties
         public DateTime? DateStart { get; set; } //начало
         public DateTime? DateEnd { get; set; } //окончание
         public string Route { get; set; } //маршрут

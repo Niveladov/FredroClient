@@ -155,6 +155,12 @@
     <Compile Include="Forms\frmMessages.Designer.cs">
       <DependentUpon>frmMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmNewPerformer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewPerformer.Designer.cs">
+      <DependentUpon>frmNewPerformer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmNewDeal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,7 @@
     <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\Dictionary_VehicleType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
+    <Compile Include="Models\NewCustomerModel.cs" />
     <Compile Include="Models\NewDealForeignsModel.cs" />
     <Compile Include="Models\NewDealModel.cs" />
     <Compile Include="Models\ServerSettings.cs" />
@@ -216,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMessages.resx">
       <DependentUpon>frmMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewPerformer.resx">
+      <DependentUpon>frmNewPerformer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmNewDeal.resx">
       <DependentUpon>frmNewDeal.cs</DependentUpon>
@@ -264,6 +274,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\info_32x32 %283%29.png" />
+    <None Include="Resources\info_32x32 %282%29.png" />
+    <None Include="Resources\info_32x32.png" />
     <None Include="Resources\FredroClient3.png" />
     <None Include="Resources\FredroClient2.png" />
     <None Include="Resources\FredroClient.png" />

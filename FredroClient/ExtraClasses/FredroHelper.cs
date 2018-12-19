@@ -224,7 +224,8 @@ namespace FredroClient.ExtraClasses
                     CreationDate = DateTime.Now,
                     EmailAddress = "test@test.test",
                     PhoneNumber = "+7(777)777-77-77",
-                    SubjectName = "Customer Fredro Company"
+                    SubjectName = "Customer Fredro Company",
+                    Source = "xXx"
                 };
                 db.Customers.Add(vt1);
                 await db.SaveChangesAsync();

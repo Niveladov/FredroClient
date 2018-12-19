@@ -624,7 +624,7 @@
             // 
             this.btnSendResponse.AllowFocus = false;
             this.btnSendResponse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSendResponse.Location = new System.Drawing.Point(85, 471);
+            this.btnSendResponse.Location = new System.Drawing.Point(312, 471);
             this.btnSendResponse.Name = "btnSendResponse";
             this.btnSendResponse.Size = new System.Drawing.Size(95, 28);
             this.btnSendResponse.StyleController = this.lcMessage;
@@ -633,7 +633,7 @@
             // 
             // meResponseBody
             // 
-            this.meResponseBody.Location = new System.Drawing.Point(-220, 380);
+            this.meResponseBody.Location = new System.Drawing.Point(7, 380);
             this.meResponseBody.Name = "meResponseBody";
             this.meResponseBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.meResponseBody.Properties.NullValuePrompt = "Ответить...";
@@ -647,7 +647,7 @@
             // 
             this.ddbMove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddbMove.Enabled = false;
-            this.ddbMove.Location = new System.Drawing.Point(143, 7);
+            this.ddbMove.Location = new System.Drawing.Point(370, 7);
             this.ddbMove.Name = "ddbMove";
             this.ddbMove.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.ddbMove.Size = new System.Drawing.Size(126, 28);
@@ -658,7 +658,7 @@
             // btnAddDeal
             // 
             this.btnAddDeal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDeal.Location = new System.Drawing.Point(-95, 125);
+            this.btnAddDeal.Location = new System.Drawing.Point(132, 125);
             this.btnAddDeal.Name = "btnAddDeal";
             this.btnAddDeal.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnAddDeal.Size = new System.Drawing.Size(121, 28);
@@ -669,8 +669,7 @@
             // btnAddClient
             // 
             this.btnAddClient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddClient.Enabled = false;
-            this.btnAddClient.Location = new System.Drawing.Point(-220, 125);
+            this.btnAddClient.Location = new System.Drawing.Point(7, 125);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnAddClient.Size = new System.Drawing.Size(121, 28);
@@ -682,7 +681,7 @@
             // 
             this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(22, 7);
+            this.btnRemove.Location = new System.Drawing.Point(249, 7);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnRemove.Size = new System.Drawing.Size(117, 28);
@@ -694,7 +693,7 @@
             // 
             this.btnResend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResend.Enabled = false;
-            this.btnResend.Location = new System.Drawing.Point(-99, 7);
+            this.btnResend.Location = new System.Drawing.Point(128, 7);
             this.btnResend.Name = "btnResend";
             this.btnResend.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnResend.Size = new System.Drawing.Size(117, 28);
@@ -705,7 +704,7 @@
             // btnReply
             // 
             this.btnReply.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReply.Location = new System.Drawing.Point(-220, 7);
+            this.btnReply.Location = new System.Drawing.Point(7, 7);
             this.btnReply.Name = "btnReply";
             this.btnReply.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnReply.Size = new System.Drawing.Size(117, 28);
@@ -715,7 +714,7 @@
             // 
             // meBody
             // 
-            this.meBody.Location = new System.Drawing.Point(-220, 160);
+            this.meBody.Location = new System.Drawing.Point(7, 160);
             this.meBody.Name = "meBody";
             this.meBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.meBody.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -728,7 +727,7 @@
             // peUser
             // 
             this.peUser.EditValue = global::FredroClient.Properties.Resources.user_64x64;
-            this.peUser.Location = new System.Drawing.Point(-220, 71);
+            this.peUser.Location = new System.Drawing.Point(7, 71);
             this.peUser.Name = "peUser";
             this.peUser.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.peUser.Properties.Appearance.Options.UseBackColor = true;
@@ -742,7 +741,7 @@
             // labelDate
             // 
             this.labelDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelDate.Location = new System.Drawing.Point(208, 71);
+            this.labelDate.Location = new System.Drawing.Point(435, 71);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(71, 21);
             this.labelDate.StyleController = this.lcMessage;
@@ -751,7 +750,7 @@
             // 
             // labelTo
             // 
-            this.labelTo.Location = new System.Drawing.Point(-173, 96);
+            this.labelTo.Location = new System.Drawing.Point(54, 96);
             this.labelTo.Name = "labelTo";
             this.labelTo.Size = new System.Drawing.Size(452, 18);
             this.labelTo.StyleController = this.lcMessage;
@@ -761,7 +760,7 @@
             // labelSubject
             // 
             this.labelSubject.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelSubject.Location = new System.Drawing.Point(-220, 39);
+            this.labelSubject.Location = new System.Drawing.Point(7, 39);
             this.labelSubject.Name = "labelSubject";
             this.labelSubject.Size = new System.Drawing.Size(123, 28);
             this.labelSubject.StyleController = this.lcMessage;
@@ -770,7 +769,7 @@
             // 
             // labelFrom
             // 
-            this.labelFrom.Location = new System.Drawing.Point(-173, 71);
+            this.labelFrom.Location = new System.Drawing.Point(54, 71);
             this.labelFrom.Name = "labelFrom";
             this.labelFrom.Size = new System.Drawing.Size(377, 21);
             this.labelFrom.StyleController = this.lcMessage;
@@ -781,7 +780,7 @@
             // 
             this.btnCancelResponce.AllowFocus = false;
             this.btnCancelResponce.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelResponce.Location = new System.Drawing.Point(184, 471);
+            this.btnCancelResponce.Location = new System.Drawing.Point(411, 471);
             this.btnCancelResponce.Name = "btnCancelResponce";
             this.btnCancelResponce.Size = new System.Drawing.Size(95, 28);
             this.btnCancelResponce.StyleController = this.lcMessage;
@@ -817,7 +816,7 @@
             this.esResponseArea,
             this.lciCancelResponce,
             this.lciRemove});
-            this.lcgMessage.Location = new System.Drawing.Point(-227, 0);
+            this.lcgMessage.Location = new System.Drawing.Point(0, 0);
             this.lcgMessage.Name = "Root";
             this.lcgMessage.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.lcgMessage.Size = new System.Drawing.Size(513, 506);

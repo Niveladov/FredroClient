@@ -73,6 +73,7 @@ namespace FredroClient.UserControls
             btnSendNew.Click += BtnSendNew_Click;
             btnResend.Click += BtnResend_Click;
             btnAddDeal.Click += BtnAddDeal_Click;
+            btnAddClient.Click += BtnAddClient_Click;
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
         }
 
@@ -196,6 +197,14 @@ namespace FredroClient.UserControls
         private void BtnAddDeal_Click(object sender, EventArgs e)
         {
             using (var frm = new frmNewDeal())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void BtnAddClient_Click(object sender, EventArgs e)
+        {
+            using (var frm = new frmNewPerformer())
             {
                 frm.ShowDialog();
             }

@@ -46,6 +46,8 @@ namespace FredroClient.Forms
             
             schedulerMain.AppointmentDrop += SchedulerMain_AppointmentDrop;
             schedulerMain.AllowAppointmentConflicts += ScchedulerMain_AllowAppointmentConflicts;
+
+            schedulerMain.AppointmentViewInfoCustomizing += SchedulerMain_AppointmentViewInfoCustomizing;
         }
 
         private void InitSchedulers()
@@ -236,6 +238,12 @@ namespace FredroClient.Forms
             {
                 schedulerMain.GoToToday();
             }
+        }
+
+        private void SchedulerMain_AppointmentViewInfoCustomizing(object sender, AppointmentViewInfoCustomizingEventArgs e)
+        {
+            if (e.ViewInfo.DisplayText == String.Empty)
+                e.ViewInfo.ToolTipText = String.Format("Started at {0:g}", e.ViewInfo.Appointment.Start);
         }
 
     }

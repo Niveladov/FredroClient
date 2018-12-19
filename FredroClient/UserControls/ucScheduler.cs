@@ -16,6 +16,8 @@ using DevExpress.XtraScheduler.Native;
 using FredroClient.Models.Contexts;
 using DevExpress.XtraScheduler.Services;
 using FredroClient.BaseGUI;
+using DevExpress.Utils;
+using DevExpress.XtraScheduler.Drawing;
 
 namespace FredroClient.UserControls
 {
@@ -53,8 +55,11 @@ namespace FredroClient.UserControls
 
             schedulerMain.AppointmentDrop += SchedulerMain_AppointmentDrop;
             schedulerMain.AllowAppointmentConflicts += ScchedulerMain_AllowAppointmentConflicts;
+            schedulerMain.AppointmentViewInfoCustomizing += SchedulerMain_AppointmentViewInfoCustomizing;
 
             groupControlMain.CustomButtonClick += GroupControlMain_CustomButtonClick;
+
+            toolTipController.BeforeShow += ToolTipController_BeforeShow;
         }
 
         private void InitSchedulers()
@@ -247,5 +252,39 @@ namespace FredroClient.UserControls
             }
         }
 
+        #region Appearance
+        private void ToolTipController_BeforeShow(object sender, ToolTipControllerShowEventArgs e)
+        {
+            ToolTipController controller = sender as ToolTipController;
+            AppointmentViewInfo aptViewInfo = controller.ActiveObject as AppointmentViewInfo;
+            if (aptViewInfo == null) return;
+
+            if (toolTipController.ToolTipType == ToolTipType.SuperTip)
+            {
+                var selectedObject = e.SelectedObject as TimeLineAppointmentViewInfo;
+                var appointment = selectedObject.Appointment;
+
+                SuperToolTip SuperTip = new SuperToolTip();
+                SuperToolTipSetupArgs args = new SuperToolTipSetupArgs();
+                var font = new Font("Tahoma", 10);
+                args.Title.Text = appointment.Start.ToString("g") + " - " + appointment.End.ToString("g");
+                args.Title.Font = font;
+                args.Contents.Text = aptViewInfo.DisplayText + Environment.NewLine + aptViewInfo.Description;
+                args.Contents.Font = font;
+                args.Contents.Image = Properties.Resources.info_32x32__2_;
+                args.ShowFooterSeparator = true;
+                args.Footer.Font = font;
+                args.Footer.Text = "фрэдро...";
+                SuperTip.Setup(args);
+                e.SuperTip = SuperTip;
+            }
+        }
+
+        private void SchedulerMain_AppointmentViewInfoCustomizing(object sender, AppointmentViewInfoCustomizingEventArgs e)
+        {
+            //if (e.ViewInfo.DisplayText == String.Empty)
+            //e.ViewInfo.ToolTipText = String.Format("Started at {0:g}", e.ViewInfo.Appointment.Start);
+        }
+        #endregion
     }
 }
