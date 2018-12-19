@@ -82,23 +82,10 @@ namespace FredroClient.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private void SetMemoEditScrollBarVisibility(MemoEdit memoEdit)
-        {
-            MemoEditViewInfo vi = memoEdit.GetViewInfo() as MemoEditViewInfo;
-            GraphicsCache cache = new GraphicsCache(memoEdit.CreateGraphics());
-            int h = (vi as IHeightAdaptable).CalcHeight(cache, vi.MaskBoxRect.Width);
-            ObjectInfoArgs args = new ObjectInfoArgs();
-            args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
-            Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
-            cache.Dispose();
-            memoEdit.Properties.ScrollBars = rect.Height > memoEdit.Height ?
-                ScrollBars.Vertical : ScrollBars.None;
-        }
-
         private void MemoEdit_TextChanged(object sender, EventArgs e)
         {
             var memoEdit = sender as MemoEdit;
-            if (memoEdit != null) SetMemoEditScrollBarVisibility(memoEdit);
+            if (memoEdit != null) memoEdit.SetScrollBarVisibility();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils.Drawing;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
@@ -30,14 +31,8 @@ namespace FredroClient.Forms
 
         private void MeBody_TextChanged(object sender, EventArgs e)
         {
-            MemoEditViewInfo vi = this.meBody.GetViewInfo() as MemoEditViewInfo;
-            GraphicsCache cache = new GraphicsCache(meBody.CreateGraphics());
-            int h = (vi as IHeightAdaptable).CalcHeight(cache, vi.MaskBoxRect.Width);
-            ObjectInfoArgs args = new ObjectInfoArgs();
-            args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
-            Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
-            cache.Dispose();
-            meBody.Properties.ScrollBars = rect.Height > meBody.Height ? ScrollBars.Vertical : ScrollBars.None;
+            var memoEdit = sender as MemoEdit;
+            if (memoEdit != null) memoEdit.SetScrollBarVisibility();
         }
 
         private async void BtnSend_Click(object sender, EventArgs e)

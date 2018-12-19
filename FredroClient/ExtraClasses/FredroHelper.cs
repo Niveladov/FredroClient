@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.Drawing;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.Models;
 using FredroClient.Models.Contexts;
 using FredroClient.Models.DatabaseObjectModels.Tables;
@@ -8,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;

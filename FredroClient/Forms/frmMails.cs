@@ -17,7 +17,32 @@ namespace FredroClient.Forms
         public frmMails(CredentialModel model)
         {
             InitializeComponent();
-            ucMails.Init(model);
+            ucMail.InitModel(model);
+            InitEvents();
         }
+
+        private void InitEvents()
+        {
+            tcgModes.SelectedPageChanged += TcgModes_SelectedPageChanged;
+            FormClosed += FrmMails_FormClosed;
+        }
+
+        private void TcgModes_SelectedPageChanged(object sender, DevExpress.XtraLayout.LayoutTabPageChangedEventArgs e)
+        {
+            if (e.Page == lcgScheduler)
+            {
+                Text = "Календарь заявок(сделок) - Почтовый бизнес-клиент";
+            }
+            else if (e.Page == lcgMails)
+            {
+                Text = ucMail.ParentFormText;
+            }
+        }
+
+        private void FrmMails_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //ParentForm.Show();
+        }
+
     }
 }

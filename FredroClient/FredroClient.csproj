@@ -109,6 +109,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseGUI\ControlExtensions.cs" />
     <Compile Include="BaseGUI\FredroBaseXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +118,12 @@
     </Compile>
     <Compile Include="BaseGUI\RoundedPictureEdit.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\ucBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\ucBase.Designer.cs">
+      <DependentUpon>ucBase.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseGUI\WaitLoadingForm.cs">
       <SubType>Form</SubType>
@@ -179,11 +186,17 @@
     <Compile Include="Models\DatabaseObjectModels\Views\ViewVehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\ucMails.cs">
+    <Compile Include="UserControls\ucMail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucMails.Designer.cs">
-      <DependentUpon>ucMails.cs</DependentUpon>
+    <Compile Include="UserControls\ucMail.Designer.cs">
+      <DependentUpon>ucMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucScheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucScheduler.Designer.cs">
+      <DependentUpon>ucScheduler.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">
       <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
@@ -220,8 +233,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControls\ucMails.resx">
-      <DependentUpon>ucMails.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\ucMail.resx">
+      <DependentUpon>ucMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucScheduler.resx">
+      <DependentUpon>ucScheduler.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config">
       <SubType>Designer</SubType>

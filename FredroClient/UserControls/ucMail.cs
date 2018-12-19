@@ -14,46 +14,53 @@ using DevExpress.XtraLayout.Utils;
 using FredroClient.ExtraClasses;
 using System.Globalization;
 using FredroClient.Forms;
+using FredroClient.BaseGUI;
+using DevExpress.XtraEditors;
 
 namespace FredroClient.UserControls
 {
-    internal sealed partial class ucMails : UserControl
+    internal sealed partial class ucMail : ucBase
     {
-        private CredentialModel _model;
+        public string ParentFormText { get; private set; }
 
-        public ucMails()
+        private CredentialModel _model;
+        private bool _isInit = false;
+
+        public ucMail()
         {
             InitializeComponent();
         }
 
-        public void Init(CredentialModel model)
+        public void InitModel(CredentialModel model)
         {
-            _model = model;
-            gcMessages.DataSource = _model.Messages;
-            var inMessCount = _model.Messages.Where(x => x.IsIncoming).Count();
-            var outMessCount = _model.Messages.Where(x => x.IsOutcoming).Count();
-            gcFolders.DataSource = new List<Folder>()
+            if (!_isInit)
             {
-                new Folder($"Входящие            {inMessCount.ToString()}"),
-                new Folder($"Отправленные     {outMessCount.ToString()}"),
-                new Folder($"Удалённые")
-            };
+                _model = model;
+                _isInit = true;
+            }
         }
-        
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            InitEvents();
-            wevFolders.FocusedRowHandle = 0;
-            wevMessages.FocusedRowHandle = 0;
-            var b = this;
-            var color = ParentForm.BackColor;
-            //DevExpress.Skins.Skin skin = DevExpress.Skins.CommonSkins.GetSkin(DevExpress.LookAndFeel.UserLookAndFeel.Default.ActiveLookAndFeel);
-            //DevExpress.Skins.SkinElement elem = skin[DevExpress.Skins.CommonSkins.SkinForm];
-            //var color = elem.Color.BackColor;
-            meBody.BackColor = /*color*/lcMessage.BackColor;
-            statusStrip.Items[0].Text = "Демо версия почтового клиента.";
-            statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
+            if (!isDesignMode)
+            {
+                gcMessages.DataSource = _model.Messages.Where(x => x.IsIncoming);
+                var inMessCount = _model.Messages.Where(x => x.IsIncoming).Count();
+                var outMessCount = _model.Messages.Where(x => x.IsOutcoming).Count();
+                gcFolders.DataSource = new List<Folder>()
+                {
+                    new Folder($"Входящие            {inMessCount.ToString()}"),
+                    new Folder($"Отправленные     {outMessCount.ToString()}"),
+                    new Folder($"Удалённые")
+                };
+                InitEvents();
+                wevFolders.FocusedRowHandle = 0;
+                wevMessages.FocusedRowHandle = 0;
+                meBody.BackColor = lcMessage.BackColor;
+                statusStrip.Items[0].Text = "Демо версия почтового клиента.";
+                statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
+            }
         }
 
         private void InitEvents()
@@ -63,34 +70,9 @@ namespace FredroClient.UserControls
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
             btnSendNew.Click += BtnSendNew_Click;
-            btnResend.Click += btnResend_Click;
+            btnResend.Click += BtnResend_Click;
+            btnAddDeal.Click += BtnAddDeal_Click;
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
-        }
-
-        private void SetMessageBodyScrollBarVisibility()
-        {
-            MemoEditViewInfo vi = this.meBody.GetViewInfo() as MemoEditViewInfo;
-            GraphicsCache cache = new GraphicsCache(meBody.CreateGraphics());
-            int h = (vi as IHeightAdaptable).CalcHeight(cache, vi.MaskBoxRect.Width);
-            ObjectInfoArgs args = new ObjectInfoArgs();
-            args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
-            Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
-            cache.Dispose();
-            meBody.Properties.ScrollBars = rect.Height > meBody.Height ?
-                ScrollBars.Vertical : ScrollBars.None;
-        }
-
-        private void SetResponseBodyScrollBarVisibility()
-        {
-            MemoEditViewInfo vi = this.meResponseBody.GetViewInfo() as MemoEditViewInfo;
-            GraphicsCache cache = new GraphicsCache(meResponseBody.CreateGraphics());
-            int h = (vi as IHeightAdaptable).CalcHeight(cache, vi.MaskBoxRect.Width);
-            ObjectInfoArgs args = new ObjectInfoArgs();
-            args.Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h);
-            Rectangle rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
-            cache.Dispose();
-            meResponseBody.Properties.ScrollBars = rect.Height > meResponseBody.Height ?
-                ScrollBars.Vertical : ScrollBars.None;
         }
 
         private void SetResponseBodyVisibility(bool isVisible)
@@ -106,9 +88,8 @@ namespace FredroClient.UserControls
             lciReply.Visibility = lciResend.Visibility =
             lciRemove.Visibility = lciMove.Visibility =
             lciAddClient.Visibility = lciAddDeal.Visibility =
-            lciAddTask.Visibility = esMessageButtons.Visibility =
-            esClientButtons.Visibility = isVisible ?
-                LayoutVisibility.Always : LayoutVisibility.Never;
+            esMessageButtons.Visibility = esClientButtons.Visibility = 
+                isVisible ? LayoutVisibility.Always : LayoutVisibility.Never;
         }
 
         private void WevMessages_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -126,7 +107,7 @@ namespace FredroClient.UserControls
                 labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
                 meBody.Text = row.Body;
                 SetResponseBodyVisibility(false);
-                SetMessageBodyScrollBarVisibility();
+                meBody.SetScrollBarVisibility();
                 gcMessages.RefreshDataSource();
             }
         }
@@ -141,13 +122,13 @@ namespace FredroClient.UserControls
                 {
                     SetMessageButtonsVisibility(true);
                     gcMessages.DataSource = _model.Messages.Where(x => x.IsIncoming);
-                    ParentForm.Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                    ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
                 }
                 else if (row.Caption.Contains("Отправленные"))
                 {
                     SetMessageButtonsVisibility(false);
                     gcMessages.DataSource = _model.Messages.Where(x => x.IsOutcoming);
-                    ParentForm.Text = $"Отправленные - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                    ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Username} - Почтовый бизнес-клиент";
                 }
                 wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             }
@@ -155,13 +136,13 @@ namespace FredroClient.UserControls
 
         private void MeResponseBody_TextChanged(object sender, EventArgs e)
         {
-            SetResponseBodyScrollBarVisibility();
+            meResponseBody.SetScrollBarVisibility();
         }
 
         private void BtnReply_Click(object sender, EventArgs e)
         {
             SetResponseBodyVisibility(true);
-            SetMessageBodyScrollBarVisibility();
+            meBody.SetScrollBarVisibility();
         }
 
         private void BtnSendNew_Click(object sender, EventArgs e)
@@ -193,7 +174,7 @@ namespace FredroClient.UserControls
 
                     meResponseBody.Text = "";
                     SetResponseBodyVisibility(false);
-                    SetMessageBodyScrollBarVisibility();
+                    meBody.SetScrollBarVisibility();
                 }
                 catch (Exception ex)
                 {
@@ -206,7 +187,7 @@ namespace FredroClient.UserControls
             }
         }
 
-        private void btnAddDeal_Click(object sender, EventArgs e)
+        private void BtnAddDeal_Click(object sender, EventArgs e)
         {
             using (var frm = new frmNewDeal())
             {
@@ -222,9 +203,9 @@ namespace FredroClient.UserControls
             }
         }
 
-        private void btnResend_Click(object sender, EventArgs e)
+        private void BtnResend_Click(object sender, EventArgs e)
         {
-            var f = this;
+            throw new NotImplementedException();
         }
 
 

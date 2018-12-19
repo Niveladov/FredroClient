@@ -54,7 +54,7 @@ namespace FredroClient.Forms
         {
             if (_isEnterPressed)
             {
-                ShowMessages();
+                LoadMail();
             }
         }
 
@@ -85,21 +85,26 @@ namespace FredroClient.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private void ShowMessages()
+        private void LoadMail()
         {
             waitingHelper.Show();
             _model.LoadMessages();
             waitingHelper.Hide();
-            if (_model.Messages == null) return;
-            using (var frm = new frmMessages(_model))
-            {
-                frm.ShowDialog();
-            }
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            ShowMessages();
+            LoadMail();
+            if (_model.Messages == null) return;
+            Hide();
+            using (var frm = new frmMails(_model))
+            {
+                frm.FormClosed += (s, args) =>
+                {
+                    Show();
+                };
+                frm.ShowDialog();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
