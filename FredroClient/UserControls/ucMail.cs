@@ -69,6 +69,7 @@ namespace FredroClient.UserControls
             wevMessages.FocusedRowChanged += WevMessages_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
+            btnCancelResponce.Click += BtnCancelResponce_Click;
             btnSendNew.Click += BtnSendNew_Click;
             btnResend.Click += BtnResend_Click;
             btnAddDeal.Click += BtnAddDeal_Click;
@@ -77,10 +78,13 @@ namespace FredroClient.UserControls
 
         private void SetResponseBodyVisibility(bool isVisible)
         {
+            if (!isVisible) meResponseBody.Text = "";
 
             lciResponseBody.Visibility = lciSendResponse.Visibility =
-            esResponseArea.Visibility = isVisible ?
-                LayoutVisibility.Always : LayoutVisibility.Never;
+            lciCancelResponce.Visibility = esResponseArea.Visibility = 
+                isVisible ? LayoutVisibility.Always : LayoutVisibility.Never;
+
+            meBody.SetScrollBarVisibility();
         }
 
         private void SetMessageButtonsVisibility(bool isVisible)
@@ -107,7 +111,6 @@ namespace FredroClient.UserControls
                 labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
                 meBody.Text = row.Body;
                 SetResponseBodyVisibility(false);
-                meBody.SetScrollBarVisibility();
                 gcMessages.RefreshDataSource();
             }
         }
@@ -142,7 +145,6 @@ namespace FredroClient.UserControls
         private void BtnReply_Click(object sender, EventArgs e)
         {
             SetResponseBodyVisibility(true);
-            meBody.SetScrollBarVisibility();
         }
 
         private void BtnSendNew_Click(object sender, EventArgs e)
@@ -174,7 +176,6 @@ namespace FredroClient.UserControls
 
                     meResponseBody.Text = "";
                     SetResponseBodyVisibility(false);
-                    meBody.SetScrollBarVisibility();
                 }
                 catch (Exception ex)
                 {
@@ -185,6 +186,11 @@ namespace FredroClient.UserControls
             {
                 FredroMessageBox.ShowError("Нельзя отправить пустой ответ!");
             }
+        }
+
+        private void BtnCancelResponce_Click(object sender, EventArgs e)
+        {
+            SetResponseBodyVisibility(false);
         }
 
         private void BtnAddDeal_Click(object sender, EventArgs e)

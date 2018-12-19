@@ -79,6 +79,7 @@
             this.labelTo = new DevExpress.XtraEditors.LabelControl();
             this.labelSubject = new DevExpress.XtraEditors.LabelControl();
             this.labelFrom = new DevExpress.XtraEditors.LabelControl();
+            this.btnCancelResponce = new DevExpress.XtraEditors.SimpleButton();
             this.lcgMessage = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciFrom = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTo = new DevExpress.XtraLayout.LayoutControlItem();
@@ -90,7 +91,6 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciReply = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciResend = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciRemove = new DevExpress.XtraLayout.LayoutControlItem();
             this.esMessageButtons = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciAddClient = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAddDeal = new DevExpress.XtraLayout.LayoutControlItem();
@@ -99,6 +99,8 @@
             this.lciResponseBody = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciSendResponse = new DevExpress.XtraLayout.LayoutControlItem();
             this.esResponseArea = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lciCancelResponce = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciRemove = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciSplitMain = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPanelTop = new DevExpress.XtraLayout.LayoutControlItem();
@@ -150,7 +152,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciReply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResend)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esMessageButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).BeginInit();
@@ -159,6 +160,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciResponseBody)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendResponse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esResponseArea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCancelResponce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).BeginInit();
@@ -607,6 +610,7 @@
             this.lcMessage.Controls.Add(this.labelTo);
             this.lcMessage.Controls.Add(this.labelSubject);
             this.lcMessage.Controls.Add(this.labelFrom);
+            this.lcMessage.Controls.Add(this.btnCancelResponce);
             this.lcMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMessage.Location = new System.Drawing.Point(0, 0);
             this.lcMessage.Name = "lcMessage";
@@ -620,7 +624,7 @@
             // 
             this.btnSendResponse.AllowFocus = false;
             this.btnSendResponse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSendResponse.Location = new System.Drawing.Point(411, 471);
+            this.btnSendResponse.Location = new System.Drawing.Point(85, 471);
             this.btnSendResponse.Name = "btnSendResponse";
             this.btnSendResponse.Size = new System.Drawing.Size(95, 28);
             this.btnSendResponse.StyleController = this.lcMessage;
@@ -629,13 +633,13 @@
             // 
             // meResponseBody
             // 
-            this.meResponseBody.Location = new System.Drawing.Point(7, 270);
+            this.meResponseBody.Location = new System.Drawing.Point(-220, 380);
             this.meResponseBody.Name = "meResponseBody";
             this.meResponseBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.meResponseBody.Properties.NullValuePrompt = "Ответить...";
             this.meResponseBody.Properties.NullValuePromptShowForEmptyValue = true;
             this.meResponseBody.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.meResponseBody.Size = new System.Drawing.Size(499, 197);
+            this.meResponseBody.Size = new System.Drawing.Size(499, 87);
             this.meResponseBody.StyleController = this.lcMessage;
             this.meResponseBody.TabIndex = 18;
             // 
@@ -643,7 +647,7 @@
             // 
             this.ddbMove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddbMove.Enabled = false;
-            this.ddbMove.Location = new System.Drawing.Point(370, 7);
+            this.ddbMove.Location = new System.Drawing.Point(143, 7);
             this.ddbMove.Name = "ddbMove";
             this.ddbMove.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.ddbMove.Size = new System.Drawing.Size(126, 28);
@@ -654,7 +658,7 @@
             // btnAddDeal
             // 
             this.btnAddDeal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDeal.Location = new System.Drawing.Point(132, 125);
+            this.btnAddDeal.Location = new System.Drawing.Point(-95, 125);
             this.btnAddDeal.Name = "btnAddDeal";
             this.btnAddDeal.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnAddDeal.Size = new System.Drawing.Size(121, 28);
@@ -666,7 +670,7 @@
             // 
             this.btnAddClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddClient.Enabled = false;
-            this.btnAddClient.Location = new System.Drawing.Point(7, 125);
+            this.btnAddClient.Location = new System.Drawing.Point(-220, 125);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnAddClient.Size = new System.Drawing.Size(121, 28);
@@ -678,7 +682,7 @@
             // 
             this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(249, 7);
+            this.btnRemove.Location = new System.Drawing.Point(22, 7);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnRemove.Size = new System.Drawing.Size(117, 28);
@@ -690,7 +694,7 @@
             // 
             this.btnResend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResend.Enabled = false;
-            this.btnResend.Location = new System.Drawing.Point(128, 7);
+            this.btnResend.Location = new System.Drawing.Point(-99, 7);
             this.btnResend.Name = "btnResend";
             this.btnResend.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnResend.Size = new System.Drawing.Size(117, 28);
@@ -701,7 +705,7 @@
             // btnReply
             // 
             this.btnReply.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReply.Location = new System.Drawing.Point(7, 7);
+            this.btnReply.Location = new System.Drawing.Point(-220, 7);
             this.btnReply.Name = "btnReply";
             this.btnReply.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnReply.Size = new System.Drawing.Size(117, 28);
@@ -711,20 +715,20 @@
             // 
             // meBody
             // 
-            this.meBody.Location = new System.Drawing.Point(7, 160);
+            this.meBody.Location = new System.Drawing.Point(-220, 160);
             this.meBody.Name = "meBody";
             this.meBody.Properties.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.meBody.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.meBody.Properties.Appearance.Options.UseBackColor = true;
             this.meBody.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.meBody.Size = new System.Drawing.Size(499, 106);
+            this.meBody.Size = new System.Drawing.Size(499, 216);
             this.meBody.StyleController = this.lcMessage;
             this.meBody.TabIndex = 9;
             // 
             // peUser
             // 
             this.peUser.EditValue = global::FredroClient.Properties.Resources.user_64x64;
-            this.peUser.Location = new System.Drawing.Point(7, 71);
+            this.peUser.Location = new System.Drawing.Point(-220, 71);
             this.peUser.Name = "peUser";
             this.peUser.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.peUser.Properties.Appearance.Options.UseBackColor = true;
@@ -738,7 +742,7 @@
             // labelDate
             // 
             this.labelDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelDate.Location = new System.Drawing.Point(435, 71);
+            this.labelDate.Location = new System.Drawing.Point(208, 71);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(71, 21);
             this.labelDate.StyleController = this.lcMessage;
@@ -747,7 +751,7 @@
             // 
             // labelTo
             // 
-            this.labelTo.Location = new System.Drawing.Point(54, 96);
+            this.labelTo.Location = new System.Drawing.Point(-173, 96);
             this.labelTo.Name = "labelTo";
             this.labelTo.Size = new System.Drawing.Size(452, 18);
             this.labelTo.StyleController = this.lcMessage;
@@ -757,7 +761,7 @@
             // labelSubject
             // 
             this.labelSubject.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelSubject.Location = new System.Drawing.Point(7, 39);
+            this.labelSubject.Location = new System.Drawing.Point(-220, 39);
             this.labelSubject.Name = "labelSubject";
             this.labelSubject.Size = new System.Drawing.Size(123, 28);
             this.labelSubject.StyleController = this.lcMessage;
@@ -766,12 +770,23 @@
             // 
             // labelFrom
             // 
-            this.labelFrom.Location = new System.Drawing.Point(54, 71);
+            this.labelFrom.Location = new System.Drawing.Point(-173, 71);
             this.labelFrom.Name = "labelFrom";
             this.labelFrom.Size = new System.Drawing.Size(377, 21);
             this.labelFrom.StyleController = this.lcMessage;
             this.labelFrom.TabIndex = 4;
             this.labelFrom.Text = "lableFrom";
+            // 
+            // btnCancelResponce
+            // 
+            this.btnCancelResponce.AllowFocus = false;
+            this.btnCancelResponce.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelResponce.Location = new System.Drawing.Point(184, 471);
+            this.btnCancelResponce.Name = "btnCancelResponce";
+            this.btnCancelResponce.Size = new System.Drawing.Size(95, 28);
+            this.btnCancelResponce.StyleController = this.lcMessage;
+            this.btnCancelResponce.TabIndex = 19;
+            this.btnCancelResponce.Text = "Отмена";
             // 
             // lcgMessage
             // 
@@ -792,7 +807,6 @@
             this.emptySpaceItem1,
             this.lciReply,
             this.lciResend,
-            this.lciRemove,
             this.esMessageButtons,
             this.lciAddClient,
             this.lciAddDeal,
@@ -800,8 +814,10 @@
             this.lciMove,
             this.lciResponseBody,
             this.lciSendResponse,
-            this.esResponseArea});
-            this.lcgMessage.Location = new System.Drawing.Point(0, 0);
+            this.esResponseArea,
+            this.lciCancelResponce,
+            this.lciRemove});
+            this.lcgMessage.Location = new System.Drawing.Point(-227, 0);
             this.lcgMessage.Name = "Root";
             this.lcgMessage.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.lcgMessage.Size = new System.Drawing.Size(513, 506);
@@ -872,7 +888,7 @@
             this.lciBody.Location = new System.Drawing.Point(0, 150);
             this.lciBody.Name = "lciBody";
             this.lciBody.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 2);
-            this.lciBody.Size = new System.Drawing.Size(503, 113);
+            this.lciBody.Size = new System.Drawing.Size(503, 223);
             this.lciBody.TextSize = new System.Drawing.Size(0, 0);
             this.lciBody.TextVisible = false;
             // 
@@ -910,18 +926,6 @@
             this.lciResend.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciResend.TextSize = new System.Drawing.Size(0, 0);
             this.lciResend.TextVisible = false;
-            // 
-            // lciRemove
-            // 
-            this.lciRemove.Control = this.btnRemove;
-            this.lciRemove.Location = new System.Drawing.Point(242, 0);
-            this.lciRemove.MaxSize = new System.Drawing.Size(121, 32);
-            this.lciRemove.MinSize = new System.Drawing.Size(121, 32);
-            this.lciRemove.Name = "lciRemove";
-            this.lciRemove.Size = new System.Drawing.Size(121, 32);
-            this.lciRemove.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciRemove.TextSize = new System.Drawing.Size(0, 0);
-            this.lciRemove.TextVisible = false;
             // 
             // esMessageButtons
             // 
@@ -984,9 +988,9 @@
             // lciResponseBody
             // 
             this.lciResponseBody.Control = this.meResponseBody;
-            this.lciResponseBody.Location = new System.Drawing.Point(0, 263);
+            this.lciResponseBody.Location = new System.Drawing.Point(0, 373);
             this.lciResponseBody.Name = "lciResponseBody";
-            this.lciResponseBody.Size = new System.Drawing.Size(503, 201);
+            this.lciResponseBody.Size = new System.Drawing.Size(503, 91);
             this.lciResponseBody.TextSize = new System.Drawing.Size(0, 0);
             this.lciResponseBody.TextVisible = false;
             this.lciResponseBody.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -994,7 +998,7 @@
             // lciSendResponse
             // 
             this.lciSendResponse.Control = this.btnSendResponse;
-            this.lciSendResponse.Location = new System.Drawing.Point(404, 464);
+            this.lciSendResponse.Location = new System.Drawing.Point(305, 464);
             this.lciSendResponse.MaxSize = new System.Drawing.Size(99, 32);
             this.lciSendResponse.MinSize = new System.Drawing.Size(99, 32);
             this.lciSendResponse.Name = "lciSendResponse";
@@ -1008,8 +1012,32 @@
             this.esResponseArea.AllowHotTrack = false;
             this.esResponseArea.Location = new System.Drawing.Point(0, 464);
             this.esResponseArea.Name = "esResponseArea";
-            this.esResponseArea.Size = new System.Drawing.Size(404, 32);
+            this.esResponseArea.Size = new System.Drawing.Size(305, 32);
             this.esResponseArea.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lciCancelResponce
+            // 
+            this.lciCancelResponce.Control = this.btnCancelResponce;
+            this.lciCancelResponce.Location = new System.Drawing.Point(404, 464);
+            this.lciCancelResponce.MaxSize = new System.Drawing.Size(99, 32);
+            this.lciCancelResponce.MinSize = new System.Drawing.Size(99, 32);
+            this.lciCancelResponce.Name = "lciCancelResponce";
+            this.lciCancelResponce.Size = new System.Drawing.Size(99, 32);
+            this.lciCancelResponce.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciCancelResponce.TextSize = new System.Drawing.Size(0, 0);
+            this.lciCancelResponce.TextVisible = false;
+            // 
+            // lciRemove
+            // 
+            this.lciRemove.Control = this.btnRemove;
+            this.lciRemove.Location = new System.Drawing.Point(242, 0);
+            this.lciRemove.MaxSize = new System.Drawing.Size(121, 32);
+            this.lciRemove.MinSize = new System.Drawing.Size(121, 32);
+            this.lciRemove.Name = "lciRemove";
+            this.lciRemove.Size = new System.Drawing.Size(121, 32);
+            this.lciRemove.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciRemove.TextSize = new System.Drawing.Size(0, 0);
+            this.lciRemove.TextVisible = false;
             // 
             // lcgMain
             // 
@@ -1116,7 +1144,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciReply)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResend)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esMessageButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).EndInit();
@@ -1125,6 +1152,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciResponseBody)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendResponse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esResponseArea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCancelResponce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRemove)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSplitMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPanelTop)).EndInit();
@@ -1209,5 +1238,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciSplitMain;
         private DevExpress.XtraLayout.LayoutControlItem lciPanelTop;
         private DevExpress.XtraLayout.LayoutControlItem lciStatusStrip;
+        private DevExpress.XtraEditors.SimpleButton btnCancelResponce;
+        private DevExpress.XtraLayout.LayoutControlItem lciCancelResponce;
     }
 }
