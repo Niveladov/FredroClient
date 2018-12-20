@@ -13,26 +13,26 @@ using System.Windows.Forms;
 
 namespace FredroClient.Forms
 {
-    internal partial class frmNewPerformer : FredroBaseXtraForm
+    internal partial class frmPerformer : FredroBaseXtraForm
     {
-        private readonly NewPerformerModel _customerModel;
+        private readonly PerformerModel _performerModel;
 
-        public frmNewPerformer()
+        public frmPerformer()
         {
             InitializeComponent();
-            _customerModel = new NewPerformerModel();
+            _performerModel = new PerformerModel();
             InitControls();
         }
 
         private void InitControls()
         {
-            subjectName.DataBindings.Add(new Binding("EditValue", _customerModel.NewPerformer, nameof(_customerModel.NewPerformer.SubjectName),
+            subjectName.DataBindings.Add(new Binding("EditValue", _performerModel.CurrentPerformer, nameof(_performerModel.CurrentPerformer.SubjectName),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            phoneNumber.DataBindings.Add(new Binding("EditValue", _customerModel.NewPerformer, nameof(_customerModel.NewPerformer.PhoneNumber),
+            phoneNumber.DataBindings.Add(new Binding("EditValue", _performerModel.CurrentPerformer, nameof(_performerModel.CurrentPerformer.PhoneNumber),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            emailAddress.DataBindings.Add(new Binding("EditValue", _customerModel.NewPerformer, nameof(_customerModel.NewPerformer.EmailAddress),
+            emailAddress.DataBindings.Add(new Binding("EditValue", _performerModel.CurrentPerformer, nameof(_performerModel.CurrentPerformer.EmailAddress),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            source.DataBindings.Add(new Binding("EditValue", _customerModel.NewPerformer, nameof(_customerModel.NewPerformer.Source),
+            source.DataBindings.Add(new Binding("EditValue", _performerModel.CurrentPerformer, nameof(_performerModel.CurrentPerformer.Source),
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
@@ -40,7 +40,7 @@ namespace FredroClient.Forms
         {
             try
             {
-                await _customerModel.Save();
+                await _performerModel.Save();
                 FredroMessageBox.ShowSucces("Исполнитель успешно сохранен!");
                 Close();
             }

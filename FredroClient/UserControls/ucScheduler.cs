@@ -18,6 +18,8 @@ using DevExpress.XtraScheduler.Services;
 using FredroClient.BaseGUI;
 using DevExpress.Utils;
 using DevExpress.XtraScheduler.Drawing;
+using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroClient.Models.DatabaseObjectModels.Views;
 
 namespace FredroClient.UserControls
 {
@@ -69,16 +71,18 @@ namespace FredroClient.UserControls
             storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
             storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
 
-            storageMain.Appointments.DataSource = FredroHelper.GetAssignedDeals();
-            storageMain.Appointments.Mappings.AppointmentId = nameof(Deal.Id);
-            storageMain.Appointments.Mappings.ResourceId = nameof(Deal.VehicleId);
-            storageMain.Appointments.Mappings.Subject = nameof(Deal.Route);
-            storageMain.Appointments.Mappings.Start = nameof(Deal.DateStart);
-            storageMain.Appointments.Mappings.End = nameof(Deal.DateEnd);
-            storageMain.Appointments.Mappings.Description = nameof(Deal.Description);
-            storageMain.Appointments.Mappings.Status = nameof(Deal.DealStatusId);
+            storageMain.Appointments.DataSource = FredroHelper.GetAllViewAssignedDeals();
+            storageMain.Appointments.Mappings.AppointmentId = nameof(ViewAssignedDeal.Id);
+            storageMain.Appointments.Mappings.ResourceId = nameof(ViewAssignedDeal.VehicleId);
+            storageMain.Appointments.Mappings.Subject = nameof(ViewAssignedDeal.Route);
+            storageMain.Appointments.Mappings.Start = nameof(ViewAssignedDeal.DateStart);
+            storageMain.Appointments.Mappings.End = nameof(ViewAssignedDeal.DateEnd);
+            storageMain.Appointments.Mappings.Description = nameof(ViewAssignedDeal.Description);
+            storageMain.Appointments.Mappings.Status = nameof(ViewAssignedDeal.DealStatusId);
 
             storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("Id", nameof(Deal.Id)));
+            storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("PassengersCount", nameof(ViewAssignedDeal.PassengersCount)));
+            storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("TripTypeName", nameof(ViewAssignedDeal.TripTypeName)));
         }
 
         private void InitGrids()
@@ -269,12 +273,12 @@ namespace FredroClient.UserControls
                 var font = new Font("Tahoma", 10);
                 args.Title.Text = appointment.Start.ToString("g") + " - " + appointment.End.ToString("g");
                 args.Title.Font = font;
-                args.Contents.Text = aptViewInfo.DisplayText + Environment.NewLine + aptViewInfo.Description;
+                args.Contents.Text = aptViewInfo.DisplayText + Environment.NewLine + aptViewInfo.Description + Environment.NewLine + "Кол-во:" + appointment.CustomFields["PassengersCount"]?.ToString();
                 args.Contents.Font = font;
                 args.Contents.Image = Properties.Resources.info_32x32;
                 args.ShowFooterSeparator = true;
                 args.Footer.Font = font;
-                args.Footer.Text = "фрэдро...";
+                args.Footer.Text = appointment.CustomFields["TripTypeName"]?.ToString();
                 SuperTip.Setup(args);
                 e.SuperTip = SuperTip;
             }

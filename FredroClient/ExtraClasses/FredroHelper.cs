@@ -4,6 +4,8 @@ using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.Models;
 using FredroClient.Models.Contexts;
 using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroClient.Models.DatabaseObjectModels.Tables.Dictionaries;
+using FredroClient.Models.DatabaseObjectModels.Views;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
@@ -214,39 +216,53 @@ namespace FredroClient.ExtraClasses
 
         internal static async void SaveTestData()
         {
-            using (var db = new CustomerContext())
-            {
-                var vt1 = new Customer()
-                {
-                    Id = 1,
-                    IsDel = false,
-                    CreatedBy = -1,
-                    CreationDate = DateTime.Now,
-                    EmailAddress = "test@test.test",
-                    PhoneNumber = "+7(777)777-77-77",
-                    SubjectName = "Customer Fredro Company",
-                    Source = "xXx"
-                };
-                db.Customers.Add(vt1);
-                await db.SaveChangesAsync();
-            }
+            //using (var db = new Dictionary_TripTypeContext())
+            //{
+            //    var vt1 = new Dictionary_TripType()
+            //    {
+            //        Id = 1,
+            //        IsDel = false,
+            //        CreatedBy = -1,
+            //        CreationDate = DateTime.Now,
+            //        Name = ""
+            //    };
+            //    db.TripTypes.Add(vt1);
+            //    await db.SaveChangesAsync();
+            //}
 
-            using (var db = new PerformerContext())
-            {
-                var vt2 = new Performer()
-                {
-                    Id = 2,
-                    IsDel = false,
-                    CreatedBy = -1,
-                    CreationDate = DateTime.Now,
-                    EmailAddress = "test@test.test",
-                    PhoneNumber = "+7(777)777-77-77",
-                    SubjectName = "Performer Fredro Company",
-                    Source = "xXx"
-                };
-                db.Performers.Add(vt2);
-                await db.SaveChangesAsync();
-            }
+            //using (var db = new CustomerContext())
+            //{
+            //    var vt1 = new Customer()
+            //    {
+            //        Id = 1,
+            //        IsDel = false,
+            //        CreatedBy = -1,
+            //        CreationDate = DateTime.Now,
+            //        EmailAddress = "test@test.test",
+            //        PhoneNumber = "+7(777)777-77-77",
+            //        SubjectName = "Customer Fredro Company",
+            //        Source = "xXx"
+            //    };
+            //    db.Customers.Add(vt1);
+            //    await db.SaveChangesAsync();
+            //}
+
+            //using (var db = new PerformerContext())
+            //{
+            //    var vt2 = new Performer()
+            //    {
+            //        Id = 2,
+            //        IsDel = false,
+            //        CreatedBy = -1,
+            //        CreationDate = DateTime.Now,
+            //        EmailAddress = "test@test.test",
+            //        PhoneNumber = "+7(777)777-77-77",
+            //        SubjectName = "Performer Fredro Company",
+            //        Source = "xXx"
+            //    };
+            //    db.Performers.Add(vt2);
+            //    await db.SaveChangesAsync();
+            //}
 
             //using (var db = new Dictionary_VehicleTypeContext())
             //{
@@ -324,6 +340,17 @@ namespace FredroClient.ExtraClasses
             return deals;
         }
 
+        internal static BindingList<ViewAssignedDeal> GetAllViewAssignedDeals()
+        {
+            BindingList<ViewAssignedDeal> viewVehicles = null;
+            using (var db = new ViewAssignedDealContext())
+            {
+                db.ViewAssignedDeals.Load();
+                viewVehicles = db.ViewAssignedDeals.Local.ToBindingList();
+            }
+            return viewVehicles;
+        }
+
         internal static List<Deal> GetAssignedDeals()
         {
             List<Deal> deals = null;
@@ -364,6 +391,17 @@ namespace FredroClient.ExtraClasses
             {
                 db.Performers.Load();
                 deals = db.Performers.Local.ToBindingList();
+            }
+            return deals;
+        }
+
+        internal static BindingList<Dictionary_TripType> GetAllTripTypes()
+        {
+            BindingList<Dictionary_TripType> deals = null;
+            using (var db = new Dictionary_TripTypeContext())
+            {
+                db.TripTypes.Load();
+                deals = db.TripTypes.Local.ToBindingList();
             }
             return deals;
         }

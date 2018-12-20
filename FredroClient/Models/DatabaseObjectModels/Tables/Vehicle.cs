@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroClient.Models
+namespace FredroClient.Models.DatabaseObjectModels.Tables
 {
     internal sealed class Vehicle
     {

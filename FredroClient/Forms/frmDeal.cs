@@ -5,6 +5,7 @@ using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroClient.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,16 +18,16 @@ using System.Windows.Forms;
 
 namespace FredroClient.Forms
 {
-    internal sealed partial class frmNewDeal : FredroBaseXtraForm
+    internal sealed partial class frmDeal : FredroBaseXtraForm
     {
-        private readonly NewDealModel _dealModel;
-        private readonly NewDealForeignsModel _loadingModel;
+        private readonly DealModel _dealModel;
+        private readonly DealForeignsModel _loadingModel;
 
-        public frmNewDeal()
+        public frmDeal()
         {
             InitializeComponent();
-            _dealModel = new NewDealModel();
-            _loadingModel = new NewDealForeignsModel();
+            _dealModel = new DealModel();
+            _loadingModel = new DealForeignsModel();
             InitControls();
             InitEvents();
         }
@@ -39,13 +40,13 @@ namespace FredroClient.Forms
 
         private void InitControls()
         {
-            start.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.DateStart),
+            start.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.DateStart),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            end.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.DateEnd),
+            end.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.DateEnd),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            route.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.Route),
+            route.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.Route),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            description.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.Description),
+            description.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.Description),
                 true, DataSourceUpdateMode.OnPropertyChanged));
 
             customer.Properties.DataSource = _loadingModel.Customers;
@@ -56,7 +57,7 @@ namespace FredroClient.Forms
             customer.Properties.View.Columns[nameof(Customer.IsDel)].Visible = false;
             customer.Properties.View.Columns[nameof(Customer.CreatedBy)].Visible = false;
             customer.Properties.View.Columns[nameof(Customer.CreationDate)].Visible = false;
-            customer.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.CustomerId),
+            customer.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.CustomerId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
 
             performer.Properties.DataSource = _loadingModel.Performers;
@@ -67,7 +68,7 @@ namespace FredroClient.Forms
             performer.Properties.View.Columns[nameof(Performer.IsDel)].Visible = false;
             performer.Properties.View.Columns[nameof(Performer.CreatedBy)].Visible = false;
             performer.Properties.View.Columns[nameof(Performer.CreationDate)].Visible = false;
-            performer.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.PerformerId),
+            performer.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.PerformerId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
 
             vehicle.Properties.DataSource = _loadingModel.Vehicles;
@@ -75,10 +76,21 @@ namespace FredroClient.Forms
             vehicle.Properties.ValueMember = nameof(Vehicle.Id);
             vehicle.Properties.PopulateViewColumns();
             vehicle.Properties.View.Columns[nameof(Vehicle.Id)].Visible = false;
-            //vehicle.Properties.View.Columns[nameof(Vehicle.IsDel)].Visible = false;
-            //vehicle.Properties.View.Columns[nameof(Vehicle.CreatedBy)].Visible = false;
-            //vehicle.Properties.View.Columns[nameof(Vehicle.CreationDate)].Visible = false;
-            vehicle.DataBindings.Add(new Binding("EditValue", _dealModel.NewDeal, nameof(_dealModel.NewDeal.VehicleId),
+            vehicle.Properties.View.Columns[nameof(Vehicle.IsDel)].Visible = false;
+            vehicle.Properties.View.Columns[nameof(Vehicle.CreatedBy)].Visible = false;
+            vehicle.Properties.View.Columns[nameof(Vehicle.CreationDate)].Visible = false;
+            vehicle.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.VehicleId),
+                true, DataSourceUpdateMode.OnPropertyChanged));
+
+            tripType.Properties.DataSource = _loadingModel.TripTypes;
+            tripType.Properties.DisplayMember = nameof(Dictionary_TripType.Name);
+            tripType.Properties.ValueMember = nameof(Dictionary_TripType.Id);
+            tripType.Properties.PopulateViewColumns();
+            tripType.Properties.View.Columns[nameof(Dictionary_TripType.Id)].Visible = false;
+            tripType.Properties.View.Columns[nameof(Dictionary_TripType.IsDel)].Visible = false;
+            tripType.Properties.View.Columns[nameof(Dictionary_TripType.CreatedBy)].Visible = false;
+            tripType.Properties.View.Columns[nameof(Dictionary_TripType.CreationDate)].Visible = false;
+            tripType.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.TripTypeId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 

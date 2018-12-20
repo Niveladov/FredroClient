@@ -1,6 +1,6 @@
 ﻿namespace FredroClient.Forms
 {
-    partial class frmNewDeal
+    partial class frmDeal
     {
         /// <summary>
         /// Required designer variable.
@@ -51,6 +51,9 @@
             this.lciPerformer = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciClose = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciSave = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tripType = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.lciTripType = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.description.Properties)).BeginInit();
@@ -75,6 +78,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPerformer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tripType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTripType)).BeginInit();
             this.SuspendLayout();
             // 
             // lcMain
@@ -90,20 +96,21 @@
             this.lcMain.Controls.Add(this.customer);
             this.lcMain.Controls.Add(this.start);
             this.lcMain.Controls.Add(this.end);
+            this.lcMain.Controls.Add(this.tripType);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(439, 78, 250, 350);
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(462, 362);
+            this.lcMain.Size = new System.Drawing.Size(462, 394);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
             // btnClose
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Location = new System.Drawing.Point(232, 327);
+            this.btnClose.Location = new System.Drawing.Point(232, 359);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnClose.Size = new System.Drawing.Size(223, 28);
@@ -115,7 +122,7 @@
             // btnSave
             // 
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Location = new System.Drawing.Point(7, 327);
+            this.btnSave.Location = new System.Drawing.Point(7, 359);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnSave.Size = new System.Drawing.Size(221, 28);
@@ -127,7 +134,7 @@
             // description
             // 
             this.description.EnterMoveNextControl = true;
-            this.description.Location = new System.Drawing.Point(112, 227);
+            this.description.Location = new System.Drawing.Point(112, 259);
             this.description.Name = "description";
             this.description.Properties.NullValuePrompt = "Описание, комментарий...";
             this.description.Properties.NullValuePromptShowForEmptyValue = true;
@@ -139,7 +146,7 @@
             // route
             // 
             this.route.EnterMoveNextControl = true;
-            this.route.Location = new System.Drawing.Point(112, 167);
+            this.route.Location = new System.Drawing.Point(112, 199);
             this.route.Name = "route";
             this.route.Properties.NullValuePrompt = "Маршрут...";
             this.route.Properties.NullValuePromptShowForEmptyValue = true;
@@ -273,11 +280,12 @@
             this.lciDescription,
             this.lciPerformer,
             this.lciClose,
-            this.lciSave});
+            this.lciSave,
+            this.lciTripType});
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "Root";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lcgMain.Size = new System.Drawing.Size(462, 362);
+            this.lcgMain.Size = new System.Drawing.Size(462, 394);
             this.lcgMain.TextVisible = false;
             // 
             // lciEnd
@@ -319,7 +327,7 @@
             // lciRoute
             // 
             this.lciRoute.Control = this.route;
-            this.lciRoute.Location = new System.Drawing.Point(0, 160);
+            this.lciRoute.Location = new System.Drawing.Point(0, 192);
             this.lciRoute.MaxSize = new System.Drawing.Size(0, 60);
             this.lciRoute.MinSize = new System.Drawing.Size(80, 60);
             this.lciRoute.Name = "lciRoute";
@@ -331,7 +339,7 @@
             // lciDescription
             // 
             this.lciDescription.Control = this.description;
-            this.lciDescription.Location = new System.Drawing.Point(0, 220);
+            this.lciDescription.Location = new System.Drawing.Point(0, 252);
             this.lciDescription.Name = "lciDescription";
             this.lciDescription.Size = new System.Drawing.Size(452, 100);
             this.lciDescription.Text = "Описание";
@@ -349,7 +357,7 @@
             // lciClose
             // 
             this.lciClose.Control = this.btnClose;
-            this.lciClose.Location = new System.Drawing.Point(225, 320);
+            this.lciClose.Location = new System.Drawing.Point(225, 352);
             this.lciClose.MaxSize = new System.Drawing.Size(0, 32);
             this.lciClose.MinSize = new System.Drawing.Size(64, 32);
             this.lciClose.Name = "lciClose";
@@ -361,7 +369,7 @@
             // lciSave
             // 
             this.lciSave.Control = this.btnSave;
-            this.lciSave.Location = new System.Drawing.Point(0, 320);
+            this.lciSave.Location = new System.Drawing.Point(0, 352);
             this.lciSave.MaxSize = new System.Drawing.Size(0, 32);
             this.lciSave.MinSize = new System.Drawing.Size(77, 32);
             this.lciSave.Name = "lciSave";
@@ -370,16 +378,48 @@
             this.lciSave.TextSize = new System.Drawing.Size(0, 0);
             this.lciSave.TextVisible = false;
             // 
-            // frmNewDeal
+            // tripType
+            // 
+            this.tripType.EnterMoveNextControl = true;
+            this.tripType.Location = new System.Drawing.Point(112, 167);
+            this.tripType.Name = "tripType";
+            this.tripType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tripType.Properties.NullText = "";
+            this.tripType.Properties.NullValuePrompt = "Тип поездки...";
+            this.tripType.Properties.NullValuePromptShowForEmptyValue = true;
+            this.tripType.Properties.View = this.gridView1;
+            this.tripType.Size = new System.Drawing.Size(343, 28);
+            this.tripType.StyleController = this.lcMain;
+            this.tripType.TabIndex = 5;
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // lciTripType
+            // 
+            this.lciTripType.Control = this.tripType;
+            this.lciTripType.CustomizationFormText = "ТС";
+            this.lciTripType.Location = new System.Drawing.Point(0, 160);
+            this.lciTripType.Name = "lciTripType";
+            this.lciTripType.Size = new System.Drawing.Size(452, 32);
+            this.lciTripType.Text = "Тип поездки";
+            this.lciTripType.TextSize = new System.Drawing.Size(102, 21);
+            // 
+            // frmDeal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 362);
+            this.ClientSize = new System.Drawing.Size(462, 394);
             this.Controls.Add(this.lcMain);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximumSize = new System.Drawing.Size(480, 409);
-            this.MinimumSize = new System.Drawing.Size(480, 409);
-            this.Name = "frmNewDeal";
+            this.MaximumSize = new System.Drawing.Size(480, 441);
+            this.MinimumSize = new System.Drawing.Size(480, 441);
+            this.Name = "frmDeal";
             this.Text = "Новая заявка(сделка)";
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
@@ -405,6 +445,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPerformer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tripType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTripType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,5 +477,8 @@
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraLayout.LayoutControlItem lciClose;
         private DevExpress.XtraLayout.LayoutControlItem lciSave;
+        private DevExpress.XtraEditors.SearchLookUpEdit tripType;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraLayout.LayoutControlItem lciTripType;
     }
 }

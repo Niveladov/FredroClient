@@ -4,6 +4,7 @@ using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
+using FredroClient.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -209,7 +210,7 @@ namespace FredroClient.Forms
 
         private void btnAddDeal_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmNewDeal())
+            using (var frm = new frmDeal())
             {
                 frm.ShowDialog();
             }

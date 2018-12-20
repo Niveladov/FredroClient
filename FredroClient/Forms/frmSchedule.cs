@@ -7,6 +7,8 @@ using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using FredroClient.Models.Contexts;
+using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroClient.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

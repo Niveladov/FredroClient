@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroClient.Models
+namespace FredroClient.Models.DatabaseObjectModels.Views
 {
     internal sealed class ViewVehicle
     {

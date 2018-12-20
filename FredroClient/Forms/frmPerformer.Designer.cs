@@ -1,6 +1,6 @@
 ﻿namespace FredroClient.Forms
 {
-    partial class frmNewPerformer
+    partial class frmPerformer
     {
         /// <summary>
         /// Required designer variable.

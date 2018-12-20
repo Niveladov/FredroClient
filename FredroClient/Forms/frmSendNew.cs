@@ -4,6 +4,7 @@ using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
+using FredroClient.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Drawing;
 using System.Windows.Forms;

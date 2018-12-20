@@ -16,6 +16,7 @@ using System.Globalization;
 using FredroClient.Forms;
 using FredroClient.BaseGUI;
 using DevExpress.XtraEditors;
+using FredroClient.Models.DatabaseObjectModels.Tables;
 
 namespace FredroClient.UserControls
 {
@@ -196,7 +197,7 @@ namespace FredroClient.UserControls
 
         private void BtnAddDeal_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmNewDeal())
+            using (var frm = new frmDeal())
             {
                 frm.ShowDialog();
             }
@@ -204,7 +205,7 @@ namespace FredroClient.UserControls
 
         private void BtnAddClient_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmNewPerformer())
+            using (var frm = new frmPerformer())
             {
                 frm.ShowDialog();
             }

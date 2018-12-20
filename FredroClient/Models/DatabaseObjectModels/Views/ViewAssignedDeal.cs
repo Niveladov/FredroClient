@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroClient.Models.DatabaseObjectModels.Tables
+namespace FredroClient.Models.DatabaseObjectModels.Views
 {
-    internal sealed class Deal
+    internal sealed class ViewAssignedDeal
     {
         //shared properties
         public int? Id { get; set; }
@@ -23,5 +23,7 @@ namespace FredroClient.Models.DatabaseObjectModels.Tables
         public int? TripTypeId { get; set; } //тип поезки
         public int? DealStatusId { get; set; } //статус сделки
         public string Description { get; set; } //описание
+        public short? PassengersCount { get; set; } 
+        public string TripTypeName { get; set; }
     }
 }
