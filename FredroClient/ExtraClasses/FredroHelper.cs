@@ -216,19 +216,19 @@ namespace FredroClient.ExtraClasses
 
         internal static async void SaveTestData()
         {
-            //using (var db = new Dictionary_TripTypeContext())
-            //{
-            //    var vt1 = new Dictionary_TripType()
-            //    {
-            //        Id = 1,
-            //        IsDel = false,
-            //        CreatedBy = -1,
-            //        CreationDate = DateTime.Now,
-            //        Name = ""
-            //    };
-            //    db.TripTypes.Add(vt1);
-            //    await db.SaveChangesAsync();
-            //}
+            using (var db = new DictionaryTripTypeContext())
+            {
+                var vt1 = new DictionaryTripType()
+                {
+                    Id = 1,
+                    IsDel = false,
+                    CreatedBy = -1,
+                    CreationDate = DateTime.Now,
+                    Name = ""
+                };
+                db.TripTypes.Add(vt1);
+                await db.SaveChangesAsync();
+            }
 
             //using (var db = new CustomerContext())
             //{
@@ -309,101 +309,182 @@ namespace FredroClient.ExtraClasses
 
         internal static BindingList<ViewVehicle> GetAllViewVehicles()
         {
-            BindingList<ViewVehicle> viewVehicles = null;
-            using (var db = new ViewVehicleContext())
+            try
             {
-                db.ViewVehicles.Load();
-                viewVehicles = db.ViewVehicles.Local.ToBindingList();
+                BindingList<ViewVehicle> viewVehicles = null;
+                using (var db = new ViewVehicleContext())
+                {
+                    db.ViewVehicles.Load();
+                    viewVehicles = db.ViewVehicles.Local.ToBindingList();
+                }
+                return viewVehicles;
             }
-            return viewVehicles;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
 
         internal static BindingList<Vehicle> GetAllVehicles()
         {
-            BindingList<Vehicle> vehicles = null;
-            using (var db = new VehicleContext())
+            try
             {
-                db.Vehicles.Load();
-                vehicles = db.Vehicles.Local.ToBindingList();
+                BindingList<Vehicle> vehicles = null;
+                using (var db = new VehicleContext())
+                {
+                    db.Vehicles.Load();
+                    vehicles = db.Vehicles.Local.ToBindingList();
+                }
+                return vehicles;
             }
-            return vehicles;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
         
         internal static BindingList<Deal> GetAllDeals()
         {
-            BindingList<Deal> deals = null;
-            using (var db = new DealContext())
+            try
             {
-                db.Deals.Load();
-                deals = db.Deals.Local.ToBindingList();
+                BindingList<Deal> deals = null;
+                using (var db = new DealContext())
+                {
+                    db.Deals.Load();
+                    deals = db.Deals.Local.ToBindingList();
+                }
+                return deals;
             }
-            return deals;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
 
         internal static BindingList<ViewAssignedDeal> GetAllViewAssignedDeals()
         {
-            BindingList<ViewAssignedDeal> viewVehicles = null;
-            using (var db = new ViewAssignedDealContext())
+            try
             {
-                db.ViewAssignedDeals.Load();
-                viewVehicles = db.ViewAssignedDeals.Local.ToBindingList();
+                BindingList<ViewAssignedDeal> viewVehicles = null;
+                using (var db = new ViewAssignedDealContext())
+                {
+                    db.ViewAssignedDeals.Load();
+                    viewVehicles = db.ViewAssignedDeals.Local.ToBindingList();
+                }
+                return viewVehicles;
             }
-            return viewVehicles;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
 
         internal static List<Deal> GetAssignedDeals()
         {
-            List<Deal> deals = null;
-            using (var db = new DealContext())
+            try
             {
-                db.Deals.Load();
-                deals = db.Deals.Where(x => x.VehicleId != null).ToList();
+                List<Deal> deals = null;
+                using (var db = new DealContext())
+                {
+                    db.Deals.Load();
+                    deals = db.Deals.Where(x => x.VehicleId != null).ToList();
+                }
+                return deals;
             }
-            return deals;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
 
         internal static List<Deal> GetNotAssignedDeals()
         {
-            List<Deal> deals = null;
-            using (var db = new DealContext())
+            try
             {
-                db.Deals.Load();
-                deals = db.Deals.Where(x => x.VehicleId == null).ToList();
+                List<Deal> deals = null;
+                using (var db = new DealContext())
+                {
+                    db.Deals.Load();
+                    deals = db.Deals.Where(x => x.VehicleId == null).ToList();
+                }
+                return deals;
             }
-            return deals;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
 
         internal static BindingList<Customer> GetAllCustomers()
         {
-            BindingList<Customer> deals = null;
-            using (var db = new CustomerContext())
+            try
             {
-                db.Customers.Load();
-                deals = db.Customers.Local.ToBindingList();
+                BindingList<Customer> deals = null;
+                using (var db = new CustomerContext())
+                {
+                    db.Customers.Load();
+                    deals = db.Customers.Local.ToBindingList();
+                }
+                return deals;
             }
-            return deals;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
 
         internal static BindingList<Performer> GetAllPerformes()
         {
-            BindingList<Performer> deals = null;
-            using (var db = new PerformerContext())
+            try
             {
-                db.Performers.Load();
-                deals = db.Performers.Local.ToBindingList();
+                BindingList<Performer> deals = null;
+                using (var db = new PerformerContext())
+                {
+                    db.Performers.Load();
+                    deals = db.Performers.Local.ToBindingList();
+                }
+                return deals;
             }
-            return deals;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
 
-        internal static BindingList<Dictionary_TripType> GetAllTripTypes()
+        internal static BindingList<DictionaryTripType> GetAllTripTypes()
         {
-            BindingList<Dictionary_TripType> deals = null;
-            using (var db = new Dictionary_TripTypeContext())
+            try
             {
-                db.TripTypes.Load();
-                deals = db.TripTypes.Local.ToBindingList();
+                BindingList<DictionaryTripType> deals = null;
+                using (var db = new DictionaryTripTypeContext())
+                {
+                    db.TripTypes.Load();
+                    deals = db.TripTypes.Local.ToBindingList();
+                }
+                return deals;
             }
-            return deals;
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                //throw;
+            }
         }
     }
 }

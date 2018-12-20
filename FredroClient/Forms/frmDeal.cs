@@ -83,13 +83,13 @@ namespace FredroClient.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
 
             tripType.Properties.DataSource = _loadingModel.TripTypes;
-            tripType.Properties.DisplayMember = nameof(Dictionary_TripType.Name);
-            tripType.Properties.ValueMember = nameof(Dictionary_TripType.Id);
+            tripType.Properties.DisplayMember = nameof(DictionaryTripType.Name);
+            tripType.Properties.ValueMember = nameof(DictionaryTripType.Id);
             tripType.Properties.PopulateViewColumns();
-            tripType.Properties.View.Columns[nameof(Dictionary_TripType.Id)].Visible = false;
-            tripType.Properties.View.Columns[nameof(Dictionary_TripType.IsDel)].Visible = false;
-            tripType.Properties.View.Columns[nameof(Dictionary_TripType.CreatedBy)].Visible = false;
-            tripType.Properties.View.Columns[nameof(Dictionary_TripType.CreationDate)].Visible = false;
+            tripType.Properties.View.Columns[nameof(DictionaryTripType.Id)].Visible = false;
+            tripType.Properties.View.Columns[nameof(DictionaryTripType.IsDel)].Visible = false;
+            tripType.Properties.View.Columns[nameof(DictionaryTripType.CreatedBy)].Visible = false;
+            tripType.Properties.View.Columns[nameof(DictionaryTripType.CreationDate)].Visible = false;
             tripType.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.TripTypeId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }

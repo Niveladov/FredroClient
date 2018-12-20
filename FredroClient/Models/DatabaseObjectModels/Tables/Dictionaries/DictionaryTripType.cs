@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FredroClient.Models.DatabaseObjectModels.Tables.Dictionaries
 {
-    internal sealed class Dictionary_VehicleType
+    internal sealed class DictionaryTripType
     {
         //shared properties
         public int? Id { get; set; }
@@ -15,5 +15,6 @@ namespace FredroClient.Models.DatabaseObjectModels.Tables.Dictionaries
         public int? CreatedBy { get; set; }
         //my properties
         public string Name { get; set; }
+        public string Code { get; set; }
     }
 }

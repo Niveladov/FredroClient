@@ -1,4 +1,5 @@
 ﻿using FredroClient.BaseGUI;
+using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace FredroClient.Forms
         private void InitEvents()
         {
             tcgModes.SelectedPageChanged += TcgModes_SelectedPageChanged;
-            FormClosed += FrmMails_FormClosed;
+            FormClosing += FrmMails_FormClosing;
         }
 
         private void TcgModes_SelectedPageChanged(object sender, DevExpress.XtraLayout.LayoutTabPageChangedEventArgs e)
@@ -39,9 +40,10 @@ namespace FredroClient.Forms
             }
         }
 
-        private void FrmMails_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmMails_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //ParentForm.Show();
+            var result = FredroMessageBox.ShowQuestionYesNo("Вы хотите выйти?");
+            e.Cancel = (result == DialogResult.No);
         }
 
     }

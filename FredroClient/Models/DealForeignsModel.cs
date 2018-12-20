@@ -15,7 +15,7 @@ namespace FredroClient.Models
         public BindingList<Vehicle> Vehicles { get; }
         public BindingList<Customer> Customers { get; }
         public BindingList<Performer> Performers { get; }
-        public BindingList<Dictionary_TripType> TripTypes { get; }
+        public BindingList<DictionaryTripType> TripTypes { get; }
 
         public DealForeignsModel()
         {

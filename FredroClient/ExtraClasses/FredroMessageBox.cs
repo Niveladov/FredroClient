@@ -24,5 +24,12 @@ namespace FredroClient.ExtraClasses
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public static DialogResult ShowQuestionYesNo (string message)
+        {
+            XtraMessageBox.SmartTextWrap = true;
+            return XtraMessageBox.Show(message, "Внимание",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
+
     }
 }

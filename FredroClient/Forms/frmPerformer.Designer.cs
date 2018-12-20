@@ -101,6 +101,7 @@
             // 
             // source
             // 
+            this.source.EnterMoveNextControl = true;
             this.source.Location = new System.Drawing.Point(85, 103);
             this.source.Name = "source";
             this.source.Properties.NullValuePrompt = "Источник...";
@@ -111,6 +112,7 @@
             // 
             // emailAddress
             // 
+            this.emailAddress.EnterMoveNextControl = true;
             this.emailAddress.Location = new System.Drawing.Point(85, 71);
             this.emailAddress.Name = "emailAddress";
             this.emailAddress.Properties.Mask.EditMask = "(\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)(, (\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w" +
@@ -124,6 +126,7 @@
             // 
             // phoneNumber
             // 
+            this.phoneNumber.EnterMoveNextControl = true;
             this.phoneNumber.Location = new System.Drawing.Point(85, 39);
             this.phoneNumber.Name = "phoneNumber";
             this.phoneNumber.Properties.Mask.EditMask = "[+][7]\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}(, [+][7]\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2})*";
@@ -136,6 +139,7 @@
             // 
             // subjectName
             // 
+            this.subjectName.EnterMoveNextControl = true;
             this.subjectName.Location = new System.Drawing.Point(85, 7);
             this.subjectName.Name = "subjectName";
             this.subjectName.Properties.NullValuePrompt = "Название юр. или физ. лица...";

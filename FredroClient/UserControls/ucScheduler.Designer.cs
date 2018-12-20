@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucScheduler));
-            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeScaleYear timeScaleYear2 = new DevExpress.XtraScheduler.TimeScaleYear();
-            DevExpress.XtraScheduler.TimeScaleQuarter timeScaleQuarter2 = new DevExpress.XtraScheduler.TimeScaleQuarter();
-            DevExpress.XtraScheduler.TimeScaleMonth timeScaleMonth2 = new DevExpress.XtraScheduler.TimeScaleMonth();
-            DevExpress.XtraScheduler.TimeScaleWeek timeScaleWeek2 = new DevExpress.XtraScheduler.TimeScaleWeek();
-            DevExpress.XtraScheduler.TimeScaleDay timeScaleDay2 = new DevExpress.XtraScheduler.TimeScaleDay();
-            DevExpress.XtraScheduler.TimeScaleHour timeScaleHour2 = new DevExpress.XtraScheduler.TimeScaleHour();
-            DevExpress.XtraScheduler.TimeScale15Minutes timeScale15Minutes2 = new DevExpress.XtraScheduler.TimeScale15Minutes();
-            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeScaleYear timeScaleYear1 = new DevExpress.XtraScheduler.TimeScaleYear();
+            DevExpress.XtraScheduler.TimeScaleQuarter timeScaleQuarter1 = new DevExpress.XtraScheduler.TimeScaleQuarter();
+            DevExpress.XtraScheduler.TimeScaleMonth timeScaleMonth1 = new DevExpress.XtraScheduler.TimeScaleMonth();
+            DevExpress.XtraScheduler.TimeScaleWeek timeScaleWeek1 = new DevExpress.XtraScheduler.TimeScaleWeek();
+            DevExpress.XtraScheduler.TimeScaleDay timeScaleDay1 = new DevExpress.XtraScheduler.TimeScaleDay();
+            DevExpress.XtraScheduler.TimeScaleHour timeScaleHour1 = new DevExpress.XtraScheduler.TimeScaleHour();
+            DevExpress.XtraScheduler.TimeScale15Minutes timeScale15Minutes1 = new DevExpress.XtraScheduler.TimeScale15Minutes();
+            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.splitHorizontal = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitVertical = new System.Windows.Forms.SplitContainer();
@@ -85,9 +85,9 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Вперёд", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons3"))), false, true, "Вперёд")});
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlMain.Location = new System.Drawing.Point(0, 0);
-            this.groupControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupControlMain.Margin = new System.Windows.Forms.Padding(2);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(980, 604);
+            this.groupControlMain.Size = new System.Drawing.Size(735, 491);
             this.groupControlMain.TabIndex = 3;
             // 
             // splitHorizontal
@@ -96,17 +96,17 @@
             this.splitHorizontal.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton()});
             this.splitHorizontal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitHorizontal.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
+            this.splitHorizontal.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
             this.splitHorizontal.Horizontal = false;
             this.splitHorizontal.Location = new System.Drawing.Point(2, 45);
-            this.splitHorizontal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitHorizontal.Margin = new System.Windows.Forms.Padding(2);
             this.splitHorizontal.Name = "splitHorizontal";
             this.splitHorizontal.Panel1.Controls.Add(this.splitVertical);
             this.splitHorizontal.Panel1.Text = "Panel1";
             this.splitHorizontal.Panel2.Controls.Add(this.gcFreeDeals);
             this.splitHorizontal.Panel2.Text = "Panel2";
-            this.splitHorizontal.Size = new System.Drawing.Size(976, 557);
-            this.splitHorizontal.SplitterPosition = 292;
+            this.splitHorizontal.Size = new System.Drawing.Size(731, 444);
+            this.splitHorizontal.SplitterPosition = 279;
             this.splitHorizontal.TabIndex = 2;
             this.splitHorizontal.Text = "splitContainerControl1";
             // 
@@ -115,7 +115,7 @@
             this.splitVertical.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitVertical.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitVertical.Location = new System.Drawing.Point(0, 0);
-            this.splitVertical.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitVertical.Margin = new System.Windows.Forms.Padding(2);
             this.splitVertical.Name = "splitVertical";
             // 
             // splitVertical.Panel1
@@ -127,9 +127,9 @@
             // 
             this.splitVertical.Panel2.Controls.Add(this.schedulerMain);
             this.splitVertical.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitVertical.Size = new System.Drawing.Size(976, 259);
+            this.splitVertical.Size = new System.Drawing.Size(731, 279);
             this.splitVertical.SplitterDistance = 204;
-            this.splitVertical.SplitterWidth = 3;
+            this.splitVertical.SplitterWidth = 2;
             this.splitVertical.TabIndex = 1;
             // 
             // resourcesTreeMain
@@ -139,14 +139,14 @@
             this.resourcesTreeMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resourcesTreeMain.KeyFieldName = "Id";
             this.resourcesTreeMain.Location = new System.Drawing.Point(0, 0);
-            this.resourcesTreeMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.resourcesTreeMain.Margin = new System.Windows.Forms.Padding(2);
             this.resourcesTreeMain.Name = "resourcesTreeMain";
             this.resourcesTreeMain.OptionsBehavior.Editable = false;
             this.resourcesTreeMain.OptionsBehavior.ReadOnly = true;
             this.resourcesTreeMain.ParentFieldName = "ParentId";
             this.resourcesTreeMain.PreviewFieldName = "Name";
             this.resourcesTreeMain.SchedulerControl = this.schedulerMain;
-            this.resourcesTreeMain.Size = new System.Drawing.Size(204, 259);
+            this.resourcesTreeMain.Size = new System.Drawing.Size(204, 279);
             this.resourcesTreeMain.TabIndex = 1;
             // 
             // ы
@@ -167,38 +167,38 @@
             this.schedulerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerMain.GroupType = DevExpress.XtraScheduler.SchedulerGroupType.Resource;
             this.schedulerMain.Location = new System.Drawing.Point(0, 0);
-            this.schedulerMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.schedulerMain.Margin = new System.Windows.Forms.Padding(2);
             this.schedulerMain.Name = "schedulerMain";
             this.schedulerMain.OptionsView.ShowOnlyResourceAppointments = true;
             this.schedulerMain.OptionsView.ToolTipVisibility = DevExpress.XtraScheduler.ToolTipVisibility.Always;
-            this.schedulerMain.Size = new System.Drawing.Size(769, 259);
+            this.schedulerMain.Size = new System.Drawing.Size(525, 279);
             this.schedulerMain.Start = new System.DateTime(2018, 12, 10, 0, 0, 0, 0);
             this.schedulerMain.Storage = this.storageMain;
             this.schedulerMain.TabIndex = 1;
             this.schedulerMain.Text = "scMain";
             this.schedulerMain.ToolTipController = this.toolTipController;
             this.schedulerMain.Views.DayView.Enabled = false;
-            this.schedulerMain.Views.DayView.TimeRulers.Add(timeRuler4);
-            this.schedulerMain.Views.FullWeekView.TimeRulers.Add(timeRuler5);
+            this.schedulerMain.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerMain.Views.FullWeekView.TimeRulers.Add(timeRuler2);
             this.schedulerMain.Views.GanttView.Enabled = false;
             this.schedulerMain.Views.MonthView.Enabled = false;
-            this.schedulerMain.Views.TimelineView.ResourcesPerPage = 14;
-            timeScaleYear2.Enabled = false;
-            timeScaleQuarter2.Enabled = false;
-            timeScaleMonth2.Enabled = false;
-            timeScaleWeek2.Enabled = false;
-            timeScale15Minutes2.Enabled = false;
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleYear2);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleQuarter2);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleMonth2);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleWeek2);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleDay2);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleHour2);
-            this.schedulerMain.Views.TimelineView.Scales.Add(timeScale15Minutes2);
+            this.schedulerMain.Views.TimelineView.ResourcesPerPage = 12;
+            timeScaleYear1.Enabled = false;
+            timeScaleQuarter1.Enabled = false;
+            timeScaleMonth1.Enabled = false;
+            timeScaleWeek1.Enabled = false;
+            timeScale15Minutes1.Enabled = false;
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleYear1);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleQuarter1);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleMonth1);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleWeek1);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleDay1);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleHour1);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScale15Minutes1);
             this.schedulerMain.Views.TimelineView.ShowResourceHeaders = false;
             this.schedulerMain.Views.WeekView.Enabled = false;
             this.schedulerMain.Views.WorkWeekView.Enabled = false;
-            this.schedulerMain.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            this.schedulerMain.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             // 
             // toolTipController
             // 
@@ -208,12 +208,12 @@
             // gcFreeDeals
             // 
             this.gcFreeDeals.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcFreeDeals.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcFreeDeals.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gcFreeDeals.Location = new System.Drawing.Point(0, 0);
             this.gcFreeDeals.MainView = this.gvFreeDeals;
-            this.gcFreeDeals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcFreeDeals.Margin = new System.Windows.Forms.Padding(2);
             this.gcFreeDeals.Name = "gcFreeDeals";
-            this.gcFreeDeals.Size = new System.Drawing.Size(976, 292);
+            this.gcFreeDeals.Size = new System.Drawing.Size(731, 160);
             this.gcFreeDeals.TabIndex = 0;
             this.gcFreeDeals.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFreeDeals});
@@ -287,11 +287,12 @@
             // 
             // ucScheduler
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupControlMain);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucScheduler";
-            this.Size = new System.Drawing.Size(980, 604);
+            this.Size = new System.Drawing.Size(735, 491);
             this.Load += new System.EventHandler(this.UcScheduler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).EndInit();
             this.groupControlMain.ResumeLayout(false);

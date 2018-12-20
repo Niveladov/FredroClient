@@ -188,8 +188,8 @@
     <Compile Include="Models\CredentialModel.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Customer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
-    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\Dictionary_TripType.cs" />
-    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\Dictionary_VehicleType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryTripType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryVehicleType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DatabaseObjectModels\Views\ViewAssignedDeal.cs" />

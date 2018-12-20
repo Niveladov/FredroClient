@@ -68,28 +68,28 @@ namespace FredroClient.Models.Contexts
     #endregion
 
     #region Dictionary tables
-    internal sealed class Dictionary_VehicleTypeContext : DbContext
+    internal sealed class DictionaryVehicleTypeContext : DbContext
     {
-        public DbSet<Dictionary_VehicleType> VehicleTypes { get; set; }
-        public Dictionary_VehicleTypeContext() : base("FredroDbConnection") { }
+        public DbSet<DictionaryVehicleType> VehicleTypes { get; set; }
+        public DictionaryVehicleTypeContext() : base("FredroDbConnection") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<Dictionary_VehicleTypeContext>(null);
+            Database.SetInitializer<DictionaryVehicleTypeContext>(null);
             base.OnModelCreating(modelBuilder);
         }
     }
 
-    internal sealed class Dictionary_TripTypeContext : DbContext
+    internal sealed class DictionaryTripTypeContext : DbContext
     { 
-        public DbSet<Dictionary_TripType> TripTypes { get; set; }
-        public Dictionary_TripTypeContext() : base("FredroDbConnection") { }
+        public DbSet<DictionaryTripType> TripTypes { get; set; }
+        public DictionaryTripTypeContext() : base("FredroDbConnection") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<Dictionary_TripTypeContext>(null);
+            Database.SetInitializer<DictionaryTripTypeContext>(null);
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Dictionary_TripType>().ToTable("Dictionary_TripTypes");
+            //modelBuilder.Entity<DictionaryTripType>().ToTable("DictionaryTripTypes");
         }
     }
     #endregion
