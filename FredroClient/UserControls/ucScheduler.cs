@@ -62,6 +62,7 @@ namespace FredroClient.UserControls
             schedulerMain.AppointmentViewInfoCustomizing += SchedulerMain_AppointmentViewInfoCustomizing;
             schedulerMain.PopupMenuShowing += SchedulerMain_PopupMenuShowing;
             schedulerMain.SelectionChanged += SchedulerMain_SelectionChanged;
+            schedulerMain.EditAppointmentFormShowing += SchedulerMain_EditAppointmentFormShowing;
 
             groupControlMain.CustomButtonClick += GroupControlMain_CustomButtonClick;
 
@@ -281,17 +282,28 @@ namespace FredroClient.UserControls
             }
         }
 
+        private void SchedulerMain_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
+        {
+            e.Handled = true;
+            ShowDealForm();
+        }
+
         private void SchedulerMain_PopupMenuShowing(object sender, DevExpress.XtraScheduler.PopupMenuShowingEventArgs e)
         {
             e.Menu.Items.Clear();
             if (e.Menu.Id == SchedulerMenuItemId.AppointmentMenu)
             {
-                var openItem = new SchedulerMenuItem("Просмотр", OnOpenItemClick, Properties.Resources.eye_16x16);
+                var openItem = new SchedulerMenuItem("Просмотр", OnOpenItemClick, Properties.Resources.view_16x16);
                 e.Menu.Items.Add(openItem);
             }
         }
 
         private void OnOpenItemClick(object sender, EventArgs e)
+        {
+            ShowDealForm();
+        }
+
+        private void ShowDealForm()
         {
             using (var frm = new frmDeal(_focusedDeal))
             {

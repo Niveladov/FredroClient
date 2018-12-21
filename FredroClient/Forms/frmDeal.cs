@@ -1,6 +1,7 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
+using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
@@ -40,6 +41,8 @@ namespace FredroClient.Forms
             _loadingModel = new DealForeignsModel();
             InitControls();
             InitEvents();
+            SetReadonly(true);
+            Text = "Просмотр заявки(сделки)";
         }
 
         private void InitEvents()
@@ -104,9 +107,27 @@ namespace FredroClient.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private void SetFormReadonly()
+        private void SetReadonly(bool isReadOnly)
         {
+            start.Properties.ReadOnly = isReadOnly;
+            end.Properties.ReadOnly = isReadOnly;
+            route.Properties.ReadOnly = isReadOnly;
+            description.Properties.ReadOnly = isReadOnly;
+            customer.Properties.ReadOnly = isReadOnly;
+            performer.Properties.ReadOnly = isReadOnly;
+            vehicle.Properties.ReadOnly = isReadOnly;
+            tripType.Properties.ReadOnly = isReadOnly;
 
+            start.Properties.AllowFocused = !isReadOnly;
+            end.Properties.AllowFocused = !isReadOnly;
+            route.Properties.AllowFocused = !isReadOnly;
+            description.Properties.AllowFocused = !isReadOnly;
+            customer.Properties.AllowFocused = !isReadOnly;
+            performer.Properties.AllowFocused = !isReadOnly;
+            vehicle.Properties.AllowFocused = !isReadOnly;
+            tripType.Properties.AllowFocused = !isReadOnly;
+
+            lciSave.Visibility = isReadOnly ? LayoutVisibility.Never : LayoutVisibility.Always;
         }
 
         private void MemoEdit_TextChanged(object sender, EventArgs e)
