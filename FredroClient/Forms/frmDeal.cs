@@ -6,6 +6,7 @@ using FredroClient.ExtraClasses;
 using FredroClient.Models;
 using FredroClient.Models.DatabaseObjectModels.Tables;
 using FredroClient.Models.DatabaseObjectModels.Tables.Dictionaries;
+using FredroClient.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,15 @@ namespace FredroClient.Forms
         {
             InitializeComponent();
             _dealModel = new DealModel();
+            _loadingModel = new DealForeignsModel();
+            InitControls();
+            InitEvents();
+        }
+
+        public frmDeal(Deal deal)
+        {
+            InitializeComponent();
+            _dealModel = new DealModel(deal);
             _loadingModel = new DealForeignsModel();
             InitControls();
             InitEvents();
@@ -92,6 +102,11 @@ namespace FredroClient.Forms
             tripType.Properties.View.Columns[nameof(DictionaryTripType.CreationDate)].Visible = false;
             tripType.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.TripTypeId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
+        }
+
+        private void SetFormReadonly()
+        {
+
         }
 
         private void MemoEdit_TextChanged(object sender, EventArgs e)

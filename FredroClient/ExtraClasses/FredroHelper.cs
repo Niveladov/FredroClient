@@ -323,7 +323,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
 
@@ -343,7 +343,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
         
@@ -363,7 +363,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
 
@@ -383,7 +383,45 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
+            }
+        }
+
+        internal static Deal GetDeal(int dealId)
+        {
+            try
+            {
+                Deal deal = null;
+                using (var db = new DealContext())
+                {
+                    deal = db.Deals.Find(dealId);
+                }
+                return deal;
+            }
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                throw ex;
+            }
+        }
+
+        internal static ViewAssignedDeal GetViewAssignedDeal(int dealId)
+        {
+            try
+            {
+                ViewAssignedDeal deal = null;
+                using (var db = new ViewAssignedDealContext())
+                {
+                    deal = db.ViewAssignedDeals.Find(dealId);
+                }
+                return deal;
+            }
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                return null;
+                throw ex;
             }
         }
 
@@ -403,7 +441,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
 
@@ -423,7 +461,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
 
@@ -443,7 +481,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
 
@@ -463,7 +501,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
 
@@ -483,7 +521,7 @@ namespace FredroClient.ExtraClasses
             {
                 FredroMessageBox.ShowError(ex.Message);
                 return null;
-                //throw;
+                throw ex;
             }
         }
     }

@@ -44,7 +44,8 @@
             this.splitHorizontal = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitVertical = new System.Windows.Forms.SplitContainer();
             this.resourcesTreeMain = new DevExpress.XtraScheduler.UI.ResourcesTree();
-            this.ы = new DevExpress.XtraScheduler.Native.ResourceTreeColumn();
+            this.rctREsourceName = new DevExpress.XtraScheduler.Native.ResourceTreeColumn();
+            this.rtcPassengersCount = new DevExpress.XtraScheduler.Native.ResourceTreeColumn();
             this.schedulerMain = new DevExpress.XtraScheduler.SchedulerControl();
             this.storageMain = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.toolTipController = new DevExpress.Utils.ToolTipController(this.components);
@@ -85,9 +86,9 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Вперёд", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons3"))), false, true, "Вперёд")});
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlMain.Location = new System.Drawing.Point(0, 0);
-            this.groupControlMain.Margin = new System.Windows.Forms.Padding(2);
+            this.groupControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(735, 491);
+            this.groupControlMain.Size = new System.Drawing.Size(980, 604);
             this.groupControlMain.TabIndex = 3;
             // 
             // splitHorizontal
@@ -99,14 +100,14 @@
             this.splitHorizontal.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
             this.splitHorizontal.Horizontal = false;
             this.splitHorizontal.Location = new System.Drawing.Point(2, 45);
-            this.splitHorizontal.Margin = new System.Windows.Forms.Padding(2);
+            this.splitHorizontal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitHorizontal.Name = "splitHorizontal";
             this.splitHorizontal.Panel1.Controls.Add(this.splitVertical);
             this.splitHorizontal.Panel1.Text = "Panel1";
             this.splitHorizontal.Panel2.Controls.Add(this.gcFreeDeals);
             this.splitHorizontal.Panel2.Text = "Panel2";
-            this.splitHorizontal.Size = new System.Drawing.Size(731, 444);
-            this.splitHorizontal.SplitterPosition = 279;
+            this.splitHorizontal.Size = new System.Drawing.Size(976, 557);
+            this.splitHorizontal.SplitterPosition = 343;
             this.splitHorizontal.TabIndex = 2;
             this.splitHorizontal.Text = "splitContainerControl1";
             // 
@@ -115,7 +116,7 @@
             this.splitVertical.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitVertical.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitVertical.Location = new System.Drawing.Point(0, 0);
-            this.splitVertical.Margin = new System.Windows.Forms.Padding(2);
+            this.splitVertical.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitVertical.Name = "splitVertical";
             // 
             // splitVertical.Panel1
@@ -127,39 +128,56 @@
             // 
             this.splitVertical.Panel2.Controls.Add(this.schedulerMain);
             this.splitVertical.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitVertical.Size = new System.Drawing.Size(731, 279);
-            this.splitVertical.SplitterDistance = 204;
-            this.splitVertical.SplitterWidth = 2;
+            this.splitVertical.Size = new System.Drawing.Size(976, 343);
+            this.splitVertical.SplitterDistance = 232;
+            this.splitVertical.SplitterWidth = 3;
             this.splitVertical.TabIndex = 1;
             // 
             // resourcesTreeMain
             // 
             this.resourcesTreeMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.ы});
+            this.rctREsourceName,
+            this.rtcPassengersCount});
             this.resourcesTreeMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resourcesTreeMain.KeyFieldName = "Id";
             this.resourcesTreeMain.Location = new System.Drawing.Point(0, 0);
-            this.resourcesTreeMain.Margin = new System.Windows.Forms.Padding(2);
+            this.resourcesTreeMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resourcesTreeMain.Name = "resourcesTreeMain";
             this.resourcesTreeMain.OptionsBehavior.Editable = false;
             this.resourcesTreeMain.OptionsBehavior.ReadOnly = true;
             this.resourcesTreeMain.ParentFieldName = "ParentId";
             this.resourcesTreeMain.PreviewFieldName = "Name";
             this.resourcesTreeMain.SchedulerControl = this.schedulerMain;
-            this.resourcesTreeMain.Size = new System.Drawing.Size(204, 279);
+            this.resourcesTreeMain.Size = new System.Drawing.Size(232, 343);
             this.resourcesTreeMain.TabIndex = 1;
             // 
-            // ы
+            // rctREsourceName
             // 
-            this.ы.Caption = "Транспортное средство";
-            this.ы.FieldName = "Name";
-            this.ы.ImageIndex = -10;
-            this.ы.Name = "ы";
-            this.ы.OptionsColumn.AllowFocus = false;
-            this.ы.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
-            this.ы.SortOrder = System.Windows.Forms.SortOrder.Ascending;
-            this.ы.Visible = true;
-            this.ы.VisibleIndex = 0;
+            this.rctREsourceName.Caption = "Транспортное средство";
+            this.rctREsourceName.FieldName = "Name";
+            this.rctREsourceName.ImageIndex = -10;
+            this.rctREsourceName.Name = "rctREsourceName";
+            this.rctREsourceName.OptionsColumn.AllowEdit = false;
+            this.rctREsourceName.OptionsColumn.AllowFocus = false;
+            this.rctREsourceName.OptionsColumn.ReadOnly = true;
+            this.rctREsourceName.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            this.rctREsourceName.SortOrder = System.Windows.Forms.SortOrder.Ascending;
+            this.rctREsourceName.Visible = true;
+            this.rctREsourceName.VisibleIndex = 0;
+            this.rctREsourceName.Width = 177;
+            // 
+            // rtcPassengersCount
+            // 
+            this.rtcPassengersCount.Caption = "Кол-во";
+            this.rtcPassengersCount.FieldName = "PassengersCount";
+            this.rtcPassengersCount.ImageAlignment = System.Drawing.StringAlignment.Far;
+            this.rtcPassengersCount.Name = "rtcPassengersCount";
+            this.rtcPassengersCount.OptionsColumn.AllowEdit = false;
+            this.rtcPassengersCount.OptionsColumn.AllowFocus = false;
+            this.rtcPassengersCount.OptionsColumn.ReadOnly = true;
+            this.rtcPassengersCount.Visible = true;
+            this.rtcPassengersCount.VisibleIndex = 1;
+            this.rtcPassengersCount.Width = 50;
             // 
             // schedulerMain
             // 
@@ -167,11 +185,11 @@
             this.schedulerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerMain.GroupType = DevExpress.XtraScheduler.SchedulerGroupType.Resource;
             this.schedulerMain.Location = new System.Drawing.Point(0, 0);
-            this.schedulerMain.Margin = new System.Windows.Forms.Padding(2);
+            this.schedulerMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schedulerMain.Name = "schedulerMain";
             this.schedulerMain.OptionsView.ShowOnlyResourceAppointments = true;
             this.schedulerMain.OptionsView.ToolTipVisibility = DevExpress.XtraScheduler.ToolTipVisibility.Always;
-            this.schedulerMain.Size = new System.Drawing.Size(525, 279);
+            this.schedulerMain.Size = new System.Drawing.Size(741, 343);
             this.schedulerMain.Start = new System.DateTime(2018, 12, 10, 0, 0, 0, 0);
             this.schedulerMain.Storage = this.storageMain;
             this.schedulerMain.TabIndex = 1;
@@ -208,12 +226,12 @@
             // gcFreeDeals
             // 
             this.gcFreeDeals.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcFreeDeals.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gcFreeDeals.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFreeDeals.Location = new System.Drawing.Point(0, 0);
             this.gcFreeDeals.MainView = this.gvFreeDeals;
-            this.gcFreeDeals.Margin = new System.Windows.Forms.Padding(2);
+            this.gcFreeDeals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFreeDeals.Name = "gcFreeDeals";
-            this.gcFreeDeals.Size = new System.Drawing.Size(731, 160);
+            this.gcFreeDeals.Size = new System.Drawing.Size(976, 208);
             this.gcFreeDeals.TabIndex = 0;
             this.gcFreeDeals.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFreeDeals});
@@ -287,12 +305,12 @@
             // 
             // ucScheduler
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupControlMain);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ucScheduler";
-            this.Size = new System.Drawing.Size(735, 491);
+            this.Size = new System.Drawing.Size(980, 604);
             this.Load += new System.EventHandler(this.UcScheduler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).EndInit();
             this.groupControlMain.ResumeLayout(false);
@@ -326,8 +344,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPerformerId;
         private DevExpress.XtraGrid.Columns.GridColumn colDescription;
         private DevExpress.XtraScheduler.UI.ResourcesTree resourcesTreeMain;
-        private DevExpress.XtraScheduler.Native.ResourceTreeColumn ы;
+        private DevExpress.XtraScheduler.Native.ResourceTreeColumn rctREsourceName;
         private DevExpress.XtraScheduler.SchedulerControl schedulerMain;
         private DevExpress.Utils.ToolTipController toolTipController;
+        private DevExpress.XtraScheduler.Native.ResourceTreeColumn rtcPassengersCount;
     }
 }

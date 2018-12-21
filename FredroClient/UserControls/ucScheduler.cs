@@ -20,6 +20,7 @@ using DevExpress.Utils;
 using DevExpress.XtraScheduler.Drawing;
 using FredroClient.Models.DatabaseObjectModels.Tables;
 using FredroClient.Models.DatabaseObjectModels.Views;
+using FredroClient.Forms;
 
 namespace FredroClient.UserControls
 {
@@ -27,6 +28,7 @@ namespace FredroClient.UserControls
     {
         private GridHitInfo _downHitInfo;
         private WaitingHelper _waitingHelper;
+        private Deal _focusedDeal;
 
         public ucScheduler()
         {
@@ -58,6 +60,8 @@ namespace FredroClient.UserControls
             schedulerMain.AppointmentDrop += SchedulerMain_AppointmentDrop;
             schedulerMain.AllowAppointmentConflicts += ScchedulerMain_AllowAppointmentConflicts;
             schedulerMain.AppointmentViewInfoCustomizing += SchedulerMain_AppointmentViewInfoCustomizing;
+            schedulerMain.PopupMenuShowing += SchedulerMain_PopupMenuShowing;
+            schedulerMain.SelectionChanged += SchedulerMain_SelectionChanged;
 
             groupControlMain.CustomButtonClick += GroupControlMain_CustomButtonClick;
 
@@ -253,6 +257,45 @@ namespace FredroClient.UserControls
             else if ("На сегодня".Equals(e.Button.Properties.Caption))
             {
                 schedulerMain.GoToToday();
+            }
+        }
+
+        private void SchedulerMain_SelectionChanged(object sender, EventArgs e)
+        {
+            if (schedulerMain.SelectedAppointments.Count > 0)
+            {
+                var focusedAppointment = schedulerMain.SelectedAppointments.First();
+                var focusedAppointmentId = (int)focusedAppointment.Id;
+                var focusedDeal = FredroHelper.GetDeal(focusedAppointmentId);
+                if (focusedDeal.Id.HasValue)
+                {
+                    //schedulerMain.BeginUpdate();
+                    //schedulerMain.BeginUpdate();
+
+                    _focusedDeal = focusedDeal;
+
+                    //schedulerMain.EndUpdate();
+                    //schedulerMain.EndUpdate();
+                }
+
+            }
+        }
+
+        private void SchedulerMain_PopupMenuShowing(object sender, DevExpress.XtraScheduler.PopupMenuShowingEventArgs e)
+        {
+            e.Menu.Items.Clear();
+            if (e.Menu.Id == SchedulerMenuItemId.AppointmentMenu)
+            {
+                var openItem = new SchedulerMenuItem("Просмотр", OnOpenItemClick, Properties.Resources.eye_16x16);
+                e.Menu.Items.Add(openItem);
+            }
+        }
+
+        private void OnOpenItemClick(object sender, EventArgs e)
+        {
+            using (var frm = new frmDeal(_focusedDeal))
+            {
+                frm.ShowDialog();
             }
         }
 

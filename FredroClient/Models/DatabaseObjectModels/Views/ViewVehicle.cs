@@ -11,7 +11,7 @@ namespace FredroClient.Models.DatabaseObjectModels.Views
         public int? Id { get; set; }
         public string Name { get; set; } //марка, модель
         public string RegistrationNumber { get; set; } //номер
-        public short? PassengersNumber { get; set; } //кол-во пассажиров
+        public short? PassengersCount { get; set; } //кол-во пассажиров
         public int? ParentId { get; set; } 
     }
 }

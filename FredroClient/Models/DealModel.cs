@@ -1,5 +1,6 @@
 ﻿using FredroClient.Models.Contexts;
 using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroClient.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace FredroClient.Models
 {
     internal sealed class DealModel
     {
-        public Deal CurrentDeal { get; set; } = new Deal();
+        public Deal CurrentDeal { get; set; }
 
         public async Task Save()
         {
@@ -28,6 +29,15 @@ namespace FredroClient.Models
             {
                 throw;
             }
+        }
+        public DealModel()
+        {
+            CurrentDeal = new Deal();
+        }
+
+        public DealModel(Deal deal)
+        {
+            CurrentDeal = deal;
         }
     }
 }

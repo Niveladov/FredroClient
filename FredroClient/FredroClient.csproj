@@ -195,6 +195,7 @@
     <Compile Include="Models\DatabaseObjectModels\Views\ViewAssignedDeal.cs" />
     <Compile Include="Models\DealForeignsModel.cs" />
     <Compile Include="Models\DealModel.cs" />
+    <Compile Include="Models\SchedulerLoadingDataModel.cs" />
     <Compile Include="Models\ServerSettings.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\TheMessage.cs" />
     <Compile Include="Models\Contexts\DbContexts.cs" />
@@ -276,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\eye_16x16.png" />
     <None Include="Resources\info_32x32.png" />
     <None Include="Resources\FredroClient3.png" />
     <None Include="Resources\FredroClient2.png" />
