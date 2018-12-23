@@ -28,7 +28,7 @@ namespace FredroClient.UserControls
     {
         private GridHitInfo _downHitInfo;
         private WaitingHelper _waitingHelper;
-        private Deal _focusedDeal;
+        private Deal _popupDeal;
 
         public ucScheduler()
         {
@@ -61,7 +61,7 @@ namespace FredroClient.UserControls
             schedulerMain.AllowAppointmentConflicts += ScchedulerMain_AllowAppointmentConflicts;
             schedulerMain.AppointmentViewInfoCustomizing += SchedulerMain_AppointmentViewInfoCustomizing;
             schedulerMain.PopupMenuShowing += SchedulerMain_PopupMenuShowing;
-            schedulerMain.SelectionChanged += SchedulerMain_SelectionChanged;
+            //schedulerMain.SelectionChanged += SchedulerMain_SelectionChanged;
             schedulerMain.EditAppointmentFormShowing += SchedulerMain_EditAppointmentFormShowing;
 
             groupControlMain.CustomButtonClick += GroupControlMain_CustomButtonClick;
@@ -261,26 +261,26 @@ namespace FredroClient.UserControls
             }
         }
 
-        private void SchedulerMain_SelectionChanged(object sender, EventArgs e)
-        {
-            if (schedulerMain.SelectedAppointments.Count > 0)
-            {
-                var focusedAppointment = schedulerMain.SelectedAppointments.First();
-                var focusedAppointmentId = (int)focusedAppointment.Id;
-                var focusedDeal = FredroHelper.GetDeal(focusedAppointmentId);
-                if (focusedDeal.Id.HasValue)
-                {
-                    //schedulerMain.BeginUpdate();
-                    //schedulerMain.BeginUpdate();
+        //private void SchedulerMain_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    if (schedulerMain.SelectedAppointments.Count > 0)
+        //    {
+        //        var focusedAppointment = schedulerMain.SelectedAppointments.First();
+        //        var focusedAppointmentId = (int)focusedAppointment.Id;
+        //        var focusedDeal = FredroHelper.GetDeal(focusedAppointmentId);
+        //        if (focusedDeal.Id.HasValue)
+        //        {
+        //            //schedulerMain.BeginUpdate();
+        //            //schedulerMain.BeginUpdate();
 
-                    _focusedDeal = focusedDeal;
+        //            _focusedDeal = focusedDeal;
 
-                    //schedulerMain.EndUpdate();
-                    //schedulerMain.EndUpdate();
-                }
+        //            //schedulerMain.EndUpdate();
+        //            //schedulerMain.EndUpdate();
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         private void SchedulerMain_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
         {
@@ -293,6 +293,10 @@ namespace FredroClient.UserControls
             e.Menu.Items.Clear();
             if (e.Menu.Id == SchedulerMenuItemId.AppointmentMenu)
             {
+                var popupAppointment = schedulerMain.SelectedAppointments.Single();
+                var popupAppointmentId = (int)popupAppointment.Id;
+                _popupDeal = FredroHelper.GetDeal(popupAppointmentId);
+
                 var openItem = new SchedulerMenuItem("Просмотр", OnOpenItemClick, Properties.Resources.view_16x16);
                 e.Menu.Items.Add(openItem);
             }
@@ -305,7 +309,7 @@ namespace FredroClient.UserControls
 
         private void ShowDealForm()
         {
-            using (var frm = new frmDeal(_focusedDeal))
+            using (var frm = new frmDeal(_popupDeal))
             {
                 frm.ShowDialog();
             }
