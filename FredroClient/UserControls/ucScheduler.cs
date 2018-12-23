@@ -309,6 +309,12 @@ namespace FredroClient.UserControls
 
         private void ShowDealForm()
         {
+            if (_popupDeal == null)
+            {
+                var popupAppointment = schedulerMain.SelectedAppointments.Single();
+                var popupAppointmentId = (int)popupAppointment.Id;
+                _popupDeal = FredroHelper.GetDeal(popupAppointmentId);
+            }
             using (var frm = new frmDeal(_popupDeal))
             {
                 frm.ShowDialog();
