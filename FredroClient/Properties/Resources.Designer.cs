@@ -183,6 +183,26 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("search_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_pink_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("search_pink_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings_icon1_64x64 {
             get {
                 object obj = ResourceManager.GetObject("settings_icon1_64x64", resourceCulture);

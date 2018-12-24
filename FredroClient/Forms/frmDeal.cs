@@ -32,6 +32,7 @@ namespace FredroClient.Forms
             _loadingModel = new DealForeignsModel();
             InitControls();
             InitEvents();
+            DisableControls();
         }
 
         public frmDeal(Deal deal)
@@ -105,6 +106,11 @@ namespace FredroClient.Forms
             tripType.Properties.View.Columns[nameof(DictionaryTripType.CreationDate)].Visible = false;
             tripType.DataBindings.Add(new Binding("EditValue", _dealModel.CurrentDeal, nameof(_dealModel.CurrentDeal.TripTypeId),
                 true, DataSourceUpdateMode.OnPropertyChanged));
+        }
+
+        private void DisableControls()
+        {
+            vehicle.Enabled = false;
         }
 
         private void SetReadonly(bool isReadOnly)

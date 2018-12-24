@@ -235,30 +235,77 @@ namespace FredroClient.UserControls
 
         private void GroupControlMain_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
         {
-            if ("Назад".Equals(e.Button.Properties.Caption))
+            switch (e.Button.Properties.Caption)
             {
-                var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
-                if (svc != null)
-                {
-                    svc.NavigateBackward();
-                }
+                case "Назад":
+                    var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
+                    if (svc != null)
+                    {
+                        svc.NavigateBackward();
+                    }
+                    break;
+                case "Вперёд":
+                    var servc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
+                    if (servc != null)
+                    {
+                        servc.NavigateForward();
+                    }
+                    break;
+                case "На дату":
+                    schedulerMain.ShowGotoDateForm();
+                    break;
+                case "На сегодня":
+                    schedulerMain.GoToToday();
+                    break;
+                case "Поиск":
+                    switch(e.Button.Properties.ToolTip)
+                    {
+                        case "Скрыть поиск":
+                            e.Button.Properties.ToolTip = "Показать поиск";
+                            e.Button.Properties.Image = Properties.Resources.search_pink_32x32;
+                            gvFreeDeals.OptionsFind.AlwaysVisible = false;
+                            break;
+                        case "Показать поиск":
+                            e.Button.Properties.ToolTip = "Скрыть поиск";
+                            e.Button.Properties.Image = Properties.Resources.search_32x32;
+                            gvFreeDeals.OptionsFind.AlwaysVisible = true;
+                            break;
+                        default:
+                            FredroMessageBox.ShowError("Значение всплывающего текста не выявлено!");
+                            break;
+                    }
+                    break;
+                default:
+                    break;
             }
-            else if ("Вперёд".Equals(e.Button.Properties.Caption))
-            {
-                var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
-                if (svc != null)
-                {
-                    svc.NavigateForward();
-                }
-            }
-            else if ("На дату".Equals(e.Button.Properties.Caption))
-            {
-                schedulerMain.ShowGotoDateForm();
-            }
-            else if ("На сегодня".Equals(e.Button.Properties.Caption))
-            {
-                schedulerMain.GoToToday();
-            }
+            //if ("Назад".Equals(e.Button.Properties.Caption))
+            //{
+            //    var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
+            //    if (svc != null)
+            //    {
+            //        svc.NavigateBackward();
+            //    }
+            //}
+            //else if ("Вперёд".Equals(e.Button.Properties.Caption))
+            //{
+            //    var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
+            //    if (svc != null)
+            //    {
+            //        svc.NavigateForward();
+            //    }
+            //}
+            //else if ("На дату".Equals(e.Button.Properties.Caption))
+            //{
+            //    schedulerMain.ShowGotoDateForm();
+            //}
+            //else if ("На сегодня".Equals(e.Button.Properties.Caption))
+            //{
+            //    schedulerMain.GoToToday();
+            //}
+            //else if ("Поиск".Equals(e.Button.Properties.Caption))
+            //{
+            //    e.Button.Properties.ToolTip
+            //}
         }
 
         //private void SchedulerMain_SelectionChanged(object sender, EventArgs e)
