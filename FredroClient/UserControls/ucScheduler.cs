@@ -285,7 +285,9 @@ namespace FredroClient.UserControls
         private void SchedulerMain_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
         {
             e.Handled = true;
-            ShowDealForm();
+            var editedAppointmentId = (int)e.Appointment.Id;
+            var editedDeal = FredroHelper.GetDeal(editedAppointmentId);
+            ShowDealForm(editedDeal);
         }
 
         private void SchedulerMain_PopupMenuShowing(object sender, DevExpress.XtraScheduler.PopupMenuShowingEventArgs e)
@@ -304,18 +306,17 @@ namespace FredroClient.UserControls
 
         private void OnOpenItemClick(object sender, EventArgs e)
         {
-            ShowDealForm();
+            ShowDealForm(_popupDeal);
         }
 
-        private void ShowDealForm()
+        private void ShowDealForm(Deal deal)
         {
-            if (_popupDeal == null)
+            if (deal == null)
             {
-                var popupAppointment = schedulerMain.SelectedAppointments.Single();
-                var popupAppointmentId = (int)popupAppointment.Id;
-                _popupDeal = FredroHelper.GetDeal(popupAppointmentId);
+                FredroMessageBox.ShowError("Зделка не может быть null");
+                return;
             }
-            using (var frm = new frmDeal(_popupDeal))
+            using (var frm = new frmDeal(deal))
             {
                 frm.ShowDialog();
             }
