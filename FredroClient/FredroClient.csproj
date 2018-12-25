@@ -277,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\reload_32x32.png" />
     <None Include="Resources\search_pink_32x32.png" />
     <None Include="Resources\search_32x32.png" />
     <None Include="Resources\view_16x16.png" />

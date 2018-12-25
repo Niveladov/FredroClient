@@ -229,7 +229,7 @@ namespace FredroClient.UserControls
 
         private void RefreshData()
         {
-            storageMain.Appointments.DataSource = FredroHelper.GetAssignedDeals();
+            storageMain.Appointments.DataSource = FredroHelper.GetAllViewAssignedDeals();
             gcFreeDeals.DataSource = FredroHelper.GetNotAssignedDeals();
         }
 
@@ -274,6 +274,9 @@ namespace FredroClient.UserControls
                             FredroMessageBox.ShowError("Значение всплывающего текста не выявлено!");
                             break;
                     }
+                    break;
+                case "Обновить":
+                    RefreshData();
                     break;
                 default:
                     break;

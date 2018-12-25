@@ -85,6 +85,9 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("На сегодня", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons2"))), false, true, "Перейти на сегодня"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Вперёд", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons3"))), false, true, "Вперёд"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", true, -1, false, null, false, false, false, null, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Обновить", global::FredroClient.Properties.Resources.reload_32x32, false, true, "Обновить"),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Увеличить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons4"))), false, true, "Увеличить"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Уменьшить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons5"))), false, true, "Уменьшить"),
@@ -93,9 +96,9 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Поиск", global::FredroClient.Properties.Resources.search_32x32, false, true, "Скрыть поиск")});
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlMain.Location = new System.Drawing.Point(0, 0);
-            this.groupControlMain.Margin = new System.Windows.Forms.Padding(2);
+            this.groupControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(735, 491);
+            this.groupControlMain.Size = new System.Drawing.Size(980, 604);
             this.groupControlMain.TabIndex = 3;
             // 
             // splitHorizontal
@@ -107,14 +110,14 @@
             this.splitHorizontal.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
             this.splitHorizontal.Horizontal = false;
             this.splitHorizontal.Location = new System.Drawing.Point(2, 45);
-            this.splitHorizontal.Margin = new System.Windows.Forms.Padding(2);
+            this.splitHorizontal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitHorizontal.Name = "splitHorizontal";
             this.splitHorizontal.Panel1.Controls.Add(this.splitVertical);
             this.splitHorizontal.Panel1.Text = "Panel1";
             this.splitHorizontal.Panel2.Controls.Add(this.gcFreeDeals);
             this.splitHorizontal.Panel2.Text = "Panel2";
-            this.splitHorizontal.Size = new System.Drawing.Size(731, 444);
-            this.splitHorizontal.SplitterPosition = 274;
+            this.splitHorizontal.Size = new System.Drawing.Size(976, 557);
+            this.splitHorizontal.SplitterPosition = 344;
             this.splitHorizontal.TabIndex = 2;
             this.splitHorizontal.Text = "splitContainerControl1";
             // 
@@ -123,7 +126,7 @@
             this.splitVertical.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitVertical.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitVertical.Location = new System.Drawing.Point(0, 0);
-            this.splitVertical.Margin = new System.Windows.Forms.Padding(2);
+            this.splitVertical.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitVertical.Name = "splitVertical";
             // 
             // splitVertical.Panel1
@@ -135,9 +138,9 @@
             // 
             this.splitVertical.Panel2.Controls.Add(this.schedulerMain);
             this.splitVertical.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitVertical.Size = new System.Drawing.Size(731, 274);
+            this.splitVertical.Size = new System.Drawing.Size(976, 344);
             this.splitVertical.SplitterDistance = 232;
-            this.splitVertical.SplitterWidth = 2;
+            this.splitVertical.SplitterWidth = 3;
             this.splitVertical.TabIndex = 1;
             // 
             // resourcesTreeMain
@@ -148,14 +151,14 @@
             this.resourcesTreeMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resourcesTreeMain.KeyFieldName = "Id";
             this.resourcesTreeMain.Location = new System.Drawing.Point(0, 0);
-            this.resourcesTreeMain.Margin = new System.Windows.Forms.Padding(2);
+            this.resourcesTreeMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resourcesTreeMain.Name = "resourcesTreeMain";
             this.resourcesTreeMain.OptionsBehavior.Editable = false;
             this.resourcesTreeMain.OptionsBehavior.ReadOnly = true;
             this.resourcesTreeMain.ParentFieldName = "ParentId";
             this.resourcesTreeMain.PreviewFieldName = "Name";
             this.resourcesTreeMain.SchedulerControl = this.schedulerMain;
-            this.resourcesTreeMain.Size = new System.Drawing.Size(232, 274);
+            this.resourcesTreeMain.Size = new System.Drawing.Size(232, 344);
             this.resourcesTreeMain.TabIndex = 1;
             // 
             // rctREsourceName
@@ -192,11 +195,11 @@
             this.schedulerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerMain.GroupType = DevExpress.XtraScheduler.SchedulerGroupType.Resource;
             this.schedulerMain.Location = new System.Drawing.Point(0, 0);
-            this.schedulerMain.Margin = new System.Windows.Forms.Padding(2);
+            this.schedulerMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schedulerMain.Name = "schedulerMain";
             this.schedulerMain.OptionsView.ShowOnlyResourceAppointments = true;
             this.schedulerMain.OptionsView.ToolTipVisibility = DevExpress.XtraScheduler.ToolTipVisibility.Always;
-            this.schedulerMain.Size = new System.Drawing.Size(497, 274);
+            this.schedulerMain.Size = new System.Drawing.Size(741, 344);
             this.schedulerMain.Start = new System.DateTime(2018, 12, 10, 0, 0, 0, 0);
             this.schedulerMain.Storage = this.storageMain;
             this.schedulerMain.TabIndex = 1;
@@ -233,12 +236,12 @@
             // gcFreeDeals
             // 
             this.gcFreeDeals.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcFreeDeals.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gcFreeDeals.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFreeDeals.Location = new System.Drawing.Point(0, 0);
             this.gcFreeDeals.MainView = this.gvFreeDeals;
-            this.gcFreeDeals.Margin = new System.Windows.Forms.Padding(2);
+            this.gcFreeDeals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFreeDeals.Name = "gcFreeDeals";
-            this.gcFreeDeals.Size = new System.Drawing.Size(731, 165);
+            this.gcFreeDeals.Size = new System.Drawing.Size(976, 207);
             this.gcFreeDeals.TabIndex = 0;
             this.gcFreeDeals.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFreeDeals});
@@ -312,12 +315,12 @@
             // 
             // ucScheduler
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupControlMain);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ucScheduler";
-            this.Size = new System.Drawing.Size(735, 491);
+            this.Size = new System.Drawing.Size(980, 604);
             this.Load += new System.EventHandler(this.UcScheduler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).EndInit();
             this.groupControlMain.ResumeLayout(false);
