@@ -257,7 +257,7 @@ namespace FredroClient.UserControls
                 case "Увеличить":
                     schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 18;
                     schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
-                    schedulerMain.GoToDate(schedulerMain.Start.AddHours(6));
+                    schedulerMain.GoToDate(schedulerMain.Start.Date.AddHours(6));
                     schedulerMain.ActiveView.LayoutChanged();
                     var buttonMinus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Уменьшить")).Single();
                     buttonMinus.Properties.Enabled = true;
@@ -266,7 +266,7 @@ namespace FredroClient.UserControls
                 case "Уменьшить":
                     schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
                     schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
-                    schedulerMain.GoToDate(schedulerMain.Start);
+                    schedulerMain.GoToDate(schedulerMain.Start.Date);
                     schedulerMain.ActiveView.LayoutChanged();
                     var buttomPlus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Увеличить")).Single();
                     buttomPlus.Properties.Enabled = true;
