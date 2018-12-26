@@ -162,16 +162,17 @@ namespace FredroClient.Forms
 
         private void Customer_CustomButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            //if (e.Button.Kind == ButtonPredefines.Plus)
-            //{
-            //    using (var frm = new frmPerformer())
-            //    {
-            //        if (frm.ShowDialog() == DialogResult.OK)
-            //        {
-            //            _loadingModel.RefreshCustomers();
-            //        }
-            //    }
-            //}
+            if (e.Button.Kind == ButtonPredefines.Plus)
+            {
+                using (var frm = new frmCustomer())
+                {
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        _loadingModel.RefreshCustomers();
+                        customer.Properties.DataSource = _loadingModel.Customers;
+                    }
+                }
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

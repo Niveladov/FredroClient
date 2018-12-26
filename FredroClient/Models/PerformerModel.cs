@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace FredroClient.Models
 {
-    internal sealed class CustomerModel
+    internal sealed class PerformerModel
     {
-        public Customer CurrentCustomer { get; set; } = new Customer();
+        public Performer CurrentPerformer { get; set; } = new Performer();
 
         public async Task Save()
         {
             try
             {
-                using (var db = new CustomerContext())
+                using (var db = new PerformerContext())
                 {
-                    CurrentCustomer.IsDel = false;
-                    CurrentCustomer.CreatedBy = -1;
-                    CurrentCustomer.CreationDate = DateTime.Now;
-                    db.Customers.Add(CurrentCustomer);
+                    CurrentPerformer.IsDel = false;
+                    CurrentPerformer.CreatedBy = -1;
+                    CurrentPerformer.CreationDate = DateTime.Now;
+                    db.Performers.Add(CurrentPerformer);
                     await db.SaveChangesAsync();
                 }
             }
