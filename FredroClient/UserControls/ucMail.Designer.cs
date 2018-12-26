@@ -69,7 +69,6 @@
             this.meResponseBody = new DevExpress.XtraEditors.MemoEdit();
             this.ddbMove = new DevExpress.XtraEditors.DropDownButton();
             this.btnAddDeal = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddClient = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnResend = new DevExpress.XtraEditors.SimpleButton();
             this.btnReply = new DevExpress.XtraEditors.SimpleButton();
@@ -92,7 +91,6 @@
             this.lciReply = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciResend = new DevExpress.XtraLayout.LayoutControlItem();
             this.esMessageButtons = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lciAddClient = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAddDeal = new DevExpress.XtraLayout.LayoutControlItem();
             this.esClientButtons = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciMove = new DevExpress.XtraLayout.LayoutControlItem();
@@ -153,7 +151,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciReply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esMessageButtons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esClientButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMove)).BeginInit();
@@ -600,7 +597,6 @@
             this.lcMessage.Controls.Add(this.meResponseBody);
             this.lcMessage.Controls.Add(this.ddbMove);
             this.lcMessage.Controls.Add(this.btnAddDeal);
-            this.lcMessage.Controls.Add(this.btnAddClient);
             this.lcMessage.Controls.Add(this.btnRemove);
             this.lcMessage.Controls.Add(this.btnResend);
             this.lcMessage.Controls.Add(this.btnReply);
@@ -658,24 +654,13 @@
             // btnAddDeal
             // 
             this.btnAddDeal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDeal.Location = new System.Drawing.Point(132, 125);
+            this.btnAddDeal.Location = new System.Drawing.Point(7, 125);
             this.btnAddDeal.Name = "btnAddDeal";
             this.btnAddDeal.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnAddDeal.Size = new System.Drawing.Size(121, 28);
             this.btnAddDeal.StyleController = this.lcMessage;
             this.btnAddDeal.TabIndex = 14;
             this.btnAddDeal.Text = "Новая сделка";
-            // 
-            // btnAddClient
-            // 
-            this.btnAddClient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddClient.Location = new System.Drawing.Point(7, 125);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btnAddClient.Size = new System.Drawing.Size(121, 28);
-            this.btnAddClient.StyleController = this.lcMessage;
-            this.btnAddClient.TabIndex = 13;
-            this.btnAddClient.Text = "Новый клиент";
             // 
             // btnRemove
             // 
@@ -807,7 +792,6 @@
             this.lciReply,
             this.lciResend,
             this.esMessageButtons,
-            this.lciAddClient,
             this.lciAddDeal,
             this.esClientButtons,
             this.lciMove,
@@ -937,22 +921,10 @@
             this.esMessageButtons.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.esMessageButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // lciAddClient
-            // 
-            this.lciAddClient.Control = this.btnAddClient;
-            this.lciAddClient.Location = new System.Drawing.Point(0, 118);
-            this.lciAddClient.MaxSize = new System.Drawing.Size(125, 32);
-            this.lciAddClient.MinSize = new System.Drawing.Size(125, 32);
-            this.lciAddClient.Name = "lciAddClient";
-            this.lciAddClient.Size = new System.Drawing.Size(125, 32);
-            this.lciAddClient.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciAddClient.TextSize = new System.Drawing.Size(0, 0);
-            this.lciAddClient.TextVisible = false;
-            // 
             // lciAddDeal
             // 
             this.lciAddDeal.Control = this.btnAddDeal;
-            this.lciAddDeal.Location = new System.Drawing.Point(125, 118);
+            this.lciAddDeal.Location = new System.Drawing.Point(0, 118);
             this.lciAddDeal.MaxSize = new System.Drawing.Size(125, 32);
             this.lciAddDeal.MinSize = new System.Drawing.Size(125, 32);
             this.lciAddDeal.Name = "lciAddDeal";
@@ -964,11 +936,11 @@
             // esClientButtons
             // 
             this.esClientButtons.AllowHotTrack = false;
-            this.esClientButtons.Location = new System.Drawing.Point(250, 118);
+            this.esClientButtons.Location = new System.Drawing.Point(125, 118);
             this.esClientButtons.MaxSize = new System.Drawing.Size(0, 32);
             this.esClientButtons.MinSize = new System.Drawing.Size(10, 32);
             this.esClientButtons.Name = "esClientButtons";
-            this.esClientButtons.Size = new System.Drawing.Size(253, 32);
+            this.esClientButtons.Size = new System.Drawing.Size(378, 32);
             this.esClientButtons.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.esClientButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1144,7 +1116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciReply)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciResend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esMessageButtons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciAddClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAddDeal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esClientButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMove)).EndInit();
@@ -1203,7 +1174,6 @@
         private DevExpress.XtraEditors.MemoEdit meResponseBody;
         private DevExpress.XtraEditors.DropDownButton ddbMove;
         private DevExpress.XtraEditors.SimpleButton btnAddDeal;
-        private DevExpress.XtraEditors.SimpleButton btnAddClient;
         private DevExpress.XtraEditors.SimpleButton btnRemove;
         private DevExpress.XtraEditors.SimpleButton btnResend;
         private DevExpress.XtraEditors.SimpleButton btnReply;
@@ -1226,7 +1196,6 @@
         private DevExpress.XtraLayout.LayoutControlItem lciResend;
         private DevExpress.XtraLayout.LayoutControlItem lciRemove;
         private DevExpress.XtraLayout.EmptySpaceItem esMessageButtons;
-        private DevExpress.XtraLayout.LayoutControlItem lciAddClient;
         private DevExpress.XtraLayout.LayoutControlItem lciAddDeal;
         private DevExpress.XtraLayout.EmptySpaceItem esClientButtons;
         private DevExpress.XtraLayout.LayoutControlItem lciMove;

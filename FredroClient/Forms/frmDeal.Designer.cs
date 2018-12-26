@@ -41,6 +41,8 @@
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.start = new DevExpress.XtraEditors.DateEdit();
             this.end = new DevExpress.XtraEditors.DateEdit();
+            this.tripType = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciEnd = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciStart = new DevExpress.XtraLayout.LayoutControlItem();
@@ -51,8 +53,6 @@
             this.lciPerformer = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciClose = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciSave = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tripType = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.lciTripType = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -68,6 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.end.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tripType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStart)).BeginInit();
@@ -78,8 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPerformer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tripType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTripType)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,7 +161,8 @@
             this.performer.Location = new System.Drawing.Point(112, 103);
             this.performer.Name = "performer";
             this.performer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)});
             this.performer.Properties.NullText = "";
             this.performer.Properties.NullValuePrompt = "Исполнитель...";
             this.performer.Properties.NullValuePromptShowForEmptyValue = true;
@@ -205,7 +206,8 @@
             this.customer.Location = new System.Drawing.Point(112, 71);
             this.customer.Name = "customer";
             this.customer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)});
             this.customer.Properties.NullText = "";
             this.customer.Properties.NullValuePrompt = "Заказчик...";
             this.customer.Properties.NullValuePromptShowForEmptyValue = true;
@@ -264,6 +266,28 @@
             this.end.Size = new System.Drawing.Size(343, 28);
             this.end.StyleController = this.lcMain;
             this.end.TabIndex = 2;
+            // 
+            // tripType
+            // 
+            this.tripType.EnterMoveNextControl = true;
+            this.tripType.Location = new System.Drawing.Point(112, 167);
+            this.tripType.Name = "tripType";
+            this.tripType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tripType.Properties.NullText = "";
+            this.tripType.Properties.NullValuePrompt = "Тип поездки...";
+            this.tripType.Properties.NullValuePromptShowForEmptyValue = true;
+            this.tripType.Properties.View = this.gridView1;
+            this.tripType.Size = new System.Drawing.Size(343, 28);
+            this.tripType.StyleController = this.lcMain;
+            this.tripType.TabIndex = 5;
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // lcgMain
             // 
@@ -378,28 +402,6 @@
             this.lciSave.TextSize = new System.Drawing.Size(0, 0);
             this.lciSave.TextVisible = false;
             // 
-            // tripType
-            // 
-            this.tripType.EnterMoveNextControl = true;
-            this.tripType.Location = new System.Drawing.Point(112, 167);
-            this.tripType.Name = "tripType";
-            this.tripType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tripType.Properties.NullText = "";
-            this.tripType.Properties.NullValuePrompt = "Тип поездки...";
-            this.tripType.Properties.NullValuePromptShowForEmptyValue = true;
-            this.tripType.Properties.View = this.gridView1;
-            this.tripType.Size = new System.Drawing.Size(343, 28);
-            this.tripType.StyleController = this.lcMain;
-            this.tripType.TabIndex = 5;
-            // 
-            // gridView1
-            // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
             // lciTripType
             // 
             this.lciTripType.Control = this.tripType;
@@ -435,6 +437,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.end.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tripType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEnd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStart)).EndInit();
@@ -445,8 +449,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPerformer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tripType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTripType)).EndInit();
             this.ResumeLayout(false);
 

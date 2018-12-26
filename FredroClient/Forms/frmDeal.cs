@@ -1,5 +1,6 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
@@ -50,6 +51,8 @@ namespace FredroClient.Forms
         {
             description.TextChanged += MemoEdit_TextChanged;
             route.TextChanged += MemoEdit_TextChanged;
+            customer.Properties.ButtonClick += Customer_CustomButtonClick;
+            performer.Properties.ButtonClick += Performer_CustomButtonClick;
         }
 
         private void InitControls()
@@ -140,6 +143,35 @@ namespace FredroClient.Forms
         {
             var memoEdit = sender as MemoEdit;
             if (memoEdit != null) memoEdit.SetScrollBarVisibility();
+        }
+
+        private void Performer_CustomButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Plus)
+            {
+                using (var frm = new frmPerformer())
+                {
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        _loadingModel.RefreshPerformers();
+                        performer.Properties.DataSource = _loadingModel.Performers;
+                    }
+                }
+            }
+        }
+
+        private void Customer_CustomButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            //if (e.Button.Kind == ButtonPredefines.Plus)
+            //{
+            //    using (var frm = new frmPerformer())
+            //    {
+            //        if (frm.ShowDialog() == DialogResult.OK)
+            //        {
+            //            _loadingModel.RefreshCustomers();
+            //        }
+            //    }
+            //}
         }
 
         private void btnClose_Click(object sender, EventArgs e)

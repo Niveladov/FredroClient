@@ -1,6 +1,7 @@
 ﻿using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
+using FredroClient.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,7 @@ namespace FredroClient.Forms
             {
                 await _performerModel.Save();
                 FredroMessageBox.ShowSucces("Исполнитель успешно сохранен!");
-                Close();
+                DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -52,7 +53,7 @@ namespace FredroClient.Forms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

@@ -13,8 +13,8 @@ namespace FredroClient.Models
     internal sealed class DealForeignsModel
     {
         public BindingList<Vehicle> Vehicles { get; }
-        public BindingList<Customer> Customers { get; }
-        public BindingList<Performer> Performers { get; }
+        public BindingList<Customer> Customers { get; private set; }
+        public BindingList<Performer> Performers { get; private set; }
         public BindingList<DictionaryTripType> TripTypes { get; }
 
         public DealForeignsModel()
@@ -24,5 +24,17 @@ namespace FredroClient.Models
             Performers = FredroHelper.GetAllPerformes();
             TripTypes = FredroHelper.GetAllTripTypes();
         }
+
+        public void RefreshPerformers()
+        {
+            Performers = FredroHelper.GetAllPerformes();
+        }
+
+        public void RefreshCustomers()
+        {
+            Customers = FredroHelper.GetAllCustomers();
+        }
+
+
     }
 }

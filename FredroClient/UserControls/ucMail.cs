@@ -74,7 +74,6 @@ namespace FredroClient.UserControls
             btnSendNew.Click += BtnSendNew_Click;
             btnResend.Click += BtnResend_Click;
             btnAddDeal.Click += BtnAddDeal_Click;
-            btnAddClient.Click += BtnAddClient_Click;
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
         }
 
@@ -93,9 +92,9 @@ namespace FredroClient.UserControls
         {
             lciReply.Visibility = lciResend.Visibility =
             lciRemove.Visibility = lciMove.Visibility =
-            lciAddClient.Visibility = lciAddDeal.Visibility =
-            esMessageButtons.Visibility = esClientButtons.Visibility = 
-                isVisible ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciAddDeal.Visibility = esMessageButtons.Visibility = 
+            esClientButtons.Visibility = isVisible ? 
+                LayoutVisibility.Always : LayoutVisibility.Never;
         }
 
         private void WevMessages_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -198,22 +197,6 @@ namespace FredroClient.UserControls
         private void BtnAddDeal_Click(object sender, EventArgs e)
         {
             using (var frm = new frmDeal())
-            {
-                frm.ShowDialog();
-            }
-        }
-
-        private void BtnAddClient_Click(object sender, EventArgs e)
-        {
-            using (var frm = new frmPerformer())
-            {
-                frm.ShowDialog();
-            }
-        }
-
-        private void btnAddTask_Click(object sender, EventArgs e)
-        {
-            using (var frm = new frmSchedule())
             {
                 frm.ShowDialog();
             }
