@@ -39,6 +39,7 @@
             DevExpress.XtraScheduler.TimeScaleDay timeScaleDay1 = new DevExpress.XtraScheduler.TimeScaleDay();
             DevExpress.XtraScheduler.TimeScaleHour timeScaleHour1 = new DevExpress.XtraScheduler.TimeScaleHour();
             DevExpress.XtraScheduler.TimeScale15Minutes timeScale15Minutes1 = new DevExpress.XtraScheduler.TimeScale15Minutes();
+            DevExpress.XtraScheduler.TimeScaleFixedInterval timeScaleFixedInterval1 = new DevExpress.XtraScheduler.TimeScaleFixedInterval();
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.splitHorizontal = new DevExpress.XtraEditors.SplitContainerControl();
@@ -89,8 +90,8 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Обновить", global::FredroClient.Properties.Resources.reload_32x32, false, true, "Обновить"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Увеличить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons4"))), false, true, "Увеличить"),
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Уменьшить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons5"))), false, true, "Уменьшить"),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Увеличить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons4"))), false, true, "06:00 - 23:59"),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Уменьшить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons5"))), false, true, "00:00 - 23:59"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Поиск", global::FredroClient.Properties.Resources.search_32x32, false, true, "Скрыть поиск")});
@@ -210,12 +211,18 @@
             this.schedulerMain.Views.FullWeekView.TimeRulers.Add(timeRuler2);
             this.schedulerMain.Views.GanttView.Enabled = false;
             this.schedulerMain.Views.MonthView.Enabled = false;
+            this.schedulerMain.Views.TimelineView.AppointmentDisplayOptions.SnapToCellsMode = DevExpress.XtraScheduler.AppointmentSnapToCellsMode.Never;
+            this.schedulerMain.Views.TimelineView.AppointmentDisplayOptions.TimeDisplayType = DevExpress.XtraScheduler.AppointmentTimeDisplayType.Text;
             this.schedulerMain.Views.TimelineView.ResourcesPerPage = 12;
             timeScaleYear1.Enabled = false;
             timeScaleQuarter1.Enabled = false;
             timeScaleMonth1.Enabled = false;
             timeScaleWeek1.Enabled = false;
             timeScale15Minutes1.Enabled = false;
+            timeScaleFixedInterval1.DisplayName = "Half of hour";
+            timeScaleFixedInterval1.MenuCaption = "Half of hour";
+            timeScaleFixedInterval1.Value = System.TimeSpan.Parse("00:30:00");
+            timeScaleFixedInterval1.Visible = false;
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleYear1);
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleQuarter1);
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleMonth1);
@@ -223,6 +230,7 @@
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleDay1);
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleHour1);
             this.schedulerMain.Views.TimelineView.Scales.Add(timeScale15Minutes1);
+            this.schedulerMain.Views.TimelineView.Scales.Add(timeScaleFixedInterval1);
             this.schedulerMain.Views.TimelineView.ShowResourceHeaders = false;
             this.schedulerMain.Views.WeekView.Enabled = false;
             this.schedulerMain.Views.WorkWeekView.Enabled = false;

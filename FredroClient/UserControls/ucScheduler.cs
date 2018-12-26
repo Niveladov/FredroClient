@@ -41,9 +41,12 @@ namespace FredroClient.UserControls
             if (!isDesignMode)
             {
                 _waitingHelper.Show();
+                groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Уменьшить")).Single().Properties.Enabled = false;
                 schedulerMain.Start = DateTime.Today;
                 schedulerMain.TimelineView.Scales[4].Width = schedulerMain.Bounds.Width;
                 schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
+                schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
+                schedulerMain.TimelineView.WorkTime = new TimeOfDayInterval(new TimeSpan(6, 0, 0), new TimeSpan(23, 59, 59));
                 schedulerMain.ActiveView.LayoutChanged();
                 InitSchedulers();
                 InitGrids();
@@ -190,6 +193,7 @@ namespace FredroClient.UserControls
                     e.Allow = false;
                     return;
                 }
+                Deal deal = null;
                 var sourceDealId = e.SourceAppointment.Id;
                 if (sourceDealId == null)
                 {
@@ -197,7 +201,7 @@ namespace FredroClient.UserControls
                     //-->
                     using (var db = new DealContext())
                     {
-                        var deal = await db.Deals.FindAsync(dealId);
+                        deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;
                         await db.SaveChangesAsync();
                     }
@@ -209,7 +213,7 @@ namespace FredroClient.UserControls
                     //-->
                     using (var db = new DealContext())
                     {
-                        var deal = await db.Deals.FindAsync(dealId);
+                        deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;
                         await db.SaveChangesAsync();
                     }
@@ -217,6 +221,7 @@ namespace FredroClient.UserControls
                 }
                 e.Allow = true;
                 schedulerMain.BeginUpdate();
+                schedulerMain.GoToDate(deal.DateStart.Value.Date.AddHours(schedulerMain.Start.Hour));
                 RefreshData();
                 schedulerMain.EndUpdate();
             }
@@ -238,24 +243,34 @@ namespace FredroClient.UserControls
             switch (e.Button.Properties.Caption)
             {
                 case "Назад":
-                    var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
-                    if (svc != null)
-                    {
-                        svc.NavigateBackward();
-                    }
+                    schedulerMain.GoToDate(schedulerMain.Start.AddDays(-1));
                     break;
                 case "Вперёд":
-                    var servc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
-                    if (servc != null)
-                    {
-                        servc.NavigateForward();
-                    }
+                    schedulerMain.GoToDate(schedulerMain.Start.AddDays(1));
                     break;
                 case "На дату":
                     schedulerMain.ShowGotoDateForm();
                     break;
                 case "На сегодня":
                     schedulerMain.GoToToday();
+                    break;
+                case "Увеличить":
+                    schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 18;
+                    schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
+                    schedulerMain.GoToDate(schedulerMain.Start.AddHours(6));
+                    schedulerMain.ActiveView.LayoutChanged();
+                    var buttonMinus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Уменьшить")).Single();
+                    buttonMinus.Properties.Enabled = true;
+                    e.Button.Properties.Enabled = false;
+                    break;
+                case "Уменьшить":
+                    schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
+                    schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
+                    schedulerMain.GoToDate(schedulerMain.Start);
+                    schedulerMain.ActiveView.LayoutChanged();
+                    var buttomPlus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Увеличить")).Single();
+                    buttomPlus.Properties.Enabled = true;
+                    e.Button.Properties.Enabled = false;
                     break;
                 case "Поиск":
                     switch(e.Button.Properties.ToolTip)
@@ -281,34 +296,6 @@ namespace FredroClient.UserControls
                 default:
                     break;
             }
-            //if ("Назад".Equals(e.Button.Properties.Caption))
-            //{
-            //    var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
-            //    if (svc != null)
-            //    {
-            //        svc.NavigateBackward();
-            //    }
-            //}
-            //else if ("Вперёд".Equals(e.Button.Properties.Caption))
-            //{
-            //    var svc = (IDateTimeNavigationService)schedulerMain.GetService(typeof(IDateTimeNavigationService));
-            //    if (svc != null)
-            //    {
-            //        svc.NavigateForward();
-            //    }
-            //}
-            //else if ("На дату".Equals(e.Button.Properties.Caption))
-            //{
-            //    schedulerMain.ShowGotoDateForm();
-            //}
-            //else if ("На сегодня".Equals(e.Button.Properties.Caption))
-            //{
-            //    schedulerMain.GoToToday();
-            //}
-            //else if ("Поиск".Equals(e.Button.Properties.Caption))
-            //{
-            //    e.Button.Properties.ToolTip
-            //}
         }
 
         //private void SchedulerMain_SelectionChanged(object sender, EventArgs e)
