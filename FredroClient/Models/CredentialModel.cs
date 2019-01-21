@@ -28,7 +28,7 @@ namespace FredroClient.Models
         }
 
         public Credentials Creds { get; set; } = new Credentials();
-        public BindingList<TheMessage> Messages { get; private set; }
+        public BindingList<FredroWcfServer.TheMessage> Messages { get; private set; }
         public ServerSettings Settings { get; private set; }
 
         private void RefreshServerSettings()
@@ -80,8 +80,14 @@ namespace FredroClient.Models
             //}
             ////сохраяняем в бд имэйлы
             //FredroHelper.SaveNewMessages(myMessages);
-            FredroHelper.SaveTestData();
-            Messages = FredroHelper.GetMessages();
+            //->
+            //FredroHelper.SaveTestData();
+            //Messages = FredroHelper.GetMessages();
+            //<-
+            var client = new FredroWcfServer.FredroWcfServerClient("NetTcpBinding_IFredroWcfServer");
+            var theMessages = new BindingList<FredroWcfServer.TheMessage>();
+            foreach (var message in client.GetAllMessages()) theMessages.Add(message);
+            Messages = theMessages;
         }
 
     }
