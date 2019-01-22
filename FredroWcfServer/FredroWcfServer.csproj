@@ -54,15 +54,18 @@
   <ItemGroup>
     <Compile Include="FredroWcfServer.cs" />
     <Compile Include="IFredroWcfServer.cs" />
-    <Compile Include="Models\Contexts\DbContexts.cs" />
-    <Compile Include="Models\DatabaseObjectModels\Tables\TheMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FredroDAL\FredroDAL.csproj">
+      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
+      <Name>FredroDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

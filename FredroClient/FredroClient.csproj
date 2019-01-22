@@ -278,6 +278,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\FredroDatabaseModels.Models.DatabaseObjectModels.Tables.TheMessage.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -287,9 +288,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\FredroWcfServer\FredroClient.FredroWcfServer.TheMessage.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\FredroWcfServer\FredroWcfServer.wsdl" />
     <None Include="Service References\FredroWcfServer\item.xsd">
       <SubType>Designer</SubType>
@@ -355,9 +353,9 @@
     <WCFMetadataStorage Include="Service References\FredroWcfServer\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FredroWcfServer\FredroWcfServer.csproj">
-      <Project>{c803a111-b890-4385-9671-ab2e49b1b947}</Project>
-      <Name>FredroWcfServer</Name>
+    <ProjectReference Include="..\FredroDAL\FredroDAL.csproj">
+      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
+      <Name>FredroDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

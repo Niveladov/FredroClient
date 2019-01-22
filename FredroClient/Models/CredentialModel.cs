@@ -28,7 +28,7 @@ namespace FredroClient.Models
         }
 
         public Credentials Creds { get; set; } = new Credentials();
-        public BindingList<FredroWcfServer.TheMessage> Messages { get; private set; }
+        public BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage> Messages { get; private set; }
         public ServerSettings Settings { get; private set; }
 
         private void RefreshServerSettings()
@@ -85,7 +85,7 @@ namespace FredroClient.Models
             //Messages = FredroHelper.GetMessages();
             //<-
             var client = new FredroWcfServer.FredroWcfServerClient("NetTcpBinding_IFredroWcfServer");
-            var theMessages = new BindingList<FredroWcfServer.TheMessage>();
+            var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
             foreach (var message in client.GetAllMessages()) theMessages.Add(message);
             Messages = theMessages;
         }

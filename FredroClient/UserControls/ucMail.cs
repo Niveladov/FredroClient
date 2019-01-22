@@ -16,7 +16,7 @@ using System.Globalization;
 using FredroClient.Forms;
 using FredroClient.BaseGUI;
 using DevExpress.XtraEditors;
-using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
 
 namespace FredroClient.UserControls
 {
@@ -103,7 +103,7 @@ namespace FredroClient.UserControls
             {
                 var row = wevMessages.GetFocusedRow() as TheMessage;
                 row.IsRead = true;
-                FredroHelper.UpdateMessage(row);
+                //FredroHelper.UpdateMessage(row);
                 labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "..." : row.Subject;
                 labelSubject.ToolTip = row.Subject;
                 labelFrom.Text = row.FromFullRaw;
@@ -171,7 +171,7 @@ namespace FredroClient.UserControls
                     responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
                     responseMessage.Subject = focusedMessage.Subject;
 
-                    await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
+                    //await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
 
                     FredroMessageBox.ShowSucces("Письмо отправлено!");
 
