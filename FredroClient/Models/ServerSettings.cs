@@ -11,7 +11,6 @@ namespace FredroClient.Models
         public PopProtocol Pop { get; set; } = new PopProtocol();
         public SmtpProtocol Smtp { get; set; } = new SmtpProtocol();
         public ImapProtocol Imap { get; set; } = new ImapProtocol();
-        
     }
 
     internal sealed class PopProtocol : Protocol { }

@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{818F485F-BC1A-4482-9872-E4C3762C866E}</ProjectGuid>
+    <ProjectGuid>{0BC763B2-5476-4F9B-A764-C4F1075CC11C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FredroDatabaseModels</RootNamespace>
-    <AssemblyName>FredroDatabaseModels</AssemblyName>
+    <RootNamespace>FredroMailService</RootNamespace>
+    <AssemblyName>FredroMailService</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +43,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,16 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Contexts\TheMessageContext.cs" />
-    <Compile Include="Models\Credentials.cs" />
-    <Compile Include="Models\DatabaseObjectModels\Tables\TheMessage.cs" />
+    <Compile Include="ExtraClasses\CustomAttributes.cs" />
+    <Compile Include="ExtraClasses\MethodExtensions.cs" />
+    <Compile Include="IMailService.cs" />
+    <Compile Include="MailService.cs" />
+    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Enums\Server.cs" />
+    <Compile Include="Models\Protocols.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FredroDAL\FredroDAL.csproj">
+      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
+      <Name>FredroDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
