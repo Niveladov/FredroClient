@@ -7,8 +7,8 @@
     <ProjectGuid>{818F485F-BC1A-4482-9872-E4C3762C866E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FredroDatabaseModels</RootNamespace>
-    <AssemblyName>FredroDatabaseModels</AssemblyName>
+    <RootNamespace>FredroDAL</RootNamespace>
+    <AssemblyName>FredroDAL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,6 +60,7 @@
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryVehicleType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\TheMessage.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\User.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Vehicle.cs" />
     <Compile Include="Models\DatabaseObjectModels\Views\ViewAssignedDeal.cs" />
     <Compile Include="Models\DatabaseObjectModels\Views\ViewVehicle.cs" />

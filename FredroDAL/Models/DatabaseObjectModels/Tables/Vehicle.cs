@@ -1,5 +1,4 @@
-﻿using FredroDatabaseModels.Models.DatabaseObjectModels;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace FredroDAL.Models.DatabaseObjectModels.Tables

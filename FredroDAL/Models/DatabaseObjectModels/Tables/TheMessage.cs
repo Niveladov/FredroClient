@@ -1,7 +1,4 @@
-﻿using FredroDatabaseModels.Models.DatabaseObjectModels;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace FredroDAL.Models.DatabaseObjectModels.Tables

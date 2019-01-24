@@ -1,6 +1,6 @@
 ﻿using FredroDAL.Models.Contexts;
 using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDatabaseModels.Models;
+using FredroDAL.Models;
 using FredroMailService.Models;
 using System;
 using System.Collections.Generic;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroDatabaseModels.Models
+namespace FredroDAL.Models
 {
     public sealed class Credentials
     {

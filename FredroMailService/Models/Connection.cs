@@ -1,6 +1,6 @@
 ﻿using FredroDAL.Models.Contexts;
 using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDatabaseModels.Models;
+using FredroDAL.Models;
 using FredroMailService.ExtraClasses;
 using FredroMailService.Models.Enums;
 using System;
