@@ -1,59 +1,260 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using FredroDatabaseModels.Models.DatabaseObjectModels;
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace FredroDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class TheMessage
+    public sealed class TheMessage : DbObjectBaseModel
     {
+        //default properties
         [DataMember]
         public string Id { get; set; }
-        [DataMember]
-        public string FromFullRaw { get; set; }
-        [DataMember]
-        public string FromAddress { get; set; }
-        [DataMember]
-        public string FromDisplayName { get; set; }
-        [DataMember]
-        public string ToFullRaw { get; set; }
-        [DataMember]
-        public string ToAddress { get; set; }
-        [DataMember]
-        public string ToDisplayName { get; set; }
-        [DataMember]
-        public DateTime? Date { get; set; }
-        [DataMember]
-        public string Subject { get; set; }
-        [DataMember]
-        public string MailedBy { get; set; } //отправлено через
-        [DataMember]
-        public string SignedBy { get; set; } //подписано
-        [DataMember]
-        public string Body { get; set; }
-        [DataMember]
-        public bool IsOutcoming { get; set; }
-        [DataMember]
-        public bool IsIncoming { get; set; }
-        [DataMember]
-        public bool IsRead { get; set; }
+        
+        //private fields
+        private string _fromFullRaw;
+        private string _fromAddress;
+        private string _fromDisplayName;
+        private string _toFullRaw;
+        private string _toAddress;
+        private string _toDisplayName;
+        private DateTime? _date;
+        private string _subject;
+        private string _mailedBy; //отправлено через
+        private string _signedBy; //подписано
+        private string _body;
+        private bool _isOutcoming;
+        private bool _isIncoming;
+        private bool _isRead;
 
-        //private bool _isRead;
-        //public bool IsRead
-        //{
-        //    get { return _isRead; }
-        //    set
-        //    {
-        //        if (_isRead != value)
-        //        {
-        //            _isRead = value;
-        //            if (_isRead)
-        //            {
-        //                PictureMail = Resources.read_32x38;
-        //            }
-        //        }
-        //    }
-        //}
+        //properties
+        [DataMember]
+        public string FromFullRaw
+        {
+            get
+            {
+                return _fromFullRaw;
+            }
+            set
+            {
+                if (value != _fromFullRaw)
+                {
+                    _fromFullRaw = value;
+                    NotifyPropertyChanged(nameof(FromFullRaw));
+                }
+            }
+        }
+        [DataMember]
+        public string FromAddress
+        {
+            get
+            {
+                return _fromAddress;
+            }
+            set
+            {
+                if (value != _fromAddress)
+                {
+                    _fromAddress = value;
+                    NotifyPropertyChanged(nameof(FromAddress));
+                }
+            }
+        }
+        [DataMember]
+        public string FromDisplayName
+        {
+            get
+            {
+                return _fromDisplayName;
+            }
+            set
+            {
+                if (value != _fromDisplayName)
+                {
+                    _fromDisplayName = value;
+                    NotifyPropertyChanged(nameof(FromDisplayName));
+                }
+            }
+        }
+        [DataMember]
+        public string ToFullRaw
+        {
+            get
+            {
+                return _toFullRaw;
+            }
+            set
+            {
+                if (value != _toFullRaw)
+                {
+                    _toFullRaw = value;
+                    NotifyPropertyChanged(nameof(ToFullRaw));
+                }
+            }
+        }
+        [DataMember]
+        public string ToAddress
+        {
+            get
+            {
+                return _toAddress;
+            }
+            set
+            {
+                if (value != _toAddress)
+                {
+                    _toAddress = value;
+                    NotifyPropertyChanged(nameof(ToAddress));
+                }
+            }
+        }
+        [DataMember]
+        public string ToDisplayName
+        {
+            get
+            {
+                return _toDisplayName;
+            }
+            set
+            {
+                if (value != _toDisplayName)
+                {
+                    _toDisplayName = value;
+                    NotifyPropertyChanged(nameof(ToDisplayName));
+                }
+            }
+        }
+        [DataMember]
+        public DateTime? Date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                if (value != _date)
+                {
+                    _date = value;
+                    NotifyPropertyChanged(nameof(Date));
+                }
+            }
+        }
+        [DataMember]
+        public string Subject
+        {
+            get
+            {
+                return _subject;
+            }
+            set
+            {
+                if (value != _subject)
+                {
+                    _subject = value;
+                    NotifyPropertyChanged(nameof(Subject));
+                }
+            }
+        }
+        [DataMember]
+        public string MailedBy
+        {
+            get
+            {
+                return _mailedBy;
+            }
+            set
+            {
+                if (value != _mailedBy)
+                {
+                    _mailedBy = value;
+                    NotifyPropertyChanged(nameof(MailedBy));
+                }
+            }
+        }
+        [DataMember]
+        public string SignedBy
+        {
+            get
+            {
+                return _signedBy;
+            }
+            set
+            {
+                if (value != _signedBy)
+                {
+                    _signedBy = value;
+                    NotifyPropertyChanged(nameof(SignedBy));
+                }
+            }
+        }
+        [DataMember]
+        public string Body
+        {
+            get
+            {
+                return _body;
+            }
+            set
+            {
+                if (value != _body)
+                {
+                    _body = value;
+                    NotifyPropertyChanged(nameof(Body));
+                }
+            }
+        }
+        [DataMember]
+        public bool IsOutcoming
+        {
+            get
+            {
+                return _isOutcoming;
+            }
+            set
+            {
+                if (value != _isOutcoming)
+                {
+                    _isOutcoming = value;
+                    NotifyPropertyChanged(nameof(IsOutcoming));
+                }
+            }
+        }
+        [DataMember]
+        public bool IsIncoming
+        {
+            get
+            {
+                return _isIncoming;
+            }
+            set
+            {
+                if (value != _isIncoming)
+                {
+                    _isIncoming = value;
+                    NotifyPropertyChanged(nameof(IsIncoming));
+                }
+            }
+        }
+        [DataMember]
+        public bool IsRead
+        {
+            get
+            {
+                return _isRead;
+            }
+            set
+            {
+                if (value != _isRead)
+                {
+                    _isRead = value;
+                    //if (_isRead) PictureMail = Resources.read_32x38;
+                    NotifyPropertyChanged(nameof(IsRead));
+                }
+            }
+        }
 
         //[NotMapped]
         //public Bitmap PictureMail { get; private set; } = Resources.unread_32x32;
