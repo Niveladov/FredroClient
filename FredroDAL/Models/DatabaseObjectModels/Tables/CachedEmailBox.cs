@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FredroDAL.Models.DatabaseObjectModels.Tables
 {
@@ -22,7 +18,7 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
 
         //private fields
         private int? _userId;
-        private int? _emalServiceHostId;
+        private int? _emailServerId;
         private string _login;
         //ToDo: to change field type to byte[] and to apply encryption
         private string _password;
@@ -45,18 +41,18 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
             }
         }
         [DataMember]
-        public int? EmalServiceHostId
+        public int? EmailServerId
         {
             get
             {
-                return _emalServiceHostId;
+                return _emailServerId;
             }
             set
             {
-                if (value != _emalServiceHostId)
+                if (value != _emailServerId)
                 {
-                    _emalServiceHostId = value;
-                    NotifyPropertyChanged(nameof(EmalServiceHostId));
+                    _emailServerId = value;
+                    NotifyPropertyChanged(nameof(EmailServerId));
                 }
             }
         }
