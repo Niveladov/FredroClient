@@ -1,16 +1,8 @@
-﻿using FredroDAL.Models.Contexts;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
+﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
 using FredroDAL.Models;
 using FredroMailService.Models;
-using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FredroMailService
