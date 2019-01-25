@@ -16,7 +16,7 @@ namespace FredroWcfServer
         public IEnumerable<TheMessage> GetAllMessages()
         {
             List<TheMessage> messages = null;
-            using (var db = new TheMessageContext())
+            using (var db = new FredroDbContext())
             {
                 db.Messages.Load();
                 messages = db.Messages.Local.ToList();

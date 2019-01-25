@@ -11,5 +11,6 @@ namespace FredroDAL.Models.DatabaseObjectModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

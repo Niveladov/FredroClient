@@ -31,7 +31,7 @@ namespace FredroMailService.Models
 
         public IEnumerable<TheMessage> GetAllMails()
         {
-            using (var db = new TheMessageContext())
+            using (var db = new FredroDbContext())
             {
                 db.Messages.Load();
                 AllMails = db.Messages.Local.ToList();
@@ -99,7 +99,7 @@ namespace FredroMailService.Models
 
         public void UpdateMail(TheMessage message)
         {
-            using (var db = new TheMessageContext())
+            using (var db = new FredroDbContext())
             {
                 db.Entry(message).State = EntityState.Modified;
                 db.SaveChanges();
@@ -108,7 +108,7 @@ namespace FredroMailService.Models
 
         public async Task UpdateMailAsync(TheMessage message)
         {
-            using (var db = new TheMessageContext())
+            using (var db = new FredroDbContext())
             {
                 db.Entry(message).State = EntityState.Modified;
                 await db.SaveChangesAsync();
