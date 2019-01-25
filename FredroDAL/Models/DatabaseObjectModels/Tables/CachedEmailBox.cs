@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace FredroDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class CachedEmail : DbObjectBaseModel
+    public sealed class CachedEmailBox : DbObjectBaseModel
     {
         //default properties
         [DataMember]

@@ -54,7 +54,7 @@
     <Compile Include="Models\Contexts\TheMessageContext.cs" />
     <Compile Include="Models\Credentials.cs" />
     <Compile Include="Models\DatabaseObjectModels\DbObjectBaseModel.cs" />
-    <Compile Include="Models\DatabaseObjectModels\Tables\CachedEmail.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\CachedEmailBox.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Customer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryTripType.cs" />
