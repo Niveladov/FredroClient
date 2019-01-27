@@ -21,9 +21,9 @@ namespace FredroMailService.Models
         public IProtocol MailSendingProtocol { get; }
         public IProtocol MailReceivingProtocol { get; }
         
-        public EmailServerConnection(Credentials creds)
+        public EmailServerConnection(/*Credentials creds*/)
         {
-            Creds = creds;
+            //Creds = creds;
             var protocols = Server.Gmail.GetServerSettings();
             MailSendingProtocol = protocols.OfType<SmtpProtocol>().Single();
             MailReceivingProtocol = protocols.OfType<PopProtocol>().Single();
@@ -40,11 +40,6 @@ namespace FredroMailService.Models
         }
 
         public void RemoveMail(string Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task RemoveMailAsync(string Id)
         {
             throw new NotImplementedException();
         }
@@ -73,30 +68,6 @@ namespace FredroMailService.Models
             }
         }
 
-        public async Task SendMailAsync(TheMessage message)
-        {
-            try
-            {
-                MailAddress from = new MailAddress(message.FromAddress, message.FromDisplayName);
-                MailAddress to = new MailAddress(message.ToAddress);
-                MailMessage m = new MailMessage(from, to);
-
-                //m.Attachments.Add(new Attachment("E://colors.txt"));
-                m.Subject = message.Subject;
-                m.Body = message.Body;
-                m.IsBodyHtml = true;
-
-                SmtpClient smtpClient = new SmtpClient(MailSendingProtocol.Hostname, MailSendingProtocol.Port);
-                smtpClient.Credentials = new NetworkCredential(Creds.Login, Creds.Password);
-                smtpClient.EnableSsl = MailSendingProtocol.UseSsl;
-                await smtpClient.SendMailAsync(m);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
         public void UpdateMail(TheMessage message)
         {
             using (var db = new FredroDbContext())
@@ -106,14 +77,6 @@ namespace FredroMailService.Models
             }
         }
 
-        public async Task UpdateMailAsync(TheMessage message)
-        {
-            using (var db = new FredroDbContext())
-            {
-                db.Entry(message).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-            }
-        }
     }
 
     internal interface IMailServer
@@ -122,14 +85,8 @@ namespace FredroMailService.Models
 
         void SendMail(TheMessage message);
 
-        Task SendMailAsync(TheMessage message);
-
         void UpdateMail(TheMessage message);
 
-        Task UpdateMailAsync(TheMessage message);
-
         void RemoveMail(string Id);
-
-        Task RemoveMailAsync(string Id);
     }
 }

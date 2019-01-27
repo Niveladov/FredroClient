@@ -216,11 +216,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\FredroWcfServer\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\ucMail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -288,29 +283,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\FredroWcfServer\FredroWcfServer.wsdl" />
-    <None Include="Service References\FredroWcfServer\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FredroWcfServer\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FredroWcfServer\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
-    <None Include="Service References\FredroWcfServer\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\FredroWcfServer\configuration.svcinfo" />
-    <None Include="Service References\FredroWcfServer\configuration91.svcinfo" />
-    <None Include="Service References\FredroWcfServer\item.disco" />
     <None Include="Resources\reload_32x32.png" />
     <None Include="Resources\search_pink_32x32.png" />
     <None Include="Resources\search_32x32.png" />
@@ -348,9 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\FredroWcfServer\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FredroDAL\FredroDAL.csproj">

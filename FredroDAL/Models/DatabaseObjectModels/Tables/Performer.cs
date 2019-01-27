@@ -14,7 +14,7 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         [DataMember]
         public DateTime? CreationDate { get; set; }
         [DataMember]
-        private int? CreatedBy { get; set; }
+        public int? CreatedBy { get; set; }
 
         //private fields
         private string _subjectName;

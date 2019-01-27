@@ -19,18 +19,9 @@ namespace FredroMailService
         void SendMail(TheMessage message);
 
         [OperationContract]
-        Task SendMailAsync(TheMessage message);
-
-        [OperationContract]
         void UpdateMail(TheMessage message);
-
-        [OperationContract]
-        Task UpdateMailAsync(TheMessage message);
         
         [OperationContract]
         void RemoveMail(string Id);
-
-        [OperationContract]
-        Task RemoveMailAsync(string Id);
     }
 }

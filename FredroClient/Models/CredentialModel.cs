@@ -84,10 +84,10 @@ namespace FredroClient.Models
             //FredroHelper.SaveTestData();
             //Messages = FredroHelper.GetMessages();
             //<-
-            var client = new FredroWcfServer.FredroWcfServerClient("NetTcpBinding_IFredroWcfServer");
-            var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
-            foreach (var message in client.GetAllMessages()) theMessages.Add(message);
-            Messages = theMessages;
+            //var client = new FredroWcfServer.FredroWcfServerClient("NetTcpBinding_IFredroWcfServer");
+            //var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
+            //foreach (var message in client.GetAllMessages()) theMessages.Add(message);
+            //Messages = theMessages;
         }
 
     }

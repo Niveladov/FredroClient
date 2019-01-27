@@ -4,6 +4,7 @@ using FredroMailService.Models;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading.Tasks;
+using FredroMailService.ExtraClasses;
 
 namespace FredroMailService
 {
@@ -12,9 +13,10 @@ namespace FredroMailService
     {
         private IMailServer _mailServerConnection;
 
-        public MailService(Credentials creds)
+        public MailService(/*Credentials creds*/)
         {
-            _mailServerConnection = new EmailServerConnection(creds);
+            FredroHelper.SaveTestData();
+            _mailServerConnection = new EmailServerConnection(/*creds*/);
         }
 
         public IEnumerable<TheMessage> GetAllMails()
@@ -27,19 +29,9 @@ namespace FredroMailService
             _mailServerConnection.RemoveMail(Id);
         }
 
-        public async Task RemoveMailAsync(string Id)
-        {
-            await _mailServerConnection.RemoveMailAsync(Id);
-        }
-
         public void SendMail(TheMessage message)
         {
             _mailServerConnection.SendMail(message);
-        }
-
-        public async Task SendMailAsync(TheMessage message)
-        {
-            await _mailServerConnection.SendMailAsync(message);
         }
 
         public void UpdateMail(TheMessage message)
@@ -47,9 +39,6 @@ namespace FredroMailService
             _mailServerConnection.UpdateMail(message);
         }
 
-        public async Task UpdateMailAsync(TheMessage message)
-        {
-            await _mailServerConnection.UpdateMailAsync(message);
-        }
     }
+
 }
