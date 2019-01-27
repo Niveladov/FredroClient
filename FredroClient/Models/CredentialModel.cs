@@ -84,7 +84,7 @@ namespace FredroClient.Models
             //FredroHelper.SaveTestData();
             //Messages = FredroHelper.GetMessages();
             //<-
-            var client = new MailService.MailServiceClient("NetTcpBinding_IFredroWcfServer");
+            var client = new MailService.MailServiceClient("NetTcpBinding_IMailService");
             var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
             foreach (var message in client.GetAllMails()) theMessages.Add(message);
             Messages = theMessages;

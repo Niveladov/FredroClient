@@ -110,13 +110,13 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         {
             get
             {
-                return IsAdmin;
+                return _isAdmin;
             }
             set
             {
-                if (value != IsAdmin)
+                if (value != _isAdmin)
                 {
-                    IsAdmin = value;
+                    _isAdmin = value;
                     NotifyPropertyChanged(nameof(IsAdmin));
                 }
             }
