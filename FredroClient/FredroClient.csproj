@@ -216,6 +216,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\MailService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucMail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,7 +278,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\FredroDatabaseModels.Models.DatabaseObjectModels.Tables.TheMessage.datasource" />
+    <None Include="Properties\DataSources\FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -283,12 +288,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\MailService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\MailService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Service References\MailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MailService\configuration.svcinfo" />
+    <None Include="Service References\MailService\configuration91.svcinfo" />
+    <None Include="Service References\MailService\item.disco" />
     <None Include="Resources\reload_32x32.png" />
     <None Include="Resources\search_pink_32x32.png" />
     <None Include="Resources\search_32x32.png" />
@@ -332,6 +357,9 @@
       <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
       <Name>FredroDAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MailService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
