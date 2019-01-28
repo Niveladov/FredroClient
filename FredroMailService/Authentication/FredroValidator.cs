@@ -12,7 +12,7 @@ namespace FredroMailService.Authentication
     {
         public override void Validate(string userName, string password)
         {
-            if (!string.IsNullOrWhiteSpace(userName) || !string.IsNullOrWhiteSpace(password)) return;
+            if (!string.IsNullOrWhiteSpace(userName) && !string.IsNullOrWhiteSpace(password)) return;
             else throw new SecurityTokenException("Account is invalid");
         }
     }

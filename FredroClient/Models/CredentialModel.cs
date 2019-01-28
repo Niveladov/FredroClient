@@ -88,7 +88,7 @@ namespace FredroClient.Models
             var client = new MailService.MailServiceClient("NetTcpBinding_IMailService");
             client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
             client.ClientCredentials.UserName.UserName = "1";
-            client.ClientCredentials.UserName.Password = "1";
+            client.ClientCredentials.UserName.Password = "";
             var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
             foreach (var message in client.GetAllMails()) theMessages.Add(message);
             Messages = theMessages;
