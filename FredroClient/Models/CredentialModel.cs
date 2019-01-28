@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.ServiceModel.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -85,6 +86,9 @@ namespace FredroClient.Models
             //Messages = FredroHelper.GetMessages();
             //<-
             var client = new MailService.MailServiceClient("NetTcpBinding_IMailService");
+            client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
+            client.ClientCredentials.UserName.UserName = "1";
+            client.ClientCredentials.UserName.Password = "1";
             var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
             foreach (var message in client.GetAllMails()) theMessages.Add(message);
             Messages = theMessages;
