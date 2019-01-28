@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="ExtraClasses\CustomAttributes.cs" />
     <Compile Include="ExtraClasses\FredroHelper.cs" />
+    <Compile Include="ExtraClasses\FredroValidator.cs" />
     <Compile Include="ExtraClasses\MethodExtensions.cs" />
     <Compile Include="IMailService.cs" />
     <Compile Include="MailService.cs" />

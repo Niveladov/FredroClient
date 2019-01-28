@@ -7,7 +7,7 @@ namespace FredroMailService.ExtraClasses
 {
     internal static class FredroHelper
     {
-        internal static async void SaveTestData()
+        internal static void SaveTestData()
         {
             using (var db = new FredroDbContext())
             {
@@ -64,7 +64,7 @@ namespace FredroMailService.ExtraClasses
                     SubjectName = "TEST666"
                 };
                 db.Performers.Add(performerTest);
-                
+
                 var dealTest = new Deal()
                 {
                     IsDel = false,
@@ -73,7 +73,7 @@ namespace FredroMailService.ExtraClasses
                     Route = "TEST666"
                 };
                 db.Deals.Add(dealTest);
-                
+
                 var vehicleTest = new Vehicle()
                 {
                     IsDel = false,
@@ -90,9 +90,9 @@ namespace FredroMailService.ExtraClasses
                     CreationDate = DateTime.Now,
                     Login = "TEST666",
                 };
-                db.Vehicles.Add(vehicleTest);
-                
-                await db.SaveChangesAsync();
+                db.Users.Add(userTest);
+
+                db.SaveChanges();
             }
         }
 

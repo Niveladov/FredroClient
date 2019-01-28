@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201901281017532_FirstMigrations.cs" />
+    <Compile Include="Migrations\201901281017532_FirstMigrations.Designer.cs">
+      <DependentUpon>201901281017532_FirstMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexts\FredroDbContext.cs" />
     <Compile Include="Models\Credentials.cs" />
     <Compile Include="Models\DatabaseObjectModels\DbObjectBaseModel.cs" />
@@ -72,7 +77,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901281017532_FirstMigrations.resx">
+      <DependentUpon>201901281017532_FirstMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
