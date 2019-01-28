@@ -42,6 +42,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.identitymodel.services" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -52,9 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\FredroValidator.cs" />
     <Compile Include="ExtraClasses\CustomAttributes.cs" />
     <Compile Include="ExtraClasses\FredroHelper.cs" />
-    <Compile Include="ExtraClasses\FredroValidator.cs" />
     <Compile Include="ExtraClasses\MethodExtensions.cs" />
     <Compile Include="IMailService.cs" />
     <Compile Include="MailService.cs" />
