@@ -59,6 +59,7 @@
     <Compile Include="ExtraClasses\CustomAttributes.cs" />
     <Compile Include="ExtraClasses\FredroHelper.cs" />
     <Compile Include="ExtraClasses\MethodExtensions.cs" />
+    <Compile Include="ExtraClasses\SessionContext.cs" />
     <Compile Include="IMailService.cs" />
     <Compile Include="MailService.cs" />
     <Compile Include="Models\Connection.cs" />

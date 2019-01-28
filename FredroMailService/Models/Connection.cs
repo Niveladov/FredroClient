@@ -9,8 +9,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FredroMailService.Models
 {
@@ -21,14 +19,13 @@ namespace FredroMailService.Models
         public IProtocol MailSendingProtocol { get; }
         public IProtocol MailReceivingProtocol { get; }
         
-        public EmailServerConnection(/*Credentials creds*/)
+        public EmailServerConnection()
         {
-            //Creds = creds;
             var protocols = Server.Gmail.GetServerSettings();
             MailSendingProtocol = protocols.OfType<SmtpProtocol>().Single();
             MailReceivingProtocol = protocols.OfType<PopProtocol>().Single();
         }
-
+        
         public IEnumerable<TheMessage> GetAllMails()
         {
             using (var db = new FredroDbContext())

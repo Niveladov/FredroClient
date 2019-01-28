@@ -1,9 +1,7 @@
 ﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models;
 using FredroMailService.Models;
 using System.Collections.Generic;
 using System.ServiceModel;
-using System.Threading.Tasks;
 using FredroMailService.ExtraClasses;
 
 namespace FredroMailService
@@ -13,10 +11,10 @@ namespace FredroMailService
     {
         private IMailServer _mailServerConnection;
 
-        public MailService(/*Credentials creds*/)
+        public MailService()
         {
             FredroHelper.SaveTestData();
-            _mailServerConnection = new EmailServerConnection(/*creds*/);
+            _mailServerConnection = new EmailServerConnection();
         }
 
         public IEnumerable<TheMessage> GetAllMails()
