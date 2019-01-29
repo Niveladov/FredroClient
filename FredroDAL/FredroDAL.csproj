@@ -58,10 +58,11 @@
     <Compile Include="Models\DatabaseObjectModels\Tables\Customer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServerParam.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryTripType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryVehicleType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
-    <Compile Include="Models\DatabaseObjectModels\Tables\TheMessage.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\TheMail.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\User.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Vehicle.cs" />
     <Compile Include="Models\DatabaseObjectModels\Views\ViewAssignedDeal.cs" />

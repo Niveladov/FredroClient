@@ -16,22 +16,22 @@ namespace FredroClient.MailService {
     public interface IMailService {
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/GetAllMails", ReplyAction="http://tempuri.org/IMailService/GetAllMailsResponse")]
-        FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage[] GetAllMails();
+        FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[] GetAllMails();
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/GetAllMails", ReplyAction="http://tempuri.org/IMailService/GetAllMailsResponse")]
-        System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage[]> GetAllMailsAsync();
+        System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[]> GetAllMailsAsync();
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
-        void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
+        void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
-        System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
+        System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
-        void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
+        void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
-        System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
+        System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/RemoveMail", ReplyAction="http://tempuri.org/IMailService/RemoveMailResponse")]
         void RemoveMail(string Id);
@@ -67,27 +67,27 @@ namespace FredroClient.MailService {
                 base(binding, remoteAddress) {
         }
         
-        public FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage[] GetAllMails() {
+        public FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[] GetAllMails() {
             return base.Channel.GetAllMails();
         }
         
-        public System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage[]> GetAllMailsAsync() {
+        public System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[]> GetAllMailsAsync() {
             return base.Channel.GetAllMailsAsync();
         }
         
-        public void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message) {
+        public void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message) {
             base.Channel.SendMail(message);
         }
         
-        public System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message) {
+        public System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message) {
             return base.Channel.SendMailAsync(message);
         }
         
-        public void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message) {
+        public void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message) {
             base.Channel.UpdateMail(message);
         }
         
-        public System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message) {
+        public System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail message) {
             return base.Channel.UpdateMailAsync(message);
         }
         

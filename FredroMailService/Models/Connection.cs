@@ -14,29 +14,16 @@ namespace FredroMailService.Models
 {
     internal class EmailServerConnection : IMailServer
     {
-        public Credentials Creds { get; }
-        public List<TheMessage> AllMails { get; private set; }
-        public List<IProtocol> MailSendingProtocols { get; }
-        public List<IProtocol> MailReceivingProtocols { get; }
+        public List<TheMail> AllMails { get; private set; }
         
         public EmailServerConnection()
         {
             try
             {
-                if (SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Count != 0)
+                if (SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Count == 0)
                 {
-                    MailSendingProtocols = new List<IProtocol>();
-                    MailReceivingProtocols = new List<IProtocol>();
-                    foreach (var chachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
-                    {
-                        var emailServer = chachedEmailBox.EmailServer;
-                        var popProtocol = new PopProtocol(emailServer.PopHostname, emailServer.PopPort, emailServer.PopUseSsl);
-                        var smtpProtocol = new SmtpProtocol(emailServer.SmtpHostname, emailServer.SmtpPort, emailServer.SmtpUseSsl);
-                        MailReceivingProtocols.Add(popProtocol);
-                        MailSendingProtocols.Add(smtpProtocol);
-                    }
+                    throw new Exception("User don't have presaved emails!");
                 }
-                else throw new Exception("User don't have presaved emails!");
             }
             catch
             {
@@ -44,12 +31,12 @@ namespace FredroMailService.Models
             }
         }
         
-        public IEnumerable<TheMessage> GetAllMails()
+        public IEnumerable<TheMail> GetAllMails()
         {
             using (var db = new FredroDbContext())
             {
-                db.Messages.Load();
-                AllMails = db.Messages.Local.ToList();
+                db.Mails.Load();
+                AllMails = db.Mails.Local.ToList();
             }
             return AllMails;
         }
@@ -59,23 +46,24 @@ namespace FredroMailService.Models
             throw new NotImplementedException();
         }
 
-        public void SendMail(TheMessage message)
+        public void SendMail(TheMail mail)
         {
             try
             {
-                var currentMailBox = SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Single(x => x.Id == 1/*message.ChachedEmailBoxId*/);
-                MailAddress from = new MailAddress(message.FromAddress, message.FromDisplayName);
-                MailAddress to = new MailAddress(message.ToAddress);
+                var currentMailBox = SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Single(x => x.Id == mail.ChachedEmailBoxId);
+                var currentOutgoingParam = currentMailBox.EmailServer.ActiveOutgoingEmailServerParam;
+                MailAddress from = new MailAddress(mail.FromAddress, mail.FromDisplayName);
+                MailAddress to = new MailAddress(mail.ToAddress);
                 MailMessage m = new MailMessage(from, to);
 
                 //m.Attachments.Add(new Attachment("E://colors.txt"));
-                m.Subject = message.Subject;
-                m.Body = message.Body;
+                m.Subject = mail.Subject;
+                m.Body = mail.Body;
                 m.IsBodyHtml = true;
 
-                SmtpClient smtpClient = new SmtpClient(currentMailBox.EmailServer.SmtpHostname, currentMailBox.EmailServer.SmtpPort);
+                SmtpClient smtpClient = new SmtpClient(currentOutgoingParam.Hostname, currentOutgoingParam.Port);
                 smtpClient.Credentials = new NetworkCredential(currentMailBox.Login, currentMailBox.Password);
-                smtpClient.EnableSsl = currentMailBox.EmailServer.SmtpUseSsl;
+                smtpClient.EnableSsl = currentOutgoingParam.UseSsl;
                 smtpClient.Send(m);
             }
             catch
@@ -84,7 +72,7 @@ namespace FredroMailService.Models
             }
         }
 
-        public void UpdateMail(TheMessage message)
+        public void UpdateMail(TheMail message)
         {
             using (var db = new FredroDbContext())
             {
@@ -97,11 +85,11 @@ namespace FredroMailService.Models
 
     internal interface IMailServer
     {
-        IEnumerable<TheMessage> GetAllMails();
+        IEnumerable<TheMail> GetAllMails();
 
-        void SendMail(TheMessage message);
+        void SendMail(TheMail mail);
 
-        void UpdateMail(TheMessage message);
+        void UpdateMail(TheMail mail);
 
         void RemoveMail(string Id);
     }

@@ -46,9 +46,9 @@ namespace FredroClient.UserControls
             base.OnLoad(e);
             if (!isDesignMode)
             {
-                gcMessages.DataSource = _model.Messages.Where(x => x.IsIncoming);
-                var inMessCount = _model.Messages.Where(x => x.IsIncoming).Count();
-                var outMessCount = _model.Messages.Where(x => x.IsOutcoming).Count();
+                gcMessages.DataSource = _model.Mails.Where(x => x.IsIncoming);
+                var inMessCount = _model.Mails.Where(x => x.IsIncoming).Count();
+                var outMessCount = _model.Mails.Where(x => x.IsOutcoming).Count();
                 gcFolders.DataSource = new List<Folder>()
                 {
                     new Folder($"Входящие            {inMessCount.ToString()}"),
@@ -101,7 +101,7 @@ namespace FredroClient.UserControls
         {
             if (wevMessages.IsDataRow(wevMessages.FocusedRowHandle))
             {
-                var row = wevMessages.GetFocusedRow() as TheMessage;
+                var row = wevMessages.GetFocusedRow() as TheMail;
                 row.IsRead = true;
                 //FredroHelper.UpdateMessage(row);
                 labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "..." : row.Subject;
@@ -125,13 +125,13 @@ namespace FredroClient.UserControls
                 if (row.Caption.Contains("Входящие"))
                 {
                     SetMessageButtonsVisibility(true);
-                    gcMessages.DataSource = _model.Messages.Where(x => x.IsIncoming);
+                    gcMessages.DataSource = _model.Mails.Where(x => x.IsIncoming);
                     ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
                 }
                 else if (row.Caption.Contains("Отправленные"))
                 {
                     SetMessageButtonsVisibility(false);
-                    gcMessages.DataSource = _model.Messages.Where(x => x.IsOutcoming);
+                    gcMessages.DataSource = _model.Mails.Where(x => x.IsOutcoming);
                     ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Username} - Почтовый бизнес-клиент";
                 }
                 wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
@@ -162,8 +162,8 @@ namespace FredroClient.UserControls
             {
                 try
                 {
-                    var focusedMessage = wevMessages.GetFocusedRow() as TheMessage;
-                    var responseMessage = new TheMessage();
+                    var focusedMessage = wevMessages.GetFocusedRow() as TheMail;
+                    var responseMessage = new TheMail();
                     responseMessage.Body = meResponseBody.Text;
                     responseMessage.FromAddress = focusedMessage.ToAddress;
                     responseMessage.FromDisplayName = $"ФрэдроКлиент";

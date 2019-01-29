@@ -13,13 +13,13 @@ namespace FredroMailService
     public interface IMailService
     {
         [OperationContract]
-        IEnumerable<TheMessage> GetAllMails();
+        IEnumerable<TheMail> GetAllMails();
 
         [OperationContract]
-        void SendMail(TheMessage message);
+        void SendMail(TheMail mail);
 
         [OperationContract]
-        void UpdateMail(TheMessage message);
+        void UpdateMail(TheMail mail);
         
         [OperationContract]
         void RemoveMail(string Id);

@@ -19,7 +19,7 @@ namespace FredroDAL.Models.Contexts
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Deal> Deals { get; set; }
         public DbSet<Performer> Performers { get; set; }
-        public DbSet<TheMessage> Messages { get; set; }
+        public DbSet<TheMail> Mails { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         #endregion

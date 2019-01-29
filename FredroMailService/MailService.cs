@@ -25,7 +25,7 @@ namespace FredroMailService
             }
         }
 
-        public IEnumerable<TheMessage> GetAllMails()
+        public IEnumerable<TheMail> GetAllMails()
         {
             try
             {
@@ -49,11 +49,11 @@ namespace FredroMailService
             }
         }
 
-        public void SendMail(TheMessage message)
+        public void SendMail(TheMail mail)
         {
             try
             {
-                _mailServerConnection.SendMail(message);
+                _mailServerConnection.SendMail(mail);
             }
             catch (Exception ex)
             {
@@ -61,11 +61,11 @@ namespace FredroMailService
             }
         }
 
-        public void UpdateMail(TheMessage message)
+        public void UpdateMail(TheMail mail)
         {
             try
             {
-                _mailServerConnection.UpdateMail(message);
+                _mailServerConnection.UpdateMail(mail);
             }
             catch (Exception ex)
             {

@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using FredroClient.ExtraClasses;
 using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +31,7 @@ namespace FredroClient.Models
         }
 
         public Credentials Creds { get; set; } = new Credentials();
-        public BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage> Messages { get; private set; }
+        public BindingList<TheMail> Mails { get; private set; }
         public ServerSettings Settings { get; private set; }
 
         private void RefreshServerSettings()
@@ -92,9 +93,9 @@ namespace FredroClient.Models
                 client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
                 client.ClientCredentials.UserName.UserName = "Admin";
                 client.ClientCredentials.UserName.Password = "Admin";
-                var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
+                var theMessages = new BindingList<TheMail>();
                 foreach (var message in client.GetAllMails()) theMessages.Add(message);
-                Messages = theMessages;
+                Mails = theMessages;
             }
             catch (MessageSecurityException)
             {

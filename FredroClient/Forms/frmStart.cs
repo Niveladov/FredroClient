@@ -90,7 +90,7 @@ namespace FredroClient.Forms
             waitingHelper.Show();
             _model.LoadMessages();
             waitingHelper.Hide();
-            if (_model.Messages == null) return;
+            if (_model.Mails == null) return;
             Hide();
             using (var frm = new frmMails(_model))
             {

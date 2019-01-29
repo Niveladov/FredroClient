@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace FredroDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class TheMessage : DbObjectBaseModel
+    public sealed class TheMail : DbObjectBaseModel
     {
         //default properties
         [DataMember]
@@ -25,6 +25,7 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         private bool _isOutcoming;
         private bool _isIncoming;
         private bool _isRead;
+        private int? _chachedEmailBoxId;
 
         //properties
         [DataMember]
@@ -249,6 +250,22 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
                     _isRead = value;
                     //if (_isRead) PictureMail = Resources.read_32x38;
                     NotifyPropertyChanged(nameof(IsRead));
+                }
+            }
+        }
+        [DataMember]
+        public int? ChachedEmailBoxId
+        {
+            get
+            {
+                return _chachedEmailBoxId;
+            }
+            set
+            {
+                if (value != _chachedEmailBoxId)
+                {
+                    _chachedEmailBoxId = value;
+                    NotifyPropertyChanged(nameof(ChachedEmailBoxId));
                 }
             }
         }

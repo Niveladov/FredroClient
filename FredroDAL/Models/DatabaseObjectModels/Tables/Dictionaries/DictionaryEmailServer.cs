@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
-    public sealed class DictionaryEmailServer : DbObjectBaseModel
+    public class DictionaryEmailServer : DbObjectBaseModel
     {
         //default properties
         [DataMember]
@@ -20,15 +20,8 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries
         private string _caption;
         private string _code;
         private string _originClientUrl;
-        private string _popHostname;
-        private bool _popUseSsl;
-        private int _popPort;
-        private string _imapHostname;
-        private bool _imapUseSsl;
-        private int _imapPort;
-        private string _smtpHostname;
-        private bool _smtpUseSsl;
-        private int _smtpPort;
+        private int? _activeOutgoingEmailServerParamId;
+        private int? _activeIncomingEmailServerParamId;
 
         //properties
         [DataMember]
@@ -80,149 +73,43 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
-        public string PopHostname
+        public int? ActiveOutgoingEmailServerParamId
         {
             get
             {
-                return _popHostname;
+                return _activeOutgoingEmailServerParamId;
             }
             set
             {
-                if (value != _popHostname)
+                if (value != _activeOutgoingEmailServerParamId)
                 {
-                    _popHostname = value;
-                    NotifyPropertyChanged(nameof(PopHostname));
+                    _activeOutgoingEmailServerParamId = value;
+                    NotifyPropertyChanged(nameof(ActiveOutgoingEmailServerParamId));
                 }
             }
         }
         [DataMember]
-        public bool PopUseSsl
+        public int? ActiveIncomingEmailServerParamId
         {
             get
             {
-                return _popUseSsl;
+                return _activeIncomingEmailServerParamId;
             }
             set
             {
-                if (value != _popUseSsl)
+                if (value != _activeIncomingEmailServerParamId)
                 {
-                    _popUseSsl = value;
-                    NotifyPropertyChanged(nameof(PopUseSsl));
+                    _activeIncomingEmailServerParamId = value;
+                    NotifyPropertyChanged(nameof(ActiveIncomingEmailServerParamId));
                 }
             }
         }
+
+        //navigation properties
         [DataMember]
-        public int PopPort
-        {
-            get
-            {
-                return _popPort;
-            }
-            set
-            {
-                if (value != _popPort)
-                {
-                    _popPort = value;
-                    NotifyPropertyChanged(nameof(PopPort));
-                }
-            }
-        }
+        public virtual DictionaryEmailServerParam ActiveOutgoingEmailServerParam { get; set; }
         [DataMember]
-        public string ImapHostname
-        {
-            get
-            {
-                return _imapHostname;
-            }
-            set
-            {
-                if (value != _imapHostname)
-                {
-                    _imapHostname = value;
-                    NotifyPropertyChanged(nameof(ImapHostname));
-                }
-            }
-        }
-        [DataMember]
-        public bool ImapUseSsl
-        {
-            get
-            {
-                return _imapUseSsl;
-            }
-            set
-            {
-                if (value != _imapUseSsl)
-                {
-                    _imapUseSsl = value;
-                    NotifyPropertyChanged(nameof(ImapUseSsl));
-                }
-            }
-        }
-        [DataMember]
-        public int ImapPort
-        {
-            get
-            {
-                return _imapPort;
-            }
-            set
-            {
-                if (value != _imapPort)
-                {
-                    _imapPort = value;
-                    NotifyPropertyChanged(nameof(ImapPort));
-                }
-            }
-        }
-        [DataMember]
-        public string SmtpHostname
-        {
-            get
-            {
-                return _smtpHostname;
-            }
-            set
-            {
-                if (value != _smtpHostname)
-                {
-                    _smtpHostname = value;
-                    NotifyPropertyChanged(nameof(SmtpHostname));
-                }
-            }
-        }
-        [DataMember]
-        public bool SmtpUseSsl
-        {
-            get
-            {
-                return _smtpUseSsl;
-            }
-            set
-            {
-                if (value != _smtpUseSsl)
-                {
-                    _smtpUseSsl = value;
-                    NotifyPropertyChanged(nameof(SmtpUseSsl));
-                }
-            }
-        }
-        [DataMember]
-        public int SmtpPort
-        {
-            get
-            {
-                return _smtpPort;
-            }
-            set
-            {
-                if (value != _smtpPort)
-                {
-                    _smtpPort = value;
-                    NotifyPropertyChanged(nameof(SmtpPort));
-                }
-            }
-        }
+        public virtual DictionaryEmailServerParam ActiveIncomingEmailServerParam { get; set; }
 
     }
 }
