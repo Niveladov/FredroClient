@@ -3,6 +3,7 @@ using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,13 +24,13 @@ namespace FredroMailService.ExtraClasses
                     CurrentUser = db.Users.Single(x => x.Login == login && x.PasswordHash == password);
                 }
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException ex)
             {
-                throw new Exception("Authorize failed: username or password is empty!");
+                throw new InvalidCredentialException("Authorize failed: username or password is empty!", ex);
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException ex)
             {
-                throw new Exception("Authorize failed: user is not found!");
+                throw new InvalidCredentialException("Authorize failed: user is not found!", ex);
             }
             catch (Exception ex)
             {

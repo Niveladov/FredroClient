@@ -17,9 +17,10 @@ namespace FredroMailService.Authentication
             {
                 SessionContext.CreateInstance(userName, password);
             }
-            catch (Exception ex)
+            catch
             {
-                throw new SecurityTokenException("Account is invalid", ex);
+                throw;
+                //throw new SecurityTokenException("Account is invalid", ex);
             }
         }
     }
