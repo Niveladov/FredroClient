@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FredroMailService.ExtraClasses;
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Selectors;
 using System.IdentityModel.Tokens;
@@ -12,8 +13,14 @@ namespace FredroMailService.Authentication
     {
         public override void Validate(string userName, string password)
         {
-            if (!string.IsNullOrWhiteSpace(userName) && !string.IsNullOrWhiteSpace(password)) return;
-            else throw new SecurityTokenException("Account is invalid");
+            try
+            {
+                SessionContext.CreateInstance(userName, password);
+            }
+            catch (Exception ex)
+            {
+                throw new SecurityTokenException("Account is invalid", ex);
+            }
         }
     }
 }

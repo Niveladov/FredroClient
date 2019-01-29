@@ -1,10 +1,11 @@
-﻿using System;
+﻿using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using System;
 using System.Runtime.Serialization;
 
 namespace FredroDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class CachedEmailBox : DbObjectBaseModel
+    public class CachedEmailBox : DbObjectBaseModel
     {
         //default properties
         [DataMember]
@@ -88,5 +89,12 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
                 }
             }
         }
+
+        //navigation properties
+        [DataMember]
+        public virtual User User { get; set; }
+
+        [DataMember]
+        public virtual DictionaryEmailServer EmailServer { get; set; }
     }
 }

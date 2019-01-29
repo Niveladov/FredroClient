@@ -1,4 +1,5 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
+﻿using FredroDAL.Models.Contexts;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,38 @@ namespace FredroMailService.ExtraClasses
 
         private SessionContext(string login, string password)
         {
-            //CurrentUser = new User();
+            try
+            {
+                using (var db = new FredroDbContext())
+                {
+                    CurrentUser = db.Users.Single(x => x.Login == login && x.PasswordHash == password);
+                }
+            }
+            catch (ArgumentNullException)
+            {
+                throw new Exception("Authorize failed: username or password is empty!");
+            }
+            catch (InvalidOperationException)
+            {
+                throw new Exception("Authorize failed: user is not found!");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
         public static void CreateInstance(string login, string password)
         {
-            if (_instance == null) _instance = new SessionContext(login, password);
+            try
+            {
+                if (_instance == null) _instance = new SessionContext(login, password);
+            }
+            catch
+            {
+                throw;
+            }
         }
+
     }
 }

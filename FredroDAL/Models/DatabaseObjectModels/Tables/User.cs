@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace FredroDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class User : DbObjectBaseModel
+    public class User : DbObjectBaseModel
     {
         //default properties
         [DataMember]
@@ -122,5 +123,7 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
             }
         }
 
+        //navigation properties
+        public virtual ICollection<CachedEmailBox> ChachedEmailBoxes { get; set; } = new List<CachedEmailBox>();
     }
 }
