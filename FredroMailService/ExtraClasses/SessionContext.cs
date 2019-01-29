@@ -26,7 +26,7 @@ namespace FredroMailService.ExtraClasses
             }
             catch (ArgumentNullException ex)
             {
-                throw new InvalidCredentialException("Authorize failed: username or password is empty!", ex);
+                throw new InvalidCredentialException("Authorize failed!", ex);
             }
             catch (InvalidOperationException ex)
             {
