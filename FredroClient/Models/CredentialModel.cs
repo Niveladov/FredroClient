@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.ServiceModel;
 using System.ServiceModel.Security;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,13 +86,24 @@ namespace FredroClient.Models
             //FredroHelper.SaveTestData();
             //Messages = FredroHelper.GetMessages();
             //<-
-            var client = new MailService.MailServiceClient("NetTcpBinding_IMailService");
-            client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
-            client.ClientCredentials.UserName.UserName = "1";
-            client.ClientCredentials.UserName.Password = "";
-            var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
-            foreach (var message in client.GetAllMails()) theMessages.Add(message);
-            Messages = theMessages;
+            try
+            {
+                var client = new MailService.MailServiceClient("NetTcpBinding_IMailService");
+                client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
+                client.ClientCredentials.UserName.UserName = "Admin";
+                client.ClientCredentials.UserName.Password = "Admin";
+                var theMessages = new BindingList<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage>();
+                foreach (var message in client.GetAllMails()) theMessages.Add(message);
+                Messages = theMessages;
+            }
+            catch (MessageSecurityException)
+            {
+                FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
+            }
+            //catch (FaultException ex)
+            //{
+            //    FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
+            //}
         }
 
     }

@@ -3,6 +3,7 @@ using FredroMailService.Models;
 using System.Collections.Generic;
 using System.ServiceModel;
 using FredroMailService.ExtraClasses;
+using System;
 
 namespace FredroMailService
 {
@@ -13,28 +14,63 @@ namespace FredroMailService
 
         public MailService()
         {
-            FredroHelper.SaveTestData();
-            _mailServerConnection = new EmailServerConnection();
+            try
+            {
+                //FredroHelper.SaveTestData();
+                _mailServerConnection = new EmailServerConnection();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         public IEnumerable<TheMessage> GetAllMails()
         {
-            return _mailServerConnection.GetAllMails();
+            try
+            {
+                return _mailServerConnection.GetAllMails();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         public void RemoveMail(string Id)
         {
-            _mailServerConnection.RemoveMail(Id);
+            try
+            {
+                _mailServerConnection.RemoveMail(Id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         public void SendMail(TheMessage message)
         {
-            _mailServerConnection.SendMail(message);
+            try
+            {
+                _mailServerConnection.SendMail(message);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         public void UpdateMail(TheMessage message)
         {
-            _mailServerConnection.UpdateMail(message);
+            try
+            {
+                _mailServerConnection.UpdateMail(message);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
     }

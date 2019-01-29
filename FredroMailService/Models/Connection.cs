@@ -16,14 +16,32 @@ namespace FredroMailService.Models
     {
         public Credentials Creds { get; }
         public List<TheMessage> AllMails { get; private set; }
-        public IProtocol MailSendingProtocol { get; }
-        public IProtocol MailReceivingProtocol { get; }
+        public List<IProtocol> MailSendingProtocols { get; }
+        public List<IProtocol> MailReceivingProtocols { get; }
         
         public EmailServerConnection()
         {
-            var protocols = Server.Gmail.GetServerSettings();
-            MailSendingProtocol = protocols.OfType<SmtpProtocol>().Single();
-            MailReceivingProtocol = protocols.OfType<PopProtocol>().Single();
+            try
+            {
+                if (SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Count != 0)
+                {
+                    MailSendingProtocols = new List<IProtocol>();
+                    MailReceivingProtocols = new List<IProtocol>();
+                    foreach (var chachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
+                    {
+                        var emailServer = chachedEmailBox.EmailServer;
+                        var popProtocol = new PopProtocol(emailServer.PopHostname, emailServer.PopPort, emailServer.PopUseSsl);
+                        var smtpProtocol = new SmtpProtocol(emailServer.SmtpHostname, emailServer.SmtpPort, emailServer.SmtpUseSsl);
+                        MailReceivingProtocols.Add(popProtocol);
+                        MailSendingProtocols.Add(smtpProtocol);
+                    }
+                }
+                else throw new Exception("User don't have presaved emails!");
+            }
+            catch
+            {
+                throw;
+            }
         }
         
         public IEnumerable<TheMessage> GetAllMails()
@@ -45,6 +63,7 @@ namespace FredroMailService.Models
         {
             try
             {
+                var currentMailBox = SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Single(x => x.Id == 1/*message.ChachedEmailBoxId*/);
                 MailAddress from = new MailAddress(message.FromAddress, message.FromDisplayName);
                 MailAddress to = new MailAddress(message.ToAddress);
                 MailMessage m = new MailMessage(from, to);
@@ -54,9 +73,9 @@ namespace FredroMailService.Models
                 m.Body = message.Body;
                 m.IsBodyHtml = true;
 
-                SmtpClient smtpClient = new SmtpClient(MailSendingProtocol.Hostname, MailSendingProtocol.Port);
-                smtpClient.Credentials = new NetworkCredential(Creds.Login, Creds.Password);
-                smtpClient.EnableSsl = MailSendingProtocol.UseSsl;
+                SmtpClient smtpClient = new SmtpClient(currentMailBox.EmailServer.SmtpHostname, currentMailBox.EmailServer.SmtpPort);
+                smtpClient.Credentials = new NetworkCredential(currentMailBox.Login, currentMailBox.Password);
+                smtpClient.EnableSsl = currentMailBox.EmailServer.SmtpUseSsl;
                 smtpClient.Send(m);
             }
             catch

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Selectors;
 using System.IdentityModel.Tokens;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,10 +18,9 @@ namespace FredroMailService.Authentication
             {
                 SessionContext.CreateInstance(userName, password);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
-                //throw new SecurityTokenException("Account is invalid", ex);
+                throw new SecurityTokenException(ex.Message, ex);
             }
         }
     }

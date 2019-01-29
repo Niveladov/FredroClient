@@ -15,28 +15,28 @@ namespace FredroClient.MailService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MailService.IMailService")]
     public interface IMailService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetAllMails", ReplyAction="http://tempuri.org/IMailService/GetAllMailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/GetAllMails", ReplyAction="http://tempuri.org/IMailService/GetAllMailsResponse")]
         FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage[] GetAllMails();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetAllMails", ReplyAction="http://tempuri.org/IMailService/GetAllMailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/GetAllMails", ReplyAction="http://tempuri.org/IMailService/GetAllMailsResponse")]
         System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage[]> GetAllMailsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
         void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
         System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
         void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
         System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/RemoveMail", ReplyAction="http://tempuri.org/IMailService/RemoveMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/RemoveMail", ReplyAction="http://tempuri.org/IMailService/RemoveMailResponse")]
         void RemoveMail(string Id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/RemoveMail", ReplyAction="http://tempuri.org/IMailService/RemoveMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IMailService/RemoveMail", ReplyAction="http://tempuri.org/IMailService/RemoveMailResponse")]
         System.Threading.Tasks.Task RemoveMailAsync(string Id);
     }
     
