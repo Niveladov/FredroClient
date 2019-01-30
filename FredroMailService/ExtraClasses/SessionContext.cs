@@ -22,6 +22,7 @@ namespace FredroMailService.ExtraClasses
                 using (var db = new FredroDbContext())
                 {
                     CurrentUser = db.Users.Single(x => x.Login == login && x.PasswordHash == password);
+                    db.Entry(CurrentUser).Collection(nameof(CurrentUser.ChachedEmailBoxes)).Load();
                 }
             }
             catch (ArgumentNullException ex)
