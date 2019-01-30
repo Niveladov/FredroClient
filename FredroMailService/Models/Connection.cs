@@ -51,7 +51,7 @@ namespace FredroMailService.Models
             try
             {
                 var currentMailBox = SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Single(x => x.Id == mail.ChachedEmailBoxId);
-                var currentOutgoingParam = currentMailBox.EmailServer.ActiveOutgoingEmailServerParam;
+                var currentOutgoingParam = currentMailBox.OutgoingEmailServerParam;
                 MailAddress from = new MailAddress(mail.FromAddress, mail.FromDisplayName);
                 MailAddress to = new MailAddress(mail.ToAddress);
                 MailMessage m = new MailMessage(from, to);
