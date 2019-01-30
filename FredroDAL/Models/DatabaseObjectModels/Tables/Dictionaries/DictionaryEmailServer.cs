@@ -20,8 +20,6 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries
         private string _caption;
         private string _code;
         private string _originClientUrl;
-        private int? _activeOutgoingEmailServerParamId;
-        private int? _activeIncomingEmailServerParamId;
 
         //properties
         [DataMember]
@@ -72,44 +70,6 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries
                 }
             }
         }
-        [DataMember]
-        public int? ActiveOutgoingEmailServerParamId
-        {
-            get
-            {
-                return _activeOutgoingEmailServerParamId;
-            }
-            set
-            {
-                if (value != _activeOutgoingEmailServerParamId)
-                {
-                    _activeOutgoingEmailServerParamId = value;
-                    NotifyPropertyChanged(nameof(ActiveOutgoingEmailServerParamId));
-                }
-            }
-        }
-        [DataMember]
-        public int? ActiveIncomingEmailServerParamId
-        {
-            get
-            {
-                return _activeIncomingEmailServerParamId;
-            }
-            set
-            {
-                if (value != _activeIncomingEmailServerParamId)
-                {
-                    _activeIncomingEmailServerParamId = value;
-                    NotifyPropertyChanged(nameof(ActiveIncomingEmailServerParamId));
-                }
-            }
-        }
-
-        //navigation properties
-        [DataMember]
-        public virtual DictionaryEmailServerParam ActiveOutgoingEmailServerParam { get; set; }
-        [DataMember]
-        public virtual DictionaryEmailServerParam ActiveIncomingEmailServerParam { get; set; }
 
     }
 }

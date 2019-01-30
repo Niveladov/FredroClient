@@ -20,6 +20,8 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         //private fields
         private int? _userId;
         private int? _emailServerId;
+        private int? _outgoingEmailServerParamId;
+        private int? _incomingEmailServerParamId;
         private string _login;
         //ToDo: to change field type to byte[] and to apply encryption
         private string _password;
@@ -54,6 +56,38 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
                 {
                     _emailServerId = value;
                     NotifyPropertyChanged(nameof(EmailServerId));
+                }
+            }
+        }
+        [DataMember]
+        public int? OutgoingEmailServerParamId
+        {
+            get
+            {
+                return _outgoingEmailServerParamId;
+            }
+            set
+            {
+                if (value != _outgoingEmailServerParamId)
+                {
+                    _outgoingEmailServerParamId = value;
+                    NotifyPropertyChanged(nameof(OutgoingEmailServerParamId));
+                }
+            }
+        }
+        [DataMember]
+        public int? IncomingEmailServerParamId
+        {
+            get
+            {
+                return _incomingEmailServerParamId;
+            }
+            set
+            {
+                if (value != _incomingEmailServerParamId)
+                {
+                    _incomingEmailServerParamId = value;
+                    NotifyPropertyChanged(nameof(IncomingEmailServerParamId));
                 }
             }
         }
@@ -93,8 +127,11 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         //navigation properties
         [DataMember]
         public virtual User User { get; set; }
-
         [DataMember]
         public virtual DictionaryEmailServer EmailServer { get; set; }
+        [DataMember]
+        public virtual DictionaryEmailServerParam OutgoingEmailServerParam { get; set; }
+        [DataMember]
+        public virtual DictionaryEmailServerParam IncomingEmailServerParam { get; set; }
     }
 }
