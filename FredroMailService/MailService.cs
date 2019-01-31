@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using FredroMailService.ExtraClasses;
 using System;
+using System.Threading;
 
 namespace FredroMailService
 {
@@ -25,11 +26,11 @@ namespace FredroMailService
             }
         }
 
-        public IEnumerable<TheMail> GetAllMails()
+        public void Join()
         {
             try
             {
-                return _mailServerConnection.GetAllMails();
+                _mailServerConnection.Join();
             }
             catch (Exception ex)
             {

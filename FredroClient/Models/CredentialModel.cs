@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using FredroClient.ExtraClasses;
+using FredroClient.MailService;
 using FredroDAL.Models;
 using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
@@ -14,25 +15,50 @@ using System.Windows.Forms;
 
 namespace FredroClient.Models
 {
-    internal sealed class CredentialModel
+    internal sealed class CredentialModel : IMailServiceCallback
     {
         public Credentials Creds { get; set; } = new Credentials();
         public BindingList<TheMail> Mails { get; private set; }
 
+
+        public event EventHandler OnRefreshMails;
+
         public void LoadMessages()
         {
-            string username = "";
+            //string username = "";
             if(Creds.Login.Equals(7.ToString()))
             {
-                Creds.Login = "figamalum@gmail.com";
-                username = "recent:figamalum@gmail.com";
-                Creds.Password = "ghekkafigamalum1994";
+                //Creds.Login = "figamalum@gmail.com";
+                //username = "recent:figamalum@gmail.com";
+                //Creds.Password = "ghekkafigamalum1994";
+                Creds.Login = "Admin";
+                Creds.Password = "Admin";
             }
             else
             {
-                //"recent:" before username show messages 
-                //that were recieved during last 30 days messages
-                username =/* _currentServerId == 0 ? $"recent:{Creds.Username}" : */Creds.Login;
+                ////"recent:" before username show messages 
+                ////that were recieved during last 30 days messages
+                //username = _currentServerId == 0 ? $"recent:{Creds.Username}" : Creds.Login;
+                try
+                {
+                    var instanceContext = new InstanceContext(this);
+                    var client = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
+                    client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
+                    client.ClientCredentials.UserName.UserName = Creds.Login;
+                    client.ClientCredentials.UserName.Password = Creds.Password;
+                    client.Join();
+                    var theMessages = new BindingList<TheMail>();
+                    //foreach (var message in client.GetAllMails()) theMessages.Add(message);
+                    Mails = theMessages;
+                }
+                catch (MessageSecurityException)
+                {
+                    FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
+                }
+                //catch (FaultException ex)
+                //{
+                //    FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
+                //}
             }
             //чистим все имэйлы из бд
             //FredroHelper.TruncateMessages();
@@ -55,24 +81,17 @@ namespace FredroClient.Models
             //FredroHelper.SaveTestData();
             //Messages = FredroHelper.GetMessages();
             //<-
-            try
+        }
+
+        public void RefreshMails(TheMail[] mails)
+        {
+            foreach (var mail in mails)
             {
-                var client = new MailService.MailServiceClient("NetTcpBinding_IMailService");
-                client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
-                client.ClientCredentials.UserName.UserName = "Admin";
-                client.ClientCredentials.UserName.Password = "Admin";
-                var theMessages = new BindingList<TheMail>();
-                foreach (var message in client.GetAllMails()) theMessages.Add(message);
-                Mails = theMessages;
+                if (!Mails.Contains(mail))
+                {
+                    Mails.Add(mail);
+                }
             }
-            catch (MessageSecurityException)
-            {
-                FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
-            }
-            //catch (FaultException ex)
-            //{
-            //    FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
-            //}
         }
 
     }

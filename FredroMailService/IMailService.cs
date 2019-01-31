@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace FredroMailService
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IMailCallback))]
     public interface IMailService
     {
         [OperationContract]
-        IEnumerable<TheMail> GetAllMails();
+        void Join();
 
         [OperationContract]
         void SendMail(TheMail mail);
@@ -24,4 +24,11 @@ namespace FredroMailService
         [OperationContract]
         void RemoveMail(string Id);
     }
+
+    public interface IMailCallback
+    {
+        [OperationContract]
+        void RefreshMails(IEnumerable<TheMail> mails);
+    }
+
 }

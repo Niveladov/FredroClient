@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:47887/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels" />
-  <xs:complexType name="ArrayOfTheMessage">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TheMessage" nillable="true" type="tns:TheMessage" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTheMessage" nillable="true" type="tns:ArrayOfTheMessage" />
-  <xs:complexType name="TheMessage">
+  <xs:complexType name="TheMail">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels" base="q1:DbObjectBaseModel">
         <xs:sequence>
           <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChachedEmailBoxId" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FromAddress" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FromDisplayName" nillable="true" type="xs:string" />
@@ -30,5 +25,11 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="TheMessage" nillable="true" type="tns:TheMessage" />
+  <xs:element name="TheMail" nillable="true" type="tns:TheMail" />
+  <xs:complexType name="ArrayOfTheMail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TheMail" nillable="true" type="tns:TheMail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTheMail" nillable="true" type="tns:ArrayOfTheMail" />
 </xs:schema>

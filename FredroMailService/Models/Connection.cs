@@ -9,11 +9,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.ServiceModel;
+using System.Threading;
 
 namespace FredroMailService.Models
 {
     internal class EmailServerConnection : IMailServer
     {
+        private const int MAIL_SERVER_ACCESS_PERIOD = 5000;
+
         public List<TheMail> AllMails { get; private set; }
         
         public EmailServerConnection()
@@ -30,15 +34,15 @@ namespace FredroMailService.Models
                 throw;
             }
         }
-        
-        public IEnumerable<TheMail> GetAllMails()
+
+        public void Join()
         {
-            using (var db = new FredroDbContext())
+            while (true)
             {
-                db.Mails.Load();
-                AllMails = db.Mails.Local.ToList();
+                var mails = GetAllMails();
+                if (AllMails != mails) OperationContext.Current.GetCallbackChannel<IMailCallback>().RefreshMails(mails);
+                Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
             }
-            return AllMails;
         }
 
         public void RemoveMail(string Id)
@@ -81,11 +85,20 @@ namespace FredroMailService.Models
             }
         }
 
+        private IEnumerable<TheMail> GetAllMails()
+        {
+            using (var db = new FredroDbContext())
+            {
+                db.Mails.Load();
+                AllMails = db.Mails.Local.ToList();
+            }
+            return AllMails;
+        }
     }
 
     internal interface IMailServer
     {
-        IEnumerable<TheMail> GetAllMails();
+        void Join();
 
         void SendMail(TheMail mail);
 
@@ -93,4 +106,5 @@ namespace FredroMailService.Models
 
         void RemoveMail(string Id);
     }
+
 }

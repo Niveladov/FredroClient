@@ -731,7 +731,6 @@
             this.labelDate.Size = new System.Drawing.Size(71, 21);
             this.labelDate.StyleController = this.lcMessage;
             this.labelDate.TabIndex = 7;
-            this.labelDate.Text = "labelDate";
             // 
             // labelTo
             // 
@@ -740,17 +739,17 @@
             this.labelTo.Size = new System.Drawing.Size(452, 18);
             this.labelTo.StyleController = this.lcMessage;
             this.labelTo.TabIndex = 6;
-            this.labelTo.Text = "labelTo";
+            this.labelTo.Text = "Кому";
             // 
             // labelSubject
             // 
             this.labelSubject.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.labelSubject.Location = new System.Drawing.Point(7, 39);
             this.labelSubject.Name = "labelSubject";
-            this.labelSubject.Size = new System.Drawing.Size(123, 28);
+            this.labelSubject.Size = new System.Drawing.Size(135, 28);
             this.labelSubject.StyleController = this.lcMessage;
             this.labelSubject.TabIndex = 5;
-            this.labelSubject.Text = "labelSubject";
+            this.labelSubject.Text = "Тема письма";
             // 
             // labelFrom
             // 
@@ -759,7 +758,7 @@
             this.labelFrom.Size = new System.Drawing.Size(377, 21);
             this.labelFrom.StyleController = this.lcMessage;
             this.labelFrom.TabIndex = 4;
-            this.labelFrom.Text = "lableFrom";
+            this.labelFrom.Text = "От кого";
             // 
             // btnCancelResponce
             // 
