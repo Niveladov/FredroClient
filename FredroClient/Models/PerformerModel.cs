@@ -1,5 +1,4 @@
-﻿using FredroClient.Models.Contexts;
-using FredroClient.Models.DatabaseObjectModels.Tables;
+﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +15,15 @@ namespace FredroClient.Models
         {
             try
             {
-                using (var db = new PerformerContext())
-                {
-                    CurrentPerformer.IsDel = false;
-                    CurrentPerformer.CreatedBy = -1;
-                    CurrentPerformer.CreationDate = DateTime.Now;
-                    db.Performers.Add(CurrentPerformer);
-                    await db.SaveChangesAsync();
-                }
+                throw new NotImplementedException();
+                //using (var db = new PerformerContext())
+                //{
+                //    CurrentPerformer.IsDel = false;
+                //    CurrentPerformer.CreatedBy = -1;
+                //    CurrentPerformer.CreationDate = DateTime.Now;
+                //    db.Performers.Add(CurrentPerformer);
+                //    await db.SaveChangesAsync();
+                //}
             }
             catch
             {

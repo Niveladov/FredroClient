@@ -4,7 +4,7 @@ using DevExpress.XtraLayout.Utils;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
-using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -117,9 +117,9 @@ namespace FredroClient.Forms
         {
             if (wevMessages.IsDataRow(wevMessages.FocusedRowHandle))
             {
-                var row = wevMessages.GetFocusedRow() as TheMessage;
+                var row = wevMessages.GetFocusedRow() as TheMail;
                 row.IsRead = true;
-                FredroHelper.UpdateMessage(row);
+                //FredroHelper.UpdateMessage(row);
                 labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "...": row.Subject;
                 labelSubject.ToolTip = row.Subject;
                 labelFrom.Text = row.FromFullRaw;
@@ -143,13 +143,13 @@ namespace FredroClient.Forms
                 {
                     SetMessageButtonsVisibility(true);
                     gcMessages.DataSource = _model.Mails.Where(x => x.IsIncoming);
-                    Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                    Text = $"Входящие - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 else if (row.Caption.Contains("Отправленные"))
                 {
                     SetMessageButtonsVisibility(false);
                     gcMessages.DataSource = _model.Mails.Where(x => x.IsOutcoming);
-                    Text = $"Отправленные - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                    Text = $"Отправленные - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             }
@@ -168,7 +168,7 @@ namespace FredroClient.Forms
 
         private void BtnSendNew_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmSendNew(_model.Creds, _model.Settings.Smtp))
+            using (var frm = new frmSendNew())
             {
                 frm.ShowDialog();
             }
@@ -180,22 +180,23 @@ namespace FredroClient.Forms
             {
                 try
                 {
-                    var focusedMessage = wevMessages.GetFocusedRow() as TheMessage;
-                    var responseMessage = new TheMessage();
-                    responseMessage.Body = meResponseBody.Text;
-                    responseMessage.FromAddress = focusedMessage.ToAddress;
-                    responseMessage.FromDisplayName = $"ФрэдроКлиент";
-                    responseMessage.ToAddress = focusedMessage.FromAddress;
-                    responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
-                    responseMessage.Subject = focusedMessage.Subject;
+                    throw new NotImplementedException();
+                    //var focusedMessage = wevMessages.GetFocusedRow() as TheMail;
+                    //var responseMessage = new TheMail();
+                    //responseMessage.Body = meResponseBody.Text;
+                    //responseMessage.FromAddress = focusedMessage.ToAddress;
+                    //responseMessage.FromDisplayName = $"ФрэдроКлиент";
+                    //responseMessage.ToAddress = focusedMessage.FromAddress;
+                    //responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
+                    //responseMessage.Subject = focusedMessage.Subject;
 
-                    await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
+                    //await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
 
-                    FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    //FredroMessageBox.ShowSucces("Письмо отправлено!");
                     
-                    meResponseBody.Text = "";
-                    SetResponseBodyVisibility(false);
-                    SetMessageBodyScrollBarVisibility();
+                    //meResponseBody.Text = "";
+                    //SetResponseBodyVisibility(false);
+                    //SetMessageBodyScrollBarVisibility();
                 }
                 catch (Exception ex)
                 {

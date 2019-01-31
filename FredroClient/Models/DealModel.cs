@@ -1,10 +1,5 @@
-﻿using FredroClient.Models.Contexts;
-using FredroClient.Models.DatabaseObjectModels.Tables;
-using FredroClient.Models.DatabaseObjectModels.Views;
+﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FredroClient.Models
@@ -17,13 +12,14 @@ namespace FredroClient.Models
         {
             try
             {
-                using (var db = new DealContext())
-                {
-                    CurrentDeal.CreatedBy = -1;
-                    CurrentDeal.CreationDate = DateTime.Now;
-                    db.Deals.Add(CurrentDeal);
-                    await db.SaveChangesAsync();
-                }
+                throw new NotImplementedException();
+                //using (var db = new DealContext())
+                //{
+                //    CurrentDeal.CreatedBy = -1;
+                //    CurrentDeal.CreationDate = DateTime.Now;
+                //    db.Deals.Add(CurrentDeal);
+                //    await db.SaveChangesAsync();
+                //}
             }
             catch
             {

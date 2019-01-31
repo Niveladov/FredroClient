@@ -4,7 +4,7 @@ using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
-using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -13,14 +13,9 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmSendNew : FredroBaseXtraForm
     {
-        private readonly Credentials _creds;
-        private readonly SmtpProtocol _smtp;
-
-        public frmSendNew(Credentials creds, SmtpProtocol smtp)
+        public frmSendNew()
         {
             InitializeComponent();
-            _creds = creds;
-            _smtp = smtp;
             InitEvents();
         }
 
@@ -42,16 +37,17 @@ namespace FredroClient.Forms
             {
                 try
                 {
-                    var responseMessage = new TheMessage();
-                    responseMessage.Body = meBody.Text;
-                    responseMessage.FromAddress = _creds.Username;
-                    responseMessage.FromDisplayName = "ФрэдроКлиент";
-                    responseMessage.ToAddress = teTo.Text;
-                    responseMessage.Subject = teSubject.Text;
-                    
-                    await FredroHelper.SendEmailAsync(responseMessage, _creds, _smtp);
+                    throw new NotImplementedException();
+                    //var responseMail = new TheMail();
+                    //responseMail.Body = meBody.Text;
+                    //responseMail.FromAddress = _creds.Username;
+                    //responseMail.FromDisplayName = "ФрэдроКлиент";
+                    //responseMail.ToAddress = teTo.Text;
+                    //responseMail.Subject = teSubject.Text;
 
-                    FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    //await FredroHelper.SendEmailAsync(responseMail, _creds, _smtp);
+
+                    //FredroMessageBox.ShowSucces("Письмо отправлено!");
                 }
                 catch (Exception ex)
                 {

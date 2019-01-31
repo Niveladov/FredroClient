@@ -44,7 +44,7 @@ namespace FredroClient.Forms
 
         private void TeLogin_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(_model.Creds.Username))
+            if (string.IsNullOrEmpty(_model.Creds.Login))
             {
                 e.Cancel = true;
             }
@@ -77,12 +77,12 @@ namespace FredroClient.Forms
             icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.mail.GetDescription(), (int)Server.mail, 1));
             icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.yandex.GetDescription(), (int)Server.yandex, 2));
 
-            teLogin.DataBindings.Add(new Binding("EditValue", _model.Creds, nameof(_model.Creds.Username), 
+            teLogin.DataBindings.Add(new Binding("EditValue", _model.Creds, nameof(_model.Creds.Login), 
                 true, DataSourceUpdateMode.OnPropertyChanged));
             tePassword.DataBindings.Add(new Binding("EditValue", _model.Creds, nameof(_model.Creds.Password),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            icbeHostname.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.CurrentServerId),
-                true, DataSourceUpdateMode.OnPropertyChanged));
+            //icbeHostname.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.CurrentServerId),
+            //    true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
         private void OpenMail()

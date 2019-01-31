@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using FredroClient.ExtraClasses;
-using FredroClient.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models;
 using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
@@ -16,43 +16,15 @@ namespace FredroClient.Models
 {
     internal sealed class CredentialModel
     {
-        private int? _currentServerId = null;
-        public int? CurrentServerId
-        {
-            get { return _currentServerId; }
-            set
-            {
-                if (value != _currentServerId)
-                {
-                    _currentServerId = value;
-                    RefreshServerSettings();
-                }
-            }
-        }
-
         public Credentials Creds { get; set; } = new Credentials();
         public BindingList<TheMail> Mails { get; private set; }
-        public ServerSettings Settings { get; private set; }
-
-        private void RefreshServerSettings()
-        {
-            var currentServer = (Server)_currentServerId;
-            Settings = currentServer.GetServerSettings();
-        }
 
         public void LoadMessages()
         {
             string username = "";
-            if(Creds.Username.Equals(7.ToString()))
+            if(Creds.Login.Equals(7.ToString()))
             {
-                Creds.Username = "figamalum@gmail.com";
-                Settings = new ServerSettings();
-                Settings.Pop.Hostname = "pop.gmail.com";
-                Settings.Pop.Port = 995;
-                Settings.Pop.UseSsl = true;
-                Settings.Smtp.Hostname = "smtp.gmail.com";
-                Settings.Smtp.Port = 587;
-                Settings.Smtp.UseSsl = true;
+                Creds.Login = "figamalum@gmail.com";
                 username = "recent:figamalum@gmail.com";
                 Creds.Password = "ghekkafigamalum1994";
             }
@@ -60,11 +32,7 @@ namespace FredroClient.Models
             {
                 //"recent:" before username show messages 
                 //that were recieved during last 30 days messages
-                username = _currentServerId == 0 ? $"recent:{Creds.Username}" : Creds.Username;
-            }
-            if (Settings == null)
-            {
-                FredroMessageBox.ShowError("Не выбран почтовый сервер!");
+                username =/* _currentServerId == 0 ? $"recent:{Creds.Username}" : */Creds.Login;
             }
             //чистим все имэйлы из бд
             //FredroHelper.TruncateMessages();
@@ -107,12 +75,6 @@ namespace FredroClient.Models
             //}
         }
 
-    }
-
-    internal sealed class Credentials
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
     }
 
 }

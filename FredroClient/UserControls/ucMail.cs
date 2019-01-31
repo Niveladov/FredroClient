@@ -126,13 +126,13 @@ namespace FredroClient.UserControls
                 {
                     SetMessageButtonsVisibility(true);
                     gcMessages.DataSource = _model.Mails.Where(x => x.IsIncoming);
-                    ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                    ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 else if (row.Caption.Contains("Отправленные"))
                 {
                     SetMessageButtonsVisibility(false);
                     gcMessages.DataSource = _model.Mails.Where(x => x.IsOutcoming);
-                    ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Username} - Почтовый бизнес-клиент";
+                    ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             }
@@ -150,7 +150,7 @@ namespace FredroClient.UserControls
 
         private void BtnSendNew_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmSendNew(_model.Creds, _model.Settings.Smtp))
+            using (var frm = new frmSendNew())
             {
                 frm.ShowDialog();
             }
@@ -162,21 +162,22 @@ namespace FredroClient.UserControls
             {
                 try
                 {
-                    var focusedMessage = wevMessages.GetFocusedRow() as TheMail;
-                    var responseMessage = new TheMail();
-                    responseMessage.Body = meResponseBody.Text;
-                    responseMessage.FromAddress = focusedMessage.ToAddress;
-                    responseMessage.FromDisplayName = $"ФрэдроКлиент";
-                    responseMessage.ToAddress = focusedMessage.FromAddress;
-                    responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
-                    responseMessage.Subject = focusedMessage.Subject;
+                    throw new NotImplementedException();
+                    //var focusedMessage = wevMessages.GetFocusedRow() as TheMail;
+                    //var responseMessage = new TheMail();
+                    //responseMessage.Body = meResponseBody.Text;
+                    //responseMessage.FromAddress = focusedMessage.ToAddress;
+                    //responseMessage.FromDisplayName = $"ФрэдроКлиент";
+                    //responseMessage.ToAddress = focusedMessage.FromAddress;
+                    //responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
+                    //responseMessage.Subject = focusedMessage.Subject;
 
-                    //await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
+                    ////await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
 
-                    FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    //FredroMessageBox.ShowSucces("Письмо отправлено!");
 
-                    meResponseBody.Text = "";
-                    SetResponseBodyVisibility(false);
+                    //meResponseBody.Text = "";
+                    //SetResponseBodyVisibility(false);
                 }
                 catch (Exception ex)
                 {

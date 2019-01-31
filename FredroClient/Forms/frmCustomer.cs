@@ -1,7 +1,6 @@
 ﻿using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
-using FredroClient.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

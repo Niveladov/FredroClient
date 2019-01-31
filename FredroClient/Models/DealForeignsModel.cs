@@ -1,6 +1,6 @@
 ﻿using FredroClient.ExtraClasses;
-using FredroClient.Models.DatabaseObjectModels.Tables;
-using FredroClient.Models.DatabaseObjectModels.Tables.Dictionaries;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

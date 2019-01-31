@@ -13,14 +13,14 @@ using DevExpress.XtraScheduler;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraScheduler.Native;
-using FredroClient.Models.Contexts;
 using DevExpress.XtraScheduler.Services;
 using FredroClient.BaseGUI;
 using DevExpress.Utils;
 using DevExpress.XtraScheduler.Drawing;
-using FredroClient.Models.DatabaseObjectModels.Tables;
-using FredroClient.Models.DatabaseObjectModels.Views;
 using FredroClient.Forms;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Views;
+using FredroDAL.Models.Contexts;
 
 namespace FredroClient.UserControls
 {
@@ -199,7 +199,7 @@ namespace FredroClient.UserControls
                 {
                     var dealId = e.SourceAppointment.CustomFields["Id"];
                     //-->
-                    using (var db = new DealContext())
+                    using (var db = new FredroDbContext())
                     {
                         deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;
@@ -211,7 +211,7 @@ namespace FredroClient.UserControls
                 {
                     var dealId = sourceDealId;
                     //-->
-                    using (var db = new DealContext())
+                    using (var db = new FredroDbContext())
                     {
                         deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;

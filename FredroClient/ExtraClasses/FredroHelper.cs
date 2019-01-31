@@ -1,11 +1,7 @@
-﻿using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.ViewInfo;
-using FredroClient.Models;
-using FredroClient.Models.Contexts;
-using FredroClient.Models.DatabaseObjectModels.Tables;
-using FredroClient.Models.DatabaseObjectModels.Tables.Dictionaries;
-using FredroClient.Models.DatabaseObjectModels.Views;
+﻿using FredroDAL.Models.Contexts;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using FredroDAL.Models.DatabaseObjectModels.Views;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
@@ -14,6 +10,7 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Net.Mail;
 using System.Reflection;
@@ -27,7 +24,7 @@ namespace FredroClient.ExtraClasses
     {
         const string PLAIN_TEXT = "text/plain";
         const string HTML_TEXT = "text/html";
-        
+
         public static string GetDescription(this Enum enumerationValue)
         {
             //Tries to find a DescriptionAttribute for a potential friendly name
@@ -45,34 +42,6 @@ namespace FredroClient.ExtraClasses
             }
             //If we have no description attribute, just return the ToString of the enum
             return enumerationValue.ToString();
-        }
-
-        public static ServerSettings GetServerSettings(this Enum enumValue)
-        {
-            ServerSettings serverSettings = new ServerSettings();
-            MemberInfo[] memberInfo = enumValue.GetType().GetMember(enumValue.ToString());
-            if (memberInfo != null && memberInfo.Length > 0)
-            {
-                object[] protocolAttrs = memberInfo[0].GetCustomAttributes(typeof(ProtocolAttribute), true);
-                if (protocolAttrs != null && protocolAttrs.Length > 0)
-                {
-                    var popAttr = protocolAttrs.OfType<PopAttribute>().Single();
-                    serverSettings.Pop.Hostname = popAttr.Hostname;
-                    serverSettings.Pop.UseSsl = popAttr.UseSsl;
-                    serverSettings.Pop.Port = popAttr.Port;
-
-                    var smtpAttr = protocolAttrs.OfType<SmtpAttribute>().Single();
-                    serverSettings.Smtp.Hostname = smtpAttr.Hostname;
-                    serverSettings.Smtp.UseSsl = smtpAttr.UseSsl;
-                    serverSettings.Smtp.Port = smtpAttr.Port;
-
-                    var imapAttr = protocolAttrs.OfType<ImapAttribute>().Single();
-                    serverSettings.Imap.Hostname = imapAttr.Hostname;
-                    serverSettings.Imap.UseSsl = imapAttr.UseSsl;
-                    serverSettings.Imap.Port = imapAttr.Port;
-                }
-            }
-            return serverSettings;
         }
 
         internal static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
@@ -108,211 +77,74 @@ namespace FredroClient.ExtraClasses
             }
         }
 
-        public static async Task SendEmailAsync(TheMessage message, Credentials creds, SmtpProtocol smtp)
-        {
-            try
-            {
-                MailAddress from = new MailAddress(message.FromAddress, message.FromDisplayName);
-                MailAddress to = new MailAddress(message.ToAddress);
-                MailMessage m = new MailMessage(from, to);
-
-                //m.Attachments.Add(new Attachment("E://colors.txt"));
-                m.Subject = message.Subject;
-                m.Body = message.Body;
-                m.IsBodyHtml = true;
-
-                SmtpClient smtpClient = new SmtpClient(smtp.Hostname, smtp.Port);
-                smtpClient.Credentials = new NetworkCredential(creds.Username, creds.Password);
-                smtpClient.EnableSsl = smtp.UseSsl;
-                await smtpClient.SendMailAsync(m);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        internal static TheMessage GetTheMessage(this Message message)
+        internal static TheMail GetTheMail(this Message message)
         {
             var attachmentParts = message.FindAllAttachments();
             var plainTextParts = message.FindAllMessagePartsWithMediaType(PLAIN_TEXT);
             var htmlTextParts = message.FindAllMessagePartsWithMediaType(HTML_TEXT);
-            var theMessage = new TheMessage();
-            theMessage.Id = message.Headers.MessageId;
-            theMessage.FromFullRaw = message.Headers.From.Raw;
-            theMessage.FromAddress = message.Headers.From.Address;
-            theMessage.FromDisplayName = message.Headers.From.DisplayName;
-            theMessage.ToFullRaw = message.Headers.To.FirstOrDefault()?.Raw;
-            theMessage.ToAddress = message.Headers.To.FirstOrDefault()?.Address;
-            theMessage.ToDisplayName = message.Headers.To.FirstOrDefault()?.DisplayName;
-            theMessage.Date = message.Headers.DateSent;
-            theMessage.Subject = message.Headers.Subject;
-            theMessage.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??
+            var theMail = new TheMail();
+            theMail.Id = message.Headers.MessageId;
+            theMail.FromFullRaw = message.Headers.From.Raw;
+            theMail.FromAddress = message.Headers.From.Address;
+            theMail.FromDisplayName = message.Headers.From.DisplayName;
+            theMail.ToFullRaw = message.Headers.To.FirstOrDefault()?.Raw;
+            theMail.ToAddress = message.Headers.To.FirstOrDefault()?.Address;
+            theMail.ToDisplayName = message.Headers.To.FirstOrDefault()?.DisplayName;
+            theMail.Date = message.Headers.DateSent;
+            theMail.Subject = message.Headers.Subject;
+            theMail.Body = plainTextParts.FirstOrDefault()?.GetBodyAsText() ??
                                 htmlTextParts.FirstOrDefault()?.GetBodyAsText();
             //---↓↓↓---костыль---↓↓↓---
-            if (theMessage.FromDisplayName.Contains("??") || theMessage.Subject.Contains("??"))
+            if (theMail.FromDisplayName.Contains("??") || theMail.Subject.Contains("??"))
             {
                 var messageBytes = message.RawMessage;
                 var messageString = Encoding.UTF8.GetString(messageBytes);
-                if (theMessage.FromDisplayName.Contains("??"))
+                if (theMail.FromDisplayName.Contains("??"))
                 {
                     var regexFrom = new Regex("From:\\s(.*)\r\n");
                     var matchFrom = regexFrom.Match(messageString);
                     var fullFromString = matchFrom.Value.Trim().Substring(6).Replace("\"", ""); //6 = "From: ".length
-                    theMessage.FromFullRaw = fullFromString;
-                    theMessage.FromDisplayName = fullFromString.Substring(0, fullFromString.IndexOf('<') - 1);
+                    theMail.FromFullRaw = fullFromString;
+                    theMail.FromDisplayName = fullFromString.Substring(0, fullFromString.IndexOf('<') - 1);
                 }
-                if (theMessage.Subject.Contains("??"))
+                if (theMail.Subject.Contains("??"))
                 {
                     var regexSubj = new Regex("Subject:\\s(.*)\r\n");
                     var matchSubj = regexSubj.Match(messageString);
                     var fullSubjString = matchSubj.Value.Trim().Substring(9); // = "Subject: ".length
-                    theMessage.Subject = fullSubjString;
+                    theMail.Subject = fullSubjString;
                 }
             }
             //---↑↑↑---костыль---↑↑↑---
-            return theMessage;
+            return theMail;
         }
 
-        internal static async void SaveNewMessages(List<TheMessage> allMessages)
+        internal static async void SaveNewMessages(List<TheMail> allMails)
         {
-            using (var db = new TheMessageContext())
+            using (var db = new FredroDbContext())
             {
-                foreach (var message in allMessages)
+                foreach (var message in allMails)
                 {
-                    db.Messages.AddIfNotExists(message);
+                    db.Mails.AddIfNotExists(message);
                 }
                 await db.SaveChangesAsync();
             }
         }
 
-        internal static BindingList<TheMessage> GetMessages()
+        internal static void TruncateMails()
         {
-            BindingList<TheMessage> messages = null;
-            using (var db = new TheMessageContext())
+            using (var db = new FredroDbContext())
             {
-                db.Messages.Load();
-                messages = db.Messages.Local.ToBindingList();
-            }
-            return messages;
-        }
-
-        internal static void TruncateMessages()
-        {
-            using (var db = new TheMessageContext())
-            {
-                db.Database.ExecuteSqlCommand("TRUNCATE TABLE TheMessages");
+                db.Database.ExecuteSqlCommand("TRUNCATE TABLE TheMails");
             }
         }
-
-        internal static async void UpdateMessage(TheMessage message)
-        {
-            using (var db = new TheMessageContext())
-            {
-                db.Entry(message).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-            }
-        }
-
-        internal static async void SaveTestData()
-        {
-            using (var db = new DictionaryTripTypeContext())
-            {
-                var vt1 = new DictionaryTripType()
-                {
-                    Id = 1,
-                    IsDel = false,
-                    CreatedBy = -1,
-                    CreationDate = DateTime.Now,
-                    Name = ""
-                };
-                db.TripTypes.Add(vt1);
-                await db.SaveChangesAsync();
-            }
-
-            //using (var db = new CustomerContext())
-            //{
-            //    var vt1 = new Customer()
-            //    {
-            //        Id = 1,
-            //        IsDel = false,
-            //        CreatedBy = -1,
-            //        CreationDate = DateTime.Now,
-            //        EmailAddress = "test@test.test",
-            //        PhoneNumber = "+7(777)777-77-77",
-            //        SubjectName = "Customer Fredro Company",
-            //        Source = "xXx"
-            //    };
-            //    db.Customers.Add(vt1);
-            //    await db.SaveChangesAsync();
-            //}
-
-            //using (var db = new PerformerContext())
-            //{
-            //    var vt2 = new Performer()
-            //    {
-            //        Id = 2,
-            //        IsDel = false,
-            //        CreatedBy = -1,
-            //        CreationDate = DateTime.Now,
-            //        EmailAddress = "test@test.test",
-            //        PhoneNumber = "+7(777)777-77-77",
-            //        SubjectName = "Performer Fredro Company",
-            //        Source = "xXx"
-            //    };
-            //    db.Performers.Add(vt2);
-            //    await db.SaveChangesAsync();
-            //}
-
-            //using (var db = new Dictionary_VehicleTypeContext())
-            //{
-            //    var vt1 = new Dictionary_VehicleType()
-            //    {
-            //        Id = 1,
-            //        Name = "Автопарк наш"
-            //    };
-            //    var vt2 = new Dictionary_VehicleType()
-            //    {
-            //        Id = 2,
-            //        Name = "Автопарк партнёров"
-            //    };
-            //    db.VehicleTypes.Add(vt1);
-            //    db.VehicleTypes.Add(vt2);
-            //    await db.SaveChangesAsync();
-            //}
-
-            //using (var db = new DealContext())
-            //{
-            //    var deal1 = new Deal()
-            //    {
-            //        Id = 1,
-            //        CreationDate = DateTime.Now,
-            //        CreatedBy = -1,
-            //    };
-            //    db.Deals.Add(deal1);
-            //    await db.SaveChangesAsync();
-            //}
-
-            //using (var db = new VehicleContext())
-            //{
-            //    var vehicle1 = new Vehicle()
-            //    {
-            //        Id = 1,
-            //        Name = "Ferrari XXX 666",
-            //        RegistrationNumber = "x666x999"
-            //    };
-            //    db.Vehicles.Add(vehicle1);
-            //    await db.SaveChangesAsync();
-            //}
-        }
-
 
         internal static BindingList<ViewVehicle> GetAllViewVehicles()
         {
             try
             {
                 BindingList<ViewVehicle> viewVehicles = null;
-                using (var db = new ViewVehicleContext())
+                using (var db = new FredroDbContext())
                 {
                     db.ViewVehicles.Load();
                     viewVehicles = db.ViewVehicles.Local.ToBindingList();
@@ -332,7 +164,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Vehicle> vehicles = null;
-                using (var db = new VehicleContext())
+                using (var db = new FredroDbContext())
                 {
                     db.Vehicles.Load();
                     vehicles = db.Vehicles.Local.ToBindingList();
@@ -352,7 +184,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Deal> deals = null;
-                using (var db = new DealContext())
+                using (var db = new FredroDbContext())
                 {
                     db.Deals.Load();
                     deals = db.Deals.Local.ToBindingList();
@@ -372,7 +204,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<ViewAssignedDeal> viewVehicles = null;
-                using (var db = new ViewAssignedDealContext())
+                using (var db = new FredroDbContext())
                 {
                     db.ViewAssignedDeals.Load();
                     viewVehicles = db.ViewAssignedDeals.Local.ToBindingList();
@@ -392,7 +224,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 Deal deal = null;
-                using (var db = new DealContext())
+                using (var db = new FredroDbContext())
                 {
                     deal = db.Deals.Find(dealId);
                 }
@@ -411,7 +243,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 ViewAssignedDeal deal = null;
-                using (var db = new ViewAssignedDealContext())
+                using (var db = new FredroDbContext())
                 {
                     deal = db.ViewAssignedDeals.Find(dealId);
                 }
@@ -430,7 +262,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 List<Deal> deals = null;
-                using (var db = new DealContext())
+                using (var db = new FredroDbContext())
                 {
                     db.Deals.Load();
                     deals = db.Deals.Where(x => x.VehicleId != null).ToList();
@@ -450,7 +282,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 List<Deal> deals = null;
-                using (var db = new DealContext())
+                using (var db = new FredroDbContext())
                 {
                     db.Deals.Load();
                     deals = db.Deals.Where(x => x.VehicleId == null).ToList();
@@ -470,7 +302,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Customer> deals = null;
-                using (var db = new CustomerContext())
+                using (var db = new FredroDbContext())
                 {
                     db.Customers.Load();
                     deals = db.Customers.Local.ToBindingList();
@@ -490,7 +322,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Performer> deals = null;
-                using (var db = new PerformerContext())
+                using (var db = new FredroDbContext())
                 {
                     db.Performers.Load();
                     deals = db.Performers.Local.ToBindingList();
@@ -510,7 +342,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<DictionaryTripType> deals = null;
-                using (var db = new DictionaryTripTypeContext())
+                using (var db = new FredroDbContext())
                 {
                     db.TripTypes.Load();
                     deals = db.TripTypes.Local.ToBindingList();
@@ -525,4 +357,14 @@ namespace FredroClient.ExtraClasses
             }
         }
     }
+
+    public static class DbSetExtensions
+    {
+        public static T AddIfNotExists<T>(this DbSet<T> dbSet, T entity, Expression<Func<T, bool>> predicate = null) where T : class, new()
+        {
+            var exists = predicate != null ? dbSet.Any(predicate) : dbSet.Any();
+            return !exists ? dbSet.Add(entity) : null;
+        }
+    }
+
 }

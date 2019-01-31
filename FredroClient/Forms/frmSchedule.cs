@@ -6,9 +6,9 @@ using DevExpress.XtraScheduler.Services;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
-using FredroClient.Models.Contexts;
-using FredroClient.Models.DatabaseObjectModels.Tables;
-using FredroClient.Models.DatabaseObjectModels.Views;
+using FredroDAL.Models.Contexts;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -176,7 +176,7 @@ namespace FredroClient.Forms
                 {
                     var dealId = e.SourceAppointment.CustomFields["Id"];
                     //-->
-                    using (var db = new DealContext())
+                    using (var db = new FredroDbContext())
                     {
                         var deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;
@@ -188,7 +188,7 @@ namespace FredroClient.Forms
                 {
                     var dealId = sourceDealId;
                     //-->
-                    using (var db = new DealContext())
+                    using (var db = new FredroDbContext())
                     {
                         var deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;
