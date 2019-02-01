@@ -18,10 +18,9 @@ namespace FredroClient.Models
     internal sealed class CredentialModel : IMailServiceCallback
     {
         public Credentials Creds { get; set; } = new Credentials();
-        public BindingList<TheMail> Mails { get; private set; }
-
-
-        public event EventHandler OnRefreshMails;
+        public List<TheMail> Mails { get; private set; } = new List<TheMail>();
+        
+        public event EventHandler NewMailsRecieved;
 
         public void LoadMessages()
         {
@@ -47,9 +46,9 @@ namespace FredroClient.Models
                     client.ClientCredentials.UserName.UserName = Creds.Login;
                     client.ClientCredentials.UserName.Password = Creds.Password;
                     client.Join();
-                    var theMessages = new BindingList<TheMail>();
+                    //var theMessages = new List<TheMail>();
                     //foreach (var message in client.GetAllMails()) theMessages.Add(message);
-                    Mails = theMessages;
+                    //Mails = theMessages;
                 }
                 catch (MessageSecurityException)
                 {
@@ -83,17 +82,11 @@ namespace FredroClient.Models
             //<-
         }
 
-        public void RefreshMails(TheMail[] mails)
+        public void SendNewMails(TheMail[] newMails)
         {
-            foreach (var mail in mails)
-            {
-                if (!Mails.Contains(mail))
-                {
-                    Mails.Add(mail);
-                }
-            }
+            Mails.AddRange(newMails);
+            NewMailsRecieved?.Invoke(this, EventArgs.Empty);
         }
-
     }
 
 }

@@ -47,14 +47,14 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="RefreshMails">
+  <xs:element name="SendNewMails">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="mails" nillable="true" type="q3:ArrayOfTheMail" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q3:ArrayOfTheMail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RefreshMailsResponse">
+  <xs:element name="SendNewMailsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

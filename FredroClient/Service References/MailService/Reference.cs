@@ -43,8 +43,8 @@ namespace FredroClient.MailService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMailServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/RefreshMails", ReplyAction="http://tempuri.org/IMailService/RefreshMailsResponse")]
-        void RefreshMails(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[] mails);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendNewMails", ReplyAction="http://tempuri.org/IMailService/SendNewMailsResponse")]
+        void SendNewMails(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

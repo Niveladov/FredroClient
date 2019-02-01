@@ -28,7 +28,7 @@ namespace FredroMailService
     public interface IMailCallback
     {
         [OperationContract]
-        void RefreshMails(IEnumerable<TheMail> mails);
+        void SendNewMails(IEnumerable<TheMail> newMails);
     }
 
 }

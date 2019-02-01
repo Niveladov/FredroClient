@@ -11,19 +11,24 @@ using System.Net;
 using System.Net.Mail;
 using System.ServiceModel;
 using System.Threading;
+using OpenPop.Pop3;
+using OpenPop.Mime;
 
 namespace FredroMailService.Models
 {
     internal class EmailServerConnection : IMailServer
     {
         private const int MAIL_SERVER_ACCESS_PERIOD = 5000;
+        private const string PLAIN_TEXT = "text/plain";
+        private const string HTML_TEXT = "text/html";
 
-        public List<TheMail> AllMails { get; private set; }
+        public HashSet<string> AllMailIds { get; private set; }
         
         public EmailServerConnection()
         {
             try
             {
+                AllMailIds = new HashSet<string>();
                 if (SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Count == 0)
                 {
                     throw new Exception("User don't have presaved emails!");
@@ -37,11 +42,38 @@ namespace FredroMailService.Models
 
         public void Join()
         {
-            while (true)
+            try
             {
-                var mails = GetAllMails();
-                if (AllMails != mails) OperationContext.Current.GetCallbackChannel<IMailCallback>().RefreshMails(mails);
-                Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
+                while (true)
+                {
+                    var allMails = GetAllMails();
+                    if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allMails);
+                    var allNewMails = new List<TheMail>();
+                    foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
+                    {
+                        var serverParams = cachedEmailBox.IncomingEmailServerParam;
+                        var newMails = FetchNewMails(serverParams.Hostname, serverParams.Port, serverParams.UseSsl, 
+                            SessionContext.Instance.CurrentUser.Login, SessionContext.Instance.CurrentUser.PasswordHash);
+                        allNewMails.AddRange(newMails);
+                        //foreach (var mailId in AllMailIds)
+                        //{
+                        //    if (!allMails.ContainsKey(mailId))
+                        //    {
+                        //        AllMailIds.Add(mailId);
+                        //        allNewMails.Add(allMails[mailId]);
+                        //    }
+                        //}
+                    }
+                    if (allNewMails.Count > 0)
+                    {
+                        OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allNewMails);
+                    }
+                    Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
+                }
+            }
+            catch
+            {
+                throw;
             }
         }
 
@@ -76,24 +108,74 @@ namespace FredroMailService.Models
             }
         }
 
-        public void UpdateMail(TheMail message)
+        public void UpdateMail(TheMail mail)
         {
             using (var db = new FredroDbContext())
             {
-                db.Entry(message).State = EntityState.Modified;
+                db.Entry(mail).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
 
-        private IEnumerable<TheMail> GetAllMails()
+        private void InsertMail(TheMail mail)
         {
             using (var db = new FredroDbContext())
             {
-                db.Mails.Load();
-                AllMails = db.Mails.Local.ToList();
+                db.Mails.Add(mail);
+                db.SaveChanges();
             }
-            return AllMails;
         }
+
+        private List<TheMail> GetAllMails()
+        {
+            var allMails = new List<TheMail>();
+            using (var db = new FredroDbContext())
+            {
+                db.Mails.Load();
+                allMails = db.Mails.Local.ToList();
+            }
+            return allMails;
+        }
+
+        private List<TheMail> FetchNewMails(string hostname, int port, bool useSsl, string username, string password)
+        {
+            try
+            {
+                // The client disconnects from the server when being disposed
+                using (var client = new Pop3Client())
+                {
+                    // Connect to the server
+                    client.Connect(hostname, port, useSsl);
+                    // Authenticate ourselves towards the server
+                    client.Authenticate(username, password);
+                    // Get the number of messages in the inbox
+                    var messageCount = client.GetMessageCount();
+                    // We want to download all messages
+                    var allMails = new List<TheMail>(messageCount);
+                    // Messages are numbered in the interval: [1, messageCount]
+                    // Ergo: message numbers are 1-based.
+                    // Most servers give the latest message the highest number
+                    for (int i = messageCount; i > 0; i--)
+                    {
+                        var message = client.GetMessage(i);
+                        if (!AllMailIds.Contains(message.Headers.MessageId))
+                        {
+                            var mail = client.GetMessage(i).GetTheMail();
+                            AllMailIds.Add(mail.Id);
+                            allMails.Add(mail);
+                            InsertMail(mail);
+                        }
+                    }
+                    // Now return the fetched messages
+                    return allMails;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
     }
 
     internal interface IMailServer

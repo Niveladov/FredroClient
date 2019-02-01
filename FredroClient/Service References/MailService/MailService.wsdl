@@ -258,7 +258,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IMailService_RefreshMails_output_policy">
+  <wsp:Policy wsu:Id="NetTcpBinding_IMailService_SendNewMails_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -277,7 +277,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IMailService_RefreshMails_Input_policy">
+  <wsp:Policy wsu:Id="NetTcpBinding_IMailService_SendNewMails_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -328,11 +328,11 @@
   <wsdl:message name="IMailService_RemoveMail_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveMailResponse" />
   </wsdl:message>
-  <wsdl:message name="IMailService_RefreshMails_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:RefreshMails" />
+  <wsdl:message name="IMailService_SendNewMails_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendNewMails" />
   </wsdl:message>
-  <wsdl:message name="IMailService_RefreshMails_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:RefreshMailsResponse" />
+  <wsdl:message name="IMailService_SendNewMails_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendNewMailsResponse" />
   </wsdl:message>
   <wsdl:portType name="IMailService">
     <wsdl:operation name="Join">
@@ -351,9 +351,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMailService/RemoveMail" message="tns:IMailService_RemoveMail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMailService/RemoveMailResponse" message="tns:IMailService_RemoveMail_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RefreshMails">
-      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/RefreshMails" message="tns:IMailService_RefreshMails_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/RefreshMailsResponse" message="tns:IMailService_RefreshMails_InputCallbackMessage" />
+    <wsdl:operation name="SendNewMails">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/SendNewMails" message="tns:IMailService_SendNewMails_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/SendNewMailsResponse" message="tns:IMailService_SendNewMails_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IMailService" type="tns:IMailService">
@@ -403,14 +403,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RefreshMails">
-      <soap12:operation soapAction="http://tempuri.org/IMailService/RefreshMails" style="document" />
+    <wsdl:operation name="SendNewMails">
+      <soap12:operation soapAction="http://tempuri.org/IMailService/SendNewMails" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#NetTcpBinding_IMailService_RefreshMails_Input_policy" />
+        <wsp:PolicyReference URI="#NetTcpBinding_IMailService_SendNewMails_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#NetTcpBinding_IMailService_RefreshMails_output_policy" />
+        <wsp:PolicyReference URI="#NetTcpBinding_IMailService_SendNewMails_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
