@@ -52,8 +52,8 @@ namespace FredroMailService.Models
                     foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
                     {
                         var serverParams = cachedEmailBox.IncomingEmailServerParam;
-                        var newMails = FetchNewMails(serverParams.Hostname, serverParams.Port, serverParams.UseSsl, 
-                            SessionContext.Instance.CurrentUser.Login, SessionContext.Instance.CurrentUser.PasswordHash);
+                        var newMails = FetchNewMails(serverParams.Hostname, serverParams.Port, serverParams.UseSsl,
+                            cachedEmailBox.Login, cachedEmailBox.Password);
                         allNewMails.AddRange(newMails);
                         //foreach (var mailId in AllMailIds)
                         //{

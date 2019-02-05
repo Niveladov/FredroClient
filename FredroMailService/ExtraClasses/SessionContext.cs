@@ -2,6 +2,7 @@
 using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Authentication;
 using System.Text;
@@ -21,8 +22,14 @@ namespace FredroMailService.ExtraClasses
             {
                 using (var db = new FredroDbContext())
                 {
-                    CurrentUser = db.Users.Single(x => x.Login == login && x.PasswordHash == password);
-                    db.Entry(CurrentUser).Collection(nameof(CurrentUser.ChachedEmailBoxes)).Load();
+                    CurrentUser = db.Users.Include(x => x.ChachedEmailBoxes.Select(s => s.IncomingEmailServerParam))
+                                          .Include(x => x.ChachedEmailBoxes.Select(s => s.OutgoingEmailServerParam))
+                                          .Include(x => x.ChachedEmailBoxes.Select(s => s.EmailServer))
+                                          .Single(t => t.Login == login && t.PasswordHash == password);
+
+                    //CurrentUser = db.Users.Include(x => x.ChachedEmailBoxes.Select( s => s.IncomingEmailServerParam))
+                    //            .Single(t => t.Login == login && t.PasswordHash == password);
+                    //db.Entry(CurrentUser).Collection(nameof(CurrentUser.ChachedEmailBoxes)).Load();
                 }
             }
             catch (ArgumentNullException ex)

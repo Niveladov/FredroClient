@@ -53,11 +53,13 @@ namespace FredroClient.Models
                 catch (MessageSecurityException)
                 {
                     FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
+                    //throw;
                 }
-                //catch (FaultException ex)
-                //{
-                //    FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
-                //}
+                catch (FaultException ex)
+                {
+                    FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
+                    //throw;
+                }
             }
             //чистим все имэйлы из бд
             //FredroHelper.TruncateMessages();

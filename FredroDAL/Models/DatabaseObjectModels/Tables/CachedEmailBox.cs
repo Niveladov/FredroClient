@@ -128,10 +128,10 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         [DataMember]
         public virtual User User { get; set; }
         [DataMember]
-        public virtual DictionaryEmailServer EmailServer { get; set; }
+        public DictionaryEmailServer EmailServer { get; set; }
         [DataMember]
-        public virtual DictionaryEmailServerParam OutgoingEmailServerParam { get; set; }
+        public DictionaryEmailServerParam OutgoingEmailServerParam { get; set; }
         [DataMember]
-        public virtual DictionaryEmailServerParam IncomingEmailServerParam { get; set; }
+        public DictionaryEmailServerParam IncomingEmailServerParam { get; set; }
     }
 }
