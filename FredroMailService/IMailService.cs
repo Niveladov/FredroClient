@@ -12,7 +12,7 @@ namespace FredroMailService
     [ServiceContract(CallbackContract = typeof(IMailCallback))]
     public interface IMailService
     {
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void Join();
 
         [OperationContract]
@@ -27,7 +27,7 @@ namespace FredroMailService
 
     public interface IMailCallback
     {
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void SendNewMails(IEnumerable<TheMail> newMails);
     }
 
