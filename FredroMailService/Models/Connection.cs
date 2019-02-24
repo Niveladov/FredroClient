@@ -44,10 +44,10 @@ namespace FredroMailService.Models
         {
             try
             {
-                while (true)
-                {
-                    var allMails = GetAllMails();
-                    if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allMails);
+                var allMails = GetAllMails();
+                if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allMails);
+                //while (true)
+                //{
                     var allNewMails = new List<TheMail>();
                     foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
                     {
@@ -68,8 +68,8 @@ namespace FredroMailService.Models
                     {
                         OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allNewMails);
                     }
-                    Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
-                }
+                //    Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
+                //}
             }
             catch
             {
@@ -161,6 +161,8 @@ namespace FredroMailService.Models
                         if (!AllMailIds.Contains(message.Headers.MessageId))
                         {
                             var mail = client.GetMessage(i).GetTheMail();
+                            mail.IsOutcoming = (username == mail.FromAddress);
+                            mail.IsIncoming = (username == mail.ToAddress);
                             AllMailIds.Add(mail.Id);
                             allMails.Add(mail);
                             InsertMail(mail);

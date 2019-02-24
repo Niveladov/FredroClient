@@ -6,11 +6,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="JoinResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="SendMail">
     <xs:complexType>
       <xs:sequence>
@@ -52,11 +47,6 @@
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q3:ArrayOfTheMail" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SendNewMailsResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -15,10 +15,10 @@ namespace FredroClient.MailService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MailService.IMailService", CallbackContract=typeof(FredroClient.MailService.IMailServiceCallback))]
     public interface IMailService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/Join", ReplyAction="http://tempuri.org/IMailService/JoinResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/Join")]
         void Join();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/Join", ReplyAction="http://tempuri.org/IMailService/JoinResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/Join")]
         System.Threading.Tasks.Task JoinAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
@@ -43,7 +43,7 @@ namespace FredroClient.MailService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMailServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendNewMails", ReplyAction="http://tempuri.org/IMailService/SendNewMailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/SendNewMails")]
         void SendNewMails(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
     }
     

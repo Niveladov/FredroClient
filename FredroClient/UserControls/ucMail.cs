@@ -66,6 +66,8 @@ namespace FredroClient.UserControls
 
         private void InitEvents()
         {
+            _model.NewMailsRecieved += OnNewMailRecieved;
+
             wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             wevMessages.FocusedRowChanged += WevMessages_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
@@ -75,6 +77,19 @@ namespace FredroClient.UserControls
             btnResend.Click += BtnResend_Click;
             btnAddDeal.Click += BtnAddDeal_Click;
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
+        }
+
+        private void RefreshData()
+        {
+            var incomingMails = _model.Mails.Where(x => x.IsIncoming).ToList();
+            var outgoingMails = _model.Mails.Where(x => x.IsOutcoming).ToList();
+            gcMessages.DataSource = incomingMails;
+            gcFolders.DataSource = new List<Folder>()
+                {
+                    new Folder($"Входящие            {incomingMails.Count.ToString()}"),
+                    new Folder($"Отправленные     {outgoingMails.Count.ToString()}"),
+                    new Folder($"Удалённые")
+                };
         }
 
         private void SetResponseBodyVisibility(bool isVisible)
@@ -95,6 +110,12 @@ namespace FredroClient.UserControls
             lciAddDeal.Visibility = esMessageButtons.Visibility = 
             esClientButtons.Visibility = isVisible ? 
                 LayoutVisibility.Always : LayoutVisibility.Never;
+        }
+
+        #region EventHandlers
+        private void OnNewMailRecieved(object sender, EventArgs e)
+        {
+            RefreshData();
         }
 
         private void WevMessages_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -207,7 +228,7 @@ namespace FredroClient.UserControls
         {
             throw new NotImplementedException();
         }
-
+        #endregion
 
         private sealed class Folder
         {

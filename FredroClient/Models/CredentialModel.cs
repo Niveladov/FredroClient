@@ -38,10 +38,10 @@ namespace FredroClient.Models
                 ////"recent:" before username show messages 
                 ////that were recieved during last 30 days messages
                 //username = _currentServerId == 0 ? $"recent:{Creds.Username}" : Creds.Login;
+                var instanceContext = new InstanceContext(this);
+                var client = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
                 try
                 {
-                    var instanceContext = new InstanceContext(this);
-                    var client = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
                     client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
                     client.ClientCredentials.UserName.UserName = Creds.Login;
                     client.ClientCredentials.UserName.Password = Creds.Password;
@@ -53,12 +53,24 @@ namespace FredroClient.Models
                 catch (MessageSecurityException)
                 {
                     FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
+                    client.Abort();
                     //throw;
+                }
+                catch (TimeoutException exception)
+                {
+                    FredroMessageBox.ShowError($"Timeout error: {exception.Message}");
+                    client.Abort();
                 }
                 catch (FaultException ex)
                 {
                     FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
+                    client.Abort();
                     //throw;
+                }
+                catch (CommunicationException exception)
+                {
+                    FredroMessageBox.ShowError($"Communication error: {exception.Message}");
+                    client.Abort();
                 }
             }
             //чистим все имэйлы из бд
