@@ -46,8 +46,8 @@ namespace FredroMailService.Models
             {
                 var allMails = GetAllMails();
                 if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allMails);
-                //while (true)
-                //{
+                while (true)
+                {
                     var allNewMails = new List<TheMail>();
                     foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
                     {
@@ -68,8 +68,8 @@ namespace FredroMailService.Models
                     {
                         OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allNewMails);
                     }
-                //    Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
-                //}
+                    Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
+                }
             }
             catch
             {

@@ -17,9 +17,9 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmMessages : FredroBaseXtraForm
     {
-        private readonly CredentialModel _model;
+        private readonly MailModel _model;
 
-        public frmMessages(CredentialModel model)
+        public frmMessages(MailModel model)
         {
             InitializeComponent();
             _model = model;
@@ -227,10 +227,10 @@ namespace FredroClient.Forms
 
         private void btnResend_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmMails(_model))
-            {
-                frm.ShowDialog();
-            }
+            //using (var frm = new frmMails(_model))
+            //{
+            //    frm.ShowDialog();
+            //}
         }
 
 

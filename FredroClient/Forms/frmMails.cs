@@ -1,6 +1,7 @@
 ﻿using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
 using FredroClient.Models;
+using FredroDAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,10 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmMails : FredroBaseXtraForm
     {
-        public frmMails(CredentialModel model)
+        public frmMails(Credentials creds)
         {
             InitializeComponent();
-            ucMail.InitModel(model);
+            ucMail.Init(creds);
             InitEvents();
         }
 

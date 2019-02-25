@@ -195,7 +195,7 @@
     <Compile Include="Forms\frmStart.Designer.cs">
       <DependentUpon>frmStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\CredentialModel.cs" />
+    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\PerformerModel.cs" />
     <Compile Include="Models\DealForeignsModel.cs" />

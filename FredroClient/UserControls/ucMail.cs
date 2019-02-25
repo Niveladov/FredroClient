@@ -17,6 +17,7 @@ using FredroClient.Forms;
 using FredroClient.BaseGUI;
 using DevExpress.XtraEditors;
 using FredroDAL.Models.DatabaseObjectModels.Tables;
+using FredroDAL.Models;
 
 namespace FredroClient.UserControls
 {
@@ -24,7 +25,7 @@ namespace FredroClient.UserControls
     {
         public string ParentFormText { get; private set; }
 
-        private CredentialModel _model;
+        private MailModel _model;
         private bool _isInit = false;
 
         public ucMail()
@@ -32,11 +33,13 @@ namespace FredroClient.UserControls
             InitializeComponent();
         }
 
-        public void InitModel(CredentialModel model)
+        public void Init(Credentials creds)
         {
             if (!_isInit)
             {
-                _model = model;
+                _model = new MailModel(creds);
+                InitEvents();
+                _model.LoadMails();
                 _isInit = true;
             }
         }
@@ -55,9 +58,9 @@ namespace FredroClient.UserControls
                     new Folder($"Отправленные     {outMessCount.ToString()}"),
                     new Folder($"Удалённые")
                 };
-                InitEvents();
-                wevFolders.FocusedRowHandle = 0;
-                wevMessages.FocusedRowHandle = 0;
+                //InitEvents();
+                //wevFolders.FocusedRowHandle = 0;
+                //wevMessages.FocusedRowHandle = 0;
                 meBody.BackColor = lcMessage.BackColor;
                 statusStrip.Items[0].Text = "Демо версия почтового клиента.";
                 statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
@@ -81,6 +84,8 @@ namespace FredroClient.UserControls
 
         private void RefreshData()
         {
+            var messHandler = wevMessages.FocusedRowHandle;
+            var folderHandler = wevFolders.FocusedRowHandle;
             var incomingMails = _model.Mails.Where(x => x.IsIncoming).ToList();
             var outgoingMails = _model.Mails.Where(x => x.IsOutcoming).ToList();
             gcMessages.DataSource = incomingMails;
@@ -90,6 +95,8 @@ namespace FredroClient.UserControls
                     new Folder($"Отправленные     {outgoingMails.Count.ToString()}"),
                     new Folder($"Удалённые")
                 };
+            wevMessages.FocusedRowHandle = messHandler;
+            wevFolders.FocusedRowHandle = folderHandler;
         }
 
         private void SetResponseBodyVisibility(bool isVisible)
