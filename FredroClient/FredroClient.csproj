@@ -212,11 +212,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucMail.cs">
+    <Compile Include="UserControls\ucMails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucMail.Designer.cs">
-      <DependentUpon>ucMail.cs</DependentUpon>
+    <Compile Include="UserControls\ucMails.Designer.cs">
+      <DependentUpon>ucMails.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucScheduler.cs">
       <SubType>UserControl</SubType>
@@ -260,8 +260,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucMail.resx">
-      <DependentUpon>ucMail.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\ucMails.resx">
+      <DependentUpon>ucMails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucScheduler.resx">
       <DependentUpon>ucScheduler.cs</DependentUpon>

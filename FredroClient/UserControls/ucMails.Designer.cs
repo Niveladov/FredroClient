@@ -1,6 +1,6 @@
 ﻿namespace FredroClient.UserControls
 {
-    partial class ucMail
+    partial class ucMails
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucMail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucMails));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tsslLeftText = new System.Windows.Forms.ToolStripStatusLabel();
@@ -57,8 +57,8 @@
             this.lciMessageTypes = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciSendNew = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitMessages = new DevExpress.XtraEditors.SplitContainerControl();
-            this.gcMessages = new DevExpress.XtraGrid.GridControl();
-            this.wevMessages = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
+            this.gcMails = new DevExpress.XtraGrid.GridControl();
+            this.wevMails = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
             this.colFromDisplayName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSubject = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBody = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -132,8 +132,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMessages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wevMessages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wevMails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMessage)).BeginInit();
             this.lcMessage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.meResponseBody.Properties)).BeginInit();
@@ -506,7 +506,7 @@
             this.splitMessages.Location = new System.Drawing.Point(0, 0);
             this.splitMessages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitMessages.Name = "splitMessages";
-            this.splitMessages.Panel1.Controls.Add(this.gcMessages);
+            this.splitMessages.Panel1.Controls.Add(this.gcMails);
             this.splitMessages.Panel1.Text = "Panel1";
             this.splitMessages.Panel2.Controls.Add(this.lcMessage);
             this.splitMessages.Panel2.Text = "Panel2";
@@ -516,43 +516,43 @@
             // 
             // gcMessages
             // 
-            this.gcMessages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcMessages.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcMessages.Location = new System.Drawing.Point(0, 0);
-            this.gcMessages.MainView = this.wevMessages;
-            this.gcMessages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcMessages.Name = "gcMessages";
-            this.gcMessages.Size = new System.Drawing.Size(547, 527);
-            this.gcMessages.TabIndex = 1;
-            this.gcMessages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.wevMessages});
+            this.gcMails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcMails.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcMails.Location = new System.Drawing.Point(0, 0);
+            this.gcMails.MainView = this.wevMails;
+            this.gcMails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcMails.Name = "gcMessages";
+            this.gcMails.Size = new System.Drawing.Size(547, 527);
+            this.gcMails.TabIndex = 1;
+            this.gcMails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.wevMails});
             // 
             // wevMessages
             // 
-            this.wevMessages.Appearance.ItemDescriptionNormal.ForeColor = System.Drawing.Color.LightYellow;
-            this.wevMessages.Appearance.ItemDescriptionNormal.Options.UseForeColor = true;
-            this.wevMessages.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.wevMessages.Appearance.ItemNormal.ForeColor = System.Drawing.Color.LightYellow;
-            this.wevMessages.Appearance.ItemNormal.Options.UseFont = true;
-            this.wevMessages.Appearance.ItemNormal.Options.UseForeColor = true;
-            this.wevMessages.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.wevMails.Appearance.ItemDescriptionNormal.ForeColor = System.Drawing.Color.LightYellow;
+            this.wevMails.Appearance.ItemDescriptionNormal.Options.UseForeColor = true;
+            this.wevMails.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.wevMails.Appearance.ItemNormal.ForeColor = System.Drawing.Color.LightYellow;
+            this.wevMails.Appearance.ItemNormal.Options.UseFont = true;
+            this.wevMails.Appearance.ItemNormal.Options.UseForeColor = true;
+            this.wevMails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFromDisplayName,
             this.colSubject,
             this.colBody,
             this.colDate,
             this.colPictureMail});
-            this.wevMessages.ColumnSet.DescriptionColumn = this.colSubject;
-            this.wevMessages.ColumnSet.SmallImageColumn = this.colPictureMail;
-            this.wevMessages.ColumnSet.TextColumn = this.colFromDisplayName;
-            this.wevMessages.GridControl = this.gcMessages;
-            this.wevMessages.Name = "wevMessages";
-            this.wevMessages.OptionsBehavior.Editable = false;
-            this.wevMessages.OptionsFind.AlwaysVisible = true;
-            this.wevMessages.OptionsFind.ShowFindButton = false;
-            this.wevMessages.OptionsView.ImageLayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
-            this.wevMessages.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Content;
-            this.wevMessages.OptionsViewStyles.Content.ItemWidth = 533;
-            this.wevMessages.OptionsViewStyles.Content.ShowDescription = DevExpress.Utils.DefaultBoolean.True;
+            this.wevMails.ColumnSet.DescriptionColumn = this.colSubject;
+            this.wevMails.ColumnSet.SmallImageColumn = this.colPictureMail;
+            this.wevMails.ColumnSet.TextColumn = this.colFromDisplayName;
+            this.wevMails.GridControl = this.gcMails;
+            this.wevMails.Name = "wevMessages";
+            this.wevMails.OptionsBehavior.Editable = false;
+            this.wevMails.OptionsFind.AlwaysVisible = true;
+            this.wevMails.OptionsFind.ShowFindButton = false;
+            this.wevMails.OptionsView.ImageLayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
+            this.wevMails.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Content;
+            this.wevMails.OptionsViewStyles.Content.ItemWidth = 533;
+            this.wevMails.OptionsViewStyles.Content.ShowDescription = DevExpress.Utils.DefaultBoolean.True;
             // 
             // colFromDisplayName
             // 
@@ -1096,8 +1096,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).EndInit();
             this.splitMessages.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcMessages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wevMessages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wevMails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMessage)).EndInit();
             this.lcMessage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.meResponseBody.Properties)).EndInit();
@@ -1161,8 +1161,8 @@
         private DevExpress.XtraLayout.LayoutControlItem lciMessageTypes;
         private DevExpress.XtraLayout.LayoutControlItem lciSendNew;
         private DevExpress.XtraEditors.SplitContainerControl splitMessages;
-        private DevExpress.XtraGrid.GridControl gcMessages;
-        private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevMessages;
+        private DevExpress.XtraGrid.GridControl gcMails;
+        private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevMails;
         private DevExpress.XtraGrid.Columns.GridColumn colFromDisplayName;
         private DevExpress.XtraGrid.Columns.GridColumn colSubject;
         private DevExpress.XtraGrid.Columns.GridColumn colBody;

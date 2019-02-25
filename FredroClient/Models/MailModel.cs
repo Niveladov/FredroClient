@@ -20,14 +20,14 @@ namespace FredroClient.Models
         private MailServiceClient _serviceClient;
 
         public Credentials Creds { get; }
-        public List<TheMail> Mails { get; }
+        public List<TheMail> MyMails { get; }
         
         public event EventHandler NewMailsRecieved;
 
         public MailModel(Credentials creds)
         {
             Creds = creds;
-            Mails = new List<TheMail>();
+            MyMails = new List<TheMail>();
             var instanceContext = new InstanceContext(this);
             _serviceClient = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
             //LoadMails();
@@ -76,7 +76,7 @@ namespace FredroClient.Models
 
         public void SendNewMails(TheMail[] newMails)
         {
-            Mails.AddRange(newMails);
+            MyMails.AddRange(newMails);
             NewMailsRecieved?.Invoke(this, EventArgs.Empty);
         }
 

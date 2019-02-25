@@ -19,7 +19,7 @@ namespace FredroClient.Forms
         public frmMails(Credentials creds)
         {
             InitializeComponent();
-            ucMail.Init(creds);
+            ucMails.Init(creds);
             InitEvents();
         }
 
@@ -37,7 +37,7 @@ namespace FredroClient.Forms
             }
             else if (e.Page == lcgMails)
             {
-                Text = ucMail.ParentFormText;
+                Text = ucMails.ParentFormText;
             }
         }
 

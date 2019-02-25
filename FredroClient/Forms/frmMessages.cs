@@ -23,9 +23,9 @@ namespace FredroClient.Forms
         {
             InitializeComponent();
             _model = model;
-            gcMessages.DataSource = _model.Mails;
-            var inMessCount = _model.Mails.Where(x => x.IsIncoming).Count();
-            var outMessCount = _model.Mails.Where(x => x.IsOutcoming).Count();
+            gcMessages.DataSource = _model.MyMails;
+            var inMessCount = _model.MyMails.Where(x => x.IsIncoming).Count();
+            var outMessCount = _model.MyMails.Where(x => x.IsOutcoming).Count();
             gcFolders.DataSource = new List<Folder>()
             {
                 new Folder($"Входящие            {inMessCount.ToString()}"),
@@ -142,13 +142,13 @@ namespace FredroClient.Forms
                 if (row.Caption.Contains("Входящие"))
                 {
                     SetMessageButtonsVisibility(true);
-                    gcMessages.DataSource = _model.Mails.Where(x => x.IsIncoming);
+                    gcMessages.DataSource = _model.MyMails.Where(x => x.IsIncoming);
                     Text = $"Входящие - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 else if (row.Caption.Contains("Отправленные"))
                 {
                     SetMessageButtonsVisibility(false);
-                    gcMessages.DataSource = _model.Mails.Where(x => x.IsOutcoming);
+                    gcMessages.DataSource = _model.MyMails.Where(x => x.IsOutcoming);
                     Text = $"Отправленные - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;

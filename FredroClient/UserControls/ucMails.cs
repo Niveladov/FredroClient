@@ -21,14 +21,14 @@ using FredroDAL.Models;
 
 namespace FredroClient.UserControls
 {
-    internal sealed partial class ucMail : ucBase
+    internal sealed partial class ucMails : ucBase
     {
         public string ParentFormText { get; private set; }
 
         private MailModel _model;
         private bool _isInit = false;
 
-        public ucMail()
+        public ucMails()
         {
             InitializeComponent();
         }
@@ -49,9 +49,9 @@ namespace FredroClient.UserControls
             base.OnLoad(e);
             if (!isDesignMode)
             {
-                gcMessages.DataSource = _model.Mails.Where(x => x.IsIncoming);
-                var inMessCount = _model.Mails.Where(x => x.IsIncoming).Count();
-                var outMessCount = _model.Mails.Where(x => x.IsOutcoming).Count();
+                gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
+                var inMessCount = _model.MyMails.Where(x => x.IsIncoming).Count();
+                var outMessCount = _model.MyMails.Where(x => x.IsOutcoming).Count();
                 gcFolders.DataSource = new List<Folder>()
                 {
                     new Folder($"Входящие            {inMessCount.ToString()}"),
@@ -60,7 +60,7 @@ namespace FredroClient.UserControls
                 };
                 //InitEvents();
                 //wevFolders.FocusedRowHandle = 0;
-                //wevMessages.FocusedRowHandle = 0;
+                //wevMails.FocusedRowHandle = 0;
                 meBody.BackColor = lcMessage.BackColor;
                 statusStrip.Items[0].Text = "Демо версия почтового клиента.";
                 statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
@@ -72,7 +72,7 @@ namespace FredroClient.UserControls
             _model.NewMailsRecieved += OnNewMailRecieved;
 
             wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
-            wevMessages.FocusedRowChanged += WevMessages_FocusedRowChanged;
+            wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
             btnCancelResponce.Click += BtnCancelResponce_Click;
@@ -84,18 +84,18 @@ namespace FredroClient.UserControls
 
         private void RefreshData()
         {
-            var messHandler = wevMessages.FocusedRowHandle;
+            var mailHandler = wevMails.FocusedRowHandle;
             var folderHandler = wevFolders.FocusedRowHandle;
-            var incomingMails = _model.Mails.Where(x => x.IsIncoming).ToList();
-            var outgoingMails = _model.Mails.Where(x => x.IsOutcoming).ToList();
-            gcMessages.DataSource = incomingMails;
+            var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
+            var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
+            gcMails.DataSource = incomingMails;
             gcFolders.DataSource = new List<Folder>()
                 {
                     new Folder($"Входящие            {incomingMails.Count.ToString()}"),
                     new Folder($"Отправленные     {outgoingMails.Count.ToString()}"),
                     new Folder($"Удалённые")
                 };
-            wevMessages.FocusedRowHandle = messHandler;
+            wevMails.FocusedRowHandle = mailHandler;
             wevFolders.FocusedRowHandle = folderHandler;
         }
 
@@ -125,11 +125,11 @@ namespace FredroClient.UserControls
             RefreshData();
         }
 
-        private void WevMessages_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void WevMails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (wevMessages.IsDataRow(wevMessages.FocusedRowHandle))
+            if (wevMails.IsDataRow(wevMails.FocusedRowHandle))
             {
-                var row = wevMessages.GetFocusedRow() as TheMail;
+                var row = wevMails.GetFocusedRow() as TheMail;
                 row.IsRead = true;
                 //FredroHelper.UpdateMessage(row);
                 labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "..." : row.Subject;
@@ -140,7 +140,7 @@ namespace FredroClient.UserControls
                 labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
                 meBody.Text = row.Body;
                 SetResponseBodyVisibility(false);
-                gcMessages.RefreshDataSource();
+                gcMails.RefreshDataSource();
             }
         }
 
@@ -153,13 +153,13 @@ namespace FredroClient.UserControls
                 if (row.Caption.Contains("Входящие"))
                 {
                     SetMessageButtonsVisibility(true);
-                    gcMessages.DataSource = _model.Mails.Where(x => x.IsIncoming);
+                    gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
                     ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 else if (row.Caption.Contains("Отправленные"))
                 {
                     SetMessageButtonsVisibility(false);
-                    gcMessages.DataSource = _model.Mails.Where(x => x.IsOutcoming);
+                    gcMails.DataSource = _model.MyMails.Where(x => x.IsOutcoming);
                     ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Login} - Почтовый бизнес-клиент";
                 }
                 wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
@@ -184,7 +184,7 @@ namespace FredroClient.UserControls
             }
         }
 
-        private async void BtnSendResponse_Click(object sender, EventArgs e)
+        private void BtnSendResponse_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(meResponseBody.Text))
             {

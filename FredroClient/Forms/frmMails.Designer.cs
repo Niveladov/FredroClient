@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ucMail = new FredroClient.UserControls.ucMail();
+            this.ucMails = new FredroClient.UserControls.ucMails();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tcgModes = new DevExpress.XtraLayout.TabbedControlGroup();
             this.lcgMails = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -50,7 +50,7 @@
             // lcMain
             // 
             this.lcMain.Controls.Add(this.ucScheduler);
-            this.lcMain.Controls.Add(this.ucMail);
+            this.lcMain.Controls.Add(this.ucMails);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -64,11 +64,11 @@
             // 
             // ucMails
             // 
-            this.ucMail.Location = new System.Drawing.Point(-1, 25);
-            this.ucMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucMail.Name = "ucMails";
-            this.ucMail.Size = new System.Drawing.Size(840, 520);
-            this.ucMail.TabIndex = 1;
+            this.ucMails.Location = new System.Drawing.Point(-1, 25);
+            this.ucMails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucMails.Name = "ucMails";
+            this.ucMails.Size = new System.Drawing.Size(840, 520);
+            this.ucMails.TabIndex = 1;
             // 
             // lcgMain
             // 
@@ -110,7 +110,7 @@
             // 
             // lciMails
             // 
-            this.lciMails.Control = this.ucMail;
+            this.lciMails.Control = this.ucMails;
             this.lciMails.Location = new System.Drawing.Point(0, 0);
             this.lciMails.Name = "lciMails";
             this.lciMails.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -171,7 +171,7 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl lcMain;
-        private UserControls.ucMail ucMail;
+        private UserControls.ucMails ucMails;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         private DevExpress.XtraLayout.TabbedControlGroup tcgModes;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMails;
