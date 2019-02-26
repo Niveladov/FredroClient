@@ -30,7 +30,9 @@ namespace FredroClient.Models
             MyMails = new List<TheMail>();
             var instanceContext = new InstanceContext(this);
             _serviceClient = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
-            //LoadMails();
+            _serviceClient.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
+            _serviceClient.ClientCredentials.UserName.UserName = Creds.Login;
+            _serviceClient.ClientCredentials.UserName.Password = Creds.Password;
         }
 
         public void LoadMails()
@@ -46,9 +48,6 @@ namespace FredroClient.Models
                 ////that were recieved during last 30 days messages
                 try
                 {
-                    _serviceClient.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
-                    _serviceClient.ClientCredentials.UserName.UserName = Creds.Login;
-                    _serviceClient.ClientCredentials.UserName.Password = Creds.Password;
                     _serviceClient.Join();
                 }
                 catch (MessageSecurityException)
@@ -71,6 +70,32 @@ namespace FredroClient.Models
                     FredroMessageBox.ShowError($"Communication error: {exception.Message}");
                     _serviceClient.Abort();
                 }
+            }
+        }
+
+        public void SendMail(TheMail mail)
+        {
+            try
+            {
+                _serviceClient.SendMail(mail);
+            }
+            catch (FaultException ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                _serviceClient.Abort();
+            }
+        }
+
+        public void UpdateMail(TheMail mail)
+        {
+            try
+            {
+                _serviceClient.UpdateMail(mail);
+            }
+            catch (FaultException ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+                _serviceClient.Abort();
             }
         }
 

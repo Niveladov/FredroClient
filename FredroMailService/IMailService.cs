@@ -15,13 +15,13 @@ namespace FredroMailService
         [OperationContract(IsOneWay = true)]
         void Join();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void SendMail(TheMail mail);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void UpdateMail(TheMail mail);
         
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void RemoveMail(string Id);
     }
 

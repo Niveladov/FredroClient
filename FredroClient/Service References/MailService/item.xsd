@@ -13,11 +13,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendMailResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="UpdateMail">
     <xs:complexType>
       <xs:sequence>
@@ -25,21 +20,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateMailResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="RemoveMail">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemoveMailResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="SendNewMails">

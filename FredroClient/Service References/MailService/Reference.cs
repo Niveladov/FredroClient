@@ -21,22 +21,22 @@ namespace FredroClient.MailService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/Join")]
         System.Threading.Tasks.Task JoinAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/SendMail")]
         void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/SendMail")]
         System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/UpdateMail")]
         void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/UpdateMail", ReplyAction="http://tempuri.org/IMailService/UpdateMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/UpdateMail")]
         System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/RemoveMail", ReplyAction="http://tempuri.org/IMailService/RemoveMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/RemoveMail")]
         void RemoveMail(string Id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/RemoveMail", ReplyAction="http://tempuri.org/IMailService/RemoveMailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/RemoveMail")]
         System.Threading.Tasks.Task RemoveMailAsync(string Id);
     }
     

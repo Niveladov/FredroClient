@@ -73,16 +73,16 @@
             this.lcMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(475, 160);
+            this.lcMain.Size = new System.Drawing.Size(357, 160);
             this.lcMain.TabIndex = 1;
             // 
             // btnCancel
             // 
             this.btnCancel.AllowFocus = false;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Location = new System.Drawing.Point(147, 117);
+            this.btnCancel.Location = new System.Drawing.Point(112, 117);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(181, 22);
+            this.btnCancel.Size = new System.Drawing.Size(132, 22);
             this.btnCancel.StyleController = this.lcMain;
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Закрыть";
@@ -92,9 +92,9 @@
             // 
             this.btnEnter.AllowFocus = false;
             this.btnEnter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEnter.Location = new System.Drawing.Point(147, 85);
+            this.btnEnter.Location = new System.Drawing.Point(112, 85);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(181, 22);
+            this.btnEnter.Size = new System.Drawing.Size(132, 22);
             this.btnEnter.StyleController = this.lcMain;
             this.btnEnter.TabIndex = 7;
             this.btnEnter.Text = "Войти";
@@ -102,22 +102,22 @@
             // 
             // tePassword
             // 
-            this.tePassword.Location = new System.Drawing.Point(42, 53);
+            this.tePassword.Location = new System.Drawing.Point(34, 53);
             this.tePassword.Name = "tePassword";
             this.tePassword.Properties.NullValuePrompt = "     Введите пароль...";
             this.tePassword.Properties.NullValuePromptShowForEmptyValue = true;
             this.tePassword.Properties.PasswordChar = '*';
-            this.tePassword.Size = new System.Drawing.Size(391, 22);
+            this.tePassword.Size = new System.Drawing.Size(288, 22);
             this.tePassword.StyleController = this.lcMain;
             this.tePassword.TabIndex = 5;
             // 
             // teLogin
             // 
-            this.teLogin.Location = new System.Drawing.Point(42, 21);
+            this.teLogin.Location = new System.Drawing.Point(34, 21);
             this.teLogin.Name = "teLogin";
             this.teLogin.Properties.NullValuePrompt = "     Введите логин...";
             this.teLogin.Properties.NullValuePromptShowForEmptyValue = true;
-            this.teLogin.Size = new System.Drawing.Size(391, 22);
+            this.teLogin.Size = new System.Drawing.Size(288, 22);
             this.teLogin.StyleController = this.lcMain;
             this.teLogin.TabIndex = 4;
             // 
@@ -173,46 +173,46 @@
             rowDefinition4,
             rowDefinition5,
             rowDefinition6});
-            this.lcgMain.Size = new System.Drawing.Size(475, 160);
+            this.lcgMain.Size = new System.Drawing.Size(357, 160);
             this.lcgMain.TextVisible = false;
             // 
             // lciLogin
             // 
             this.lciLogin.Control = this.teLogin;
-            this.lciLogin.Location = new System.Drawing.Point(27, 6);
+            this.lciLogin.Location = new System.Drawing.Point(19, 6);
             this.lciLogin.Name = "lciLogin";
             this.lciLogin.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciLogin.OptionsTableLayoutItem.ColumnSpan = 3;
             this.lciLogin.OptionsTableLayoutItem.RowIndex = 1;
             this.lciLogin.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciLogin.Size = new System.Drawing.Size(401, 32);
+            this.lciLogin.Size = new System.Drawing.Size(298, 32);
             this.lciLogin.TextSize = new System.Drawing.Size(0, 0);
             this.lciLogin.TextVisible = false;
             // 
             // lciPassword
             // 
             this.lciPassword.Control = this.tePassword;
-            this.lciPassword.Location = new System.Drawing.Point(27, 38);
+            this.lciPassword.Location = new System.Drawing.Point(19, 38);
             this.lciPassword.Name = "lciPassword";
             this.lciPassword.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciPassword.OptionsTableLayoutItem.ColumnSpan = 3;
             this.lciPassword.OptionsTableLayoutItem.RowIndex = 2;
             this.lciPassword.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciPassword.Size = new System.Drawing.Size(401, 32);
+            this.lciPassword.Size = new System.Drawing.Size(298, 32);
             this.lciPassword.TextSize = new System.Drawing.Size(0, 0);
             this.lciPassword.TextVisible = false;
             // 
             // lciEnter
             // 
             this.lciEnter.Control = this.btnEnter;
-            this.lciEnter.Location = new System.Drawing.Point(132, 70);
+            this.lciEnter.Location = new System.Drawing.Point(97, 70);
             this.lciEnter.MaxSize = new System.Drawing.Size(0, 38);
             this.lciEnter.MinSize = new System.Drawing.Size(68, 38);
             this.lciEnter.Name = "lciEnter";
             this.lciEnter.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciEnter.OptionsTableLayoutItem.RowIndex = 3;
             this.lciEnter.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciEnter.Size = new System.Drawing.Size(191, 32);
+            this.lciEnter.Size = new System.Drawing.Size(142, 32);
             this.lciEnter.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciEnter.TextSize = new System.Drawing.Size(0, 0);
             this.lciEnter.TextVisible = false;
@@ -220,14 +220,14 @@
             // lciCancel
             // 
             this.lciCancel.Control = this.btnCancel;
-            this.lciCancel.Location = new System.Drawing.Point(132, 102);
+            this.lciCancel.Location = new System.Drawing.Point(97, 102);
             this.lciCancel.MaxSize = new System.Drawing.Size(0, 38);
             this.lciCancel.MinSize = new System.Drawing.Size(85, 38);
             this.lciCancel.Name = "lciCancel";
             this.lciCancel.OptionsTableLayoutItem.ColumnIndex = 2;
             this.lciCancel.OptionsTableLayoutItem.RowIndex = 4;
             this.lciCancel.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciCancel.Size = new System.Drawing.Size(191, 32);
+            this.lciCancel.Size = new System.Drawing.Size(142, 32);
             this.lciCancel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCancel.TextSize = new System.Drawing.Size(0, 0);
             this.lciCancel.TextVisible = false;
@@ -236,9 +236,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 160);
+            this.ClientSize = new System.Drawing.Size(357, 160);
             this.Controls.Add(this.lcMain);
-            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Почтовый бизнес-клиент";

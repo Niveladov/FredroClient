@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace FredroMailService
 {
-    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Single)]
+    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class MailService : IMailService
     {
         private IMailServer _mailServerConnection;
@@ -17,7 +17,6 @@ namespace FredroMailService
         {
             try
             {
-                //FredroHelper.SaveTestData();
                 _mailServerConnection = new EmailServerConnection();
             }
             catch (Exception ex)

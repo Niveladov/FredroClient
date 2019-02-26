@@ -49,15 +49,15 @@ namespace FredroClient.UserControls
             base.OnLoad(e);
             if (!isDesignMode)
             {
-                gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
-                var inMessCount = _model.MyMails.Where(x => x.IsIncoming).Count();
-                var outMessCount = _model.MyMails.Where(x => x.IsOutcoming).Count();
-                gcFolders.DataSource = new List<Folder>()
-                {
-                    new Folder($"Входящие            {inMessCount.ToString()}"),
-                    new Folder($"Отправленные     {outMessCount.ToString()}"),
-                    new Folder($"Удалённые")
-                };
+                //gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
+                //var inMessCount = _model.MyMails.Where(x => x.IsIncoming).Count();
+                //var outMessCount = _model.MyMails.Where(x => x.IsOutcoming).Count();
+                //gcFolders.DataSource = new List<Folder>()
+                //{
+                //    new Folder($"Входящие            {inMessCount.ToString()}"),
+                //    new Folder($"Отправленные     {outMessCount.ToString()}"),
+                //    new Folder($"Удалённые")
+                //};
                 //InitEvents();
                 //wevFolders.FocusedRowHandle = 0;
                 //wevMails.FocusedRowHandle = 0;
@@ -129,16 +129,16 @@ namespace FredroClient.UserControls
         {
             if (wevMails.IsDataRow(wevMails.FocusedRowHandle))
             {
-                var row = wevMails.GetFocusedRow() as TheMail;
-                row.IsRead = true;
-                //FredroHelper.UpdateMessage(row);
-                labelSubject.Text = row.Subject.Length > 60 ? row.Subject.Substring(0, 60) + "..." : row.Subject;
-                labelSubject.ToolTip = row.Subject;
-                labelFrom.Text = row.FromFullRaw;
-                labelTo.Text = $"кому: {row.ToFullRaw}".Length > 85 ? $"кому: {row.ToFullRaw}".Substring(0, 85) + "..." : $"кому: {row.ToFullRaw}";
-                labelTo.ToolTip = $"кому: {row.ToFullRaw}";
-                labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(row.Date.Value.DayOfWeek)}, {row.Date.Value.ToLongDateString()}";
-                meBody.Text = row.Body;
+                var mail = wevMails.GetFocusedRow() as TheMail;
+                mail.IsRead = true;
+                _model.UpdateMail(mail);
+                labelSubject.Text = mail.Subject.Length > 60 ? mail.Subject.Substring(0, 60) + "..." : mail.Subject;
+                labelSubject.ToolTip = mail.Subject;
+                labelFrom.Text = mail.FromFullRaw;
+                labelTo.Text = $"кому: {mail.ToFullRaw}".Length > 85 ? $"кому: {mail.ToFullRaw}".Substring(0, 85) + "..." : $"кому: {mail.ToFullRaw}";
+                labelTo.ToolTip = $"кому: {mail.ToFullRaw}";
+                labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(mail.Date.Value.DayOfWeek)}, {mail.Date.Value.ToLongDateString()}";
+                meBody.Text = mail.Body;
                 SetResponseBodyVisibility(false);
                 gcMails.RefreshDataSource();
             }
@@ -191,21 +191,22 @@ namespace FredroClient.UserControls
                 try
                 {
                     throw new NotImplementedException();
-                    //var focusedMessage = wevMessages.GetFocusedRow() as TheMail;
-                    //var responseMessage = new TheMail();
-                    //responseMessage.Body = meResponseBody.Text;
-                    //responseMessage.FromAddress = focusedMessage.ToAddress;
-                    //responseMessage.FromDisplayName = $"ФрэдроКлиент";
-                    //responseMessage.ToAddress = focusedMessage.FromAddress;
-                    //responseMessage.ToDisplayName = focusedMessage.FromDisplayName;
-                    //responseMessage.Subject = focusedMessage.Subject;
+                    var focusedMail = wevMails.GetFocusedRow() as TheMail;
+                    var responseMail = new TheMail();
+                    responseMail.Body = meResponseBody.Text;
+                    responseMail.FromAddress = focusedMail.ToAddress;
+                    responseMail.FromDisplayName = $"ФрэдроКлиент";
+                    responseMail.ToAddress = focusedMail.FromAddress;
+                    responseMail.ToDisplayName = focusedMail.FromDisplayName;
+                    responseMail.Subject = focusedMail.Subject;
 
-                    ////await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
+                    _model.SendMail(responseMail);
+                    //await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
 
-                    //FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    FredroMessageBox.ShowSucces("Письмо отправлено!");
 
-                    //meResponseBody.Text = "";
-                    //SetResponseBodyVisibility(false);
+                    meResponseBody.Text = "";
+                    SetResponseBodyVisibility(false);
                 }
                 catch (Exception ex)
                 {

@@ -144,25 +144,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IMailService_SendMail_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IMailService_UpdateMail_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -182,45 +163,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IMailService_UpdateMail_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IMailService_RemoveMail_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IMailService_RemoveMail_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -272,20 +215,11 @@
   <wsdl:message name="IMailService_SendMail_InputMessage">
     <wsdl:part name="parameters" element="tns:SendMail" />
   </wsdl:message>
-  <wsdl:message name="IMailService_SendMail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SendMailResponse" />
-  </wsdl:message>
   <wsdl:message name="IMailService_UpdateMail_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateMail" />
   </wsdl:message>
-  <wsdl:message name="IMailService_UpdateMail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateMailResponse" />
-  </wsdl:message>
   <wsdl:message name="IMailService_RemoveMail_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveMail" />
-  </wsdl:message>
-  <wsdl:message name="IMailService_RemoveMail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveMailResponse" />
   </wsdl:message>
   <wsdl:message name="IMailService_SendNewMails_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:SendNewMails" />
@@ -296,15 +230,12 @@
     </wsdl:operation>
     <wsdl:operation name="SendMail">
       <wsdl:input wsaw:Action="http://tempuri.org/IMailService/SendMail" message="tns:IMailService_SendMail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/SendMailResponse" message="tns:IMailService_SendMail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateMail">
       <wsdl:input wsaw:Action="http://tempuri.org/IMailService/UpdateMail" message="tns:IMailService_UpdateMail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/UpdateMailResponse" message="tns:IMailService_UpdateMail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveMail">
       <wsdl:input wsaw:Action="http://tempuri.org/IMailService/RemoveMail" message="tns:IMailService_RemoveMail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/RemoveMailResponse" message="tns:IMailService_RemoveMail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SendNewMails">
       <wsdl:output wsaw:Action="http://tempuri.org/IMailService/SendNewMails" message="tns:IMailService_SendNewMails_OutputCallbackMessage" />
@@ -326,10 +257,6 @@
         <wsp:PolicyReference URI="#NetTcpBinding_IMailService_SendMail_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#NetTcpBinding_IMailService_SendMail_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateMail">
       <soap12:operation soapAction="http://tempuri.org/IMailService/UpdateMail" style="document" />
@@ -337,10 +264,6 @@
         <wsp:PolicyReference URI="#NetTcpBinding_IMailService_UpdateMail_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#NetTcpBinding_IMailService_UpdateMail_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RemoveMail">
       <soap12:operation soapAction="http://tempuri.org/IMailService/RemoveMail" style="document" />
@@ -348,10 +271,6 @@
         <wsp:PolicyReference URI="#NetTcpBinding_IMailService_RemoveMail_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#NetTcpBinding_IMailService_RemoveMail_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SendNewMails">
       <soap12:operation soapAction="http://tempuri.org/IMailService/SendNewMails" style="document" />
