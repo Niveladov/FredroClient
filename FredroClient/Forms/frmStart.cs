@@ -96,10 +96,17 @@ namespace FredroClient.Forms
                 teLogin.ErrorText = string.Empty;
                 tePassword.ErrorText = string.Empty;
                 Hide();
-                using (var frm = new frmMails(_creds))
+                using (var splashScreenForm = new frmSplashScreen())
                 {
-                    frm.FormClosed += (s, args) => Show();
-                    frm.ShowDialog();
+                    splashScreenForm.Show();
+                    //Allow main UI thread to properly display please splash screen form.
+                    Application.DoEvents();
+                    using (var frm = new frmMails(_creds))
+                    {
+                        frm.FormClosed += (s, args) => Show();
+                        frm.Shown += (s, args) => splashScreenForm.Close();
+                        frm.ShowDialog();
+                    }
                 }
             }
         }

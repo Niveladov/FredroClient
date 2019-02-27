@@ -189,6 +189,12 @@
     <Compile Include="Forms\frmSendNew.Designer.cs">
       <DependentUpon>frmSendNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSendNew.resx">
       <DependentUpon>frmSendNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStart.resx">
       <DependentUpon>frmStart.cs</DependentUpon>

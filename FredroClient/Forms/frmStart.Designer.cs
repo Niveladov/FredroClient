@@ -238,6 +238,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(357, 160);
             this.Controls.Add(this.lcMain);
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
