@@ -3,9 +3,11 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using FredroClient.BaseGUI;
 using FredroClient.ExtraClasses;
+using FredroClient.MailService;
 using FredroClient.Models;
 using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -13,9 +15,12 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmSendNew : FredroBaseXtraForm
     {
-        public frmSendNew()
+        private NewMailModel _model;
+
+        public frmSendNew(MailServiceClient serviceClient)
         {
             InitializeComponent();
+
             InitEvents();
         }
 
@@ -37,17 +42,16 @@ namespace FredroClient.Forms
             {
                 try
                 {
-                    throw new NotImplementedException();
-                    //var responseMail = new TheMail();
-                    //responseMail.Body = meBody.Text;
-                    //responseMail.FromAddress = _creds.Username;
-                    //responseMail.FromDisplayName = "ФрэдроКлиент";
-                    //responseMail.ToAddress = teTo.Text;
-                    //responseMail.Subject = teSubject.Text;
+                    var responseMail = new TheMail();
+                    responseMail.Body = meBody.Text;
+                    responseMail.FromAddress = _model.CurrentAddress;
+                    responseMail.FromDisplayName = "ФрэдроКлиент";
+                    responseMail.ToAddress = teTo.Text;
+                    responseMail.Subject = teSubject.Text;
+                    responseMail.ChachedEmailBoxId = 
+                        
 
-                    //await FredroHelper.SendEmailAsync(responseMail, _creds, _smtp);
-
-                    //FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    FredroMessageBox.ShowSucces("Письмо отправлено!");
                 }
                 catch (Exception ex)
                 {
@@ -61,6 +65,19 @@ namespace FredroClient.Forms
             else
             {
                 FredroMessageBox.ShowError("Нельзя отправить пустое сообщение!");
+            }
+        }
+
+
+        private sealed class NewMailModel
+        {
+            public int FromEmailBoxId { get; }
+            public List<CachedEmailBox> UserEmailBoxes { get; }
+            public MailServiceClient ServiceClient { get; }
+
+            public NewMailModel(MailServiceClient serviceClient)
+            {
+                ServiceClient = serviceClient;
             }
         }
 
