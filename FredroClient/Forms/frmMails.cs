@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,9 +19,16 @@ namespace FredroClient.Forms
     {
         public frmMails(Credentials creds)
         {
-            InitializeComponent();
-            ucMails.Init(creds);
-            InitEvents();
+            try
+            {
+                InitializeComponent();
+                ucMails.Init(creds);
+                InitEvents();
+            }
+            catch (ServerException ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+            }
         }
 
         private void InitEvents()

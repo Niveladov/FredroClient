@@ -65,16 +65,6 @@ namespace FredroClient.Forms
 
         private void InitControls()
         {
-            //var images = new ImageCollection();
-            //images.AddImage(Properties.Resources.gmail_32x32);
-            //images.AddImage(Properties.Resources.mailru_32x32);
-            //images.AddImage(Properties.Resources.yandex_32x32);
-
-            //icbeHostname.Properties.LargeImages = images;
-            //icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.gmail.GetDescription(), (int)Server.gmail, 0));
-            //icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.mail.GetDescription(), (int)Server.mail, 1));
-            //icbeHostname.Properties.Items.Add(new ImageComboBoxItem(Server.yandex.GetDescription(), (int)Server.yandex, 2));
-
             teLogin.DataBindings.Add(new Binding("EditValue", _creds, nameof(_creds.Login), 
                 true, DataSourceUpdateMode.OnPropertyChanged));
             tePassword.DataBindings.Add(new Binding("EditValue", _creds, nameof(_creds.Password),
@@ -96,18 +86,18 @@ namespace FredroClient.Forms
                 teLogin.ErrorText = string.Empty;
                 tePassword.ErrorText = string.Empty;
                 Hide();
-                using (var splashScreenForm = new frmSplashScreen())
-                {
-                    splashScreenForm.Show();
-                    //Allow main UI thread to properly display please splash screen form.
-                    Application.DoEvents();
+                //using (var splashScreenForm = new frmSplashScreen())
+                //{
+                //    splashScreenForm.Show();
+                    //Allow main UI thread to properly display splash screen form.
+                    //Application.DoEvents();
                     using (var frm = new frmMails(_creds))
                     {
                         frm.FormClosed += (s, args) => Show();
-                        frm.Shown += (s, args) => splashScreenForm.Close();
+                        //frm.Shown += (s, args) => splashScreenForm.Close();
                         frm.ShowDialog();
                     }
-                }
+                //}
             }
         }
 

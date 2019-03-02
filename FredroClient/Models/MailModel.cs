@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.ServiceModel;
 using System.ServiceModel.Security;
 using System.Text;
@@ -35,41 +36,35 @@ namespace FredroClient.Models
             _serviceClient.ClientCredentials.UserName.Password = Creds.Password;
         }
 
-        public void LoadMails()
+        public void JoinToServer()
         {
-            if(Creds.Login.Equals(7.ToString()))
+            try
             {
-                Creds.Login = "re";
-                Creds.Password = "re";
+                _serviceClient.Join();
             }
-            else
+            catch (MessageSecurityException ex)
             {
-                ////"recent:" before username show messages 
-                ////that were recieved during last 30 days messages
-                try
-                {
-                    _serviceClient.Join();
-                }
-                catch (MessageSecurityException)
-                {
-                    FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
-                    _serviceClient.Abort();
-                }
-                catch (TimeoutException exception)
-                {
-                    FredroMessageBox.ShowError($"Timeout error: {exception.Message}");
-                    _serviceClient.Abort();
-                }
-                catch (FaultException ex)
-                {
-                    FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
-                    _serviceClient.Abort();
-                }
-                catch (CommunicationException exception)
-                {
-                    FredroMessageBox.ShowError($"Communication error: {exception.Message}");
-                    _serviceClient.Abort();
-                }
+                //FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
+                _serviceClient.Abort();
+                throw new ServerException("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля", ex);
+            }
+            catch (TimeoutException ex)
+            {
+                //FredroMessageBox.ShowError($"Timeout error: {ex.Message}");
+                _serviceClient.Abort();
+                throw new ServerException("Возникла внутрення ошибка сервера. Timeout error.", ex);
+            }
+            catch (FaultException ex)
+            {
+                //FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
+                _serviceClient.Abort();
+                throw new ServerException("Возникла внутрення ошибка сервера.", ex);
+            }
+            catch (CommunicationException ex)
+            {
+                //FredroMessageBox.ShowError($"Communication error: {ex.Message}");
+                _serviceClient.Abort();
+                throw new ServerException("Возникла внутрення ошибка сервера. Communication error.", ex);
             }
         }
 

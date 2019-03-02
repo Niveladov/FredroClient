@@ -13,6 +13,7 @@ using System.ServiceModel;
 using System.Threading;
 using OpenPop.Pop3;
 using OpenPop.Mime;
+using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
 namespace FredroMailService.Models
 {
@@ -52,17 +53,8 @@ namespace FredroMailService.Models
                     foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
                     {
                         var serverParams = cachedEmailBox.IncomingEmailServerParam;
-                        var newMails = FetchNewMails(serverParams.Hostname, serverParams.Port, serverParams.UseSsl,
-                            cachedEmailBox.Login, cachedEmailBox.Password);
+                        var newMails = FetchNewMails(serverParams, cachedEmailBox);
                         allNewMails.AddRange(newMails);
-                        //foreach (var mailId in AllMailIds)
-                        //{
-                        //    if (!allMails.ContainsKey(mailId))
-                        //    {
-                        //        AllMailIds.Add(mailId);
-                        //        allNewMails.Add(allMails[mailId]);
-                        //    }
-                        //}
                     }
                     if (allNewMails.Count > 0)
                     {
@@ -137,7 +129,7 @@ namespace FredroMailService.Models
             return allMails;
         }
 
-        private List<TheMail> FetchNewMails(string hostname, int port, bool useSsl, string username, string password)
+        private List<TheMail> FetchNewMails(DictionaryEmailServerParam serverParams, CachedEmailBox cachedEmailBox)
         {
             try
             {
@@ -145,9 +137,9 @@ namespace FredroMailService.Models
                 using (var client = new Pop3Client())
                 {
                     // Connect to the server
-                    client.Connect(hostname, port, useSsl);
+                    client.Connect(serverParams.Hostname, serverParams.Port, serverParams.UseSsl);
                     // Authenticate ourselves towards the server
-                    client.Authenticate(username, password);
+                    client.Authenticate(cachedEmailBox.Login, cachedEmailBox.Password);
                     // Get the number of messages in the inbox
                     var messageCount = client.GetMessageCount();
                     // We want to download all messages
@@ -161,8 +153,9 @@ namespace FredroMailService.Models
                         if (!AllMailIds.Contains(message.Headers.MessageId))
                         {
                             var mail = client.GetMessage(i).GetTheMail();
-                            mail.IsOutcoming = (username == mail.FromAddress);
-                            mail.IsIncoming = (username == mail.ToAddress);
+                            mail.IsOutcoming = (cachedEmailBox.Login == mail.FromAddress);
+                            mail.IsIncoming = (cachedEmailBox.Login == mail.ToAddress);
+                            mail.ChachedEmailBoxId = cachedEmailBox.Id.Value;
                             AllMailIds.Add(mail.Id);
                             allMails.Add(mail);
                             InsertMail(mail);

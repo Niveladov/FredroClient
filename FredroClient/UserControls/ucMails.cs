@@ -18,6 +18,7 @@ using FredroClient.BaseGUI;
 using DevExpress.XtraEditors;
 using FredroDAL.Models.DatabaseObjectModels.Tables;
 using FredroDAL.Models;
+using System.Runtime.Remoting;
 
 namespace FredroClient.UserControls
 {
@@ -35,12 +36,23 @@ namespace FredroClient.UserControls
 
         public void Init(Credentials creds)
         {
-            if (!_isInit)
+            try
             {
-                _model = new MailModel(creds);
-                InitEvents();
-                _model.LoadMails();
-                _isInit = true;
+                if (!_isInit)
+                {
+                    _model = new MailModel(creds);
+                    InitEvents();
+                    _model.JoinToServer();
+                    _isInit = true;
+                }
+            }
+            catch (ServerException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
             }
         }
 
@@ -190,7 +202,6 @@ namespace FredroClient.UserControls
             {
                 try
                 {
-                    throw new NotImplementedException();
                     var focusedMail = wevMails.GetFocusedRow() as TheMail;
                     var responseMail = new TheMail();
                     responseMail.Body = meResponseBody.Text;
@@ -199,9 +210,9 @@ namespace FredroClient.UserControls
                     responseMail.ToAddress = focusedMail.FromAddress;
                     responseMail.ToDisplayName = focusedMail.FromDisplayName;
                     responseMail.Subject = focusedMail.Subject;
+                    responseMail.ChachedEmailBoxId = focusedMail.ChachedEmailBoxId;
 
                     _model.SendMail(responseMail);
-                    //await FredroHelper.SendEmailAsync(responseMessage, _model.Creds, _model.Settings.Smtp);
 
                     FredroMessageBox.ShowSucces("Письмо отправлено!");
 
