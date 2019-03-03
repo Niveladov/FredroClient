@@ -12,6 +12,9 @@ namespace FredroMailService.Models.Enums
 {
     internal interface IMailTransferManager
     {
+       /// <summary>
+       /// Send mail
+       /// </summary>
         void SendMail(TheMail mail);
     }
 

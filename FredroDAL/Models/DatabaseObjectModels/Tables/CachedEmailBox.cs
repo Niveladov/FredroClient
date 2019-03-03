@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace FredroDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public class CachedEmailBox : DbObjectBaseModel
+    public sealed class CachedEmailBox : DbObjectBaseModel
     {
         //default properties
         [DataMember]
@@ -125,13 +125,13 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         }
 
         //navigation properties
-        [DataMember]
-        public virtual User User { get; set; }
-        [DataMember]
+        [IgnoreDataMember]
+        public User User { get; set; }
+        [IgnoreDataMember]
         public DictionaryEmailServer EmailServer { get; set; }
-        [DataMember]
+        [IgnoreDataMember]
         public DictionaryEmailServerParam OutgoingEmailServerParam { get; set; }
-        [DataMember]
+        [IgnoreDataMember]
         public DictionaryEmailServerParam IncomingEmailServerParam { get; set; }
     }
 }

@@ -124,6 +124,7 @@ namespace FredroDAL.Models.DatabaseObjectModels.Tables
         }
 
         //navigation properties
+        [IgnoreDataMember]
         public ICollection<CachedEmailBox> ChachedEmailBoxes { get; set; } = new List<CachedEmailBox>();
     }
 }

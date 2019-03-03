@@ -55,9 +55,9 @@ namespace FredroMailService.Models
             using (var db = new FredroDbContext())
             {
                 db.Mails.Load();
+                var userEmailBoxIds = SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Select(box => box.Id.Value).ToList();
                 allMails = db.Mails.Where(mail => 
-                    SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Select(box => box.Id.Value)
-                    .Contains(mail.ChachedEmailBoxId.Value)).ToList();
+                    userEmailBoxIds.Contains(mail.ChachedEmailBoxId.Value)).ToList();
             }
             return allMails;
         }

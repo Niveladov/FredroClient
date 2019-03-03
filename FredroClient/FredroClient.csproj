@@ -284,9 +284,6 @@
     <None Include="Service References\MailService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MailService\item4.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\MailService\MailService.wsdl" />
   </ItemGroup>
   <ItemGroup>

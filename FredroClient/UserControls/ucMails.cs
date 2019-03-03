@@ -245,7 +245,7 @@ namespace FredroClient.UserControls
 
         private void BtnResend_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
         #endregion
 

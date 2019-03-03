@@ -22,6 +22,7 @@ namespace FredroClient.Forms
         {
             InitializeComponent();
             _model = new NewMailModel(mailServiceClient);
+            InitControls();
             InitEvents();
         }
 
@@ -29,6 +30,15 @@ namespace FredroClient.Forms
         {
             meBody.TextChanged += MeBody_TextChanged;
             btnSend.Click += BtnSend_Click;
+        }
+
+        private void InitControls()
+        {
+            sleFrom.Properties.DataSource = _model.UserEmailBoxes;
+            sleFrom.Properties.DisplayMember = nameof(CachedEmailBox.Login);
+            sleFrom.Properties.ValueMember = nameof(CachedEmailBox.Id);
+            sleFrom.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.FromEmailBoxId),
+                true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
         private void MeBody_TextChanged(object sender, EventArgs e)
@@ -39,10 +49,11 @@ namespace FredroClient.Forms
 
         private void BtnSend_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(meBody.Text))
+            if (_model.FromEmailBoxId.HasValue && !string.IsNullOrWhiteSpace(meBody.Text))
             {
                 try
                 {
+                    sleFrom.ErrorText = string.Empty;
                     var responseMail = new TheMail();
                     responseMail.Body = meBody.Text;
                     responseMail.FromAddress = _model.FromEmailBoxAddress;
@@ -64,19 +75,22 @@ namespace FredroClient.Forms
                     Close();
                 }
             }
+            else if (!_model.FromEmailBoxId.HasValue)
+            {
+                sleFrom.ErrorText = "Ошибка. Необходимо указать почтовый адрес, с которого будет отправлено письмо.";
+            }
             else
             {
                 FredroMessageBox.ShowError("Нельзя отправить пустое сообщение!");
             }
         }
-
-
+        
         private sealed class NewMailModel
         {
             private MailServiceClient _serviceClient;
 
-            private int _fromEmalBoxId;
-            public int FromEmailBoxId
+            private int? _fromEmalBoxId;
+            public int? FromEmailBoxId
             {
                 get { return _fromEmalBoxId; }
                 set
@@ -93,8 +107,16 @@ namespace FredroClient.Forms
 
             public NewMailModel(MailServiceClient serviceClient)
             {
-                _serviceClient = serviceClient;
-                UserEmailBoxes = _serviceClient.GetUserEmailBoxes();
+                try
+                {
+                    _serviceClient = serviceClient;
+                    UserEmailBoxes = _serviceClient.GetUserEmailBoxes();
+                    FromEmailBoxId = UserEmailBoxes.First().Id.Value;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
 
             internal void SendMail(TheMail responseMail)
@@ -111,4 +133,5 @@ namespace FredroClient.Forms
         }
 
     }
+
 }

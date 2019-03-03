@@ -25,6 +25,7 @@ namespace FredroMailService.ExtraClasses
                     CurrentUser = db.Users.Include(x => x.ChachedEmailBoxes.Select(s => s.IncomingEmailServerParam))
                                           .Include(x => x.ChachedEmailBoxes.Select(s => s.OutgoingEmailServerParam))
                                           .Include(x => x.ChachedEmailBoxes.Select(s => s.EmailServer))
+                                          .Include(x => x.ChachedEmailBoxes.Select(s => s.User))
                                           .Single(t => t.Login == login && t.PasswordHash == password);
 
                     //CurrentUser = db.Users.Include(x => x.ChachedEmailBoxes.Select( s => s.IncomingEmailServerParam))

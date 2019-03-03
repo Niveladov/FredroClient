@@ -104,7 +104,6 @@ namespace FredroClient.Models
             MyMails.AddRange(newMails);
             NewMailsRecieved?.Invoke(this, EventArgs.Empty);
         }
-
     }
 
 }

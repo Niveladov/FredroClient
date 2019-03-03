@@ -264,7 +264,6 @@
       <xsd:import schemaLocation="http://localhost:47887/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:47887/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" />
       <xsd:import schemaLocation="http://localhost:47887/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels" />
-      <xsd:import schemaLocation="http://localhost:47887/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMailService_Join_InputMessage">
