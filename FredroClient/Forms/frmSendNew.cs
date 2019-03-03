@@ -18,10 +18,10 @@ namespace FredroClient.Forms
     {
         private NewMailModel _model;
 
-        public frmSendNew(MailServiceClient serviceClient)
+        public frmSendNew(MailServiceClient mailServiceClient)
         {
             InitializeComponent();
-
+            _model = new NewMailModel(mailServiceClient);
             InitEvents();
         }
 
@@ -37,7 +37,7 @@ namespace FredroClient.Forms
             if (memoEdit != null) memoEdit.SetScrollBarVisibility();
         }
 
-        private async void BtnSend_Click(object sender, EventArgs e)
+        private void BtnSend_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(meBody.Text))
             {
@@ -51,6 +51,7 @@ namespace FredroClient.Forms
                     responseMail.Subject = teSubject.Text;
                     responseMail.ChachedEmailBoxId = _model.FromEmailBoxId;
 
+                    _model.SendMail(responseMail);
 
                     FredroMessageBox.ShowSucces("Письмо отправлено!");
                 }
@@ -72,6 +73,8 @@ namespace FredroClient.Forms
 
         private sealed class NewMailModel
         {
+            private MailServiceClient _serviceClient;
+
             private int _fromEmalBoxId;
             public int FromEmailBoxId
             {
@@ -86,14 +89,24 @@ namespace FredroClient.Forms
                 }
             }
             public string FromEmailBoxAddress { get; private set; }
-            public List<CachedEmailBox> UserEmailBoxes { get; }
-            public MailServiceClient ServiceClient { get; }
+            public CachedEmailBox[] UserEmailBoxes { get; }
 
             public NewMailModel(MailServiceClient serviceClient)
             {
-                ServiceClient = serviceClient;
-                var userEmailBoxes = ServiceClient.GetUserEmailBoxes();
+                _serviceClient = serviceClient;
+                UserEmailBoxes = _serviceClient.GetUserEmailBoxes();
+            }
 
+            internal void SendMail(TheMail responseMail)
+            {
+                try
+                {
+                    _serviceClient.SendMail(responseMail);
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 

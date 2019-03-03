@@ -18,8 +18,9 @@ namespace FredroClient.Models
 {
     internal sealed class MailModel : IMailServiceCallback
     {
-        private MailServiceClient _serviceClient;
+        private bool _isJoined = false;
 
+        public MailServiceClient ServiceClient { get; }
         public Credentials Creds { get; }
         public List<TheMail> MyMails { get; }
         
@@ -30,40 +31,44 @@ namespace FredroClient.Models
             Creds = creds;
             MyMails = new List<TheMail>();
             var instanceContext = new InstanceContext(this);
-            _serviceClient = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
-            _serviceClient.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
-            _serviceClient.ClientCredentials.UserName.UserName = Creds.Login;
-            _serviceClient.ClientCredentials.UserName.Password = Creds.Password;
+            ServiceClient = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
+            ServiceClient.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
+            ServiceClient.ClientCredentials.UserName.UserName = Creds.Login;
+            ServiceClient.ClientCredentials.UserName.Password = Creds.Password;
         }
 
         public void JoinToServer()
         {
             try
             {
-                _serviceClient.Join();
+                if (!_isJoined)
+                {
+                    ServiceClient.Join();
+                    _isJoined = true;
+                }
             }
             catch (MessageSecurityException ex)
             {
                 //FredroMessageBox.ShowError("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля");
-                _serviceClient.Abort();
+                ServiceClient.Abort();
                 throw new ServerException("Не удаётся войти. Пожалуйста, проверьте правильность написания\r\nлогина и пароля", ex);
             }
             catch (TimeoutException ex)
             {
                 //FredroMessageBox.ShowError($"Timeout error: {ex.Message}");
-                _serviceClient.Abort();
+                ServiceClient.Abort();
                 throw new ServerException("Возникла внутрення ошибка сервера. Timeout error.", ex);
             }
             catch (FaultException ex)
             {
                 //FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
-                _serviceClient.Abort();
+                ServiceClient.Abort();
                 throw new ServerException("Возникла внутрення ошибка сервера.", ex);
             }
             catch (CommunicationException ex)
             {
                 //FredroMessageBox.ShowError($"Communication error: {ex.Message}");
-                _serviceClient.Abort();
+                ServiceClient.Abort();
                 throw new ServerException("Возникла внутрення ошибка сервера. Communication error.", ex);
             }
         }
@@ -72,12 +77,12 @@ namespace FredroClient.Models
         {
             try
             {
-                _serviceClient.SendMail(mail);
+                ServiceClient.SendMail(mail);
             }
             catch (FaultException ex)
             {
                 FredroMessageBox.ShowError(ex.Message);
-                _serviceClient.Abort();
+                ServiceClient.Abort();
             }
         }
 
@@ -85,12 +90,12 @@ namespace FredroClient.Models
         {
             try
             {
-                _serviceClient.UpdateMail(mail);
+                ServiceClient.UpdateMail(mail);
             }
             catch (FaultException ex)
             {
                 FredroMessageBox.ShowError(ex.Message);
-                _serviceClient.Abort();
+                ServiceClient.Abort();
             }
         }
 

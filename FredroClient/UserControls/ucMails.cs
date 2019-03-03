@@ -190,7 +190,7 @@ namespace FredroClient.UserControls
 
         private void BtnSendNew_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmSendNew())
+            using (var frm = new frmSendNew(_model.ServiceClient))
             {
                 frm.ShowDialog();
             }
