@@ -5,19 +5,24 @@ using System.ServiceModel;
 using FredroMailService.ExtraClasses;
 using System;
 using System.Threading;
+using FredroMailService.Models.Enums;
 
 namespace FredroMailService
 {
     [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class MailService : IMailService
     {
-        private IMailServer _mailServerConnection;
+        private IMailTransferManager _mailTransferManager;
+        private IMailDeliveryManager _mailDeliveryManager;
+        private IDbDataManager _dbDataManager;
 
         public MailService()
         {
             try
             {
-                _mailServerConnection = new EmailServerConnection();
+                _dbDataManager = new DbDataManager();
+                _mailDeliveryManager = new EmailDeliveryManager(_dbDataManager);
+                _mailTransferManager = new EmailTransferManager();
             }
             catch (Exception ex)
             {
@@ -29,19 +34,7 @@ namespace FredroMailService
         {
             try
             {
-                _mailServerConnection.Join();
-            }
-            catch (Exception ex)
-            {
-                throw new FaultException(ex.Message);
-            }
-        }
-
-        public void RemoveMail(string Id)
-        {
-            try
-            {
-                _mailServerConnection.RemoveMail(Id);
+                _mailDeliveryManager.Join();
             }
             catch (Exception ex)
             {
@@ -53,7 +46,19 @@ namespace FredroMailService
         {
             try
             {
-                _mailServerConnection.SendMail(mail);
+                _mailTransferManager.SendMail(mail);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void RemoveMail(string Id)
+        {
+            try
+            {
+                _dbDataManager.RemoveMail(Id);
             }
             catch (Exception ex)
             {
@@ -65,7 +70,19 @@ namespace FredroMailService
         {
             try
             {
-                _mailServerConnection.UpdateMail(mail);
+                _dbDataManager.UpdateMail(mail);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public IEnumerable<CachedEmailBox> GetUserEmailBoxes()
+        {
+            try
+            {
+                return _dbDataManager.GetUserEmailBoxes();
             }
             catch (Exception ex)
             {

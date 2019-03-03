@@ -66,7 +66,9 @@
     <Compile Include="ExtraClasses\SessionContext.cs" />
     <Compile Include="IMailService.cs" />
     <Compile Include="MailService.cs" />
-    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\EmailDeliveryManager.cs" />
+    <Compile Include="Models\DbDataManager.cs" />
+    <Compile Include="Models\EmailTransferManager.cs" />
     <Compile Include="Models\Enums\Server.cs" />
     <Compile Include="Models\Protocols.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

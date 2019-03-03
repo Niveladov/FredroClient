@@ -28,6 +28,7 @@
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d3ea9b0b-9e2a-4140-9fb9-fd2c0031e990" SourceId="1" SourceUrl="http://localhost:47887/?xsd=xsd1" />
     <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="167d6e05-9db1-4ad9-a1d6-bae911a123f6" SourceId="1" SourceUrl="http://localhost:47887/?xsd=xsd3" />
     <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="a23be6e4-162a-49f6-9438-3544d0bd530a" SourceId="1" SourceUrl="http://localhost:47887/?xsd=xsd2" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="fa80c15c-1661-4228-b211-52a251afc535" SourceId="1" SourceUrl="http://localhost:47887/?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

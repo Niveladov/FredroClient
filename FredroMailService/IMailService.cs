@@ -14,8 +14,8 @@ namespace FredroMailService
     {
         [OperationContract(IsOneWay = true)]
         void Join();
-
-        [OperationContract(IsOneWay = true)]
+        
+        [OperationContract]
         void SendMail(TheMail mail);
 
         [OperationContract(IsOneWay = true)]
@@ -23,6 +23,9 @@ namespace FredroMailService
         
         [OperationContract(IsOneWay = true)]
         void RemoveMail(string Id);
+
+        [OperationContract]
+        IEnumerable<CachedEmailBox> GetUserEmailBoxes();
     }
 
     public interface IMailCallback

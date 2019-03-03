@@ -21,10 +21,10 @@ namespace FredroClient.MailService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/Join")]
         System.Threading.Tasks.Task JoinAsync();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/SendMail")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
         void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/SendMail")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
         System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/UpdateMail")]
@@ -38,6 +38,12 @@ namespace FredroClient.MailService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/RemoveMail")]
         System.Threading.Tasks.Task RemoveMailAsync(string Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetUserEmailBoxes", ReplyAction="http://tempuri.org/IMailService/GetUserEmailBoxesResponse")]
+        FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetUserEmailBoxes", ReplyAction="http://tempuri.org/IMailService/GetUserEmailBoxesResponse")]
+        System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -105,6 +111,14 @@ namespace FredroClient.MailService {
         
         public System.Threading.Tasks.Task RemoveMailAsync(string Id) {
             return base.Channel.RemoveMailAsync(Id);
+        }
+        
+        public FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes() {
+            return base.Channel.GetUserEmailBoxes();
+        }
+        
+        public System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync() {
+            return base.Channel.GetUserEmailBoxesAsync();
         }
     }
 }

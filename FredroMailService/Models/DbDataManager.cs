@@ -1,0 +1,71 @@
+﻿using FredroDAL.Models.Contexts;
+using FredroDAL.Models.DatabaseObjectModels.Tables;
+using FredroMailService.ExtraClasses;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FredroMailService.Models
+{
+    internal interface IDbDataManager
+    {
+        void InsertMail(TheMail mail);
+        void UpdateMail(TheMail mail);
+        void RemoveMail(string id);
+        List<TheMail> GetUserMails();
+        IEnumerable<CachedEmailBox> GetUserEmailBoxes();
+    }
+
+    internal sealed class DbDataManager : IDbDataManager
+    {
+        public void InsertMail(TheMail mail)
+        {
+            using (var db = new FredroDbContext())
+            {
+                db.Mails.Add(mail);
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateMail(TheMail mail)
+        {
+            using (var db = new FredroDbContext())
+            {
+                db.Entry(mail).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+
+        public void RemoveMail(string id)
+        {
+            using (var db = new FredroDbContext())
+            {
+                var mail = db.Mails.Find(id);
+                db.Mails.Remove(mail);
+                db.SaveChanges();
+            }
+        }
+
+        public List<TheMail> GetUserMails()
+        {
+            var allMails = new List<TheMail>();
+            using (var db = new FredroDbContext())
+            {
+                db.Mails.Load();
+                allMails = db.Mails.Where(mail => 
+                    SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Select(box => box.Id.Value)
+                    .Contains(mail.ChachedEmailBoxId.Value)).ToList();
+            }
+            return allMails;
+        }
+
+        public IEnumerable<CachedEmailBox> GetUserEmailBoxes()
+        {
+            return SessionContext.Instance.CurrentUser.ChachedEmailBoxes;
+        }
+
+    }
+}

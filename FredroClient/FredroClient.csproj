@@ -278,6 +278,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
     <None Include="Properties\DataSources\FredroDAL.Models.DatabaseObjectModels.Tables.TheMail.datasource" />
     <None Include="Properties\DataSources\FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage.datasource" />
     <None Include="Properties\Settings.settings">
@@ -299,6 +300,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MailService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MailService\MailService.wsdl" />

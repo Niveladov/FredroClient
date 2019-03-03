@@ -17,15 +17,19 @@ using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
 namespace FredroMailService.Models
 {
-    internal class EmailServerConnection : IMailServer
+    internal interface IMailDeliveryManager
+    {
+        void Join();
+    }
+
+    internal class EmailDeliveryManager : IMailDeliveryManager
     {
         private const int MAIL_SERVER_ACCESS_PERIOD = 5000;
-        private const string PLAIN_TEXT = "text/plain";
-        private const string HTML_TEXT = "text/html";
+        private IDbDataManager _dbDataManager;
 
         public HashSet<string> AllMailIds { get; private set; }
         
-        public EmailServerConnection()
+        public EmailDeliveryManager(IDbDataManager dbDataManager)
         {
             try
             {
@@ -33,6 +37,10 @@ namespace FredroMailService.Models
                 if (SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Count == 0)
                 {
                     throw new Exception("User don't have presaved emails!");
+                }
+                else
+                {
+                    _dbDataManager = dbDataManager;
                 }
             }
             catch
@@ -45,7 +53,7 @@ namespace FredroMailService.Models
         {
             try
             {
-                var allMails = GetAllMails();
+                var allMails = _dbDataManager.GetUserMails();
                 if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allMails);
                 while (true)
                 {
@@ -67,66 +75,6 @@ namespace FredroMailService.Models
             {
                 throw;
             }
-        }
-
-        public void RemoveMail(string Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SendMail(TheMail mail)
-        {
-            try
-            {
-                var currentMailBox = SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Single(x => x.Id == mail.ChachedEmailBoxId);
-                var currentOutgoingParam = currentMailBox.OutgoingEmailServerParam;
-                MailAddress from = new MailAddress(mail.FromAddress, mail.FromDisplayName);
-                MailAddress to = new MailAddress(mail.ToAddress);
-                MailMessage m = new MailMessage(from, to);
-
-                //m.Attachments.Add(new Attachment("E://colors.txt"));
-                m.Subject = mail.Subject;
-                m.Body = mail.Body;
-                m.IsBodyHtml = true;
-
-                SmtpClient smtpClient = new SmtpClient(currentOutgoingParam.Hostname, currentOutgoingParam.Port);
-                smtpClient.Credentials = new NetworkCredential(currentMailBox.Login, currentMailBox.Password);
-                smtpClient.EnableSsl = currentOutgoingParam.UseSsl;
-                smtpClient.Send(m);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        public void UpdateMail(TheMail mail)
-        {
-            using (var db = new FredroDbContext())
-            {
-                db.Entry(mail).State = EntityState.Modified;
-                db.SaveChanges();
-            }
-        }
-
-        private void InsertMail(TheMail mail)
-        {
-            using (var db = new FredroDbContext())
-            {
-                db.Mails.Add(mail);
-                db.SaveChanges();
-            }
-        }
-
-        private List<TheMail> GetAllMails()
-        {
-            var allMails = new List<TheMail>();
-            using (var db = new FredroDbContext())
-            {
-                db.Mails.Load();
-                allMails = db.Mails.Local.ToList();
-            }
-            return allMails;
         }
 
         private List<TheMail> FetchNewMails(DictionaryEmailServerParam serverParams, CachedEmailBox cachedEmailBox)
@@ -158,7 +106,7 @@ namespace FredroMailService.Models
                             mail.ChachedEmailBoxId = cachedEmailBox.Id.Value;
                             AllMailIds.Add(mail.Id);
                             allMails.Add(mail);
-                            InsertMail(mail);
+                            _dbDataManager.InsertMail(mail);
                         }
                     }
                     // Now return the fetched messages
@@ -171,17 +119,6 @@ namespace FredroMailService.Models
             }
         }
 
-    }
-
-    internal interface IMailServer
-    {
-        void Join();
-
-        void SendMail(TheMail mail);
-
-        void UpdateMail(TheMail mail);
-
-        void RemoveMail(string Id);
     }
 
 }

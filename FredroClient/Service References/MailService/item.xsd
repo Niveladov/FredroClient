@@ -13,6 +13,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SendMailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateMail">
     <xs:complexType>
       <xs:sequence>
@@ -27,10 +32,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUserEmailBoxes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserEmailBoxesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetUserEmailBoxesResult" nillable="true" type="q3:ArrayOfCachedEmailBox" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SendNewMails">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q3:ArrayOfTheMail" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q4:ArrayOfTheMail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

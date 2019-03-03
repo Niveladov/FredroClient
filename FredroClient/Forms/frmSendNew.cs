@@ -9,6 +9,7 @@ using FredroDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FredroClient.Forms
@@ -44,12 +45,12 @@ namespace FredroClient.Forms
                 {
                     var responseMail = new TheMail();
                     responseMail.Body = meBody.Text;
-                    responseMail.FromAddress = _model.CurrentAddress;
+                    responseMail.FromAddress = _model.FromEmailBoxAddress;
                     responseMail.FromDisplayName = "ФрэдроКлиент";
                     responseMail.ToAddress = teTo.Text;
                     responseMail.Subject = teSubject.Text;
-                    responseMail.ChachedEmailBoxId = 
-                        
+                    responseMail.ChachedEmailBoxId = _model.FromEmailBoxId;
+
 
                     FredroMessageBox.ShowSucces("Письмо отправлено!");
                 }
@@ -71,13 +72,28 @@ namespace FredroClient.Forms
 
         private sealed class NewMailModel
         {
-            public int FromEmailBoxId { get; }
+            private int _fromEmalBoxId;
+            public int FromEmailBoxId
+            {
+                get { return _fromEmalBoxId; }
+                set
+                {
+                    if (_fromEmalBoxId != value)
+                    {
+                        _fromEmalBoxId = value;
+                        FromEmailBoxAddress = UserEmailBoxes.Single(x => x.Id == value).Login;
+                    }
+                }
+            }
+            public string FromEmailBoxAddress { get; private set; }
             public List<CachedEmailBox> UserEmailBoxes { get; }
             public MailServiceClient ServiceClient { get; }
 
             public NewMailModel(MailServiceClient serviceClient)
             {
                 ServiceClient = serviceClient;
+                var userEmailBoxes = ServiceClient.GetUserEmailBoxes();
+
             }
         }
 
