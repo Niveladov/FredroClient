@@ -18,7 +18,7 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmMails : FredroBaseXtraForm
     {
-        public frmMails(Thread splashScreenThread, Credentials creds)
+        public frmMails(FredroBaseXtraForm splashScreenForm, Credentials creds)
         {
             try
             {
@@ -26,7 +26,6 @@ namespace FredroClient.Forms
                 InitializeComponent();
                 ucMails.Init(creds);
                 InitEvents();
-                splashScreenThread?.Abort();
             }
             catch (ServerException ex)
             {
@@ -34,10 +33,8 @@ namespace FredroClient.Forms
             }
             finally
             {
-                if (splashScreenThread != null && splashScreenThread.ThreadState != ThreadState.Aborted)
-                {
-                    splashScreenThread.Abort();
-                }
+                splashScreenForm?.Invoke(new Action(() => splashScreenForm.Close()));
+                splashScreenForm?.Dispose();
             }
         }
 

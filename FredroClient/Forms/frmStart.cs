@@ -1,4 +1,5 @@
-﻿using DevExpress.Utils;
+﻿using DevExpress.LookAndFeel;
+using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using FredroClient.BaseGUI;
@@ -72,11 +73,6 @@ namespace FredroClient.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private void RunSplashForm()
-        {
-            Application.Run(new frmSplashScreen());
-        }
-
         private void OpenMail()
         {
             if (string.IsNullOrWhiteSpace(_creds.Login))
@@ -92,20 +88,17 @@ namespace FredroClient.Forms
                 teLogin.ErrorText = string.Empty;
                 tePassword.ErrorText = string.Empty;
                 Hide();
-                var splashScreenThread = new Thread(RunSplashForm);
+                var splashForm = new frmSplashScreen();
+                var splashScreenThread = new Thread(new ThreadStart(()
+                    => Application.Run(splashForm)));
+                splashScreenThread.SetApartmentState(ApartmentState.STA);
                 splashScreenThread.Start();
-                //using (var splashScreenForm = new frmSplashScreen())
-                //{
-                //    splashScreenForm.Show();
-                    //Allow main UI thread to properly display splash screen form.
-                    //Application.DoEvents();
-                    using (var frm = new frmMails(splashScreenThread, _creds))
-                    {
-                        frm.FormClosed += (s, args) => Show();
-                        //frm.Shown += (s, args) => splashScreenForm.Close();
-                        frm.ShowDialog();
-                    }
-                //}
+
+                using (var frm = new frmMails(splashForm, _creds))
+                {
+                    frm.FormClosed += (s, args) => Show();
+                    frm.ShowDialog();
+                }
             }
         }
 

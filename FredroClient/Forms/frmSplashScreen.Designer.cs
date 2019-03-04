@@ -66,12 +66,11 @@
             this.labelBottom.Size = new System.Drawing.Size(404, 19);
             this.labelBottom.StyleController = this.lcMaim;
             this.labelBottom.TabIndex = 5;
-            this.labelBottom.Text = "Все права защищены законами Вселенной. © Twinkle Corporation";
+            this.labelBottom.Text = "Все права защищены законами Вселенной. ®Twinkle Corporation";
             // 
             // labelMain
             // 
             this.labelMain.Appearance.Font = new System.Drawing.Font("Navy Queen LT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMain.Appearance.ForeColor = System.Drawing.Color.LightPink;
             this.labelMain.Location = new System.Drawing.Point(84, 104);
             this.labelMain.Name = "labelMain";
             this.labelMain.Size = new System.Drawing.Size(332, 42);
@@ -148,6 +147,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 250);
             this.Controls.Add(this.lcMaim);
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
