@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,17 +18,26 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmMails : FredroBaseXtraForm
     {
-        public frmMails(Credentials creds)
+        public frmMails(Thread splashScreenThread, Credentials creds)
         {
             try
             {
+                //throw new Exception("Huesos, axaxa!");
                 InitializeComponent();
                 ucMails.Init(creds);
                 InitEvents();
+                splashScreenThread?.Abort();
             }
             catch (ServerException ex)
             {
                 FredroMessageBox.ShowError(ex.Message);
+            }
+            finally
+            {
+                if (splashScreenThread != null && splashScreenThread.ThreadState != ThreadState.Aborted)
+                {
+                    splashScreenThread.Abort();
+                }
             }
         }
 

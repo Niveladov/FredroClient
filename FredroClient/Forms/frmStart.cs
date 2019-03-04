@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -71,6 +72,11 @@ namespace FredroClient.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
+        private void RunSplashForm()
+        {
+            Application.Run(new frmSplashScreen());
+        }
+
         private void OpenMail()
         {
             if (string.IsNullOrWhiteSpace(_creds.Login))
@@ -86,12 +92,14 @@ namespace FredroClient.Forms
                 teLogin.ErrorText = string.Empty;
                 tePassword.ErrorText = string.Empty;
                 Hide();
+                var splashScreenThread = new Thread(RunSplashForm);
+                splashScreenThread.Start();
                 //using (var splashScreenForm = new frmSplashScreen())
                 //{
                 //    splashScreenForm.Show();
                     //Allow main UI thread to properly display splash screen form.
                     //Application.DoEvents();
-                    using (var frm = new frmMails(_creds))
+                    using (var frm = new frmMails(splashScreenThread, _creds))
                     {
                         frm.FormClosed += (s, args) => Show();
                         //frm.Shown += (s, args) => splashScreenForm.Close();
