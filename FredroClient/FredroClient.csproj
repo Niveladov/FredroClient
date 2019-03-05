@@ -83,6 +83,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LollipoUi">
+      <HintPath>..\..\Dlls\LollipoUi.dll</HintPath>
+    </Reference>
     <Reference Include="MailKit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
       <HintPath>..\packages\MailKit.2.0.6\lib\net45\MailKit.dll</HintPath>
       <Private>True</Private>
@@ -159,6 +162,12 @@
     <Compile Include="Forms\frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmPerformer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +239,9 @@
     <EmbeddedResource Include="Forms\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPerformer.resx">
       <DependentUpon>frmPerformer.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,6 +303,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\blue_audit_32x32.png" />
+    <None Include="Resources\pink_user_32x32.png" />
+    <None Include="Resources\blue_user_32x32.png" />
+    <None Include="Resources\pink_email_32x32.png" />
+    <None Include="Resources\pink_calendar_32x32.png" />
+    <None Include="Resources\blue_email_32x32.png" />
+    <None Include="Resources\blue_calendar_32x32.png" />
+    <None Include="Resources\mail_32x32.png" />
     <None Include="Service References\MailService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -63,6 +63,46 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_audit_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("blue_audit_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_calendar_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("blue_calendar_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_email_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("blue_email_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_user_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("blue_user_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_16x16 {
             get {
                 object obj = ResourceManager.GetObject("eye_16x16", resourceCulture);
@@ -123,6 +163,16 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mail_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("mail_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mailru_32x32 {
             get {
                 object obj = ResourceManager.GetObject("mailru_32x32", resourceCulture);
@@ -156,6 +206,36 @@ namespace FredroClient.Properties {
         internal static System.Drawing.Bitmap menu_icon3_64x64 {
             get {
                 object obj = ResourceManager.GetObject("menu_icon3_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pink_calendar_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("pink_calendar_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pink_email_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("pink_email_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pink_user_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("pink_user_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
