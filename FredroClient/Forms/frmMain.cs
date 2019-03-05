@@ -13,9 +13,12 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmMain : FredroBaseXtraForm
     {
+        private FormDragger _dragger;
+
         public frmMain()
         {
             InitializeComponent();
+            _dragger = new FormDragger();
             InitEvents();
         }
 
@@ -35,6 +38,37 @@ namespace FredroClient.Forms
                 sidePanel.Height = btn.Height;
                 sidePanel.Top = btn.Top;
             }
+        }
+
+        private void LabelCaptionMouseDown(object sender, MouseEventArgs e)
+        {
+            _dragger.IsDrag = true;
+            _dragger.StartPoint = new Point(e.X, e.Y);
+        }
+
+        private void LabelCaptionMouseMove(object sender, MouseEventArgs e)
+        {
+            if (_dragger.IsDrag)
+            {
+                var p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - _dragger.StartPoint.X, p.Y - _dragger.StartPoint.Y);
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void LabelCaptionMouseUp(object sender, MouseEventArgs e)
+        {
+            _dragger.IsDrag = false;
+            if (this.Location.Y < 5)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private class FormDragger
+        {
+            public bool IsDrag = false;
+            public Point StartPoint = new Point(0, 0);
         }
     }
 }

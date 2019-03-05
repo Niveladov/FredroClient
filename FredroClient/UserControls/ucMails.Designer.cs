@@ -514,20 +514,20 @@
             this.splitMessages.SplitterPosition = 547;
             this.splitMessages.TabIndex = 0;
             // 
-            // gcMessages
+            // gcMails
             // 
             this.gcMails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcMails.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMails.Location = new System.Drawing.Point(0, 0);
             this.gcMails.MainView = this.wevMails;
             this.gcMails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcMails.Name = "gcMessages";
+            this.gcMails.Name = "gcMails";
             this.gcMails.Size = new System.Drawing.Size(547, 527);
             this.gcMails.TabIndex = 1;
             this.gcMails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.wevMails});
             // 
-            // wevMessages
+            // wevMails
             // 
             this.wevMails.Appearance.ItemDescriptionNormal.ForeColor = System.Drawing.Color.LightYellow;
             this.wevMails.Appearance.ItemDescriptionNormal.Options.UseForeColor = true;
@@ -545,7 +545,7 @@
             this.wevMails.ColumnSet.SmallImageColumn = this.colPictureMail;
             this.wevMails.ColumnSet.TextColumn = this.colFromDisplayName;
             this.wevMails.GridControl = this.gcMails;
-            this.wevMails.Name = "wevMessages";
+            this.wevMails.Name = "wevMails";
             this.wevMails.OptionsBehavior.Editable = false;
             this.wevMails.OptionsFind.AlwaysVisible = true;
             this.wevMails.OptionsFind.ShowFindButton = false;
@@ -1058,13 +1058,13 @@
             this.lciStatusStrip.TextSize = new System.Drawing.Size(0, 0);
             this.lciStatusStrip.TextVisible = false;
             // 
-            // ucMail
+            // ucMails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lcMain);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ucMail";
+            this.Name = "ucMails";
             this.Size = new System.Drawing.Size(1083, 587);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);

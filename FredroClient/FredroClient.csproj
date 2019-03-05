@@ -124,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseGUI\ControlExtensions.cs" />
+    <Compile Include="BaseGUI\CustomEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaseGUI\FredroBaseXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
