@@ -109,9 +109,21 @@ namespace FredroClient.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            //Close();
+            timer.Start();
         }
 
-
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0.0)
+            {
+                this.Opacity -= 0.05;
+            }
+            else
+            {
+                timer.Stop();
+                Application.Exit();
+            }
+        }
     }
 }
