@@ -42,7 +42,7 @@ namespace FredroClient.UserControls
                 {
                     _model = new MailModel(creds);
                     InitEvents();
-                    _model.JoinToServer();
+                    //_model.JoinToServer();
                     _isInit = true;
                 }
             }
@@ -83,7 +83,7 @@ namespace FredroClient.UserControls
         {
             _model.NewMailsRecieved += OnNewMailRecieved;
 
-            wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
+            //wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
@@ -97,18 +97,18 @@ namespace FredroClient.UserControls
         private void RefreshData()
         {
             var mailHandler = wevMails.FocusedRowHandle;
-            var folderHandler = wevFolders.FocusedRowHandle;
+            //var folderHandler = wevFolders.FocusedRowHandle;
             var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
             var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
             gcMails.DataSource = incomingMails;
-            gcFolders.DataSource = new List<Folder>()
-                {
-                    new Folder($"Входящие            {incomingMails.Count.ToString()}"),
-                    new Folder($"Отправленные     {outgoingMails.Count.ToString()}"),
-                    new Folder($"Удалённые")
-                };
+            //gcFolders.DataSource = new List<Folder>()
+            //    {
+            //        new Folder($"Входящие            {incomingMails.Count.ToString()}"),
+            //        new Folder($"Отправленные     {outgoingMails.Count.ToString()}"),
+            //        new Folder($"Удалённые")
+            //    };
             wevMails.FocusedRowHandle = mailHandler;
-            wevFolders.FocusedRowHandle = folderHandler;
+            //wevFolders.FocusedRowHandle = folderHandler;
         }
 
         private void SetResponseBodyVisibility(bool isVisible)
@@ -158,24 +158,24 @@ namespace FredroClient.UserControls
 
         private void WevFolders_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (wevFolders.IsDataRow(wevFolders.FocusedRowHandle))
-            {
-                wevFolders.FocusedRowChanged -= WevFolders_FocusedRowChanged;
-                var row = wevFolders.GetFocusedRow() as Folder;
-                if (row.Caption.Contains("Входящие"))
-                {
-                    SetMessageButtonsVisibility(true);
-                    gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
-                    ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Login} - Почтовый бизнес-клиент";
-                }
-                else if (row.Caption.Contains("Отправленные"))
-                {
-                    SetMessageButtonsVisibility(false);
-                    gcMails.DataSource = _model.MyMails.Where(x => x.IsOutcoming);
-                    ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Login} - Почтовый бизнес-клиент";
-                }
-                wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
-            }
+            //if (wevFolders.IsDataRow(wevFolders.FocusedRowHandle))
+            //{
+            //    wevFolders.FocusedRowChanged -= WevFolders_FocusedRowChanged;
+            //    var row = wevFolders.GetFocusedRow() as Folder;
+            //    if (row.Caption.Contains("Входящие"))
+            //    {
+            //        SetMessageButtonsVisibility(true);
+            //        gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
+            //        ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Login} - Почтовый бизнес-клиент";
+            //    }
+            //    else if (row.Caption.Contains("Отправленные"))
+            //    {
+            //        SetMessageButtonsVisibility(false);
+            //        gcMails.DataSource = _model.MyMails.Where(x => x.IsOutcoming);
+            //        ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Login} - Почтовый бизнес-клиент";
+            //    }
+            //    wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
+            //}
         }
 
         private void MeResponseBody_TextChanged(object sender, EventArgs e)

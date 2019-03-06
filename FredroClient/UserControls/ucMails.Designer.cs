@@ -49,13 +49,15 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.splitMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.lcMessageTypes = new DevExpress.XtraLayout.LayoutControl();
+            this.panelFolders = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnInbox = new System.Windows.Forms.Button();
             this.btnSendNew = new DevExpress.XtraEditors.SimpleButton();
-            this.gcFolders = new DevExpress.XtraGrid.GridControl();
-            this.wevFolders = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
-            this.colCaption = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lcgMessageTypes = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.lciMessageTypes = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciSendNew = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciFolders = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitMessages = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcMails = new DevExpress.XtraGrid.GridControl();
             this.wevMails = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
@@ -125,11 +127,10 @@
             this.splitMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMessageTypes)).BeginInit();
             this.lcMessageTypes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcFolders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wevFolders)).BeginInit();
+            this.panelFolders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMessageTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFolders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMails)).BeginInit();
@@ -405,8 +406,8 @@
             // 
             // lcMessageTypes
             // 
+            this.lcMessageTypes.Controls.Add(this.panelFolders);
             this.lcMessageTypes.Controls.Add(this.btnSendNew);
-            this.lcMessageTypes.Controls.Add(this.gcFolders);
             this.lcMessageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcMessageTypes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -415,6 +416,93 @@
             this.lcMessageTypes.Size = new System.Drawing.Size(238, 527);
             this.lcMessageTypes.TabIndex = 0;
             this.lcMessageTypes.Text = "layoutControl1";
+            // 
+            // panelFolders
+            // 
+            this.panelFolders.Controls.Add(this.button3);
+            this.panelFolders.Controls.Add(this.button2);
+            this.panelFolders.Controls.Add(this.button1);
+            this.panelFolders.Controls.Add(this.btnInbox);
+            this.panelFolders.Location = new System.Drawing.Point(2, 49);
+            this.panelFolders.Name = "panelFolders";
+            this.panelFolders.Size = new System.Drawing.Size(234, 476);
+            this.panelFolders.TabIndex = 6;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(3, 141);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(228, 40);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Удалённые";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(3, 95);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(228, 40);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Удалённые";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(228, 40);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Отправленные";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnInbox
+            // 
+            this.btnInbox.BackColor = System.Drawing.Color.Transparent;
+            this.btnInbox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInbox.FlatAppearance.BorderSize = 0;
+            this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInbox.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnInbox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInbox.Image = ((System.Drawing.Image)(resources.GetObject("btnInbox.Image")));
+            this.btnInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInbox.Location = new System.Drawing.Point(3, 3);
+            this.btnInbox.Name = "btnInbox";
+            this.btnInbox.Size = new System.Drawing.Size(228, 40);
+            this.btnInbox.TabIndex = 0;
+            this.btnInbox.Text = "Входящие";
+            this.btnInbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInbox.UseVisualStyleBackColor = false;
             // 
             // btnSendNew
             // 
@@ -430,62 +518,18 @@
             this.btnSendNew.TabIndex = 5;
             this.btnSendNew.Text = "Написать";
             // 
-            // gcFolders
-            // 
-            this.gcFolders.Location = new System.Drawing.Point(0, 47);
-            this.gcFolders.MainView = this.wevFolders;
-            this.gcFolders.Name = "gcFolders";
-            this.gcFolders.Size = new System.Drawing.Size(238, 480);
-            this.gcFolders.TabIndex = 4;
-            this.gcFolders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.wevFolders});
-            // 
-            // wevFolders
-            // 
-            this.wevFolders.Appearance.ItemHovered.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.wevFolders.Appearance.ItemHovered.Options.UseFont = true;
-            this.wevFolders.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.wevFolders.Appearance.ItemNormal.Options.UseFont = true;
-            this.wevFolders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.wevFolders.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCaption});
-            this.wevFolders.ColumnSet.TextColumn = this.colCaption;
-            this.wevFolders.GridControl = this.gcFolders;
-            this.wevFolders.Name = "wevFolders";
-            this.wevFolders.OptionsBehavior.Editable = false;
-            this.wevFolders.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Small;
-            this.wevFolders.OptionsViewStyles.Small.ImageToTextIndent = -10;
-            this.wevFolders.OptionsViewStyles.Small.ShowDescription = DevExpress.Utils.DefaultBoolean.False;
-            // 
-            // colCaption
-            // 
-            this.colCaption.FieldName = "Caption";
-            this.colCaption.Name = "colCaption";
-            this.colCaption.Visible = true;
-            this.colCaption.VisibleIndex = 0;
-            // 
             // lcgMessageTypes
             // 
             this.lcgMessageTypes.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
             this.lcgMessageTypes.GroupBordersVisible = false;
             this.lcgMessageTypes.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lciMessageTypes,
-            this.lciSendNew});
+            this.lciSendNew,
+            this.lciFolders});
             this.lcgMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcgMessageTypes.Name = "lcgMessageTypes";
             this.lcgMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.lcgMessageTypes.Size = new System.Drawing.Size(238, 527);
             this.lcgMessageTypes.TextVisible = false;
-            // 
-            // lciMessageTypes
-            // 
-            this.lciMessageTypes.Control = this.gcFolders;
-            this.lciMessageTypes.Location = new System.Drawing.Point(0, 47);
-            this.lciMessageTypes.Name = "lciMessageTypes";
-            this.lciMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciMessageTypes.Size = new System.Drawing.Size(238, 480);
-            this.lciMessageTypes.TextSize = new System.Drawing.Size(0, 0);
-            this.lciMessageTypes.TextVisible = false;
             // 
             // lciSendNew
             // 
@@ -499,6 +543,15 @@
             this.lciSendNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciSendNew.TextSize = new System.Drawing.Size(0, 0);
             this.lciSendNew.TextVisible = false;
+            // 
+            // lciFolders
+            // 
+            this.lciFolders.Control = this.panelFolders;
+            this.lciFolders.Location = new System.Drawing.Point(0, 47);
+            this.lciFolders.Name = "lciFolders";
+            this.lciFolders.Size = new System.Drawing.Size(238, 480);
+            this.lciFolders.TextSize = new System.Drawing.Size(0, 0);
+            this.lciFolders.TextVisible = false;
             // 
             // splitMessages
             // 
@@ -1089,11 +1142,10 @@
             this.splitMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMessageTypes)).EndInit();
             this.lcMessageTypes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcFolders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wevFolders)).EndInit();
+            this.panelFolders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMessageTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFolders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).EndInit();
             this.splitMessages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcMails)).EndInit();
@@ -1154,11 +1206,7 @@
         private DevExpress.XtraEditors.SplitContainerControl splitMain;
         private DevExpress.XtraLayout.LayoutControl lcMessageTypes;
         private DevExpress.XtraEditors.SimpleButton btnSendNew;
-        private DevExpress.XtraGrid.GridControl gcFolders;
-        private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevFolders;
-        private DevExpress.XtraGrid.Columns.GridColumn colCaption;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMessageTypes;
-        private DevExpress.XtraLayout.LayoutControlItem lciMessageTypes;
         private DevExpress.XtraLayout.LayoutControlItem lciSendNew;
         private DevExpress.XtraEditors.SplitContainerControl splitMessages;
         private DevExpress.XtraGrid.GridControl gcMails;
@@ -1207,5 +1255,11 @@
         private DevExpress.XtraLayout.LayoutControlItem lciStatusStrip;
         private DevExpress.XtraEditors.SimpleButton btnCancelResponce;
         private DevExpress.XtraLayout.LayoutControlItem lciCancelResponce;
+        private System.Windows.Forms.Panel panelFolders;
+        private DevExpress.XtraLayout.LayoutControlItem lciFolders;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInbox;
     }
 }
