@@ -61,7 +61,24 @@ namespace FredroClient.Forms
             _dragger.IsDrag = false;
             if (this.Location.Y < 5)
             {
+                //StartPosition = FormStartPosition.Manual;
+                //var allScreens = Screen.AllScreens;
+                //var xLocation = this.Location.X;
+                //var currentScreen = allScreens.Single(x => (x.Bounds.X < xLocation && (x.Bounds.X + x.Bounds.Width) > xLocation));
+                //setFormLocation(this, currentScreen);
+                //this.MaximizedBounds = currentScreen.Bounds;
+                //this.Location = currentScreen.Bounds.Location;
+                //this.SetDisplayRectLocation(currentScreen.Bounds.Location.X, currentScreen.Bounds.Location.Y);
+                //this.SetBounds(currentScreen.Bounds.X, currentScreen.Bounds.Y, currentScreen.Bounds.Width, currentScreen.Bounds.Height);
+                //this.SetBounds()
+                ////this.TopMost = true;
+                //this.FormBorderStyle = FormBorderStyle.FixedDialog;
                 this.WindowState = FormWindowState.Maximized;
+                //this.FormBorderStyle = FormBorderStyle.None;
+                //this.SetBounds(currentScreen.Bounds.X, currentScreen.Bounds.Y, currentScreen.Bounds.Width, currentScreen.Bounds.Height);
+                //this.SetDesktopBounds(currentScreen.Bounds.X, currentScreen.Bounds.Y, currentScreen.Bounds.Width, currentScreen.Bounds.Height);
+                //this.WindowState = FormWindowState.Normal;
+                //this.WindowState = FormWindowState.Maximized;
             }
         }
 
@@ -69,6 +86,11 @@ namespace FredroClient.Forms
         {
             public bool IsDrag = false;
             public Point StartPoint = new Point(0, 0);
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelLeft = new DevExpress.XtraEditors.PanelControl();
             this.btnAudits = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.btnScheduler = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.btnMinimize = new System.Windows.Forms.Button();
             this.labelCaption = new DevExpress.XtraEditors.LabelControl();
             this.search = new FredroClient.BaseGUI.CustomEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelLeft)).BeginInit();
@@ -117,6 +119,7 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(171)))), ((int)(((byte)(221)))));
+            this.panelTop.Controls.Add(this.btnMinimize);
             this.panelTop.Controls.Add(this.labelCaption);
             this.panelTop.Controls.Add(this.search);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -125,11 +128,26 @@
             this.panelTop.Size = new System.Drawing.Size(928, 49);
             this.panelTop.TabIndex = 4;
             // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(191)))), ((int)(((byte)(244)))));
+            this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(171)))), ((int)(((byte)(221)))));
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(3, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(63, 43);
+            this.btnMinimize.TabIndex = 5;
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
             // labelCaption
             // 
             this.labelCaption.Appearance.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCaption.Appearance.ForeColor = System.Drawing.Color.Snow;
-            this.labelCaption.Location = new System.Drawing.Point(74, 12);
+            this.labelCaption.Location = new System.Drawing.Point(80, 11);
             this.labelCaption.Name = "labelCaption";
             this.labelCaption.Size = new System.Drawing.Size(119, 27);
             this.labelCaption.TabIndex = 2;
@@ -140,7 +158,7 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(317, 11);
+            this.search.Location = new System.Drawing.Point(317, 10);
             this.search.Name = "search";
             this.search.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(107)))));
             this.search.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -195,5 +213,6 @@
         private System.Windows.Forms.Panel panelTop;
         private BaseGUI.CustomEdit search;
         private DevExpress.XtraEditors.LabelControl labelCaption;
+        private System.Windows.Forms.Button btnMinimize;
     }
 }
