@@ -124,6 +124,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseGUI\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaseGUI\ControlExtensions.cs" />
     <Compile Include="BaseGUI\CustomEdit.cs">
       <SubType>Component</SubType>

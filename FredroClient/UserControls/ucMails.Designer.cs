@@ -49,6 +49,7 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.splitMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.lcMessageTypes = new DevExpress.XtraLayout.LayoutControl();
+            this.roundedBtnNew = new FredroClient.BaseGUI.RoundedButton();
             this.panelFolders = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -58,6 +59,7 @@
             this.lcgMessageTypes = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciSendNew = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFolders = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciRoundedBtnNew = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitMessages = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcMails = new DevExpress.XtraGrid.GridControl();
             this.wevMails = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
@@ -131,6 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFolders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRoundedBtnNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMails)).BeginInit();
@@ -405,6 +408,7 @@
             // 
             // lcMessageTypes
             // 
+            this.lcMessageTypes.Controls.Add(this.roundedBtnNew);
             this.lcMessageTypes.Controls.Add(this.panelFolders);
             this.lcMessageTypes.Controls.Add(this.btnSendNew);
             this.lcMessageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -415,6 +419,24 @@
             this.lcMessageTypes.Size = new System.Drawing.Size(238, 417);
             this.lcMessageTypes.TabIndex = 0;
             this.lcMessageTypes.Text = "layoutControl1";
+            // 
+            // roundedBtnNew
+            // 
+            this.roundedBtnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(139)))), ((int)(((byte)(175)))));
+            this.roundedBtnNew.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(139)))), ((int)(((byte)(175)))));
+            this.roundedBtnNew.FlatAppearance.BorderSize = 0;
+            this.roundedBtnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedBtnNew.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.roundedBtnNew.Location = new System.Drawing.Point(139, 2);
+            this.roundedBtnNew.Name = "roundedBtnNew";
+            this.roundedBtnNew.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.roundedBtnNew.OnHoverButtonColor = System.Drawing.Color.Yellow;
+            this.roundedBtnNew.OnHoverTextColor = System.Drawing.Color.Gray;
+            this.roundedBtnNew.Size = new System.Drawing.Size(79, 43);
+            this.roundedBtnNew.TabIndex = 7;
+            this.roundedBtnNew.Text = "Написать";
+            this.roundedBtnNew.TextColor = System.Drawing.Color.Gainsboro;
+            this.roundedBtnNew.UseVisualStyleBackColor = true;
             // 
             // panelFolders
             // 
@@ -432,14 +454,16 @@
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.Gainsboro;
             this.button3.Image = global::FredroClient.Properties.Resources.deleted_mail_16x16;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(8, 141);
+            this.button3.Location = new System.Drawing.Point(5, 141);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(223, 40);
+            this.button3.Size = new System.Drawing.Size(224, 40);
             this.button3.TabIndex = 3;
             this.button3.Text = "     Удалённые";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -451,14 +475,16 @@
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.Gainsboro;
             this.button2.Image = global::FredroClient.Properties.Resources.deleted_mail_16x16;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(8, 95);
+            this.button2.Location = new System.Drawing.Point(5, 95);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(223, 40);
+            this.button2.Size = new System.Drawing.Size(224, 40);
             this.button2.TabIndex = 2;
             this.button2.Text = "     Удалённые";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -470,14 +496,16 @@
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.Gainsboro;
             this.button1.Image = global::FredroClient.Properties.Resources.telegram_16x16;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(8, 49);
+            this.button1.Location = new System.Drawing.Point(5, 49);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 40);
+            this.button1.Size = new System.Drawing.Size(224, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "     Отправленные";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -489,14 +517,16 @@
             this.btnInbox.BackColor = System.Drawing.Color.Transparent;
             this.btnInbox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInbox.FlatAppearance.BorderSize = 0;
+            this.btnInbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
+            this.btnInbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
             this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInbox.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnInbox.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnInbox.Image = global::FredroClient.Properties.Resources.inbox_16x16;
             this.btnInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInbox.Location = new System.Drawing.Point(8, 3);
+            this.btnInbox.Location = new System.Drawing.Point(5, 3);
             this.btnInbox.Name = "btnInbox";
-            this.btnInbox.Size = new System.Drawing.Size(223, 40);
+            this.btnInbox.Size = new System.Drawing.Size(224, 40);
             this.btnInbox.TabIndex = 0;
             this.btnInbox.Text = "     Входящие";
             this.btnInbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -512,7 +542,7 @@
             this.btnSendNew.Location = new System.Drawing.Point(5, 5);
             this.btnSendNew.Name = "btnSendNew";
             this.btnSendNew.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btnSendNew.Size = new System.Drawing.Size(228, 37);
+            this.btnSendNew.Size = new System.Drawing.Size(109, 37);
             this.btnSendNew.StyleController = this.lcMessageTypes;
             this.btnSendNew.TabIndex = 5;
             this.btnSendNew.Text = "Написать";
@@ -523,7 +553,8 @@
             this.lcgMessageTypes.GroupBordersVisible = false;
             this.lcgMessageTypes.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciSendNew,
-            this.lciFolders});
+            this.lciFolders,
+            this.lciRoundedBtnNew});
             this.lcgMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcgMessageTypes.Name = "lcgMessageTypes";
             this.lcgMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -538,10 +569,11 @@
             this.lciSendNew.MinSize = new System.Drawing.Size(63, 47);
             this.lciSendNew.Name = "lciSendNew";
             this.lciSendNew.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciSendNew.Size = new System.Drawing.Size(238, 47);
+            this.lciSendNew.Size = new System.Drawing.Size(119, 47);
             this.lciSendNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciSendNew.TextSize = new System.Drawing.Size(0, 0);
             this.lciSendNew.TextVisible = false;
+            this.lciSendNew.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // lciFolders
             // 
@@ -551,6 +583,19 @@
             this.lciFolders.Size = new System.Drawing.Size(238, 370);
             this.lciFolders.TextSize = new System.Drawing.Size(0, 0);
             this.lciFolders.TextVisible = false;
+            // 
+            // lciRoundedBtnNew
+            // 
+            this.lciRoundedBtnNew.Control = this.roundedBtnNew;
+            this.lciRoundedBtnNew.Location = new System.Drawing.Point(119, 0);
+            this.lciRoundedBtnNew.MaxSize = new System.Drawing.Size(0, 47);
+            this.lciRoundedBtnNew.MinSize = new System.Drawing.Size(24, 47);
+            this.lciRoundedBtnNew.Name = "lciRoundedBtnNew";
+            this.lciRoundedBtnNew.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 2, 2);
+            this.lciRoundedBtnNew.Size = new System.Drawing.Size(119, 47);
+            this.lciRoundedBtnNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciRoundedBtnNew.TextSize = new System.Drawing.Size(0, 0);
+            this.lciRoundedBtnNew.TextVisible = false;
             // 
             // splitMessages
             // 
@@ -1144,6 +1189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFolders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRoundedBtnNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).EndInit();
             this.splitMessages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcMails)).EndInit();
@@ -1259,5 +1305,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnInbox;
+        private BaseGUI.RoundedButton roundedBtnNew;
+        private DevExpress.XtraLayout.LayoutControlItem lciRoundedBtnNew;
     }
 }
