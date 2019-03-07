@@ -435,11 +435,11 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Image = global::FredroClient.Properties.Resources.telegram_16x16;
+            this.button3.Image = global::FredroClient.Properties.Resources.deleted_mail_16x16;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(8, 141);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(219, 40);
+            this.button3.Size = new System.Drawing.Size(223, 40);
             this.button3.TabIndex = 3;
             this.button3.Text = "     Удалённые";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -454,11 +454,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Image = global::FredroClient.Properties.Resources.telegram_16x16;
+            this.button2.Image = global::FredroClient.Properties.Resources.deleted_mail_16x16;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(8, 95);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 40);
+            this.button2.Size = new System.Drawing.Size(223, 40);
             this.button2.TabIndex = 2;
             this.button2.Text = "     Удалённые";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -477,7 +477,7 @@
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(8, 49);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(219, 40);
+            this.button1.Size = new System.Drawing.Size(223, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "     Отправленные";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -496,7 +496,7 @@
             this.btnInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInbox.Location = new System.Drawing.Point(8, 3);
             this.btnInbox.Name = "btnInbox";
-            this.btnInbox.Size = new System.Drawing.Size(219, 40);
+            this.btnInbox.Size = new System.Drawing.Size(223, 40);
             this.btnInbox.TabIndex = 0;
             this.btnInbox.Text = "     Входящие";
             this.btnInbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -563,7 +563,7 @@
             this.splitMessages.Panel2.Controls.Add(this.lcMessage);
             this.splitMessages.Panel2.Text = "Panel2";
             this.splitMessages.Size = new System.Drawing.Size(569, 417);
-            this.splitMessages.SplitterPosition = 547;
+            this.splitMessages.SplitterPosition = 393;
             this.splitMessages.TabIndex = 0;
             // 
             // gcMails
@@ -574,7 +574,7 @@
             this.gcMails.MainView = this.wevMails;
             this.gcMails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMails.Name = "gcMails";
-            this.gcMails.Size = new System.Drawing.Size(547, 417);
+            this.gcMails.Size = new System.Drawing.Size(393, 417);
             this.gcMails.TabIndex = 1;
             this.gcMails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.wevMails});
@@ -603,7 +603,7 @@
             this.wevMails.OptionsFind.ShowFindButton = false;
             this.wevMails.OptionsView.ImageLayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
             this.wevMails.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Content;
-            this.wevMails.OptionsViewStyles.Content.ItemWidth = 533;
+            this.wevMails.OptionsViewStyles.Content.ItemWidth = 379;
             this.wevMails.OptionsViewStyles.Content.ShowDescription = DevExpress.Utils.DefaultBoolean.True;
             // 
             // colFromDisplayName
@@ -664,7 +664,7 @@
             this.lcMessage.Name = "lcMessage";
             this.lcMessage.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(424, 341, 633, 350);
             this.lcMessage.Root = this.lcgMessage;
-            this.lcMessage.Size = new System.Drawing.Size(17, 417);
+            this.lcMessage.Size = new System.Drawing.Size(171, 417);
             this.lcMessage.TabIndex = 0;
             this.lcMessage.Text = "layoutControl1";
             // 

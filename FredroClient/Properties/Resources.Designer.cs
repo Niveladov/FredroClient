@@ -103,6 +103,16 @@ namespace FredroClient.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deleted_mail_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("deleted_mail_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_16x16 {
             get {
                 object obj = ResourceManager.GetObject("eye_16x16", resourceCulture);
