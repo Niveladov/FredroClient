@@ -42,7 +42,7 @@ namespace FredroClient.UserControls
                 {
                     _model = new MailModel(creds);
                     InitEvents();
-                    //_model.JoinToServer();
+                    _model.JoinToServer();
                     _isInit = true;
                 }
             }
@@ -83,6 +83,10 @@ namespace FredroClient.UserControls
         {
             _model.NewMailsRecieved += OnNewMailRecieved;
 
+            btnInboxMails.Click += OnFolderClick;
+            btnOutboxMails.Click += OnFolderClick;
+            btnDeletedMails.Click += OnFolderClick;
+
             //wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
             wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
@@ -94,13 +98,44 @@ namespace FredroClient.UserControls
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
         }
 
+        private void OnFolderClick(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if(btn != null)
+            {
+                switch(btn.Name)
+                {
+                    case nameof(btnInboxMails):
+                        var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
+                        gcMails.DataSource = incomingMails;
+                        btnInboxMails.Tag = true;
+                        btnOutboxMails.Tag = null;
+                        btnDeletedMails.Tag = null;
+                        break;
+                    case nameof(btnOutboxMails):
+                        var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
+                        gcMails.DataSource = outgoingMails;
+                        btnInboxMails.Tag = null;
+                        btnOutboxMails.Tag = true;
+                        btnDeletedMails.Tag = null;
+                        break;
+                    case nameof(btnDeletedMails):
+                        gcMails.DataSource = null;
+                        btnInboxMails.Tag = null;
+                        btnOutboxMails.Tag = null;
+                        btnDeletedMails.Tag = true;
+                        break;
+                }
+            }
+        }
+
         private void RefreshData()
         {
             var mailHandler = wevMails.FocusedRowHandle;
             //var folderHandler = wevFolders.FocusedRowHandle;
             var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
             var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
-            gcMails.DataSource = incomingMails;
+            gcMails.DataSource = btnInboxMails.Tag != null ? incomingMails : (btnOutboxMails != null ? outgoingMails : null);
             //gcFolders.DataSource = new List<Folder>()
             //    {
             //        new Folder($"Входящие            {incomingMails.Count.ToString()}"),

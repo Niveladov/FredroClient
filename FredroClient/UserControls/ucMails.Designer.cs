@@ -49,17 +49,14 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.splitMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.lcMessageTypes = new DevExpress.XtraLayout.LayoutControl();
-            this.roundedBtnNew = new FredroClient.BaseGUI.RoundedButton();
+            this.btnSendNew = new FredroClient.BaseGUI.RoundedButton();
             this.panelFolders = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnInbox = new System.Windows.Forms.Button();
-            this.btnSendNew = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeletedMails = new System.Windows.Forms.Button();
+            this.btnOutboxMails = new System.Windows.Forms.Button();
+            this.btnInboxMails = new System.Windows.Forms.Button();
             this.lcgMessageTypes = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.lciSendNew = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFolders = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciRoundedBtnNew = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciSendNew = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitMessages = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcMails = new DevExpress.XtraGrid.GridControl();
             this.wevMails = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
@@ -131,9 +128,8 @@
             this.lcMessageTypes.SuspendLayout();
             this.panelFolders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFolders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciRoundedBtnNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).BeginInit();
             this.splitMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcMails)).BeginInit();
@@ -408,9 +404,8 @@
             // 
             // lcMessageTypes
             // 
-            this.lcMessageTypes.Controls.Add(this.roundedBtnNew);
-            this.lcMessageTypes.Controls.Add(this.panelFolders);
             this.lcMessageTypes.Controls.Add(this.btnSendNew);
+            this.lcMessageTypes.Controls.Add(this.panelFolders);
             this.lcMessageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcMessageTypes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -420,160 +415,112 @@
             this.lcMessageTypes.TabIndex = 0;
             this.lcMessageTypes.Text = "layoutControl1";
             // 
-            // roundedBtnNew
+            // btnSendNew
             // 
-            this.roundedBtnNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(139)))), ((int)(((byte)(175)))));
-            this.roundedBtnNew.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(139)))), ((int)(((byte)(175)))));
-            this.roundedBtnNew.FlatAppearance.BorderSize = 0;
-            this.roundedBtnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedBtnNew.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.roundedBtnNew.Location = new System.Drawing.Point(139, 2);
-            this.roundedBtnNew.Name = "roundedBtnNew";
-            this.roundedBtnNew.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.roundedBtnNew.OnHoverButtonColor = System.Drawing.Color.Yellow;
-            this.roundedBtnNew.OnHoverTextColor = System.Drawing.Color.Gray;
-            this.roundedBtnNew.Size = new System.Drawing.Size(79, 43);
-            this.roundedBtnNew.TabIndex = 7;
-            this.roundedBtnNew.Text = "Написать";
-            this.roundedBtnNew.TextColor = System.Drawing.Color.Gainsboro;
-            this.roundedBtnNew.UseVisualStyleBackColor = true;
+            this.btnSendNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(139)))), ((int)(((byte)(175)))));
+            this.btnSendNew.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(139)))), ((int)(((byte)(175)))));
+            this.btnSendNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSendNew.FlatAppearance.BorderSize = 0;
+            this.btnSendNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSendNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSendNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendNew.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSendNew.Location = new System.Drawing.Point(20, 2);
+            this.btnSendNew.Name = "btnSendNew";
+            this.btnSendNew.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(119)))), ((int)(((byte)(225)))));
+            this.btnSendNew.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(119)))), ((int)(((byte)(225)))));
+            this.btnSendNew.OnHoverTextColor = System.Drawing.Color.Gainsboro;
+            this.btnSendNew.Size = new System.Drawing.Size(198, 43);
+            this.btnSendNew.TabIndex = 7;
+            this.btnSendNew.Text = "Написать";
+            this.btnSendNew.TextColor = System.Drawing.Color.Gainsboro;
+            this.btnSendNew.UseVisualStyleBackColor = true;
             // 
             // panelFolders
             // 
-            this.panelFolders.Controls.Add(this.button3);
-            this.panelFolders.Controls.Add(this.button2);
-            this.panelFolders.Controls.Add(this.button1);
-            this.panelFolders.Controls.Add(this.btnInbox);
+            this.panelFolders.Controls.Add(this.btnDeletedMails);
+            this.panelFolders.Controls.Add(this.btnOutboxMails);
+            this.panelFolders.Controls.Add(this.btnInboxMails);
             this.panelFolders.Location = new System.Drawing.Point(2, 49);
             this.panelFolders.Name = "panelFolders";
             this.panelFolders.Size = new System.Drawing.Size(234, 366);
             this.panelFolders.TabIndex = 6;
             // 
-            // button3
+            // btnDeletedMails
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Image = global::FredroClient.Properties.Resources.deleted_mail_16x16;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(5, 141);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(224, 40);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "     Удалённые";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDeletedMails.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeletedMails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeletedMails.FlatAppearance.BorderSize = 0;
+            this.btnDeletedMails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
+            this.btnDeletedMails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
+            this.btnDeletedMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletedMails.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnDeletedMails.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnDeletedMails.Image = global::FredroClient.Properties.Resources.deleted_mail_16x16;
+            this.btnDeletedMails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeletedMails.Location = new System.Drawing.Point(5, 95);
+            this.btnDeletedMails.Name = "btnDeletedMails";
+            this.btnDeletedMails.Size = new System.Drawing.Size(224, 40);
+            this.btnDeletedMails.TabIndex = 2;
+            this.btnDeletedMails.Text = "     Удалённые";
+            this.btnDeletedMails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeletedMails.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeletedMails.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnOutboxMails
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Image = global::FredroClient.Properties.Resources.deleted_mail_16x16;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(5, 95);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(224, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "     Удалённые";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnOutboxMails.BackColor = System.Drawing.Color.Transparent;
+            this.btnOutboxMails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOutboxMails.FlatAppearance.BorderSize = 0;
+            this.btnOutboxMails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
+            this.btnOutboxMails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
+            this.btnOutboxMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOutboxMails.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnOutboxMails.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnOutboxMails.Image = global::FredroClient.Properties.Resources.telegram_16x16;
+            this.btnOutboxMails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOutboxMails.Location = new System.Drawing.Point(5, 49);
+            this.btnOutboxMails.Name = "btnOutboxMails";
+            this.btnOutboxMails.Size = new System.Drawing.Size(224, 40);
+            this.btnOutboxMails.TabIndex = 1;
+            this.btnOutboxMails.Text = "     Отправленные";
+            this.btnOutboxMails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOutboxMails.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOutboxMails.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnInboxMails
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Image = global::FredroClient.Properties.Resources.telegram_16x16;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(5, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "     Отправленные";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnInbox
-            // 
-            this.btnInbox.BackColor = System.Drawing.Color.Transparent;
-            this.btnInbox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInbox.FlatAppearance.BorderSize = 0;
-            this.btnInbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
-            this.btnInbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
-            this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInbox.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnInbox.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnInbox.Image = global::FredroClient.Properties.Resources.inbox_16x16;
-            this.btnInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInbox.Location = new System.Drawing.Point(5, 3);
-            this.btnInbox.Name = "btnInbox";
-            this.btnInbox.Size = new System.Drawing.Size(224, 40);
-            this.btnInbox.TabIndex = 0;
-            this.btnInbox.Text = "     Входящие";
-            this.btnInbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInbox.UseVisualStyleBackColor = false;
-            // 
-            // btnSendNew
-            // 
-            this.btnSendNew.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSendNew.Appearance.Options.UseFont = true;
-            this.btnSendNew.CausesValidation = false;
-            this.btnSendNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSendNew.Location = new System.Drawing.Point(5, 5);
-            this.btnSendNew.Name = "btnSendNew";
-            this.btnSendNew.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btnSendNew.Size = new System.Drawing.Size(109, 37);
-            this.btnSendNew.StyleController = this.lcMessageTypes;
-            this.btnSendNew.TabIndex = 5;
-            this.btnSendNew.Text = "Написать";
+            this.btnInboxMails.BackColor = System.Drawing.Color.Transparent;
+            this.btnInboxMails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInboxMails.FlatAppearance.BorderSize = 0;
+            this.btnInboxMails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(79)))));
+            this.btnInboxMails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(106)))), ((int)(((byte)(119)))));
+            this.btnInboxMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInboxMails.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnInboxMails.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInboxMails.Image = global::FredroClient.Properties.Resources.inbox_16x16;
+            this.btnInboxMails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInboxMails.Location = new System.Drawing.Point(5, 3);
+            this.btnInboxMails.Name = "btnInboxMails";
+            this.btnInboxMails.Size = new System.Drawing.Size(224, 40);
+            this.btnInboxMails.TabIndex = 0;
+            this.btnInboxMails.Text = "     Входящие";
+            this.btnInboxMails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInboxMails.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInboxMails.UseVisualStyleBackColor = false;
             // 
             // lcgMessageTypes
             // 
             this.lcgMessageTypes.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
             this.lcgMessageTypes.GroupBordersVisible = false;
             this.lcgMessageTypes.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lciSendNew,
             this.lciFolders,
-            this.lciRoundedBtnNew});
+            this.lciSendNew});
             this.lcgMessageTypes.Location = new System.Drawing.Point(0, 0);
             this.lcgMessageTypes.Name = "lcgMessageTypes";
             this.lcgMessageTypes.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.lcgMessageTypes.Size = new System.Drawing.Size(238, 417);
             this.lcgMessageTypes.TextVisible = false;
-            // 
-            // lciSendNew
-            // 
-            this.lciSendNew.Control = this.btnSendNew;
-            this.lciSendNew.Location = new System.Drawing.Point(0, 0);
-            this.lciSendNew.MaxSize = new System.Drawing.Size(0, 47);
-            this.lciSendNew.MinSize = new System.Drawing.Size(63, 47);
-            this.lciSendNew.Name = "lciSendNew";
-            this.lciSendNew.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.lciSendNew.Size = new System.Drawing.Size(119, 47);
-            this.lciSendNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciSendNew.TextSize = new System.Drawing.Size(0, 0);
-            this.lciSendNew.TextVisible = false;
-            this.lciSendNew.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // lciFolders
             // 
@@ -584,18 +531,18 @@
             this.lciFolders.TextSize = new System.Drawing.Size(0, 0);
             this.lciFolders.TextVisible = false;
             // 
-            // lciRoundedBtnNew
+            // lciSendNew
             // 
-            this.lciRoundedBtnNew.Control = this.roundedBtnNew;
-            this.lciRoundedBtnNew.Location = new System.Drawing.Point(119, 0);
-            this.lciRoundedBtnNew.MaxSize = new System.Drawing.Size(0, 47);
-            this.lciRoundedBtnNew.MinSize = new System.Drawing.Size(24, 47);
-            this.lciRoundedBtnNew.Name = "lciRoundedBtnNew";
-            this.lciRoundedBtnNew.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 2, 2);
-            this.lciRoundedBtnNew.Size = new System.Drawing.Size(119, 47);
-            this.lciRoundedBtnNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciRoundedBtnNew.TextSize = new System.Drawing.Size(0, 0);
-            this.lciRoundedBtnNew.TextVisible = false;
+            this.lciSendNew.Control = this.btnSendNew;
+            this.lciSendNew.Location = new System.Drawing.Point(0, 0);
+            this.lciSendNew.MaxSize = new System.Drawing.Size(0, 47);
+            this.lciSendNew.MinSize = new System.Drawing.Size(24, 47);
+            this.lciSendNew.Name = "lciSendNew";
+            this.lciSendNew.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 2, 2);
+            this.lciSendNew.Size = new System.Drawing.Size(238, 47);
+            this.lciSendNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciSendNew.TextSize = new System.Drawing.Size(0, 0);
+            this.lciSendNew.TextVisible = false;
             // 
             // splitMessages
             // 
@@ -1187,9 +1134,8 @@
             this.lcMessageTypes.ResumeLayout(false);
             this.panelFolders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcgMessageTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFolders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciRoundedBtnNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSendNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMessages)).EndInit();
             this.splitMessages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcMails)).EndInit();
@@ -1249,9 +1195,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraEditors.SplitContainerControl splitMain;
         private DevExpress.XtraLayout.LayoutControl lcMessageTypes;
-        private DevExpress.XtraEditors.SimpleButton btnSendNew;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMessageTypes;
-        private DevExpress.XtraLayout.LayoutControlItem lciSendNew;
         private DevExpress.XtraEditors.SplitContainerControl splitMessages;
         private DevExpress.XtraGrid.GridControl gcMails;
         private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView wevMails;
@@ -1301,11 +1245,10 @@
         private DevExpress.XtraLayout.LayoutControlItem lciCancelResponce;
         private System.Windows.Forms.Panel panelFolders;
         private DevExpress.XtraLayout.LayoutControlItem lciFolders;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnInbox;
-        private BaseGUI.RoundedButton roundedBtnNew;
-        private DevExpress.XtraLayout.LayoutControlItem lciRoundedBtnNew;
+        private System.Windows.Forms.Button btnDeletedMails;
+        private System.Windows.Forms.Button btnOutboxMails;
+        private System.Windows.Forms.Button btnInboxMails;
+        private BaseGUI.RoundedButton btnSendNew;
+        private DevExpress.XtraLayout.LayoutControlItem lciSendNew;
     }
 }
