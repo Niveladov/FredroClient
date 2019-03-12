@@ -28,6 +28,7 @@ namespace FredroClient.UserControls
 
         private MailModel _model;
         private bool _isInit = false;
+        private bool _isMailButtonsVisible = true;
 
         public ucMails()
         {
@@ -42,6 +43,8 @@ namespace FredroClient.UserControls
                 {
                     _model = new MailModel(creds);
                     InitEvents();
+                    SetMailButtonsVisibility(false);
+                    SetResponseBodyVisibility(false);
                     _model.JoinToServer();
                     _isInit = true;
                 }
@@ -61,21 +64,7 @@ namespace FredroClient.UserControls
             base.OnLoad(e);
             if (!isDesignMode)
             {
-                //gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
-                //var inMessCount = _model.MyMails.Where(x => x.IsIncoming).Count();
-                //var outMessCount = _model.MyMails.Where(x => x.IsOutcoming).Count();
-                //gcFolders.DataSource = new List<Folder>()
-                //{
-                //    new Folder($"Входящие            {inMessCount.ToString()}"),
-                //    new Folder($"Отправленные     {outMessCount.ToString()}"),
-                //    new Folder($"Удалённые")
-                //};
-                //InitEvents();
-                //wevFolders.FocusedRowHandle = 0;
-                //wevMails.FocusedRowHandle = 0;
                 meBody.BackColor = lcMessage.BackColor;
-                statusStrip.Items[0].Text = "Демо версия почтового клиента.";
-                statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
             }
         }
 
@@ -98,23 +87,75 @@ namespace FredroClient.UserControls
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
         }
 
+        private void RefreshData()
+        {
+            var mailHandler = wevMails.FocusedRowHandle;
+            var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
+            var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
+            gcMails.DataSource = btnInboxMails.Tag != null ? 
+                incomingMails : (btnOutboxMails != null ? outgoingMails : null);
+            wevMails.FocusedRowHandle = mailHandler;
+        }
+
+        private void SetResponseBodyVisibility(bool isVisible)
+        {
+            if (!isVisible) meResponseBody.Text = "";
+
+            lciResponseBody.Visibility = lciSendResponse.Visibility =
+            lciCancelResponce.Visibility = esResponseArea.Visibility = 
+                isVisible ? LayoutVisibility.Always : LayoutVisibility.Never;
+
+            meBody.SetScrollBarVisibility();
+        }
+
+        private void SetMailButtonsVisibility(bool isVisible)
+        {
+            if (_isMailButtonsVisible != isVisible)
+            {
+                lciReply.Visibility = lciResend.Visibility =
+                lciRemove.Visibility = lciMove.Visibility =
+                lciAddDeal.Visibility = esMessageButtons.Visibility =
+                esClientButtons.Visibility = isVisible ?
+                    LayoutVisibility.Always : LayoutVisibility.Never;
+                _isMailButtonsVisible = isVisible;
+            }
+        }
+
+        private void FocusInvalidMail()
+        {
+            wevMails.FocusedRowHandle = -1;
+        }
+
+        #region EventHandlers
+
+        private void OnNewMailRecieved(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
         private void OnFolderClick(object sender, EventArgs e)
         {
             var btn = sender as Button;
-            if(btn != null)
+            if (btn != null)
             {
-                switch(btn.Name)
+                switch (btn.Name)
                 {
                     case nameof(btnInboxMails):
                         var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
+                        wevMails.FocusedRowChanged -= WevMails_FocusedRowChanged;
                         gcMails.DataSource = incomingMails;
+                        FocusInvalidMail();
+                        wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
                         btnInboxMails.Tag = true;
                         btnOutboxMails.Tag = null;
                         btnDeletedMails.Tag = null;
                         break;
                     case nameof(btnOutboxMails):
                         var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
+                        wevMails.FocusedRowChanged -= WevMails_FocusedRowChanged;
                         gcMails.DataSource = outgoingMails;
+                        FocusInvalidMail();
+                        wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
                         btnInboxMails.Tag = null;
                         btnOutboxMails.Tag = true;
                         btnDeletedMails.Tag = null;
@@ -129,54 +170,12 @@ namespace FredroClient.UserControls
             }
         }
 
-        private void RefreshData()
-        {
-            var mailHandler = wevMails.FocusedRowHandle;
-            //var folderHandler = wevFolders.FocusedRowHandle;
-            var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
-            var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
-            gcMails.DataSource = btnInboxMails.Tag != null ? incomingMails : (btnOutboxMails != null ? outgoingMails : null);
-            //gcFolders.DataSource = new List<Folder>()
-            //    {
-            //        new Folder($"Входящие            {incomingMails.Count.ToString()}"),
-            //        new Folder($"Отправленные     {outgoingMails.Count.ToString()}"),
-            //        new Folder($"Удалённые")
-            //    };
-            wevMails.FocusedRowHandle = mailHandler;
-            //wevFolders.FocusedRowHandle = folderHandler;
-        }
-
-        private void SetResponseBodyVisibility(bool isVisible)
-        {
-            if (!isVisible) meResponseBody.Text = "";
-
-            lciResponseBody.Visibility = lciSendResponse.Visibility =
-            lciCancelResponce.Visibility = esResponseArea.Visibility = 
-                isVisible ? LayoutVisibility.Always : LayoutVisibility.Never;
-
-            meBody.SetScrollBarVisibility();
-        }
-
-        private void SetMessageButtonsVisibility(bool isVisible)
-        {
-            lciReply.Visibility = lciResend.Visibility =
-            lciRemove.Visibility = lciMove.Visibility =
-            lciAddDeal.Visibility = esMessageButtons.Visibility = 
-            esClientButtons.Visibility = isVisible ? 
-                LayoutVisibility.Always : LayoutVisibility.Never;
-        }
-
-        #region EventHandlers
-        private void OnNewMailRecieved(object sender, EventArgs e)
-        {
-            RefreshData();
-        }
-
         private void WevMails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             if (wevMails.IsDataRow(wevMails.FocusedRowHandle))
             {
                 var mail = wevMails.GetFocusedRow() as TheMail;
+                SetMailButtonsVisibility(mail.IsIncoming);
                 mail.IsRead = true;
                 _model.UpdateMail(mail);
                 labelSubject.Text = mail.Subject.Length > 60 ? mail.Subject.Substring(0, 60) + "..." : mail.Subject;
@@ -283,15 +282,6 @@ namespace FredroClient.UserControls
 
         }
         #endregion
-
-        private sealed class Folder
-        {
-            public string Caption { get; set; }
-
-            public Folder(string caption)
-            {
-                Caption = caption;
-            }
-        }
+        
     }
 }

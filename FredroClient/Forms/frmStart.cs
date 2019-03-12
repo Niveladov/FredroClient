@@ -94,7 +94,7 @@ namespace FredroClient.Forms
                 splashScreenThread.SetApartmentState(ApartmentState.STA);
                 splashScreenThread.Start();
 
-                using (var frm = new frmMails(splashForm, _creds))
+                using (var frm = new frmMain(splashForm, _creds))
                 {
                     frm.FormClosed += (s, args) => Show();
                     frm.ShowDialog();

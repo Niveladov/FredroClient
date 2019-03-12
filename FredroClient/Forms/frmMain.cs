@@ -1,10 +1,13 @@
 ﻿using FredroClient.BaseGUI;
+using FredroClient.ExtraClasses;
+using FredroDAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,11 +18,32 @@ namespace FredroClient.Forms
     {
         private FormDragger _dragger;
 
-        public frmMain()
+        public frmMain(FredroBaseXtraForm splashScreenForm, Credentials creds)
         {
-            InitializeComponent();
-            _dragger = new FormDragger();
-            InitEvents();
+            try
+            {
+                //throw new Exception("Huesos, axaxa!");
+                InitializeComponent();
+                _dragger = new FormDragger();
+                ucMails.Init(creds);
+                InitEvents();
+                InitStatusStrip();
+            }
+            catch (ServerException ex)
+            {
+                FredroMessageBox.ShowError(ex.Message);
+            }
+            finally
+            {
+                splashScreenForm?.Invoke(new Action(() => splashScreenForm.Close()));
+                splashScreenForm?.Dispose();
+            }
+        }
+
+        private void InitStatusStrip()
+        {
+            statusStrip.Items[0].Text = "Демо версия клиента Twinkle.";
+            statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
         }
 
         private void InitEvents()
@@ -28,6 +52,8 @@ namespace FredroClient.Forms
             btnScheduler.Click += OnCategoryBtnClick;
             btnAudits.Click += OnCategoryBtnClick;
             btnUser.Click += OnCategoryBtnClick;
+
+            FormClosing += FrmMails_FormClosing;
         }
 
         private void OnCategoryBtnClick(object sender, EventArgs e)
@@ -37,6 +63,21 @@ namespace FredroClient.Forms
             {
                 sidePanel.Height = btn.Height;
                 sidePanel.Top = btn.Top;
+                switch(btn.Name)
+                {
+                    case nameof(btnMails):
+                        tcgModes.SelectedTabPage = lcgMails;
+                        break;
+                    case nameof(btnScheduler):
+                        tcgModes.SelectedTabPage = lcgScheduler;
+                        break;
+                    case nameof(btnAudits):
+                        tcgModes.SelectedTabPage = lcgAudits;
+                        break;
+                    case nameof(btnUser):
+                        tcgModes.SelectedTabPage = lcgUser;
+                        break;
+                }
             }
         }
 
@@ -82,15 +123,26 @@ namespace FredroClient.Forms
             }
         }
 
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void FrmMails_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = FredroMessageBox.ShowQuestionYesNo("Вы хотите выйти?");
+            e.Cancel = (result == DialogResult.No);
+        }
+
         private class FormDragger
         {
             public bool IsDrag = false;
             public Point StartPoint = new Point(0, 0);
         }
 
-        private void btnMinimize_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            Close();
         }
     }
 }

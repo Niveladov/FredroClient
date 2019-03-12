@@ -310,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\ava_32x32.jpg" />
     <None Include="Resources\deleted_mail_16x16.png" />
     <None Include="Resources\telegram_16x16.png" />
     <None Include="Resources\inbox_16x16.png" />

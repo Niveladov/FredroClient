@@ -35,10 +35,28 @@ namespace FredroClient.Forms
         private void InitControls()
         {
             sleFrom.Properties.DataSource = _model.UserEmailBoxes;
-            sleFrom.Properties.DisplayMember = nameof(CachedEmailBox.Login);
-            sleFrom.Properties.ValueMember = nameof(CachedEmailBox.Id);
-            sleFrom.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.FromEmailBoxId),
-                true, DataSourceUpdateMode.OnPropertyChanged));
+            if (_model.UserEmailBoxes.Length > 0)
+            {
+                sleFrom.Properties.DisplayMember = nameof(CachedEmailBox.Login);
+                sleFrom.Properties.ValueMember = nameof(CachedEmailBox.Id);
+                sleFrom.Properties.PopulateViewColumns();
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.Id)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.IsDel)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.CreatedBy)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.CreationDate)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.UserId)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.User)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.EmailServerId)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.EmailServer)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.OutgoingEmailServerParamId)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.OutgoingEmailServerParam)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.IncomingEmailServerParamId)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.IncomingEmailServerParam)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.Password)].Visible = false;
+                sleFrom.Properties.View.Columns[nameof(CachedEmailBox.Login)].Caption = "Почтовый адрес";
+                sleFrom.DataBindings.Add(new Binding("EditValue", _model, nameof(_model.FromEmailBoxId),
+                        true, DataSourceUpdateMode.OnPropertyChanged));
+            }
         }
 
         private void MeBody_TextChanged(object sender, EventArgs e)
