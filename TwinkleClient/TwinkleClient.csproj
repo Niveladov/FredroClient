@@ -223,6 +223,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SchedulerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AuxiliaryUserControls\ucUserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -290,6 +295,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Views.ViewVehicle.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -312,12 +318,35 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MailService\MailService.wsdl" />
+    <None Include="Service References\SchedulerService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\SchedulerService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Service References\SchedulerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SchedulerService\configuration.svcinfo" />
+    <None Include="Service References\SchedulerService\configuration91.svcinfo" />
+    <None Include="Service References\SchedulerService\item.disco" />
     <None Include="Resources\user_account_24x24.png" />
     <None Include="Resources\night_mode_24x24.png" />
     <None Include="Resources\exit_24x24.png" />
@@ -389,6 +418,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MailService\" />
+    <WCFMetadataStorage Include="Service References\SchedulerService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwinkleDAL\TwinkleDAL.csproj">

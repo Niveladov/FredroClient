@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SchedulerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ISchedulerService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:47877/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:47877/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:47877/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Views" />
+      <xsd:import schemaLocation="http://localhost:47877/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" />
+      <xsd:import schemaLocation="http://localhost:47877/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISchedulerService_Join_InputMessage">
+    <wsdl:part name="parameters" element="tns:Join" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResources" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_AssignAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignAppointment" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_CancelAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAppointment" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_DeleteAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAppointment" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SendAssignedAppointments_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendAssignedAppointments" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SendFreeAppointments_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendFreeAppointments" />
+  </wsdl:message>
+  <wsdl:portType name="ISchedulerService">
+    <wsdl:operation name="Join">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/Join" message="tns:ISchedulerService_Join_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/GetResources" message="tns:ISchedulerService_GetResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedulerService/GetResourcesResponse" message="tns:ISchedulerService_GetResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/AssignAppointment" message="tns:ISchedulerService_AssignAppointment_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/CancelAppointment" message="tns:ISchedulerService_CancelAppointment_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/DeleteAppointment" message="tns:ISchedulerService_DeleteAppointment_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAssignedAppointments">
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedulerService/SendAssignedAppointments" message="tns:ISchedulerService_SendAssignedAppointments_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFreeAppointments">
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedulerService/SendFreeAppointments" message="tns:ISchedulerService_SendFreeAppointments_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_ISchedulerService" type="tns:ISchedulerService">
+    <wsp:PolicyReference URI="#NetTcpBinding_ISchedulerService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Join">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/Join" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetResources">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/GetResources" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignAppointment">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/AssignAppointment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAppointment">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/CancelAppointment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/DeleteAppointment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SendAssignedAppointments">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/SendAssignedAppointments" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFreeAppointments">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/SendFreeAppointments" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SchedulerService">
+    <wsdl:port name="NetTcpBinding_ISchedulerService" binding="tns:NetTcpBinding_ISchedulerService">
+      <soap12:address location="net.tcp://localhost:47878/SchedulerService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:47878/SchedulerService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>EF-01121994\Пользователь</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
