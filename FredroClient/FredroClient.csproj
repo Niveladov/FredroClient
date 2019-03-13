@@ -140,6 +140,9 @@
     <Compile Include="BaseGUI\RoundedPictureEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaseGUI\ShadowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaseGUI\ucBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +225,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AuxiliaryUserControls\ucUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AuxiliaryUserControls\ucUserInfo.Designer.cs">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucMails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -270,6 +279,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AuxiliaryUserControls\ucUserInfo.resx">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucMails.resx">
       <DependentUpon>ucMails.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +322,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\user_account_24x24.png" />
+    <None Include="Resources\night_mode_24x24.png" />
+    <None Include="Resources\exit_24x24.png" />
+    <None Include="Resources\setting_32x32.png" />
+    <None Include="Resources\circle.png" />
+    <None Include="Resources\tshadowtopright.png" />
+    <None Include="Resources\tshadowright.png" />
+    <None Include="Resources\tshadowdownright.png" />
+    <None Include="Resources\tshadowdownleft.png" />
+    <None Include="Resources\tshadowdown.png" />
     <None Include="Resources\ava_32x32.jpg" />
     <None Include="Resources\deleted_mail_16x16.png" />
     <None Include="Resources\telegram_16x16.png" />

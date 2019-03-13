@@ -45,7 +45,7 @@ namespace FredroClient.UserControls
                     InitEvents();
                     SetMailButtonsVisibility(false);
                     SetResponseBodyVisibility(false);
-                    _model.JoinToServer();
+                    //_model.JoinToServer();
                     _isInit = true;
                 }
             }

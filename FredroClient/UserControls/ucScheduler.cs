@@ -117,6 +117,19 @@ namespace FredroClient.UserControls
             return result;
         }
 
+        private void ShowDealForm(Deal deal)
+        {
+            if (deal == null)
+            {
+                FredroMessageBox.ShowError("Зделка не может быть null");
+                return;
+            }
+            using (var frm = new frmDeal(deal))
+            {
+                frm.ShowDialog();
+            }
+        }
+
         private void GvFreeDeals_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && _downHitInfo != null)
@@ -344,19 +357,6 @@ namespace FredroClient.UserControls
         private void OnOpenItemClick(object sender, EventArgs e)
         {
             ShowDealForm(_popupDeal);
-        }
-
-        private void ShowDealForm(Deal deal)
-        {
-            if (deal == null)
-            {
-                FredroMessageBox.ShowError("Зделка не может быть null");
-                return;
-            }
-            using (var frm = new frmDeal(deal))
-            {
-                frm.ShowDialog();
-            }
         }
 
         #region Appearance

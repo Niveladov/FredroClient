@@ -16,7 +16,8 @@ namespace FredroClient.Forms
 {
     internal sealed partial class frmMain : FredroBaseXtraForm
     {
-        private FormDragger _dragger;
+        private readonly FormDragger _dragger;
+        private readonly SlidePanelAgent _sliderAgent;
 
         public frmMain(FredroBaseXtraForm splashScreenForm, Credentials creds)
         {
@@ -25,6 +26,7 @@ namespace FredroClient.Forms
                 //throw new Exception("Huesos, axaxa!");
                 InitializeComponent();
                 _dragger = new FormDragger();
+                _sliderAgent = new SlidePanelAgent(ucUserInfo.Width);
                 ucMails.Init(creds);
                 InitEvents();
                 InitStatusStrip();
@@ -56,13 +58,14 @@ namespace FredroClient.Forms
             FormClosing += FrmMails_FormClosing;
         }
 
+        #region Event Handlers
         private void OnCategoryBtnClick(object sender, EventArgs e)
         {
             var btn = sender as Button;
             if (btn != null)
             {
-                sidePanel.Height = btn.Height;
-                sidePanel.Top = btn.Top;
+                focusedPanel.Height = btn.Height;
+                focusedPanel.Top = btn.Top;
                 switch(btn.Name)
                 {
                     case nameof(btnMails):
@@ -123,9 +126,58 @@ namespace FredroClient.Forms
             }
         }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (_sliderAgent.IsHidden)
+            {
+                panelSlide.Width = panelSlide.Width + 100;
+                if (panelSlide.Width >= _sliderAgent.PanelMaxWidth)
+                {
+                    timer.Stop();
+                    _sliderAgent.IsHidden = false;
+                    Refresh();
+                }
+            }
+            else
+            {
+                panelSlide.Width = panelSlide.Width - 100;
+                if (panelSlide.Width <= 0)
+                {
+                    timer.Stop();
+                    _sliderAgent.IsHidden = true;
+                    Refresh();
+                }
+            }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            timer.Start();
+        }
+
+        private void peAvatar_MouseClick(object sender, MouseEventArgs e)
+        {
+            timer.Start();
+        }
+
+        private void peAvatar_MouseDown(object sender, MouseEventArgs e)
+        {
+            peAvatar.BackColor = ColorTranslator.FromHtml("#4260b2"); //66, 96, 178
+        }
+
+        private void peAvatar_MouseUp(object sender, MouseEventArgs e)
+        {
+            peAvatar.BackColor = ColorTranslator.FromHtml("#46abdd"); //70, 171, 221
+        }
+
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void FrmMails_FormClosing(object sender, FormClosingEventArgs e)
@@ -133,16 +185,27 @@ namespace FredroClient.Forms
             var result = FredroMessageBox.ShowQuestionYesNo("Вы хотите выйти?");
             e.Cancel = (result == DialogResult.No);
         }
+        #endregion
 
+        #region Helper classes
         private class FormDragger
         {
             public bool IsDrag = false;
             public Point StartPoint = new Point(0, 0);
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private class SlidePanelAgent
         {
-            Close();
+            public int PanelMaxWidth { get; }
+            public bool IsHidden { get; set; }
+
+            public SlidePanelAgent(int panelMaxWidth)
+            {
+                PanelMaxWidth = panelMaxWidth;
+                IsHidden = true;
+            }
+
         }
+        #endregion
     }
 }
