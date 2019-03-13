@@ -9,7 +9,8 @@ using TwinkleMailService.Models.Enums;
 
 namespace TwinkleMailService
 {
-    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Multiple)]
+    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession,
+        ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class MailService : IMailService
     {
         private IMailTransferManager _mailTransferManager;
