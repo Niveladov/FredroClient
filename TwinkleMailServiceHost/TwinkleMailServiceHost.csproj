@@ -65,6 +65,10 @@
       <Project>{0bc763b2-5476-4f9b-a764-c4f1075cc11c}</Project>
       <Name>TwinkleMailService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TwinkleSchedulerService\TwinkleSchedulerService.csproj">
+      <Project>{0954284d-1193-4bb2-88d1-eac760dccc2c}</Project>
+      <Name>TwinkleSchedulerService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

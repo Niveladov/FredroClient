@@ -5,6 +5,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using TwinkleSchedulerService;
 
 namespace TwinkleMailServiceHost
 {
@@ -12,10 +13,14 @@ namespace TwinkleMailServiceHost
     {
         static void Main(string[] args)
         {
-            using (var host = new ServiceHost(typeof(MailService)))
+            using (var mailServiceHost = new ServiceHost(typeof(MailService)))
+            using (var schedulerServiceHost = new ServiceHost(typeof(SchedulerService)))
             {
-                host.Open();
-                Console.WriteLine("Host started...");
+                mailServiceHost.Open();
+                Console.WriteLine("Mailbox service host started...");
+
+                schedulerServiceHost.Open();
+                Console.WriteLine("Scheduler service host started...");
                 Console.ReadLine();
             }
         }
