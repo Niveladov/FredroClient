@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D62D7AC-093C-4F5E-8BF5-4BBD2F71BBCC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{818F485F-BC1A-4482-9872-E4C3762C866E}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FredroMailServiceHost</RootNamespace>
-    <AssemblyName>FredroMailServiceHost</AssemblyName>
+    <RootNamespace>TwinkleDAL</RootNamespace>
+    <AssemblyName>TwinkleDAL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -44,7 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,19 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Models\Contexts\FredroDbContext.cs" />
+    <Compile Include="Models\Credentials.cs" />
+    <Compile Include="Models\DatabaseObjectModels\DbObjectBaseModel.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\CachedEmailBox.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Customer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServerParam.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryTripType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryVehicleType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\TheMail.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\User.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Vehicle.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Views\ViewAssignedDeal.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Views\ViewVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FredroMailService\TwinkleMailService.csproj">
-      <Project>{0bc763b2-5476-4f9b-a764-c4f1075cc11c}</Project>
-      <Name>TwinkleMailService</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

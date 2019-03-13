@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels.Tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:47887/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:47887/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" />
   <xs:complexType name="TheMail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels" base="q1:DbObjectBaseModel">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" base="q1:DbObjectBaseModel">
         <xs:sequence>
           <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ChachedEmailBoxId" nillable="true" type="xs:int" />
@@ -34,7 +34,7 @@
   <xs:element name="ArrayOfCachedEmailBox" nillable="true" type="tns:ArrayOfCachedEmailBox" />
   <xs:complexType name="CachedEmailBox">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/FredroDAL.Models.DatabaseObjectModels" base="q2:DbObjectBaseModel">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" base="q2:DbObjectBaseModel">
         <xs:sequence>
           <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />

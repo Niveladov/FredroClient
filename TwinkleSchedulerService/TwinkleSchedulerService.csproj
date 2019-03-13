@@ -51,7 +51,7 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FredroDAL\TwinkleDAL.csproj">
+    <ProjectReference Include="..\TwinkleDAL\TwinkleDAL.csproj">
       <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
       <Name>TwinkleDAL</Name>
     </ProjectReference>

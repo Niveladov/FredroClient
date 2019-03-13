@@ -7,11 +7,12 @@
     <ProjectGuid>{567987CB-35DB-4385-B6DB-3BEB4D5C0340}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FredroClient</RootNamespace>
-    <AssemblyName>FredroClient</AssemblyName>
+    <RootNamespace>TwinkleClient</RootNamespace>
+    <AssemblyName>TwinkleClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -289,9 +289,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
-    <None Include="Properties\DataSources\FredroDAL.Models.DatabaseObjectModels.Tables.TheMail.datasource" />
-    <None Include="Properties\DataSources\FredroDAL.Models.DatabaseObjectModels.Tables.TheMessage.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -377,7 +375,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 и x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -390,13 +388,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FredroDAL\TwinkleDAL.csproj">
+    <WCFMetadataStorage Include="Service References\MailService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TwinkleDAL\TwinkleDAL.csproj">
       <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
       <Name>TwinkleDAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\MailService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
