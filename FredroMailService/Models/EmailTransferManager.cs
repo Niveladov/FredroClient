@@ -1,5 +1,5 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroMailService.ExtraClasses;
+﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleMailService.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroMailService.Models.Enums
+namespace TwinkleMailService.Models.Enums
 {
     internal interface IMailTransferManager
     {

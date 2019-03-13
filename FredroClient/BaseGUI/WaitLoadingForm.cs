@@ -8,9 +8,9 @@ using System.Windows.Forms;
 using DevExpress.XtraWaitForm;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
-using FredroClient.Properties;
+using TwinkleClient.Properties;
 
-namespace FredroClient.BaseGUI
+namespace TwinkleClient.BaseGUI
 {
     internal sealed partial class WaitLoadingForm : WaitForm
     {

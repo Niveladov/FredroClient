@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0BC763B2-5476-4F9B-A764-C4F1075CC11C}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{3D62D7AC-093C-4F5E-8BF5-4BBD2F71BBCC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FredroMailService</RootNamespace>
-    <AssemblyName>FredroMailService</AssemblyName>
+    <RootNamespace>FredroMailServiceHost</RootNamespace>
+    <AssemblyName>FredroMailServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,17 +41,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="OpenPop, Version=2.0.6.1120, Culture=neutral, PublicKeyToken=6bdb97f144b7efc8, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenPop.NET.2.0.6.1120\lib\net40\OpenPop.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IdentityModel.Selectors" />
-    <Reference Include="System.identitymodel.services" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,31 +53,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\FredroValidator.cs" />
-    <Compile Include="ExtraClasses\CustomAttributes.cs" />
-    <Compile Include="ExtraClasses\FredroHelper.cs" />
-    <Compile Include="ExtraClasses\MethodExtensions.cs" />
-    <Compile Include="ExtraClasses\SessionContext.cs" />
-    <Compile Include="IMailService.cs" />
-    <Compile Include="MailService.cs" />
-    <Compile Include="Models\EmailDeliveryManager.cs" />
-    <Compile Include="Models\DbDataManager.cs" />
-    <Compile Include="Models\EmailTransferManager.cs" />
-    <Compile Include="Models\Enums\Server.cs" />
-    <Compile Include="Models\Protocols.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FredroDAL\FredroDAL.csproj">
-      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
-      <Name>FredroDAL</Name>
+    <ProjectReference Include="..\FredroMailService\TwinkleMailService.csproj">
+      <Project>{0bc763b2-5476-4f9b-a764-c4f1075cc11c}</Project>
+      <Name>TwinkleMailService</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

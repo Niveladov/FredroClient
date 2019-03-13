@@ -1,11 +1,11 @@
-﻿using FredroMailService.ExtraClasses;
+﻿using TwinkleMailService.ExtraClasses;
 using System;
 using System.IdentityModel.Selectors;
 using System.IdentityModel.Tokens;
 
-namespace FredroMailService.Authentication
+namespace TwinkleMailService.Authentication
 {
-    internal class FredroValidator : UserNamePasswordValidator
+    internal class TwinkleValidator : UserNamePasswordValidator
     {
         public override void Validate(string userName, string password)
         {

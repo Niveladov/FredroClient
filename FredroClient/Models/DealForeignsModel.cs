@@ -1,6 +1,6 @@
-﻿using FredroClient.ExtraClasses;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+﻿using TwinkleClient.ExtraClasses;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroClient.Models
+namespace TwinkleClient.Models
 {
     internal sealed class DealForeignsModel
     {
@@ -19,20 +19,20 @@ namespace FredroClient.Models
 
         public DealForeignsModel()
         {
-            Vehicles = FredroHelper.GetAllVehicles();
-            Customers = FredroHelper.GetAllCustomers();
-            Performers = FredroHelper.GetAllPerformes();
-            TripTypes = FredroHelper.GetAllTripTypes();
+            Vehicles = TwinkleHelper.GetAllVehicles();
+            Customers = TwinkleHelper.GetAllCustomers();
+            Performers = TwinkleHelper.GetAllPerformes();
+            TripTypes = TwinkleHelper.GetAllTripTypes();
         }
 
         public void RefreshPerformers()
         {
-            Performers = FredroHelper.GetAllPerformes();
+            Performers = TwinkleHelper.GetAllPerformes();
         }
 
         public void RefreshCustomers()
         {
-            Customers = FredroHelper.GetAllCustomers();
+            Customers = TwinkleHelper.GetAllCustomers();
         }
 
 

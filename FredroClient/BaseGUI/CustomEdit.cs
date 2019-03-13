@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroClient.BaseGUI
+namespace TwinkleClient.BaseGUI
 {
     //The attribute that points to the registration method
     [UserRepositoryItem("RegisterCustomEdit")]

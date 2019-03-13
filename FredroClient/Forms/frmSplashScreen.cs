@@ -1,4 +1,4 @@
-﻿using FredroClient.BaseGUI;
+﻿using TwinkleClient.BaseGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.Forms
+namespace TwinkleClient.Forms
 {
-    internal sealed partial class frmSplashScreen : FredroBaseXtraForm
+    internal sealed partial class frmSplashScreen : TwinkleBaseXtraForm
     {
         public frmSplashScreen()
         {

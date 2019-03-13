@@ -1,4 +1,4 @@
-﻿namespace FredroClient.Forms
+﻿namespace TwinkleClient.Forms
 {
     sealed partial class frmSendNew
     {

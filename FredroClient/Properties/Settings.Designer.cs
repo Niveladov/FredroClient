@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FredroClient.Properties
+namespace TwinkleClient.Properties
 {
 
 

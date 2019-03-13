@@ -1,6 +1,6 @@
-﻿using FredroClient.BaseGUI;
-using FredroClient.ExtraClasses;
-using FredroClient.Models;
+﻿using TwinkleClient.BaseGUI;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.Forms
+namespace TwinkleClient.Forms
 {
-    internal partial class frmPerformer : FredroBaseXtraForm
+    internal partial class frmPerformer : TwinkleBaseXtraForm
     {
         private readonly PerformerModel _performerModel;
 
@@ -41,12 +41,12 @@ namespace FredroClient.Forms
             try
             {
                 await _performerModel.Save();
-                FredroMessageBox.ShowSucces("Исполнитель успешно сохранен!");
+                TwinkleMessageBox.ShowSucces("Исполнитель успешно сохранен!");
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError($"Исполнитель не сохранен! {ex.Message}");
+                TwinkleMessageBox.ShowError($"Исполнитель не сохранен! {ex.Message}");
             }
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using FredroDAL.Models.DatabaseObjectModels.Views;
+using TwinkleDAL.Models.DatabaseObjectModels.Views;
 
 namespace TwinkleSchedulerService
 {

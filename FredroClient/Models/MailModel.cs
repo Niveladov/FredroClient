@@ -1,8 +1,8 @@
 ﻿using DevExpress.XtraEditors;
-using FredroClient.ExtraClasses;
-using FredroClient.MailService;
-using FredroDAL.Models;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.MailService;
+using TwinkleDAL.Models;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.Models
+namespace TwinkleClient.Models
 {
     internal sealed class MailModel : IMailServiceCallback
     {
@@ -81,7 +81,7 @@ namespace FredroClient.Models
             }
             catch (FaultException ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 ServiceClient.Abort();
             }
         }
@@ -94,7 +94,7 @@ namespace FredroClient.Models
             }
             catch (FaultException ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 ServiceClient.Abort();
             }
         }

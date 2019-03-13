@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace FredroDAL.Models.DatabaseObjectModels.Views
+namespace TwinkleDAL.Models.DatabaseObjectModels.Views
 {
     [DataContract]
     public sealed class ViewAssignedDeal : DbObjectBaseModel

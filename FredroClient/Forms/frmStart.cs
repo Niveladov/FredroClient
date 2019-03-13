@@ -2,10 +2,10 @@
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using FredroClient.BaseGUI;
-using FredroClient.ExtraClasses;
-using FredroClient.Models;
-using FredroDAL.Models;
+using TwinkleClient.BaseGUI;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.Models;
+using TwinkleDAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,9 +16,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.Forms
+namespace TwinkleClient.Forms
 {
-    internal sealed partial class frmStart : FredroBaseXtraForm
+    internal sealed partial class frmStart : TwinkleBaseXtraForm
     {
         private readonly Credentials _creds;
         private bool _isEnterPressed;

@@ -1,4 +1,4 @@
-﻿using FredroMailService;
+﻿using TwinkleMailService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroMailServiceHost
+namespace TwinkleMailServiceHost
 {
     class Program
     {

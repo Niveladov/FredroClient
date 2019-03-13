@@ -1,8 +1,8 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Runtime.Serialization;
 
-namespace FredroDAL.Models.DatabaseObjectModels.Tables
+namespace TwinkleDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
     public sealed class CachedEmailBox : DbObjectBaseModel

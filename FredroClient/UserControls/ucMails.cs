@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FredroClient.Models;
+using TwinkleClient.Models;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.Utils.Drawing;
 using DevExpress.XtraLayout.Utils;
-using FredroClient.ExtraClasses;
+using TwinkleClient.ExtraClasses;
 using System.Globalization;
-using FredroClient.Forms;
-using FredroClient.BaseGUI;
+using TwinkleClient.Forms;
+using TwinkleClient.BaseGUI;
 using DevExpress.XtraEditors;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models;
 using System.Runtime.Remoting;
 
-namespace FredroClient.UserControls
+namespace TwinkleClient.UserControls
 {
     internal sealed partial class ucMails : ucBase
     {
@@ -55,7 +55,7 @@ namespace FredroClient.UserControls
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
             }
         }
 
@@ -248,19 +248,19 @@ namespace FredroClient.UserControls
 
                     _model.SendMail(responseMail);
 
-                    FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    TwinkleMessageBox.ShowSucces("Письмо отправлено!");
 
                     meResponseBody.Text = "";
                     SetResponseBodyVisibility(false);
                 }
                 catch (Exception ex)
                 {
-                    FredroMessageBox.ShowError($"Ответ не отправлен! {ex.Message}");
+                    TwinkleMessageBox.ShowError($"Ответ не отправлен! {ex.Message}");
                 }
             }
             else
             {
-                FredroMessageBox.ShowError("Нельзя отправить пустой ответ!");
+                TwinkleMessageBox.ShowError("Нельзя отправить пустой ответ!");
             }
         }
 

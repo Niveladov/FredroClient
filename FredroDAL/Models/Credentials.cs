@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroDAL.Models
+namespace TwinkleDAL.Models
 {
     public sealed class Credentials
     {

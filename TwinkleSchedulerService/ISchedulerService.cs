@@ -1,5 +1,5 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models.DatabaseObjectModels.Views;
+﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

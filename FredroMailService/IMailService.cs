@@ -1,4 +1,4 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
+﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroMailService
+namespace TwinkleMailService
 {
     [ServiceContract(CallbackContract = typeof(IMailCallback))]
     public interface IMailService

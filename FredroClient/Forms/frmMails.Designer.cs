@@ -1,4 +1,4 @@
-﻿namespace FredroClient.Forms
+﻿namespace TwinkleClient.Forms
 {
     partial class frmMails
     {
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ucMails = new FredroClient.UserControls.ucMails();
+            this.ucMails = new TwinkleClient.UserControls.ucMails();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tcgModes = new DevExpress.XtraLayout.TabbedControlGroup();
             this.lcgMails = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciMails = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgScheduler = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ucScheduler = new FredroClient.UserControls.ucScheduler();
+            this.ucScheduler = new TwinkleClient.UserControls.ucScheduler();
             this.lciScheduler = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();

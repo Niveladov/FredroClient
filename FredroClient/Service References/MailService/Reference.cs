@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FredroClient.MailService {
+namespace TwinkleClient.MailService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MailService.IMailService", CallbackContract=typeof(FredroClient.MailService.IMailServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MailService.IMailService", CallbackContract=typeof(TwinkleClient.MailService.IMailServiceCallback))]
     public interface IMailService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/Join")]
@@ -22,16 +22,16 @@ namespace FredroClient.MailService {
         System.Threading.Tasks.Task JoinAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
-        void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        void SendMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
-        System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        System.Threading.Tasks.Task SendMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/UpdateMail")]
-        void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        void UpdateMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/UpdateMail")]
-        System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        System.Threading.Tasks.Task UpdateMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/RemoveMail")]
         void RemoveMail(string Id);
@@ -40,26 +40,26 @@ namespace FredroClient.MailService {
         System.Threading.Tasks.Task RemoveMailAsync(string Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetUserEmailBoxes", ReplyAction="http://tempuri.org/IMailService/GetUserEmailBoxesResponse")]
-        FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes();
+        TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetUserEmailBoxes", ReplyAction="http://tempuri.org/IMailService/GetUserEmailBoxesResponse")]
-        System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync();
+        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMailServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/SendNewMails")]
-        void SendNewMails(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
+        void SendNewMails(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMailServiceChannel : FredroClient.MailService.IMailService, System.ServiceModel.IClientChannel {
+    public interface IMailServiceChannel : TwinkleClient.MailService.IMailService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MailServiceClient : System.ServiceModel.DuplexClientBase<FredroClient.MailService.IMailService>, FredroClient.MailService.IMailService {
+    public partial class MailServiceClient : System.ServiceModel.DuplexClientBase<TwinkleClient.MailService.IMailService>, TwinkleClient.MailService.IMailService {
         
         public MailServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -89,19 +89,19 @@ namespace FredroClient.MailService {
             return base.Channel.JoinAsync();
         }
         
-        public void SendMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public void SendMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             base.Channel.SendMail(mail);
         }
         
-        public System.Threading.Tasks.Task SendMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public System.Threading.Tasks.Task SendMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             return base.Channel.SendMailAsync(mail);
         }
         
-        public void UpdateMail(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public void UpdateMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             base.Channel.UpdateMail(mail);
         }
         
-        public System.Threading.Tasks.Task UpdateMailAsync(FredroDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public System.Threading.Tasks.Task UpdateMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             return base.Channel.UpdateMailAsync(mail);
         }
         
@@ -113,11 +113,11 @@ namespace FredroClient.MailService {
             return base.Channel.RemoveMailAsync(Id);
         }
         
-        public FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes() {
+        public TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes() {
             return base.Channel.GetUserEmailBoxes();
         }
         
-        public System.Threading.Tasks.Task<FredroDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync() {
+        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync() {
             return base.Channel.GetUserEmailBoxesAsync();
         }
     }

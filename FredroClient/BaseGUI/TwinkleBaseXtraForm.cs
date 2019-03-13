@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using FredroClient.ExtraClasses;
+using TwinkleClient.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,13 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.BaseGUI
+namespace TwinkleClient.BaseGUI
 {
-    internal partial class FredroBaseXtraForm : XtraForm
+    internal partial class TwinkleBaseXtraForm : XtraForm
     {
         protected WaitingHelper waitingHelper = null;
 
-        public FredroBaseXtraForm()
+        public TwinkleBaseXtraForm()
         {
             InitializeComponent();
         }

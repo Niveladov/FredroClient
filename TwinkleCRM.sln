@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FredroClient", "FredroClient\FredroClient.csproj", "{567987CB-35DB-4385-B6DB-3BEB4D5C0340}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinkleClient", "FredroClient\TwinkleClient.csproj", "{567987CB-35DB-4385-B6DB-3BEB4D5C0340}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FredroDAL", "FredroDAL\FredroDAL.csproj", "{818F485F-BC1A-4482-9872-E4C3762C866E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinkleDAL", "FredroDAL\TwinkleDAL.csproj", "{818F485F-BC1A-4482-9872-E4C3762C866E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FredroMailService", "FredroMailService\FredroMailService.csproj", "{0BC763B2-5476-4F9B-A764-C4F1075CC11C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinkleMailService", "FredroMailService\TwinkleMailService.csproj", "{0BC763B2-5476-4F9B-A764-C4F1075CC11C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FredroMailServiceHost", "FredroMailServiceHost\FredroMailServiceHost.csproj", "{3D62D7AC-093C-4F5E-8BF5-4BBD2F71BBCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinkleMailServiceHost", "FredroMailServiceHost\TwinkleMailServiceHost.csproj", "{3D62D7AC-093C-4F5E-8BF5-4BBD2F71BBCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinkleSchedulerService", "TwinkleSchedulerService\TwinkleSchedulerService.csproj", "{0954284D-1193-4BB2-88D1-EAC760DCCC2C}"
 EndProject

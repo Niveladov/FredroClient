@@ -1,6 +1,6 @@
-﻿using FredroClient.BaseGUI;
-using FredroClient.ExtraClasses;
-using FredroClient.Models;
+﻿using TwinkleClient.BaseGUI;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.Forms
+namespace TwinkleClient.Forms
 {
-    internal partial class frmCustomer : FredroBaseXtraForm
+    internal partial class frmCustomer : TwinkleBaseXtraForm
     {
         private readonly CustomerModel _customerModel;
 
@@ -41,12 +41,12 @@ namespace FredroClient.Forms
             try
             {
                 await _customerModel.Save();
-                FredroMessageBox.ShowSucces("Заказчик успешно сохранен!");
+                TwinkleMessageBox.ShowSucces("Заказчик успешно сохранен!");
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError($"Заказчик не сохранен! {ex.Message}");
+                TwinkleMessageBox.ShowError($"Заказчик не сохранен! {ex.Message}");
             }
         }
 

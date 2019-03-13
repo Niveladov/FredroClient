@@ -1,20 +1,20 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
-using FredroClient.BaseGUI;
-using FredroClient.ExtraClasses;
-using FredroClient.MailService;
-using FredroClient.Models;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleClient.BaseGUI;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.MailService;
+using TwinkleClient.Models;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace FredroClient.Forms
+namespace TwinkleClient.Forms
 {
-    internal sealed partial class frmSendNew : FredroBaseXtraForm
+    internal sealed partial class frmSendNew : TwinkleBaseXtraForm
     {
         private NewMailModel _model;
 
@@ -82,11 +82,11 @@ namespace FredroClient.Forms
 
                     _model.SendMail(responseMail);
 
-                    FredroMessageBox.ShowSucces("Письмо отправлено!");
+                    TwinkleMessageBox.ShowSucces("Письмо отправлено!");
                 }
                 catch (Exception ex)
                 {
-                    FredroMessageBox.ShowError($"Письмо не отправлено! {ex.Message}");
+                    TwinkleMessageBox.ShowError($"Письмо не отправлено! {ex.Message}");
                 }
                 finally
                 {
@@ -99,7 +99,7 @@ namespace FredroClient.Forms
             }
             else
             {
-                FredroMessageBox.ShowError("Нельзя отправить пустое сообщение!");
+                TwinkleMessageBox.ShowError("Нельзя отправить пустое сообщение!");
             }
         }
         

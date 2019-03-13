@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraSplashScreen;
-using FredroClient.BaseGUI;
+using TwinkleClient.BaseGUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.ExtraClasses
+namespace TwinkleClient.ExtraClasses
 {
     internal sealed class WaitingHelper
     {

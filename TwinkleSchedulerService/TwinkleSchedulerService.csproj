@@ -51,9 +51,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FredroDAL\FredroDAL.csproj">
+    <ProjectReference Include="..\FredroDAL\TwinkleDAL.csproj">
       <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
-      <Name>FredroDAL</Name>
+      <Name>TwinkleDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

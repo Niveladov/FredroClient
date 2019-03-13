@@ -1,7 +1,7 @@
-﻿using FredroClient.BaseGUI;
-using FredroClient.ExtraClasses;
-using FredroClient.Models;
-using FredroDAL.Models;
+﻿using TwinkleClient.BaseGUI;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.Models;
+using TwinkleDAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +14,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.Forms
+namespace TwinkleClient.Forms
 {
-    internal sealed partial class frmMails : FredroBaseXtraForm
+    internal sealed partial class frmMails : TwinkleBaseXtraForm
     {
-        public frmMails(FredroBaseXtraForm splashScreenForm, Credentials creds)
+        public frmMails(TwinkleBaseXtraForm splashScreenForm, Credentials creds)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace FredroClient.Forms
             }
             catch (ServerException ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
             }
             finally
             {
@@ -58,7 +58,7 @@ namespace FredroClient.Forms
 
         private void FrmMails_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = FredroMessageBox.ShowQuestionYesNo("Вы хотите выйти?");
+            var result = TwinkleMessageBox.ShowQuestionYesNo("Вы хотите выйти?");
             e.Cancel = (result == DialogResult.No);
         }
 

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroClient.BaseGUI
+namespace TwinkleClient.BaseGUI
 {
     [ToolboxItem(true)]
     public class RoundedPictureEdit : PictureEdit

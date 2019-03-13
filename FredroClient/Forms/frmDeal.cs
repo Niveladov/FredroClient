@@ -3,11 +3,11 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraLayout.Utils;
-using FredroClient.BaseGUI;
-using FredroClient.ExtraClasses;
-using FredroClient.Models;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinkleClient.BaseGUI;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.Models;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +18,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.Forms
+namespace TwinkleClient.Forms
 {
-    internal sealed partial class frmDeal : FredroBaseXtraForm
+    internal sealed partial class frmDeal : TwinkleBaseXtraForm
     {
         private readonly DealModel _dealModel;
         private readonly DealForeignsModel _loadingModel;
@@ -184,12 +184,12 @@ namespace FredroClient.Forms
             try
             {
                 await _dealModel.Save();
-                FredroMessageBox.ShowSucces("Заяка(сделка) успешно сохранена!");
+                TwinkleMessageBox.ShowSucces("Заяка(сделка) успешно сохранена!");
                 Close();
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError($"Заяка(сделка) не сохранена! {ex.Message}");
+                TwinkleMessageBox.ShowError($"Заяка(сделка) не сохранена! {ex.Message}");
             }
         }
 

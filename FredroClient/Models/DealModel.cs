@@ -1,8 +1,8 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
+﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Threading.Tasks;
 
-namespace FredroClient.Models
+namespace TwinkleClient.Models
 {
     internal sealed class DealModel
     {

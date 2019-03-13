@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace FredroDAL.Models.DatabaseObjectModels.Tables
+namespace TwinkleDAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
     public sealed class User : DbObjectBaseModel

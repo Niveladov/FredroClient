@@ -1,7 +1,7 @@
-﻿using FredroDAL.Models.Contexts;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
-using FredroDAL.Models.DatabaseObjectModels.Views;
+﻿using TwinkleDAL.Models.Contexts;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinkleDAL.Models.DatabaseObjectModels.Views;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
@@ -18,9 +18,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace FredroClient.ExtraClasses
+namespace TwinkleClient.ExtraClasses
 {
-    internal static class FredroHelper
+    internal static class TwinkleHelper
     {
         //internal static async void SaveNewMessages(List<TheMail> allMails)
         //{
@@ -48,7 +48,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<ViewVehicle> viewVehicles = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.ViewVehicles.Load();
                     viewVehicles = db.ViewVehicles.Local.ToBindingList();
@@ -57,7 +57,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -68,7 +68,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Vehicle> vehicles = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.Vehicles.Load();
                     vehicles = db.Vehicles.Local.ToBindingList();
@@ -77,7 +77,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -88,7 +88,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Deal> deals = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.Deals.Load();
                     deals = db.Deals.Local.ToBindingList();
@@ -97,7 +97,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -108,7 +108,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<ViewAssignedDeal> viewVehicles = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.ViewAssignedDeals.Load();
                     viewVehicles = db.ViewAssignedDeals.Local.ToBindingList();
@@ -117,7 +117,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -128,7 +128,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 Deal deal = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     deal = db.Deals.Find(dealId);
                 }
@@ -136,7 +136,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -147,7 +147,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 ViewAssignedDeal deal = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     deal = db.ViewAssignedDeals.Find(dealId);
                 }
@@ -155,7 +155,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -166,7 +166,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 List<Deal> deals = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.Deals.Load();
                     deals = db.Deals.Where(x => x.VehicleId != null).ToList();
@@ -175,7 +175,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -186,7 +186,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 List<Deal> deals = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.Deals.Load();
                     deals = db.Deals.Where(x => x.VehicleId == null).ToList();
@@ -195,7 +195,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -206,7 +206,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Customer> deals = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.Customers.Load();
                     deals = db.Customers.Local.ToBindingList();
@@ -215,7 +215,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -226,7 +226,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<Performer> deals = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.Performers.Load();
                     deals = db.Performers.Local.ToBindingList();
@@ -235,7 +235,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }
@@ -246,7 +246,7 @@ namespace FredroClient.ExtraClasses
             try
             {
                 BindingList<DictionaryTripType> deals = null;
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     db.TripTypes.Load();
                     deals = db.TripTypes.Local.ToBindingList();
@@ -255,7 +255,7 @@ namespace FredroClient.ExtraClasses
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError(ex.Message);
+                TwinkleMessageBox.ShowError(ex.Message);
                 return null;
                 throw ex;
             }

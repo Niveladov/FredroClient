@@ -1,6 +1,6 @@
-﻿namespace FredroClient.BaseGUI
+﻿namespace TwinkleClient.BaseGUI
 {
-    partial class FredroBaseXtraForm
+    partial class TwinkleBaseXtraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FredroBaseXtraForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TwinkleBaseXtraForm));
             this.SuspendLayout();
             // 
             // FredroBaseXtraForm

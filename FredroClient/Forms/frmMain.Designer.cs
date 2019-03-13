@@ -1,4 +1,4 @@
-﻿namespace FredroClient.Forms
+﻿namespace TwinkleClient.Forms
 {
     partial class frmMain
     {
@@ -41,10 +41,10 @@
             this.peAvatar = new DevExpress.XtraEditors.PictureEdit();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.labelCaption = new DevExpress.XtraEditors.LabelControl();
-            this.search = new FredroClient.BaseGUI.CustomEdit();
+            this.search = new TwinkleClient.BaseGUI.CustomEdit();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ucScheduler = new FredroClient.UserControls.ucScheduler();
-            this.ucMails = new FredroClient.UserControls.ucMails();
+            this.ucScheduler = new TwinkleClient.UserControls.ucScheduler();
+            this.ucMails = new TwinkleClient.UserControls.ucMails();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tcgModes = new DevExpress.XtraLayout.TabbedControlGroup();
             this.lcgMails = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -61,7 +61,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNightMode = new System.Windows.Forms.Button();
             this.btnChangeAccount = new System.Windows.Forms.Button();
-            this.ucUserInfo = new FredroClient.UserControls.AuxiliaryUserControls.ucUserInfo();
+            this.ucUserInfo = new TwinkleClient.UserControls.AuxiliaryUserControls.ucUserInfo();
             ((System.ComponentModel.ISupportInitialize)(this.panelLeft)).BeginInit();
             this.panelLeft.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -101,7 +101,7 @@
             this.btnAudits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAudits.FlatAppearance.BorderSize = 0;
             this.btnAudits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAudits.Image = global::FredroClient.Properties.Resources.blue_audit_32x32;
+            this.btnAudits.Image = global::TwinkleClient.Properties.Resources.blue_audit_32x32;
             this.btnAudits.Location = new System.Drawing.Point(6, 370);
             this.btnAudits.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAudits.Name = "btnAudits";
@@ -125,7 +125,7 @@
             this.btnMails.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMails.FlatAppearance.BorderSize = 0;
             this.btnMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMails.Image = global::FredroClient.Properties.Resources.blue_email_32x32;
+            this.btnMails.Image = global::TwinkleClient.Properties.Resources.blue_email_32x32;
             this.btnMails.Location = new System.Drawing.Point(6, 213);
             this.btnMails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMails.Name = "btnMails";
@@ -139,7 +139,7 @@
             this.btnScheduler.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnScheduler.FlatAppearance.BorderSize = 0;
             this.btnScheduler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScheduler.Image = global::FredroClient.Properties.Resources.blue_calendar_32x32;
+            this.btnScheduler.Image = global::TwinkleClient.Properties.Resources.blue_calendar_32x32;
             this.btnScheduler.Location = new System.Drawing.Point(6, 292);
             this.btnScheduler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnScheduler.Name = "btnScheduler";
@@ -153,7 +153,7 @@
             this.btnUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUser.FlatAppearance.BorderSize = 0;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.Image = global::FredroClient.Properties.Resources.blue_user_32x32;
+            this.btnUser.Image = global::TwinkleClient.Properties.Resources.blue_user_32x32;
             this.btnUser.Location = new System.Drawing.Point(6, 450);
             this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUser.Name = "btnUser";
@@ -179,7 +179,7 @@
             // 
             this.peAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.peAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.peAvatar.EditValue = global::FredroClient.Properties.Resources.circle;
+            this.peAvatar.EditValue = global::TwinkleClient.Properties.Resources.circle;
             this.peAvatar.Location = new System.Drawing.Point(878, 0);
             this.peAvatar.MaximumSize = new System.Drawing.Size(49, 49);
             this.peAvatar.MinimumSize = new System.Drawing.Size(49, 49);
@@ -419,7 +419,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Image = global::FredroClient.Properties.Resources.exit_24x24;
+            this.btnExit.Image = global::TwinkleClient.Properties.Resources.exit_24x24;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(0, 222);
             this.btnExit.Name = "btnExit";
@@ -440,7 +440,7 @@
             this.btnNightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNightMode.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNightMode.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNightMode.Image = global::FredroClient.Properties.Resources.night_mode_24x24;
+            this.btnNightMode.Image = global::TwinkleClient.Properties.Resources.night_mode_24x24;
             this.btnNightMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNightMode.Location = new System.Drawing.Point(0, 169);
             this.btnNightMode.Name = "btnNightMode";
@@ -460,7 +460,7 @@
             this.btnChangeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeAccount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnChangeAccount.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnChangeAccount.Image = global::FredroClient.Properties.Resources.user_account_24x24;
+            this.btnChangeAccount.Image = global::TwinkleClient.Properties.Resources.user_account_24x24;
             this.btnChangeAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChangeAccount.Location = new System.Drawing.Point(0, 116);
             this.btnChangeAccount.Name = "btnChangeAccount";

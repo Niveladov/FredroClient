@@ -1,6 +1,6 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
-using FredroDAL.Models.DatabaseObjectModels.Views;
+﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinkleDAL.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroDAL.Models.Contexts
+namespace TwinkleDAL.Models.Contexts
 {
-    public sealed class FredroDbContext : DbContext
+    public sealed class TwinkleDbContext : DbContext
     {
-        public FredroDbContext() : base("FredroDbConnection") { }
+        public TwinkleDbContext() : base("TwinkleDbConnection") { }
 
         #region Simple tables
         public DbSet<CachedEmailBox> CachedEmailBoxes { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace FredroClient.Forms
+﻿namespace TwinkleClient.Forms
 {
     partial class frmCustomer
     {

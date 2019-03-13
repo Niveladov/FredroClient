@@ -1,8 +1,8 @@
-﻿using FredroDAL.Models.Contexts;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models;
-using FredroMailService.ExtraClasses;
-using FredroMailService.Models.Enums;
+﻿using TwinkleDAL.Models.Contexts;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models;
+using TwinkleMailService.ExtraClasses;
+using TwinkleMailService.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,9 +13,9 @@ using System.ServiceModel;
 using System.Threading;
 using OpenPop.Pop3;
 using OpenPop.Mime;
-using FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
-namespace FredroMailService.Models
+namespace TwinkleMailService.Models
 {
     internal interface IMailDeliveryManager
     {

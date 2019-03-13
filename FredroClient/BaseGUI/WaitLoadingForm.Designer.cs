@@ -1,4 +1,4 @@
-﻿namespace FredroClient.BaseGUI
+﻿namespace TwinkleClient.BaseGUI
 {
     sealed partial class WaitLoadingForm
     {

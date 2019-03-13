@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace FredroDAL.Models.DatabaseObjectModels.Tables.Dictionaries
+namespace TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
     public class DictionaryEmailServer : DbObjectBaseModel

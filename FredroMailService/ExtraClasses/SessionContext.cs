@@ -1,5 +1,5 @@
-﻿using FredroDAL.Models.Contexts;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
+﻿using TwinkleDAL.Models.Contexts;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FredroMailService.ExtraClasses
+namespace TwinkleMailService.ExtraClasses
 {
     internal sealed class SessionContext
     {
@@ -20,7 +20,7 @@ namespace FredroMailService.ExtraClasses
         {
             try
             {
-                using (var db = new FredroDbContext())
+                using (var db = new TwinkleDbContext())
                 {
                     CurrentUser = db.Users.Include(x => x.ChachedEmailBoxes.Select(s => s.IncomingEmailServerParam))
                                           .Include(x => x.ChachedEmailBoxes.Select(s => s.OutgoingEmailServerParam))

@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace FredroDAL.Models.DatabaseObjectModels
+namespace TwinkleDAL.Models.DatabaseObjectModels
 {
     [DataContract]
     public class DbObjectBaseModel : INotifyPropertyChanged

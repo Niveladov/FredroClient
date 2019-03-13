@@ -1,13 +1,13 @@
-﻿using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroMailService.Models;
+﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleMailService.Models;
 using System.Collections.Generic;
 using System.ServiceModel;
-using FredroMailService.ExtraClasses;
+using TwinkleMailService.ExtraClasses;
 using System;
 using System.Threading;
-using FredroMailService.Models.Enums;
+using TwinkleMailService.Models.Enums;
 
-namespace FredroMailService
+namespace TwinkleMailService
 {
     [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class MailService : IMailService

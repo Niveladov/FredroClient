@@ -7,22 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FredroClient.ExtraClasses;
-using FredroClient.Models;
+using TwinkleClient.ExtraClasses;
+using TwinkleClient.Models;
 using DevExpress.XtraScheduler;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraScheduler.Native;
 using DevExpress.XtraScheduler.Services;
-using FredroClient.BaseGUI;
+using TwinkleClient.BaseGUI;
 using DevExpress.Utils;
 using DevExpress.XtraScheduler.Drawing;
-using FredroClient.Forms;
-using FredroDAL.Models.DatabaseObjectModels.Tables;
-using FredroDAL.Models.DatabaseObjectModels.Views;
-using FredroDAL.Models.Contexts;
+using TwinkleClient.Forms;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinkleDAL.Models.DatabaseObjectModels.Views;
+using TwinkleDAL.Models.Contexts;
 
-namespace FredroClient.UserControls
+namespace TwinkleClient.UserControls
 {
     public partial class ucScheduler : ucBase
     {
@@ -74,12 +74,12 @@ namespace FredroClient.UserControls
 
         private void InitSchedulers()
         {
-            storageMain.Resources.DataSource = FredroHelper.GetAllViewVehicles();
+            storageMain.Resources.DataSource = TwinkleHelper.GetAllViewVehicles();
             storageMain.Resources.Mappings.Id = nameof(ViewVehicle.Id);
             storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
             storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
 
-            storageMain.Appointments.DataSource = FredroHelper.GetAllViewAssignedDeals();
+            storageMain.Appointments.DataSource = TwinkleHelper.GetAllViewAssignedDeals();
             storageMain.Appointments.Mappings.AppointmentId = nameof(ViewAssignedDeal.Id);
             storageMain.Appointments.Mappings.ResourceId = nameof(ViewAssignedDeal.VehicleId);
             storageMain.Appointments.Mappings.Subject = nameof(ViewAssignedDeal.Route);
@@ -95,7 +95,7 @@ namespace FredroClient.UserControls
 
         private void InitGrids()
         {
-            gcFreeDeals.DataSource = FredroHelper.GetNotAssignedDeals();
+            gcFreeDeals.DataSource = TwinkleHelper.GetNotAssignedDeals();
         }
 
         private SchedulerDragData GetDragData(GridView view)
@@ -121,7 +121,7 @@ namespace FredroClient.UserControls
         {
             if (deal == null)
             {
-                FredroMessageBox.ShowError("Зделка не может быть null");
+                TwinkleMessageBox.ShowError("Зделка не может быть null");
                 return;
             }
             using (var frm = new frmDeal(deal))
@@ -187,14 +187,14 @@ namespace FredroClient.UserControls
             {
                 if (e.EditedAppointment.ResourceId is EmptyResource || Convert.ToInt32(e.EditedAppointment.ResourceId) <= 0)
                 {
-                    FredroMessageBox.ShowError("Заяка не будет назначена: выбран пустой ресурс(ТС)");
+                    TwinkleMessageBox.ShowError("Заяка не будет назначена: выбран пустой ресурс(ТС)");
                     e.Allow = false;
                     return;
                 }
                 var start = e.SourceAppointment.Start;
                 if (start <= DateTime.Now)
                 {
-                    FredroMessageBox.ShowError("Заяка не будет назначена: невозможно назначить заяку на прошедшее время");
+                    TwinkleMessageBox.ShowError("Заяка не будет назначена: невозможно назначить заяку на прошедшее время");
                     e.Allow = false;
                     return;
                 }
@@ -202,7 +202,7 @@ namespace FredroClient.UserControls
                 var vehicleId = Convert.ToInt32(e.EditedAppointment.ResourceId);
                 if (CheckIfResourceIsBusy(vehicleId, start, end))
                 {
-                    FredroMessageBox.ShowError("Заяка не будет назначена: выбранный ресурс(ТС) занят");
+                    TwinkleMessageBox.ShowError("Заяка не будет назначена: выбранный ресурс(ТС) занят");
                     e.Allow = false;
                     return;
                 }
@@ -212,7 +212,7 @@ namespace FredroClient.UserControls
                 {
                     var dealId = e.SourceAppointment.CustomFields["Id"];
                     //-->
-                    using (var db = new FredroDbContext())
+                    using (var db = new TwinkleDbContext())
                     {
                         deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;
@@ -224,7 +224,7 @@ namespace FredroClient.UserControls
                 {
                     var dealId = sourceDealId;
                     //-->
-                    using (var db = new FredroDbContext())
+                    using (var db = new TwinkleDbContext())
                     {
                         deal = await db.Deals.FindAsync(dealId);
                         deal.VehicleId = vehicleId;
@@ -240,15 +240,15 @@ namespace FredroClient.UserControls
             }
             catch (Exception ex)
             {
-                FredroMessageBox.ShowError($"Заявка не назначена: {ex.Message}");
+                TwinkleMessageBox.ShowError($"Заявка не назначена: {ex.Message}");
                 e.Allow = false;
             }
         }
 
         private void RefreshData()
         {
-            storageMain.Appointments.DataSource = FredroHelper.GetAllViewAssignedDeals();
-            gcFreeDeals.DataSource = FredroHelper.GetNotAssignedDeals();
+            storageMain.Appointments.DataSource = TwinkleHelper.GetAllViewAssignedDeals();
+            gcFreeDeals.DataSource = TwinkleHelper.GetNotAssignedDeals();
         }
 
         private void GroupControlMain_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
@@ -299,7 +299,7 @@ namespace FredroClient.UserControls
                             gvFreeDeals.OptionsFind.AlwaysVisible = true;
                             break;
                         default:
-                            FredroMessageBox.ShowError("Значение всплывающего текста не выявлено!");
+                            TwinkleMessageBox.ShowError("Значение всплывающего текста не выявлено!");
                             break;
                     }
                     break;
@@ -336,7 +336,7 @@ namespace FredroClient.UserControls
         {
             e.Handled = true;
             var editedAppointmentId = (int)e.Appointment.Id;
-            var editedDeal = FredroHelper.GetDeal(editedAppointmentId);
+            var editedDeal = TwinkleHelper.GetDeal(editedAppointmentId);
             ShowDealForm(editedDeal);
         }
 
@@ -347,7 +347,7 @@ namespace FredroClient.UserControls
             {
                 var popupAppointment = schedulerMain.SelectedAppointments.Single();
                 var popupAppointmentId = (int)popupAppointment.Id;
-                _popupDeal = FredroHelper.GetDeal(popupAppointmentId);
+                _popupDeal = TwinkleHelper.GetDeal(popupAppointmentId);
 
                 var openItem = new SchedulerMenuItem("Просмотр", OnOpenItemClick, Properties.Resources.view_16x16);
                 e.Menu.Items.Add(openItem);

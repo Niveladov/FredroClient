@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.UserControls.AuxiliaryUserControls
+namespace TwinkleClient.UserControls.AuxiliaryUserControls
 {
     public partial class ucUserInfo : UserControl
     {

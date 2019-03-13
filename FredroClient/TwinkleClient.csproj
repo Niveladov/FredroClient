@@ -131,11 +131,11 @@
     <Compile Include="BaseGUI\CustomEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BaseGUI\FredroBaseXtraForm.cs">
+    <Compile Include="BaseGUI\TwinkleBaseXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseGUI\FredroBaseXtraForm.Designer.cs">
-      <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
+    <Compile Include="BaseGUI\TwinkleBaseXtraForm.Designer.cs">
+      <DependentUpon>TwinkleBaseXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseGUI\RoundedPictureEdit.cs">
       <SubType>Component</SubType>
@@ -155,10 +155,8 @@
     <Compile Include="BaseGUI\WaitLoadingForm.Designer.cs">
       <DependentUpon>WaitLoadingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExtraClasses\FredroAttributes.cs" />
-    <Compile Include="ExtraClasses\FredroEnums.cs" />
-    <Compile Include="ExtraClasses\FredroHelper.cs" />
-    <Compile Include="ExtraClasses\FredroMessageBox.cs" />
+    <Compile Include="ExtraClasses\TwinkleHelper.cs" />
+    <Compile Include="ExtraClasses\TwinkleMessageBox.cs" />
     <Compile Include="ExtraClasses\WaitingHelper.cs" />
     <Compile Include="Forms\frmMails.cs">
       <SubType>Form</SubType>
@@ -243,8 +241,8 @@
     <Compile Include="UserControls\ucScheduler.Designer.cs">
       <DependentUpon>ucScheduler.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BaseGUI\FredroBaseXtraForm.resx">
-      <DependentUpon>FredroBaseXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="BaseGUI\TwinkleBaseXtraForm.resx">
+      <DependentUpon>TwinkleBaseXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseGUI\WaitLoadingForm.resx">
       <DependentUpon>WaitLoadingForm.cs</DependentUpon>
@@ -392,9 +390,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FredroDAL\FredroDAL.csproj">
+    <ProjectReference Include="..\FredroDAL\TwinkleDAL.csproj">
       <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
-      <Name>FredroDAL</Name>
+      <Name>TwinkleDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

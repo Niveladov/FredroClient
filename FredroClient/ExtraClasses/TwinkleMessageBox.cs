@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FredroClient.ExtraClasses
+namespace TwinkleClient.ExtraClasses
 {
-    internal static class FredroMessageBox
+    internal static class TwinkleMessageBox
     {
         public static DialogResult ShowSucces(string message)
         {
