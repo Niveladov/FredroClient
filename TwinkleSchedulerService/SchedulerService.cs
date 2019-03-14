@@ -13,13 +13,15 @@ namespace TwinkleSchedulerService
         ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class SchedulerService : ISchedulerService
     {
-        private readonly ISchedulerDataManager _dataManager;
-        
+        private readonly IDbDataManager _dataManager;
+        private readonly ISchedulerDeliveryManager _deliveryManager;
+
         public SchedulerService()
         {
             try
             {
-                _dataManager = new SchedulerDataManager();
+                _dataManager = new DbDataManager();
+                _deliveryManager = new SchedulerDeliveryManager(_dataManager);
             }
             catch (Exception ex)
             {
@@ -43,7 +45,7 @@ namespace TwinkleSchedulerService
         {
             try
             {
-                throw new NotImplementedException();
+                _deliveryManager.Join();
             }
             catch (Exception ex)
             {

@@ -26,14 +26,13 @@ namespace TwinkleMailService.Models
     {
         private const int MAIL_SERVER_ACCESS_PERIOD = 5000;
         private IDbDataManager _dbDataManager;
-
-        public HashSet<string> AllMailIds { get; private set; }
+        private HashSet<string> _allMailIds;
         
         public EmailDeliveryManager(IDbDataManager dbDataManager)
         {
             try
             {
-                AllMailIds = new HashSet<string>();
+                _allMailIds = new HashSet<string>();
                 if (SessionContext.Instance.CurrentUser.ChachedEmailBoxes.Count == 0)
                 {
                     throw new Exception("User don't have presaved emails!");
@@ -98,13 +97,13 @@ namespace TwinkleMailService.Models
                     for (int i = messageCount; i > 0; i--)
                     {
                         var message = client.GetMessage(i);
-                        if (!AllMailIds.Contains(message.Headers.MessageId))
+                        if (!_allMailIds.Contains(message.Headers.MessageId))
                         {
                             var mail = client.GetMessage(i).GetTheMail();
                             mail.IsOutcoming = (cachedEmailBox.Login == mail.FromAddress);
                             mail.IsIncoming = (cachedEmailBox.Login == mail.ToAddress);
                             mail.ChachedEmailBoxId = cachedEmailBox.Id.Value;
-                            AllMailIds.Add(mail.Id);
+                            _allMailIds.Add(mail.Id);
                             allMails.Add(mail);
                             _dbDataManager.InsertMail(mail);
                         }

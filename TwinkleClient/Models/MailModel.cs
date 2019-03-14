@@ -99,6 +99,7 @@ namespace TwinkleClient.Models
             }
         }
 
+
         public void SendNewMails(TheMail[] newMails)
         {
             MyMails.AddRange(newMails);

@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TwinkleDAL.Models.Contexts;
+using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using TwinkleDAL.Models.DatabaseObjectModels.Views;
 
 namespace TwinkleSchedulerService.Models
 {
-    internal interface ISchedulerDataManager
+    internal interface IDbDataManager
     {
         IEnumerable<ViewVehicle> GetResources();
 
@@ -18,9 +19,13 @@ namespace TwinkleSchedulerService.Models
         void CancelAppointment(int appointmentId);
 
         void DeleteAppointment(int appointmentId);
+
+        IEnumerable<ViewAssignedDeal> GetAssignedAppointments();
+
+        IEnumerable<Deal> GetFreeAppointments();
     }
 
-    internal sealed class SchedulerDataManager : ISchedulerDataManager
+    internal sealed class DbDataManager : IDbDataManager
     {
         public IEnumerable<ViewVehicle> GetResources()
         {
@@ -60,6 +65,25 @@ namespace TwinkleSchedulerService.Models
                 db.SaveChanges();
             }
         }
+
+        public IEnumerable<ViewAssignedDeal> GetAssignedAppointments()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.ViewAssignedDeals.Load();
+                return db.ViewAssignedDeals.ToList();
+            }
+        }
+
+        public IEnumerable<Deal> GetFreeAppointments()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.Deals.Load();
+                return db.Deals.Where(x => x.VehicleId == null).ToList();
+            }
+        }
+
     }
 
 }
