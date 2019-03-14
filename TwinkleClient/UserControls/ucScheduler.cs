@@ -29,6 +29,7 @@ namespace TwinkleClient.UserControls
         private GridHitInfo _downHitInfo;
         private WaitingHelper _waitingHelper;
         private Deal _popupDeal;
+        private SchedulerModel _model;
 
         public ucScheduler()
         {
@@ -41,13 +42,16 @@ namespace TwinkleClient.UserControls
             if (!isDesignMode)
             {
                 _waitingHelper.Show();
-                groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Уменьшить")).Single().Properties.Enabled = false;
+                groupControlMain.CustomHeaderButtons.Where(x => 
+                    x.Properties.Caption.Equals("Уменьшить")).Single().Properties.Enabled = false;
                 schedulerMain.Start = DateTime.Today;
                 schedulerMain.TimelineView.Scales[4].Width = schedulerMain.Bounds.Width;
                 schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
                 schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
                 schedulerMain.TimelineView.WorkTime = new TimeOfDayInterval(new TimeSpan(6, 0, 0), new TimeSpan(23, 59, 59));
                 schedulerMain.ActiveView.LayoutChanged();
+                _model = new SchedulerModel();
+                _model.JoinToServer();
                 InitSchedulers();
                 InitGrids();
                 InitEvents();
@@ -74,12 +78,12 @@ namespace TwinkleClient.UserControls
 
         private void InitSchedulers()
         {
-            storageMain.Resources.DataSource = TwinkleHelper.GetAllViewVehicles();
+            storageMain.Resources.DataSource = _model.Resources;
             storageMain.Resources.Mappings.Id = nameof(ViewVehicle.Id);
             storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
             storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
 
-            storageMain.Appointments.DataSource = TwinkleHelper.GetAllViewAssignedDeals();
+            storageMain.Appointments.DataSource = _model.AssignedAppointments;
             storageMain.Appointments.Mappings.AppointmentId = nameof(ViewAssignedDeal.Id);
             storageMain.Appointments.Mappings.ResourceId = nameof(ViewAssignedDeal.VehicleId);
             storageMain.Appointments.Mappings.Subject = nameof(ViewAssignedDeal.Route);
@@ -95,7 +99,7 @@ namespace TwinkleClient.UserControls
 
         private void InitGrids()
         {
-            gcFreeDeals.DataSource = TwinkleHelper.GetNotAssignedDeals();
+            gcFreeDeals.DataSource = _model.FreeAppointments;
         }
 
         private SchedulerDragData GetDragData(GridView view)

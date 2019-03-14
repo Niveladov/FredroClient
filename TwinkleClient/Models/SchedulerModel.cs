@@ -18,10 +18,9 @@ namespace TwinkleClient.Models
         public List<ViewVehicle> Resources { get; }
         public ObservableCollection<ViewAssignedDeal> AssignedAppointments { get; }
         public ObservableCollection<Deal> FreeAppointments { get; }
-
-        public event EventHandler OnReloadingResources;
-        public event EventHandler OnReloadingAssignedAppointments;
-        public event EventHandler OnReloadingFreeAppointments;
+        
+        //public event EventHandler OnReloadingAssignedAppointments;
+        //public event EventHandler OnReloadingFreeAppointments;
 
         public SchedulerModel()
         {
@@ -38,6 +37,7 @@ namespace TwinkleClient.Models
             {
                 if (!_isJoined)
                 {
+                    LoadResources();
                     _serviceClient.Join();
                     _isJoined = true;
                 }
@@ -62,7 +62,7 @@ namespace TwinkleClient.Models
             }
         }
 
-        public void LoadResources()
+        private void LoadResources()
         {
             try
             {
