@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:47867/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" />
+  <xs:complexType name="Performer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" base="q1:DbObjectBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubjectName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Performer" nillable="true" type="tns:Performer" />
+  <xs:complexType name="Deal">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" base="q2:DbObjectBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DealStatusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PerformerId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Route" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TripTypeId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Deal" nillable="true" type="tns:Deal" />
+  <xs:complexType name="ArrayOfCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+  <xs:complexType name="Customer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" base="q3:DbObjectBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubjectName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ArrayOfPerformer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Performer" nillable="true" type="tns:Performer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerformer" nillable="true" type="tns:ArrayOfPerformer" />
+  <xs:complexType name="ArrayOfVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehicle" nillable="true" type="tns:Vehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicle" nillable="true" type="tns:ArrayOfVehicle" />
+  <xs:complexType name="Vehicle">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" base="q4:DbObjectBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassengersCount" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Vehicle" nillable="true" type="tns:Vehicle" />
+</xs:schema>

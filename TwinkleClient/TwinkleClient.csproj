@@ -219,6 +219,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\BusinessObjectService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\MailService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -296,6 +301,11 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Customer.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Vehicle.datasource" />
     <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Views.ViewVehicle.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -306,6 +316,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\BusinessObjectService\BusinessObjectService.wsdl" />
+    <None Include="Service References\BusinessObjectService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MailService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -341,6 +367,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Service References\BusinessObjectService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BusinessObjectService\configuration.svcinfo" />
+    <None Include="Service References\BusinessObjectService\configuration91.svcinfo" />
+    <None Include="Service References\BusinessObjectService\item.disco" />
     <None Include="Service References\SchedulerService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -418,6 +451,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BusinessObjectService\" />
     <WCFMetadataStorage Include="Service References\MailService\" />
     <WCFMetadataStorage Include="Service References\SchedulerService\" />
   </ItemGroup>

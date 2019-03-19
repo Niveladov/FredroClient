@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BusinessObjectService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IBusinessObjectService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:47867/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:47867/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:47867/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" />
+      <xsd:import schemaLocation="http://localhost:47867/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" />
+      <xsd:import schemaLocation="http://localhost:47867/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBusinessObjectService_GetPerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetPerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerformerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeletePerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeletePerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePerformerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdatePerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdatePerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePerformerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertPerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertPerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPerformerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCustomers" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllPerformers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPerformers" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllPerformers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPerformersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicles" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehiclesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllTripTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTripTypes" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllTripTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTripTypesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBusinessObjectService">
+    <wsdl:operation name="GetPerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetPerformer" message="tns:IBusinessObjectService_GetPerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetPerformerResponse" message="tns:IBusinessObjectService_GetPerformer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/DeletePerformer" message="tns:IBusinessObjectService_DeletePerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/DeletePerformerResponse" message="tns:IBusinessObjectService_DeletePerformer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdatePerformer" message="tns:IBusinessObjectService_UpdatePerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdatePerformerResponse" message="tns:IBusinessObjectService_UpdatePerformer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertPerformer" message="tns:IBusinessObjectService_InsertPerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertPerformerResponse" message="tns:IBusinessObjectService_InsertPerformer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetDeal" message="tns:IBusinessObjectService_GetDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetDealResponse" message="tns:IBusinessObjectService_GetDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteDeal" message="tns:IBusinessObjectService_DeleteDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteDealResponse" message="tns:IBusinessObjectService_DeleteDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateDeal" message="tns:IBusinessObjectService_UpdateDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateDealResponse" message="tns:IBusinessObjectService_UpdateDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertDeal" message="tns:IBusinessObjectService_InsertDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertDealResponse" message="tns:IBusinessObjectService_InsertDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllCustomers" message="tns:IBusinessObjectService_GetAllCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllCustomersResponse" message="tns:IBusinessObjectService_GetAllCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPerformers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllPerformers" message="tns:IBusinessObjectService_GetAllPerformers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllPerformersResponse" message="tns:IBusinessObjectService_GetAllPerformers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehicles" message="tns:IBusinessObjectService_GetAllVehicles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehiclesResponse" message="tns:IBusinessObjectService_GetAllVehicles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTripTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes" message="tns:IBusinessObjectService_GetAllTripTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse" message="tns:IBusinessObjectService_GetAllTripTypes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IBusinessObjectService" type="tns:IBusinessObjectService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IBusinessObjectService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetPerformer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetPerformer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerformer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/DeletePerformer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerformer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/UpdatePerformer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPerformer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/InsertPerformer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeal">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeal">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/DeleteDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeal">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/UpdateDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDeal">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/InsertDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCustomers">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllCustomers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPerformers">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllPerformers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicles">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllVehicles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTripTypes">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BusinessObjectService">
+    <wsdl:port name="NetTcpBinding_IBusinessObjectService" binding="tns:NetTcpBinding_IBusinessObjectService">
+      <soap12:address location="net.tcp://localhost:47868/BusinessObjectService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:47868/BusinessObjectService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>EF-01121994\Пользователь</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

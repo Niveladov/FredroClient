@@ -406,7 +406,8 @@ namespace TwinkleClient.UserControls
         {
             e.Handled = true;
             var editedAppointmentId = (int)e.Appointment.Id;
-            var editedDeal = TwinkleHelper.GetDeal(editedAppointmentId);
+            //ToDo: to remake
+            var editedDeal = _model.GetDeal(editedAppointmentId); //TwinkleHelper.GetDeal(editedAppointmentId);
             ShowDealForm(editedDeal);
         }
 
@@ -417,7 +418,7 @@ namespace TwinkleClient.UserControls
             {
                 var popupAppointment = schedulerMain.SelectedAppointments.Single();
                 var popupAppointmentId = (int)popupAppointment.Id;
-                _popupDeal = TwinkleHelper.GetDeal(popupAppointmentId);
+                _popupDeal = _model.GetDeal(popupAppointmentId); //TwinkleHelper.GetDeal(popupAppointmentId);
 
                 var openItem = new SchedulerMenuItem("Просмотр", OnOpenItemClick, Properties.Resources.view_16x16);
                 e.Menu.Items.Add(openItem);

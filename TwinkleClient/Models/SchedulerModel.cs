@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Remoting;
 using System.ServiceModel;
+using TwinkleClient.BusinessObjectService;
 using TwinkleClient.ExtraClasses;
 using TwinkleClient.SchedulerService;
 using TwinkleDAL.Models.DatabaseObjectModels.Tables;
@@ -13,7 +14,8 @@ namespace TwinkleClient.Models
     internal sealed class SchedulerModel : ISchedulerServiceCallback
     {
         private bool _isJoined = false;
-        private SchedulerServiceClient _serviceClient { get; }
+        private SchedulerServiceClient _schedulerServiceClient { get; }
+        private BusinessObjectServiceClient _boServiceClient { get; }
 
         public List<ViewVehicle> Resources { get; }
         public ObservableCollection<ViewAssignedDeal> AssignedAppointments { get; }
@@ -28,7 +30,8 @@ namespace TwinkleClient.Models
             AssignedAppointments = new ObservableCollection<ViewAssignedDeal>();
             FreeAppointments = new ObservableCollection<Deal>();
             var instanceContext = new InstanceContext(this);
-            _serviceClient = new SchedulerServiceClient(instanceContext, "NetTcpBinding_ISchedulerService");
+            _schedulerServiceClient = new SchedulerServiceClient(instanceContext, "NetTcpBinding_ISchedulerService");
+            _boServiceClient = new BusinessObjectServiceClient("NetTcpBinding_IBusinessObjectService");
         }
 
         public void JoinToServer()
@@ -38,26 +41,26 @@ namespace TwinkleClient.Models
                 if (!_isJoined)
                 {
                     LoadResources();
-                    _serviceClient.Join();
+                    _schedulerServiceClient.Join();
                     _isJoined = true;
                 }
             }
             catch (TimeoutException ex)
             {
                 //FredroMessageBox.ShowError($"Timeout error: {ex.Message}");
-                _serviceClient.Abort();
+                _schedulerServiceClient.Abort();
                 throw new ServerException("Возникла внутрення ошибка сервера. Timeout error.", ex);
             }
             catch (FaultException ex)
             {
                 //FredroMessageBox.ShowError(ex.Message + ex.Code.Name);
-                _serviceClient.Abort();
+                _schedulerServiceClient.Abort();
                 throw new ServerException("Возникла внутрення ошибка сервера.", ex);
             }
             catch (CommunicationException ex)
             {
                 //FredroMessageBox.ShowError($"Communication error: {ex.Message}");
-                _serviceClient.Abort();
+                _schedulerServiceClient.Abort();
                 throw new ServerException("Возникла внутрення ошибка сервера. Communication error.", ex);
             }
         }
@@ -67,13 +70,13 @@ namespace TwinkleClient.Models
             try
             {
                 Resources.Clear();
-                var resources = _serviceClient.GetResources();
+                var resources = _schedulerServiceClient.GetResources();
                 Resources.AddRange(resources);
             }
             catch (FaultException ex)
             {
                 TwinkleMessageBox.ShowError(ex.Message);
-                _serviceClient.Abort();
+                _schedulerServiceClient.Abort();
             }
         }
         
@@ -81,12 +84,12 @@ namespace TwinkleClient.Models
         {
             try
             {
-                _serviceClient.AssignAppointment(appointmentId, resourceId);
+                _schedulerServiceClient.AssignAppointment(appointmentId, resourceId);
             }
             catch (FaultException ex)
             {
                 TwinkleMessageBox.ShowError(ex.Message);
-                _serviceClient.Abort();
+                _schedulerServiceClient.Abort();
             }
         }
 
@@ -94,12 +97,12 @@ namespace TwinkleClient.Models
         {
             try
             {
-                _serviceClient.CancelAppointment(appointmentId);
+                _schedulerServiceClient.CancelAppointment(appointmentId);
             }
             catch (FaultException ex)
             {
                 TwinkleMessageBox.ShowError(ex.Message);
-                _serviceClient.Abort();
+                _schedulerServiceClient.Abort();
             }
         }
 
@@ -107,27 +110,28 @@ namespace TwinkleClient.Models
         {
             try
             {
-                _serviceClient.DeleteAppointment(appointmentId);
+                _schedulerServiceClient.DeleteAppointment(appointmentId);
             }
             catch (FaultException ex)
             {
                 TwinkleMessageBox.ShowError(ex.Message);
-                _serviceClient.Abort();
+                _schedulerServiceClient.Abort();
             }
         }
-        
-        //public Deal GetDeal()
-        //{
-        //    try
-        //    {
-        //        return ServiceClient.GetDeal();
-        //    }
-        //    catch (FaultException ex)
-        //    {
-        //        TwinkleMessageBox.ShowError(ex.Message);
-        //        ServiceClient.Abort();
-        //    }
-        //}
+
+        public Deal GetDeal(int id)
+        {
+            try
+            {
+                return _boServiceClient.GetDeal(id);
+            }
+            catch (FaultException ex)
+            {
+                TwinkleMessageBox.ShowError(ex.Message);
+                _boServiceClient.Abort();
+                return null;
+            }
+        }
 
 
         public void SendAssignedAppointments(ViewAssignedDeal[] assignedAppointments)
