@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TwinklCRM.BusinessObjectService\TwinklCRM.BusinessObjectService.csproj">
+      <Project>{84947797-99d3-4049-89a7-87ddcea16834}</Project>
+      <Name>TwinklCRM.BusinessObjectService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TwinkleMailService\TwinkleMailService.csproj">
       <Project>{0bc763b2-5476-4f9b-a764-c4f1075cc11c}</Project>
       <Name>TwinkleMailService</Name>
