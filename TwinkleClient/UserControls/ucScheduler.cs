@@ -21,6 +21,7 @@ using TwinkleClient.Forms;
 using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using TwinkleDAL.Models.DatabaseObjectModels.Views;
 using TwinkleDAL.Models.Contexts;
+using DevExpress.XtraEditors.ButtonPanel;
 
 namespace TwinkleClient.UserControls
 {
@@ -42,21 +43,36 @@ namespace TwinkleClient.UserControls
             if (!isDesignMode)
             {
                 _waitingHelper.Show();
-                groupControlMain.CustomHeaderButtons.Where(x => 
-                    x.Properties.Caption.Equals("Уменьшить")).Single().Properties.Enabled = false;
-                schedulerMain.Start = DateTime.Today;
-                schedulerMain.TimelineView.Scales[4].Width = schedulerMain.Bounds.Width;
-                schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
-                schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
-                schedulerMain.TimelineView.WorkTime = new TimeOfDayInterval(new TimeSpan(6, 0, 0), new TimeSpan(23, 59, 59));
-                schedulerMain.ActiveView.LayoutChanged();
-                _model = new SchedulerModel();
-                _model.JoinToServer();
+                InitHeaderButtons();
+                InitSchedulerDesigner();
+                InitModel();
                 InitSchedulers();
                 InitGrids();
                 InitEvents();
                 _waitingHelper.Hide();
             }
+        }
+
+        private void InitHeaderButtons()
+        {
+            groupControlMain.CustomHeaderButtons.Where(x =>
+                x.Properties.Caption.Equals("Уменьшить")).Single().Properties.Enabled = false;
+        }
+
+        private void InitSchedulerDesigner()
+        {
+            schedulerMain.Start = DateTime.Today;
+            schedulerMain.TimelineView.Scales[4].Width = schedulerMain.Bounds.Width;
+            schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
+            schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
+            schedulerMain.TimelineView.WorkTime = new TimeOfDayInterval(new TimeSpan(6, 0, 0), new TimeSpan(23, 59, 59));
+            schedulerMain.ActiveView.LayoutChanged();
+        }
+
+        private void InitModel()
+        {
+            _model = new SchedulerModel();
+            _model.JoinToServer();
         }
 
         private void InitEvents()
@@ -128,9 +144,12 @@ namespace TwinkleClient.UserControls
                 TwinkleMessageBox.ShowError("Зделка не может быть null");
                 return;
             }
-            using (var frm = new frmDeal(deal))
+            else
             {
-                frm.ShowDialog();
+                using (var frm = new frmDeal(deal))
+                {
+                    frm.ShowDialog();
+                }
             }
         }
 
@@ -251,8 +270,8 @@ namespace TwinkleClient.UserControls
 
         private void RefreshData()
         {
-            storageMain.Appointments.DataSource = TwinkleHelper.GetAllViewAssignedDeals();
-            gcFreeDeals.DataSource = TwinkleHelper.GetNotAssignedDeals();
+            storageMain.Appointments.DataSource = _model.AssignedAppointments;
+            gcFreeDeals.DataSource = _model.FreeAppointments;
         }
 
         private void GroupControlMain_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
@@ -260,59 +279,106 @@ namespace TwinkleClient.UserControls
             switch (e.Button.Properties.Caption)
             {
                 case "Назад":
-                    schedulerMain.GoToDate(schedulerMain.Start.AddDays(-1));
+                    BtnBackwardAction();
                     break;
                 case "Вперёд":
-                    schedulerMain.GoToDate(schedulerMain.Start.AddDays(1));
+                    BtnForwardAction();
                     break;
                 case "На дату":
-                    schedulerMain.ShowGotoDateForm();
+                    BtnGoToDateAction();
                     break;
                 case "На сегодня":
-                    schedulerMain.GoToToday();
+                    BtnGoToTodayAction();
                     break;
                 case "Увеличить":
-                    schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 18;
-                    schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
-                    schedulerMain.GoToDate(schedulerMain.Start.Date.AddHours(6));
-                    schedulerMain.ActiveView.LayoutChanged();
-                    var buttonMinus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Уменьшить")).Single();
-                    buttonMinus.Properties.Enabled = true;
-                    e.Button.Properties.Enabled = false;
+                    BtnZoomInAction(e.Button);
                     break;
                 case "Уменьшить":
-                    schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
-                    schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
-                    schedulerMain.GoToDate(schedulerMain.Start.Date);
-                    schedulerMain.ActiveView.LayoutChanged();
-                    var buttomPlus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Увеличить")).Single();
-                    buttomPlus.Properties.Enabled = true;
-                    e.Button.Properties.Enabled = false;
+                    BtnZoomOutAction(e.Button);
                     break;
                 case "Поиск":
-                    switch(e.Button.Properties.ToolTip)
-                    {
-                        case "Скрыть поиск":
-                            e.Button.Properties.ToolTip = "Показать поиск";
-                            e.Button.Properties.Image = Properties.Resources.search_pink_32x32;
-                            gvFreeDeals.OptionsFind.AlwaysVisible = false;
-                            break;
-                        case "Показать поиск":
-                            e.Button.Properties.ToolTip = "Скрыть поиск";
-                            e.Button.Properties.Image = Properties.Resources.search_32x32;
-                            gvFreeDeals.OptionsFind.AlwaysVisible = true;
-                            break;
-                        default:
-                            TwinkleMessageBox.ShowError("Значение всплывающего текста не выявлено!");
-                            break;
-                    }
+                    BtnSearchAction(e.Button);
                     break;
                 case "Обновить":
-                    RefreshData();
+                    BtnRefreshAction();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void BtnRefreshAction()
+        {
+            RefreshData();
+        }
+
+        private void BtnSearchAction(IBaseButton button)
+        {
+            switch (button.Properties.ToolTip)
+            {
+                case "Скрыть поиск":
+                    BtnHideSearchAction(button);
+                    break;
+                case "Показать поиск":
+                    BtnShowSearchAction(button);
+                    break;
+            }
+        }
+
+        private void BtnShowSearchAction(IBaseButton button)
+        {
+            button.Properties.ToolTip = "Скрыть поиск";
+            button.Properties.Image = Properties.Resources.search_32x32;
+            gvFreeDeals.OptionsFind.AlwaysVisible = true;
+        }
+
+        private void BtnHideSearchAction(IBaseButton button)
+        {
+            button.Properties.ToolTip = "Показать поиск";
+            button.Properties.Image = Properties.Resources.search_pink_32x32;
+            gvFreeDeals.OptionsFind.AlwaysVisible = false;
+        }
+
+        private void BtnZoomOutAction(IBaseButton button)
+        {
+            schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 24;
+            schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
+            schedulerMain.GoToDate(schedulerMain.Start.Date);
+            schedulerMain.ActiveView.LayoutChanged();
+            var buttomPlus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Увеличить")).Single();
+            buttomPlus.Properties.Enabled = true;
+            button.Properties.Enabled = false;
+        }
+
+        private void BtnZoomInAction(IBaseButton button)
+        {
+            schedulerMain.TimelineView.Scales[5].Width = schedulerMain.Bounds.Width / 18;
+            schedulerMain.TimelineView.Scales[7].Width = schedulerMain.TimelineView.Scales[5].Width / 2;
+            schedulerMain.GoToDate(schedulerMain.Start.Date.AddHours(6));
+            schedulerMain.ActiveView.LayoutChanged();
+            var buttonMinus = groupControlMain.CustomHeaderButtons.Where(x => x.Properties.Caption.Equals("Уменьшить")).Single();
+            buttonMinus.Properties.Enabled = true;
+            button.Properties.Enabled = false;
+        }
+
+        private void BtnGoToTodayAction()
+        {
+            schedulerMain.GoToToday();
+        }
+
+        private void BtnGoToDateAction()
+        {
+            schedulerMain.ShowGotoDateForm();
+        }
+
+        private void BtnForwardAction()
+        {
+            schedulerMain.GoToDate(schedulerMain.Start.AddDays(1));
+        }
+
+        private void BtnBackwardAction()
+        {
+            schedulerMain.GoToDate(schedulerMain.Start.AddDays(-1));
         }
 
         //private void SchedulerMain_SelectionChanged(object sender, EventArgs e)
