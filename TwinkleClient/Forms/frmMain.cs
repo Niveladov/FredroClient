@@ -11,6 +11,7 @@ using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TwinkleClient.Models;
 
 namespace TwinkleClient.Forms
 {
@@ -18,6 +19,7 @@ namespace TwinkleClient.Forms
     {
         private readonly FormDragger _dragger;
         private readonly SlidePanelAgent _sliderAgent;
+        private readonly MainModel _mainModel;
 
         public frmMain(TwinkleBaseXtraForm splashScreenForm, Credentials creds)
         {
@@ -27,7 +29,9 @@ namespace TwinkleClient.Forms
                 InitializeComponent();
                 _dragger = new FormDragger();
                 _sliderAgent = new SlidePanelAgent(ucUserInfo.Width);
-                ucMails.Init(creds);
+                _mainModel = new MainModel();
+                ucMails.Init(_mainModel.BOServiceClient, creds);
+                ucScheduler.Init(_mainModel.BOServiceClient);
                 InitEvents();
                 InitStatusStrip();
             }

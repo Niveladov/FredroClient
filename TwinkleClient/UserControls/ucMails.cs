@@ -19,6 +19,7 @@ using DevExpress.XtraEditors;
 using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using TwinkleDAL.Models;
 using System.Runtime.Remoting;
+using TwinkleClient.BusinessObjectService;
 
 namespace TwinkleClient.UserControls
 {
@@ -29,19 +30,23 @@ namespace TwinkleClient.UserControls
         private MailModel _model;
         private bool _isInit = false;
         private bool _isMailButtonsVisible = true;
+        //  ToDo:
+        //      moved from field to another place
+        private BusinessObjectServiceClient _boServiceClient;
 
         public ucMails()
         {
             InitializeComponent();
         }
 
-        public void Init(Credentials creds)
+        public void Init(BusinessObjectServiceClient boServiceClient, Credentials creds)
         {
             try
             {
                 if (!_isInit)
                 {
                     _model = new MailModel(creds);
+                    _boServiceClient = boServiceClient;
                     InitEvents();
                     SetMailButtonsVisibility(false);
                     SetResponseBodyVisibility(false);
@@ -287,10 +292,10 @@ namespace TwinkleClient.UserControls
 
         private void BtnAddDeal_Click(object sender, EventArgs e)
         {
-            //using (var frm = new frmDeal())
-            //{
-            //    frm.ShowDialog();
-            //}
+            using (var frm = new frmDeal(_boServiceClient))
+            {
+                frm.ShowDialog();
+            }
         }
 
         private void BtnResend_Click(object sender, EventArgs e)

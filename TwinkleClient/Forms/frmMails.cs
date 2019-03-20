@@ -24,7 +24,7 @@ namespace TwinkleClient.Forms
             {
                 //throw new Exception("Huesos, axaxa!");
                 InitializeComponent();
-                ucMails.Init(creds);
+                //ucMails.Init(creds);
                 InitEvents();
             }
             catch (ServerException ex)

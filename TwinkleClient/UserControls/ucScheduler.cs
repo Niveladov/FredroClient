@@ -22,6 +22,7 @@ using TwinkleDAL.Models.DatabaseObjectModels.Tables;
 using TwinkleDAL.Models.DatabaseObjectModels.Views;
 using TwinkleDAL.Models.Contexts;
 using DevExpress.XtraEditors.ButtonPanel;
+using TwinkleClient.BusinessObjectService;
 
 namespace TwinkleClient.UserControls
 {
@@ -45,7 +46,7 @@ namespace TwinkleClient.UserControls
                 _waitingHelper.Show();
                 InitHeaderButtons();
                 InitSchedulerDesigner();
-                InitModel();
+                Join();
                 InitSchedulers();
                 InitGrids();
                 InitEvents();
@@ -68,10 +69,19 @@ namespace TwinkleClient.UserControls
             schedulerMain.TimelineView.WorkTime = new TimeOfDayInterval(new TimeSpan(6, 0, 0), new TimeSpan(23, 59, 59));
             schedulerMain.ActiveView.LayoutChanged();
         }
-
-        private void InitModel()
+        
+        //  summary:
+        //      initialize uc models
+        public void Init(BusinessObjectServiceClient boServiceClient)
         {
-            _model = new SchedulerModel();
+            _model = new SchedulerModel(boServiceClient);
+        }
+
+        //  summary:
+        //      connect to the service
+        //      and subscribe to reloading data 
+        private void Join()
+        {
             _model.JoinToServer();
         }
 

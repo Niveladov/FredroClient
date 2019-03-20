@@ -24,14 +24,14 @@ namespace TwinkleClient.Models
         //public event EventHandler OnReloadingAssignedAppointments;
         //public event EventHandler OnReloadingFreeAppointments;
 
-        public SchedulerModel()
+        public SchedulerModel(BusinessObjectServiceClient boServiceClient)
         {
             Resources = new List<ViewVehicle>();
             AssignedAppointments = new ObservableCollection<ViewAssignedDeal>();
             FreeAppointments = new ObservableCollection<Deal>();
             var instanceContext = new InstanceContext(this);
             _schedulerServiceClient = new SchedulerServiceClient(instanceContext, "NetTcpBinding_ISchedulerService");
-            BOServiceClient = new BusinessObjectServiceClient("NetTcpBinding_IBusinessObjectService");
+            BOServiceClient = boServiceClient;
         }
 
         public void JoinToServer()

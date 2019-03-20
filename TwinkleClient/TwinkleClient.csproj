@@ -208,6 +208,7 @@
     </Compile>
     <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\NewMailModel.cs" />
     <Compile Include="Models\PerformerModel.cs" />
     <Compile Include="Models\DealForeignsModel.cs" />
