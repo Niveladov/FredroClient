@@ -126,6 +126,11 @@ namespace TwinkleClient.UserControls
             wevMails.FocusedRowHandle = -1;
         }
 
+        private void ClearControlFocus()
+        {
+            panelFolders.Focus();
+        }
+
         #region EventHandlers
 
         private void OnNewMailRecieved(object sender, EventArgs e)
@@ -212,6 +217,16 @@ namespace TwinkleClient.UserControls
             //}
         }
 
+        private void btnSendNew_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnSendNew.OnHoverBorderColor = Color.Transparent;
+        }
+
+        private void btnSendNew_MouseUp(object sender, MouseEventArgs e)
+        {
+            btnSendNew.OnHoverBorderColor = Color.FromArgb(65, 119, 225);
+        }
+
         private void MeResponseBody_TextChanged(object sender, EventArgs e)
         {
             meResponseBody.SetScrollBarVisibility();
@@ -224,6 +239,7 @@ namespace TwinkleClient.UserControls
 
         private void BtnSendNew_Click(object sender, EventArgs e)
         {
+            ClearControlFocus();
             using (var frm = new frmSendNew(_model.ServiceClient))
             {
                 frm.ShowDialog();
@@ -282,6 +298,5 @@ namespace TwinkleClient.UserControls
 
         }
         #endregion
-        
     }
 }

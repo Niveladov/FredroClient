@@ -185,6 +185,8 @@
             this.btnSendNew.Text = "Написать";
             this.btnSendNew.TextColor = System.Drawing.Color.Gainsboro;
             this.btnSendNew.UseVisualStyleBackColor = true;
+            this.btnSendNew.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSendNew_MouseDown);
+            this.btnSendNew.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSendNew_MouseUp);
             // 
             // panelFolders
             // 
