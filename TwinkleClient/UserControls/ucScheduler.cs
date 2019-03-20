@@ -146,7 +146,7 @@ namespace TwinkleClient.UserControls
             }
             else
             {
-                using (var frm = new frmDeal(deal))
+                using (var frm = new frmDeal(_model.BOServiceClient, deal))
                 {
                     frm.ShowDialog();
                 }

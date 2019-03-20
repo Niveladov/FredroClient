@@ -14,8 +14,8 @@ namespace TwinkleClient.Models
     internal sealed class SchedulerModel : ISchedulerServiceCallback
     {
         private bool _isJoined = false;
-        private SchedulerServiceClient _schedulerServiceClient { get; }
-        private BusinessObjectServiceClient _boServiceClient { get; }
+        private SchedulerServiceClient _schedulerServiceClient;
+        public BusinessObjectServiceClient BOServiceClient { get; }
 
         public List<ViewVehicle> Resources { get; }
         public ObservableCollection<ViewAssignedDeal> AssignedAppointments { get; }
@@ -31,7 +31,7 @@ namespace TwinkleClient.Models
             FreeAppointments = new ObservableCollection<Deal>();
             var instanceContext = new InstanceContext(this);
             _schedulerServiceClient = new SchedulerServiceClient(instanceContext, "NetTcpBinding_ISchedulerService");
-            _boServiceClient = new BusinessObjectServiceClient("NetTcpBinding_IBusinessObjectService");
+            BOServiceClient = new BusinessObjectServiceClient("NetTcpBinding_IBusinessObjectService");
         }
 
         public void JoinToServer()
@@ -123,12 +123,12 @@ namespace TwinkleClient.Models
         {
             try
             {
-                return _boServiceClient.GetDeal(id);
+                return BOServiceClient.GetDeal(id);
             }
             catch (FaultException ex)
             {
                 TwinkleMessageBox.ShowError(ex.Message);
-                _boServiceClient.Abort();
+                BOServiceClient.Abort();
                 return null;
             }
         }

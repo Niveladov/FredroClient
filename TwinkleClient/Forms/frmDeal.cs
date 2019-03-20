@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TwinkleClient.BusinessObjectService;
 
 namespace TwinkleClient.Forms
 {
@@ -25,21 +26,21 @@ namespace TwinkleClient.Forms
         private readonly DealModel _dealModel;
         private readonly DealForeignsModel _loadingModel;
 
-        public frmDeal()
+        public frmDeal(BusinessObjectServiceClient boServiceClient)
         {
             InitializeComponent();
-            _dealModel = new DealModel();
-            _loadingModel = new DealForeignsModel();
+            _dealModel = new DealModel(boServiceClient);
+            _loadingModel = new DealForeignsModel(boServiceClient);
             InitControls();
             InitEvents();
             DisableControls();
         }
 
-        public frmDeal(Deal deal)
+        public frmDeal(BusinessObjectServiceClient boServiceClient, Deal deal)
         {
             InitializeComponent();
-            _dealModel = new DealModel(deal);
-            _loadingModel = new DealForeignsModel();
+            _dealModel = new DealModel(boServiceClient, deal);
+            _loadingModel = new DealForeignsModel(boServiceClient);
             InitControls();
             InitEvents();
             SetReadonly(true);
@@ -153,7 +154,7 @@ namespace TwinkleClient.Forms
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         _loadingModel.RefreshPerformers();
-                        performer.Properties.DataSource = _loadingModel.Performers;
+                        //performer.Properties.DataSource = _loadingModel.Performers;
                     }
                 }
             }
@@ -168,7 +169,7 @@ namespace TwinkleClient.Forms
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
                         _loadingModel.RefreshCustomers();
-                        customer.Properties.DataSource = _loadingModel.Customers;
+                        //customer.Properties.DataSource = _loadingModel.Customers;
                     }
                 }
             }
@@ -178,12 +179,12 @@ namespace TwinkleClient.Forms
         {
             Close();
         }
-        
-        private async void btnSave_Click(object sender, EventArgs e)
+        //ToDo: to add async
+        private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                await _dealModel.Save();
+                _dealModel.Save();
                 TwinkleMessageBox.ShowSucces("Заяка(сделка) успешно сохранена!");
                 Close();
             }

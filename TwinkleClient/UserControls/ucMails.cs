@@ -271,10 +271,10 @@ namespace TwinkleClient.UserControls
 
         private void BtnAddDeal_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmDeal())
-            {
-                frm.ShowDialog();
-            }
+            //using (var frm = new frmDeal())
+            //{
+            //    frm.ShowDialog();
+            //}
         }
 
         private void BtnResend_Click(object sender, EventArgs e)

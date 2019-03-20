@@ -7,32 +7,45 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TwinkleClient.BusinessObjectService;
+using System.Collections.ObjectModel;
 
 namespace TwinkleClient.Models
 {
     internal sealed class DealForeignsModel
     {
-        public BindingList<Vehicle> Vehicles { get; }
-        public BindingList<Customer> Customers { get; private set; }
-        public BindingList<Performer> Performers { get; private set; }
-        public BindingList<DictionaryTripType> TripTypes { get; }
+        private readonly BusinessObjectServiceClient _boServiceClient;
 
-        public DealForeignsModel()
+        public ObservableCollection<Vehicle> Vehicles { get; }
+        public ObservableCollection<Customer> Customers { get; private set; }
+        public ObservableCollection<Performer> Performers { get; private set; }
+        public ObservableCollection<DictionaryTripType> TripTypes { get; }
+
+        public DealForeignsModel(BusinessObjectServiceClient boServiceClient)
         {
-            Vehicles = TwinkleHelper.GetAllVehicles();
-            Customers = TwinkleHelper.GetAllCustomers();
-            Performers = TwinkleHelper.GetAllPerformes();
-            TripTypes = TwinkleHelper.GetAllTripTypes();
+            _boServiceClient = boServiceClient;
+            Vehicles = new ObservableCollection<Vehicle>(_boServiceClient.GetAllVehicles());
+            Customers = new ObservableCollection<Customer>(_boServiceClient.GetAllCustomers());
+            Performers = new ObservableCollection<Performer>(_boServiceClient.GetAllPerformers());
+            TripTypes = new ObservableCollection<DictionaryTripType>(_boServiceClient.GetAllTripTypes());
         }
 
         public void RefreshPerformers()
         {
-            Performers = TwinkleHelper.GetAllPerformes();
+            Performers.Clear();
+            foreach(var performer in _boServiceClient.GetAllPerformers())
+            {
+                Performers.Add(performer);
+            }
         }
 
         public void RefreshCustomers()
         {
-            Customers = TwinkleHelper.GetAllCustomers();
+            Customers.Clear();
+            foreach (var customer in _boServiceClient.GetAllCustomers())
+            {
+                Customers.Add(customer);
+            }
         }
 
 
