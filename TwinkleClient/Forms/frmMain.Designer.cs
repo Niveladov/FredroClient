@@ -231,28 +231,29 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(350, 8);
+            this.search.Location = new System.Drawing.Point(350, -2);
             this.search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search.Name = "search";
             this.search.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(107)))));
-            this.search.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.search.Properties.Appearance.ForeColor = System.Drawing.SystemColors.Window;
+            this.search.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.search.Properties.Appearance.ForeColor = System.Drawing.Color.Gainsboro;
             this.search.Properties.Appearance.Options.UseBackColor = true;
             this.search.Properties.Appearance.Options.UseFont = true;
             this.search.Properties.Appearance.Options.UseForeColor = true;
+            this.search.Properties.AutoHeight = false;
             this.search.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            serializableAppearanceObject1.BackColor = System.Drawing.Color.Black;
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            serializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(107)))));
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             serializableAppearanceObject1.Options.UseBackColor = true;
             serializableAppearanceObject1.Options.UseFont = true;
             this.search.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search, "", -1, false, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.search.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.search.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.search.Properties.NullValuePrompt = "Поиск...";
+            this.search.Properties.NullValuePrompt = ". . .";
             this.search.Properties.NullValuePromptShowForEmptyValue = true;
             this.search.Properties.UseDefaultMode = true;
-            this.search.Size = new System.Drawing.Size(300, 24);
+            this.search.Size = new System.Drawing.Size(300, 44);
             this.search.TabIndex = 1;
             // 
             // lcMain
