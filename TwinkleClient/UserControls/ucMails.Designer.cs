@@ -183,7 +183,7 @@
             this.btnSendNew.Size = new System.Drawing.Size(198, 43);
             this.btnSendNew.TabIndex = 7;
             this.btnSendNew.Text = "Написать";
-            this.btnSendNew.TextColor = System.Drawing.Color.Gainsboro;
+            this.btnSendNew.TextColor = System.Drawing.Color.WhiteSmoke;
             this.btnSendNew.UseVisualStyleBackColor = true;
             this.btnSendNew.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSendNew_MouseDown);
             this.btnSendNew.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSendNew_MouseUp);
@@ -343,7 +343,6 @@
             this.wevMails.GridControl = this.gcMails;
             this.wevMails.Name = "wevMails";
             this.wevMails.OptionsBehavior.Editable = false;
-            this.wevMails.OptionsFind.AlwaysVisible = true;
             this.wevMails.OptionsFind.ShowFindButton = false;
             this.wevMails.OptionsView.ImageLayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
             this.wevMails.OptionsView.Style = DevExpress.XtraGrid.Views.WinExplorer.WinExplorerViewStyle.Content;

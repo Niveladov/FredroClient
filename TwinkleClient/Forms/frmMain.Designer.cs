@@ -250,7 +250,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search, "", -1, false, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.search.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.search.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.search.Properties.NullValuePrompt = ". . .";
             this.search.Properties.NullValuePromptShowForEmptyValue = true;
             this.search.Properties.UseDefaultMode = true;
             this.search.Size = new System.Drawing.Size(300, 44);
