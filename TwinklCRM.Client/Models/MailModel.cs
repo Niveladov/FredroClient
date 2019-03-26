@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using TwinklCRM.Client.ExtraClasses;
-using TwinklCRM.Client.MailService;
+using TwinklCRM.Client.MailboxService;
 using TwinklCRM.DAL.Models;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
@@ -16,11 +16,11 @@ using System.Windows.Forms;
 
 namespace TwinklCRM.Client.Models
 {
-    internal sealed class MailModel : IMailServiceCallback
+    internal sealed class MailModel : IMailboxServiceCallback
     {
         private bool _isJoined = false;
 
-        public MailServiceClient ServiceClient { get; }
+        public MailboxServiceClient ServiceClient { get; }
         public Credentials Creds { get; }
         public List<TheMail> MyMails { get; }
         
@@ -31,7 +31,7 @@ namespace TwinklCRM.Client.Models
             Creds = creds;
             MyMails = new List<TheMail>();
             var instanceContext = new InstanceContext(this);
-            ServiceClient = new MailServiceClient(instanceContext, "NetTcpBinding_IMailService");
+            ServiceClient = new MailboxServiceClient(instanceContext, "NetTcpBinding_IMailboxService");
             ServiceClient.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
             ServiceClient.ClientCredentials.UserName.UserName = Creds.Login;
             ServiceClient.ClientCredentials.UserName.Password = Creds.Password;

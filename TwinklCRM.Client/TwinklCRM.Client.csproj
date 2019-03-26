@@ -226,7 +226,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\MailService\Reference.cs">
+    <Compile Include="Service References\MailboxService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -302,6 +302,13 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle.datasource" />
     <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
     <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Customer.datasource" />
     <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal.datasource" />
@@ -334,19 +341,19 @@
     <None Include="Service References\BusinessObjectService\item4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MailService\item.xsd">
+    <None Include="Service References\MailboxService\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MailService\item1.xsd">
+    <None Include="Service References\MailboxService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MailService\item2.xsd">
+    <None Include="Service References\MailboxService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MailService\item3.xsd">
+    <None Include="Service References\MailboxService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MailService\MailService.wsdl" />
+    <None Include="Service References\MailboxService\MailService.wsdl" />
     <None Include="Service References\SchedulerService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -407,13 +414,13 @@
     <None Include="Resources\blue_email_32x32.png" />
     <None Include="Resources\blue_calendar_32x32.png" />
     <None Include="Resources\mail_32x32.png" />
-    <None Include="Service References\MailService\Reference.svcmap">
+    <None Include="Service References\MailboxService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\MailService\configuration.svcinfo" />
-    <None Include="Service References\MailService\configuration91.svcinfo" />
-    <None Include="Service References\MailService\item.disco" />
+    <None Include="Service References\MailboxService\configuration.svcinfo" />
+    <None Include="Service References\MailboxService\configuration91.svcinfo" />
+    <None Include="Service References\MailboxService\item.disco" />
     <None Include="Resources\reload_32x32.png" />
     <None Include="Resources\search_pink_32x32.png" />
     <None Include="Resources\search_32x32.png" />
@@ -454,7 +461,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BusinessObjectService\" />
-    <WCFMetadataStorage Include="Service References\MailService\" />
+    <WCFMetadataStorage Include="Service References\MailboxService\" />
     <WCFMetadataStorage Include="Service References\SchedulerService\" />
   </ItemGroup>
   <ItemGroup>

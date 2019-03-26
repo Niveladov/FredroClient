@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TwinklCRM.Client.MailService;
+using TwinklCRM.Client.MailboxService;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 
 namespace TwinklCRM.Client.Models
 {
     internal sealed class NewMailModel
     {
-        private MailServiceClient _serviceClient;
+        private MailboxServiceClient _serviceClient;
 
         private int? _fromEmalBoxId;
         public int? FromEmailBoxId
@@ -28,7 +28,7 @@ namespace TwinklCRM.Client.Models
         public string FromEmailBoxAddress { get; private set; }
         public CachedEmailBox[] UserEmailBoxes { get; }
 
-        public NewMailModel(MailServiceClient serviceClient)
+        public NewMailModel(MailboxServiceClient serviceClient)
         {
             try
             {

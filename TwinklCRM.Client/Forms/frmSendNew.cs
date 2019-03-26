@@ -3,7 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 using TwinklCRM.Client.BaseGUI;
 using TwinklCRM.Client.ExtraClasses;
-using TwinklCRM.Client.MailService;
+using TwinklCRM.Client.MailboxService;
 using TwinklCRM.Client.Models;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
@@ -18,10 +18,10 @@ namespace TwinklCRM.Client.Forms
     {
         private NewMailModel _model;
 
-        public frmSendNew(MailServiceClient mailServiceClient)
+        public frmSendNew(MailboxServiceClient mailboxServiceClient)
         {
             InitializeComponent();
-            _model = new NewMailModel(mailServiceClient);
+            _model = new NewMailModel(mailboxServiceClient);
             InitControls();
             InitEvents();
         }
