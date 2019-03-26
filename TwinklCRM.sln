@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinklCRM.DAL", "TwinklCRM.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinklCRM.MailboxServiceLibrary", "TwinklCRM.MailboxService\TwinklCRM.MailboxServiceLibrary.csproj", "{0BC763B2-5476-4F9B-A764-C4F1075CC11C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinklCRM.ConsoleHostOfServices", "TwinklCRM.ServiceHost\TwinklCRM.ConsoleHostOfServices.csproj", "{3D62D7AC-093C-4F5E-8BF5-4BBD2F71BBCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinklCRM.ConsoleHostOfServices", "TwinklCRM.ConsoleHostOfServices\TwinklCRM.ConsoleHostOfServices.csproj", "{3D62D7AC-093C-4F5E-8BF5-4BBD2F71BBCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwinklCRM.SchedulerServiceLibrary", "TwinklCRM.SchedulerService\TwinklCRM.SchedulerServiceLibrary.csproj", "{0954284D-1193-4BB2-88D1-EAC760DCCC2C}"
 EndProject
