@@ -31,12 +31,13 @@ namespace TwinkleClient.UserControls
         private bool _isInit = false;
         private bool _isMailButtonsVisible = true;
         //  ToDo:
-        //      moved from field to another place
+        //      to move from field to another place
         private BusinessObjectServiceClient _boServiceClient;
 
         public ucMails()
         {
             InitializeComponent();
+            btnInboxMails.Tag = true;
         }
 
         public void Init(BusinessObjectServiceClient boServiceClient, Credentials creds)
@@ -80,8 +81,7 @@ namespace TwinkleClient.UserControls
             btnInboxMails.Click += OnFolderClick;
             btnOutboxMails.Click += OnFolderClick;
             btnDeletedMails.Click += OnFolderClick;
-
-            //wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
+            
             wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
@@ -95,11 +95,24 @@ namespace TwinkleClient.UserControls
         private void RefreshData()
         {
             var mailHandler = wevMails.FocusedRowHandle;
+            gcMails.DataSource = GetCurrentFolderMails();
+            wevMails.FocusedRowHandle = mailHandler;
+        }
+
+        private List<TheMail> GetCurrentFolderMails()
+        {
+            List<TheMail> mails = null;
             var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
             var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
-            gcMails.DataSource = btnInboxMails.Tag != null ? 
-                incomingMails : (btnOutboxMails != null ? outgoingMails : null);
-            wevMails.FocusedRowHandle = mailHandler;
+            if (btnOutboxMails.Tag != null)
+            {
+                mails = outgoingMails;
+            }
+            else if (btnInboxMails.Tag != null)
+            {
+                mails = incomingMails;
+            }
+            return mails;
         }
 
         private void SetResponseBodyVisibility(bool isVisible)
@@ -198,28 +211,6 @@ namespace TwinkleClient.UserControls
                 SetResponseBodyVisibility(false);
                 gcMails.RefreshDataSource();
             }
-        }
-
-        private void WevFolders_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            //if (wevFolders.IsDataRow(wevFolders.FocusedRowHandle))
-            //{
-            //    wevFolders.FocusedRowChanged -= WevFolders_FocusedRowChanged;
-            //    var row = wevFolders.GetFocusedRow() as Folder;
-            //    if (row.Caption.Contains("Входящие"))
-            //    {
-            //        SetMessageButtonsVisibility(true);
-            //        gcMails.DataSource = _model.MyMails.Where(x => x.IsIncoming);
-            //        ParentFormText = ParentForm.Text = $"Входящие - {_model.Creds.Login} - Почтовый бизнес-клиент";
-            //    }
-            //    else if (row.Caption.Contains("Отправленные"))
-            //    {
-            //        SetMessageButtonsVisibility(false);
-            //        gcMails.DataSource = _model.MyMails.Where(x => x.IsOutcoming);
-            //        ParentFormText = ParentForm.Text = $"Отправленные - {_model.Creds.Login} - Почтовый бизнес-клиент";
-            //    }
-            //    wevFolders.FocusedRowChanged += WevFolders_FocusedRowChanged;
-            //}
         }
 
         private void btnSendNew_MouseDown(object sender, MouseEventArgs e)
