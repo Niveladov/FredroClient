@@ -7,7 +7,7 @@ using System.Text;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
-namespace TwinklCRM.BusinessObjectService
+namespace TwinklCRM.BusinessObjectServiceLibrary
 {
     [ServiceContract]
     public interface IBusinessObjectService

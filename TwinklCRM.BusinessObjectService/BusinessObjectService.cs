@@ -4,11 +4,11 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using TwinklCRM.BusinessObjectService.Models;
+using TwinklCRM.BusinessObjectServiceLibrary.Models;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
-namespace TwinklCRM.BusinessObjectService
+namespace TwinklCRM.BusinessObjectServiceLibrary
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession,
         ConcurrencyMode = ConcurrencyMode.Multiple)]

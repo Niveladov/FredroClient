@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("TwinklCRM.BusinessObjectServiceLibrary")]
+[assembly: AssemblyTitle("TwinklCRM.ConsoleHostOfServices")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("TwinklCRM.BusinessObjectServiceLibrary")]
+[assembly: AssemblyProduct("TwinklCRM.ConsoleHostOfServices")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("84947797-99d3-4049-89a7-87ddcea16834")]
+[assembly: Guid("3d62d7ac-093c-4f5e-8bf5-4bbd2f71bbcc")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

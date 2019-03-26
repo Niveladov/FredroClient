@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{567987CB-35DB-4385-B6DB-3BEB4D5C0340}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TwinklCRM.Client</RootNamespace>
+    <AssemblyName>TwinklCRM.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon_email_32x32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.2.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.2\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MailKit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.2.0.6\lib\net45\MailKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MimeKit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.0.6\lib\net45\MimeKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenPop, Version=2.0.6.1120, Culture=neutral, PublicKeyToken=6bdb97f144b7efc8, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenPop.NET.2.0.6.1120\lib\net40\OpenPop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseGUI\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\ControlExtensions.cs" />
+    <Compile Include="BaseGUI\CustomEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\TwinkleBaseXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\TwinkleBaseXtraForm.Designer.cs">
+      <DependentUpon>TwinkleBaseXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseGUI\RoundedPictureEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\ShadowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\ucBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\ucBase.Designer.cs">
+      <DependentUpon>ucBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseGUI\WaitLoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\WaitLoadingForm.Designer.cs">
+      <DependentUpon>WaitLoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtraClasses\TwinkleHelper.cs" />
+    <Compile Include="ExtraClasses\TwinkleMessageBox.cs" />
+    <Compile Include="ExtraClasses\WaitingHelper.cs" />
+    <Compile Include="Forms\frmMails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMails.Designer.cs">
+      <DependentUpon>frmMails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPerformer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPerformer.Designer.cs">
+      <DependentUpon>frmPerformer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDeal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeal.Designer.cs">
+      <DependentUpon>frmDeal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSendNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSendNew.Designer.cs">
+      <DependentUpon>frmSendNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStart.Designer.cs">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MailModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Models\NewMailModel.cs" />
+    <Compile Include="Models\PerformerModel.cs" />
+    <Compile Include="Models\DealForeignsModel.cs" />
+    <Compile Include="Models\DealModel.cs" />
+    <Compile Include="Models\SchedulerModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BusinessObjectService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MailService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SchedulerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AuxiliaryUserControls\ucUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AuxiliaryUserControls\ucUserInfo.Designer.cs">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMails.Designer.cs">
+      <DependentUpon>ucMails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucScheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucScheduler.Designer.cs">
+      <DependentUpon>ucScheduler.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaseGUI\TwinkleBaseXtraForm.resx">
+      <DependentUpon>TwinkleBaseXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseGUI\WaitLoadingForm.resx">
+      <DependentUpon>WaitLoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMails.resx">
+      <DependentUpon>frmMails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPerformer.resx">
+      <DependentUpon>frmPerformer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeal.resx">
+      <DependentUpon>frmDeal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSendNew.resx">
+      <DependentUpon>frmSendNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStart.resx">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AuxiliaryUserControls\ucUserInfo.resx">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMails.resx">
+      <DependentUpon>ucMails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucScheduler.resx">
+      <DependentUpon>ucScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Customer.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Tables.Vehicle.datasource" />
+    <None Include="Properties\DataSources\TwinkleDAL.Models.DatabaseObjectModels.Views.ViewVehicle.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\BusinessObjectService\BusinessObjectService.wsdl" />
+    <None Include="Service References\BusinessObjectService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessObjectService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\MailService.wsdl" />
+    <None Include="Service References\SchedulerService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\SchedulerService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon_email_32x32.ico" />
+    <None Include="Service References\BusinessObjectService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BusinessObjectService\configuration.svcinfo" />
+    <None Include="Service References\BusinessObjectService\configuration91.svcinfo" />
+    <None Include="Service References\BusinessObjectService\item.disco" />
+    <None Include="Service References\SchedulerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SchedulerService\configuration.svcinfo" />
+    <None Include="Service References\SchedulerService\configuration91.svcinfo" />
+    <None Include="Service References\SchedulerService\item.disco" />
+    <None Include="Resources\user_account_24x24.png" />
+    <None Include="Resources\night_mode_24x24.png" />
+    <None Include="Resources\exit_24x24.png" />
+    <None Include="Resources\setting_32x32.png" />
+    <None Include="Resources\circle.png" />
+    <None Include="Resources\tshadowtopright.png" />
+    <None Include="Resources\tshadowright.png" />
+    <None Include="Resources\tshadowdownright.png" />
+    <None Include="Resources\tshadowdownleft.png" />
+    <None Include="Resources\tshadowdown.png" />
+    <None Include="Resources\ava_32x32.jpg" />
+    <None Include="Resources\deleted_mail_16x16.png" />
+    <None Include="Resources\telegram_16x16.png" />
+    <None Include="Resources\inbox_16x16.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\minimize_24x24.png" />
+    <None Include="Resources\blue_audit_32x32.png" />
+    <None Include="Resources\pink_user_32x32.png" />
+    <None Include="Resources\blue_user_32x32.png" />
+    <None Include="Resources\pink_email_32x32.png" />
+    <None Include="Resources\pink_calendar_32x32.png" />
+    <None Include="Resources\blue_email_32x32.png" />
+    <None Include="Resources\blue_calendar_32x32.png" />
+    <None Include="Resources\mail_32x32.png" />
+    <None Include="Service References\MailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MailService\configuration.svcinfo" />
+    <None Include="Service References\MailService\configuration91.svcinfo" />
+    <None Include="Service References\MailService\item.disco" />
+    <None Include="Resources\reload_32x32.png" />
+    <None Include="Resources\search_pink_32x32.png" />
+    <None Include="Resources\search_32x32.png" />
+    <None Include="Resources\view_16x16.png" />
+    <None Include="Resources\eye_16x16.png" />
+    <None Include="Resources\info_32x32.png" />
+    <None Include="Resources\FredroClient3.png" />
+    <None Include="Resources\FredroClient2.png" />
+    <None Include="Resources\FredroClient.png" />
+    <None Include="Resources\menu_icon3_64x64.png" />
+    <None Include="Resources\menu_icon2_64x64.png" />
+    <None Include="Resources\menu_icon1_64x64.png" />
+    <None Include="Resources\settings_icon1_64x64.png" />
+    <None Include="Resources\settings_icon2_64x64.png" />
+    <None Include="Resources\user_64x64.png" />
+    <None Include="Resources\unread_32x32.png" />
+    <None Include="Resources\read_32x38.png" />
+    <None Include="Resources\unread_email_512x512.png" />
+    <None Include="Resources\read_email_512x612.png" />
+    <None Include="Resources\yandex_32x32.png" />
+    <None Include="Resources\mailru_32x32.png" />
+    <None Include="Resources\gmail_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BusinessObjectService\" />
+    <WCFMetadataStorage Include="Service References\MailService\" />
+    <WCFMetadataStorage Include="Service References\SchedulerService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TwinklCRM.DAL\TwinklCRM.DAL.csproj">
+      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
+      <Name>TwinklCRM.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

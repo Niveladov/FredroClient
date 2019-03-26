@@ -8,7 +8,7 @@ using TwinklCRM.DAL.Models.Contexts;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
-namespace TwinklCRM.BusinessObjectService.Models
+namespace TwinklCRM.BusinessObjectServiceLibrary.Models
 {
     internal interface IDbDataManager
     {        
