@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TwinkleClient.Models;
+using TwinklCRM.Client.Models;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.Utils.Drawing;
 using DevExpress.XtraLayout.Utils;
-using TwinkleClient.ExtraClasses;
+using TwinklCRM.Client.ExtraClasses;
 using System.Globalization;
-using TwinkleClient.Forms;
-using TwinkleClient.BaseGUI;
+using TwinklCRM.Client.Forms;
+using TwinklCRM.Client.BaseGUI;
 using DevExpress.XtraEditors;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models;
 using System.Runtime.Remoting;
-using TwinkleClient.BusinessObjectService;
+using TwinklCRM.Client.BusinessObjectService;
 
-namespace TwinkleClient.UserControls
+namespace TwinklCRM.Client.UserControls
 {
     internal sealed partial class ucMails : ucBase
     {

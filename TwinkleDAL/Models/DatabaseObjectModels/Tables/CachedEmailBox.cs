@@ -1,8 +1,8 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Runtime.Serialization;
 
-namespace TwinkleDAL.Models.DatabaseObjectModels.Tables
+namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
     public sealed class CachedEmailBox : DbObjectBaseModel

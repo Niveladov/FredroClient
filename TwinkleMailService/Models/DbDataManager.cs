@@ -1,6 +1,6 @@
-﻿using TwinkleDAL.Models.Contexts;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleMailService.ExtraClasses;
+﻿using TwinklCRM.DAL.Models.Contexts;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.MailboxService.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwinkleMailService.Models
+namespace TwinklCRM.MailboxService.Models
 {
     internal interface IDbDataManager
     {

@@ -1,4 +1,4 @@
-﻿namespace TwinkleClient.Forms
+﻿namespace TwinklCRM.Client.Forms
 {
     sealed partial class frmStart
     {

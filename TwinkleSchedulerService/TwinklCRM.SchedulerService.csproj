@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D62D7AC-093C-4F5E-8BF5-4BBD2F71BBCC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{0954284D-1193-4BB2-88D1-EAC760DCCC2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TwinkleMailServiceHost</RootNamespace>
-    <AssemblyName>TwinkleMailServiceHost</AssemblyName>
+    <RootNamespace>TwinklCRM.SchedulerService</RootNamespace>
+    <AssemblyName>TwinklCRM.SchedulerService</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -44,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,25 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ISchedulerService.cs" />
+    <Compile Include="Models\DbDataManager.cs" />
+    <Compile Include="Models\SchedulerDeliveryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchedulerService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TwinklCRM.BusinessObjectService\TwinklCRM.BusinessObjectService.csproj">
-      <Project>{84947797-99d3-4049-89a7-87ddcea16834}</Project>
-      <Name>TwinklCRM.BusinessObjectService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TwinkleMailService\TwinkleMailService.csproj">
-      <Project>{0bc763b2-5476-4f9b-a764-c4f1075cc11c}</Project>
-      <Name>TwinkleMailService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TwinkleSchedulerService\TwinkleSchedulerService.csproj">
-      <Project>{0954284d-1193-4bb2-88d1-eac760dccc2c}</Project>
-      <Name>TwinkleSchedulerService</Name>
+    <ProjectReference Include="..\TwinkleDAL\TwinklCRM.DAL.csproj">
+      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
+      <Name>TwinklCRM.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

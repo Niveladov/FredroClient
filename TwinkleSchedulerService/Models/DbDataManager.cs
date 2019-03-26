@@ -4,11 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TwinkleDAL.Models.Contexts;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Views;
+using TwinklCRM.DAL.Models.Contexts;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 
-namespace TwinkleSchedulerService.Models
+namespace TwinklCRM.SchedulerService.Models
 {
     internal interface IDbDataManager
     {

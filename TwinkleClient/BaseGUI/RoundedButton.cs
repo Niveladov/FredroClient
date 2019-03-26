@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace TwinkleClient.BaseGUI
+namespace TwinklCRM.Client.BaseGUI
 {
     [ToolboxItem(true)]
     public class RoundedButton : Button

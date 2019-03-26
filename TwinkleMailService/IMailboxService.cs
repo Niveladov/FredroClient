@@ -1,4 +1,4 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +7,10 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwinkleMailService
+namespace TwinklCRM.MailboxService
 {
-    [ServiceContract(CallbackContract = typeof(IMailCallback))]
-    public interface IMailService
+    [ServiceContract(CallbackContract = typeof(IMailboxCallback))]
+    public interface IMailboxService
     {
         [OperationContract(IsOneWay = true)]
         void Join();
@@ -28,7 +28,7 @@ namespace TwinkleMailService
         IEnumerable<CachedEmailBox> GetUserEmailBoxes();
     }
 
-    public interface IMailCallback
+    public interface IMailboxCallback
     {
         [OperationContract(IsOneWay = true)]
         void SendNewMails(IEnumerable<TheMail> newMails);

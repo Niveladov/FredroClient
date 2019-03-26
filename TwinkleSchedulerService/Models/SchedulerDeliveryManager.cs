@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TwinkleSchedulerService.Models
+namespace TwinklCRM.SchedulerService.Models
 {
     internal interface ISchedulerDeliveryManager
     {

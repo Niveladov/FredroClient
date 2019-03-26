@@ -1,5 +1,5 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleMailService.Models;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.MailboxService.Models;
 using OpenPop.Mime;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace TwinkleMailService.ExtraClasses
+namespace TwinklCRM.MailboxService.ExtraClasses
 {
     internal static class MethodExtensions
     {

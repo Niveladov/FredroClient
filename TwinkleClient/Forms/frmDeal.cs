@@ -3,11 +3,11 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraLayout.Utils;
-using TwinkleClient.BaseGUI;
-using TwinkleClient.ExtraClasses;
-using TwinkleClient.Models;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinklCRM.Client.BaseGUI;
+using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.Client.Models;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +17,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TwinkleClient.BusinessObjectService;
+using TwinklCRM.Client.BusinessObjectService;
 
-namespace TwinkleClient.Forms
+namespace TwinklCRM.Client.Forms
 {
     internal sealed partial class frmDeal : TwinkleBaseXtraForm
     {

@@ -1,5 +1,5 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleMailService.ExtraClasses;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.MailboxService.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwinkleMailService.Models.Enums
+namespace TwinklCRM.MailboxService.Models.Enums
 {
     internal interface IMailTransferManager
     {

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using TwinkleDAL.Models.DatabaseObjectModels.Views;
-using TwinkleSchedulerService.Models;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
+using TwinklCRM.SchedulerService.Models;
 
-namespace TwinkleSchedulerService
+namespace TwinklCRM.SchedulerService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single,
         ConcurrencyMode = ConcurrencyMode.Multiple)]

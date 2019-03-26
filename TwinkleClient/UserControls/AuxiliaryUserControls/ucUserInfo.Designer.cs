@@ -1,4 +1,4 @@
-﻿namespace TwinkleClient.UserControls.AuxiliaryUserControls
+﻿namespace TwinklCRM.Client.UserControls.AuxiliaryUserControls
 {
     partial class ucUserInfo
     {
@@ -36,7 +36,7 @@
             // 
             // peAvatar
             // 
-            this.peAvatar.EditValue = global::TwinkleClient.Properties.Resources.circle;
+            this.peAvatar.EditValue = global::TwinklCRM.Client.Properties.Resources.circle;
             this.peAvatar.Location = new System.Drawing.Point(3, 3);
             this.peAvatar.Name = "peAvatar";
             this.peAvatar.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;

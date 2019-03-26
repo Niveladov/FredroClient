@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:47867/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" />
-  <xs:import schemaLocation="http://localhost:47867/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries" />
+  <xs:import schemaLocation="http://localhost:47867/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" />
+  <xs:import schemaLocation="http://localhost:47867/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" />
   <xs:element name="GetPerformer">
     <xs:complexType>
       <xs:sequence>
@@ -12,7 +12,7 @@
   <xs:element name="GetPerformerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetPerformerResult" nillable="true" type="q1:Performer" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetPerformerResult" nillable="true" type="q1:Performer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -43,7 +43,7 @@
   <xs:element name="InsertPerformer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="performer" nillable="true" type="q2:Performer" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="performer" nillable="true" type="q2:Performer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -62,7 +62,7 @@
   <xs:element name="GetDealResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetDealResult" nillable="true" type="q3:Deal" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetDealResult" nillable="true" type="q3:Deal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -93,7 +93,7 @@
   <xs:element name="InsertDeal">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="deal" nillable="true" type="q4:Deal" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="deal" nillable="true" type="q4:Deal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -110,7 +110,7 @@
   <xs:element name="GetAllCustomersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllCustomersResult" nillable="true" type="q5:ArrayOfCustomer" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllCustomersResult" nillable="true" type="q5:ArrayOfCustomer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -122,7 +122,7 @@
   <xs:element name="GetAllPerformersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllPerformersResult" nillable="true" type="q6:ArrayOfPerformer" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllPerformersResult" nillable="true" type="q6:ArrayOfPerformer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +134,7 @@
   <xs:element name="GetAllVehiclesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllVehiclesResult" nillable="true" type="q7:ArrayOfVehicle" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllVehiclesResult" nillable="true" type="q7:ArrayOfVehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -146,7 +146,7 @@
   <xs:element name="GetAllTripTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllTripTypesResult" nillable="true" type="q8:ArrayOfDictionaryTripType" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllTripTypesResult" nillable="true" type="q8:ArrayOfDictionaryTripType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TwinkleClient.MailService {
+namespace TwinklCRM.Client.MailService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MailService.IMailService", CallbackContract=typeof(TwinkleClient.MailService.IMailServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MailService.IMailService", CallbackContract=typeof(TwinklCRM.Client.MailService.IMailServiceCallback))]
     public interface IMailService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/Join")]
@@ -22,16 +22,16 @@ namespace TwinkleClient.MailService {
         System.Threading.Tasks.Task JoinAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
-        void SendMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        void SendMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/SendMail", ReplyAction="http://tempuri.org/IMailService/SendMailResponse")]
-        System.Threading.Tasks.Task SendMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        System.Threading.Tasks.Task SendMailAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/UpdateMail")]
-        void UpdateMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        void UpdateMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/UpdateMail")]
-        System.Threading.Tasks.Task UpdateMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail);
+        System.Threading.Tasks.Task UpdateMailAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/RemoveMail")]
         void RemoveMail(string Id);
@@ -40,26 +40,26 @@ namespace TwinkleClient.MailService {
         System.Threading.Tasks.Task RemoveMailAsync(string Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetUserEmailBoxes", ReplyAction="http://tempuri.org/IMailService/GetUserEmailBoxesResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes();
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailService/GetUserEmailBoxes", ReplyAction="http://tempuri.org/IMailService/GetUserEmailBoxesResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync();
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMailServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailService/SendNewMails")]
-        void SendNewMails(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
+        void SendNewMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMailServiceChannel : TwinkleClient.MailService.IMailService, System.ServiceModel.IClientChannel {
+    public interface IMailServiceChannel : TwinklCRM.Client.MailService.IMailService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MailServiceClient : System.ServiceModel.DuplexClientBase<TwinkleClient.MailService.IMailService>, TwinkleClient.MailService.IMailService {
+    public partial class MailServiceClient : System.ServiceModel.DuplexClientBase<TwinklCRM.Client.MailService.IMailService>, TwinklCRM.Client.MailService.IMailService {
         
         public MailServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -89,19 +89,19 @@ namespace TwinkleClient.MailService {
             return base.Channel.JoinAsync();
         }
         
-        public void SendMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public void SendMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             base.Channel.SendMail(mail);
         }
         
-        public System.Threading.Tasks.Task SendMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public System.Threading.Tasks.Task SendMailAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             return base.Channel.SendMailAsync(mail);
         }
         
-        public void UpdateMail(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public void UpdateMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             base.Channel.UpdateMail(mail);
         }
         
-        public System.Threading.Tasks.Task UpdateMailAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
+        public System.Threading.Tasks.Task UpdateMailAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail) {
             return base.Channel.UpdateMailAsync(mail);
         }
         
@@ -113,11 +113,11 @@ namespace TwinkleClient.MailService {
             return base.Channel.RemoveMailAsync(Id);
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes() {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[] GetUserEmailBoxes() {
             return base.Channel.GetUserEmailBoxes();
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync() {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.CachedEmailBox[]> GetUserEmailBoxesAsync() {
             return base.Channel.GetUserEmailBoxesAsync();
         }
     }

@@ -1,8 +1,8 @@
 ﻿using DevExpress.XtraEditors;
-using TwinkleClient.ExtraClasses;
-using TwinkleClient.MailService;
-using TwinkleDAL.Models;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.Client.MailService;
+using TwinklCRM.DAL.Models;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.Models
+namespace TwinklCRM.Client.Models
 {
     internal sealed class MailModel : IMailServiceCallback
     {

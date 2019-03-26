@@ -1,5 +1,5 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Views;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace TwinkleSchedulerService
+namespace TwinklCRM.SchedulerService
 {
     [ServiceContract(CallbackContract = typeof(ISchedulerCallback))]
     public interface ISchedulerService

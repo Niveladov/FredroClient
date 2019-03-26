@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TwinkleClient.SchedulerService {
+namespace TwinklCRM.Client.SchedulerService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SchedulerService.ISchedulerService", CallbackContract=typeof(TwinkleClient.SchedulerService.ISchedulerServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SchedulerService.ISchedulerService", CallbackContract=typeof(TwinklCRM.Client.SchedulerService.ISchedulerServiceCallback))]
     public interface ISchedulerService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISchedulerService/Join")]
@@ -22,10 +22,10 @@ namespace TwinkleClient.SchedulerService {
         System.Threading.Tasks.Task JoinAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchedulerService/GetResources", ReplyAction="http://tempuri.org/ISchedulerService/GetResourcesResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Views.ViewVehicle[] GetResources();
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle[] GetResources();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchedulerService/GetResources", ReplyAction="http://tempuri.org/ISchedulerService/GetResourcesResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Views.ViewVehicle[]> GetResourcesAsync();
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle[]> GetResourcesAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISchedulerService/AssignAppointment")]
         void AssignAppointment(int appointmentId, int resourceId);
@@ -50,19 +50,19 @@ namespace TwinkleClient.SchedulerService {
     public interface ISchedulerServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISchedulerService/SendAssignedAppointments")]
-        void SendAssignedAppointments(TwinkleDAL.Models.DatabaseObjectModels.Views.ViewAssignedDeal[] assignedAppointments);
+        void SendAssignedAppointments(TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewAssignedDeal[] assignedAppointments);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISchedulerService/SendFreeAppointments")]
-        void SendFreeAppointments(TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal[] freeAppointments);
+        void SendFreeAppointments(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal[] freeAppointments);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISchedulerServiceChannel : TwinkleClient.SchedulerService.ISchedulerService, System.ServiceModel.IClientChannel {
+    public interface ISchedulerServiceChannel : TwinklCRM.Client.SchedulerService.ISchedulerService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SchedulerServiceClient : System.ServiceModel.DuplexClientBase<TwinkleClient.SchedulerService.ISchedulerService>, TwinkleClient.SchedulerService.ISchedulerService {
+    public partial class SchedulerServiceClient : System.ServiceModel.DuplexClientBase<TwinklCRM.Client.SchedulerService.ISchedulerService>, TwinklCRM.Client.SchedulerService.ISchedulerService {
         
         public SchedulerServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -92,11 +92,11 @@ namespace TwinkleClient.SchedulerService {
             return base.Channel.JoinAsync();
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Views.ViewVehicle[] GetResources() {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle[] GetResources() {
             return base.Channel.GetResources();
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Views.ViewVehicle[]> GetResourcesAsync() {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle[]> GetResourcesAsync() {
             return base.Channel.GetResourcesAsync();
         }
         

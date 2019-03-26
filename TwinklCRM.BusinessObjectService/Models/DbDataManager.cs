@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TwinkleDAL.Models.Contexts;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinklCRM.DAL.Models.Contexts;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
 namespace TwinklCRM.BusinessObjectService.Models
 {

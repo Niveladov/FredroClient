@@ -4,8 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
 namespace TwinklCRM.BusinessObjectService
 {

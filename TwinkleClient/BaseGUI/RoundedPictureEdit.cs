@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwinkleClient.BaseGUI
+namespace TwinklCRM.Client.BaseGUI
 {
     [ToolboxItem(true)]
     public class RoundedPictureEdit : PictureEdit

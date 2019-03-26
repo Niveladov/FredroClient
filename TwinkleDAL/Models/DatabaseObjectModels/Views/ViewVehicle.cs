@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace TwinkleDAL.Models.DatabaseObjectModels.Views
+namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Views
 {
     [DataContract]
     public sealed class ViewVehicle : DbObjectBaseModel

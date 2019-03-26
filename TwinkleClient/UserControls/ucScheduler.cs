@@ -7,24 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TwinkleClient.ExtraClasses;
-using TwinkleClient.Models;
+using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.Client.Models;
 using DevExpress.XtraScheduler;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraScheduler.Native;
 using DevExpress.XtraScheduler.Services;
-using TwinkleClient.BaseGUI;
+using TwinklCRM.Client.BaseGUI;
 using DevExpress.Utils;
 using DevExpress.XtraScheduler.Drawing;
-using TwinkleClient.Forms;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Views;
-using TwinkleDAL.Models.Contexts;
+using TwinklCRM.Client.Forms;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
+using TwinklCRM.DAL.Models.Contexts;
 using DevExpress.XtraEditors.ButtonPanel;
-using TwinkleClient.BusinessObjectService;
+using TwinklCRM.Client.BusinessObjectService;
 
-namespace TwinkleClient.UserControls
+namespace TwinklCRM.Client.UserControls
 {
     public partial class ucScheduler : ucBase
     {

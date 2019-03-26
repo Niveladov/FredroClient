@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace TwinkleDAL.Models.DatabaseObjectModels
+namespace TwinklCRM.DAL.Models.DatabaseObjectModels
 {
     [DataContract]
     public class DbObjectBaseModel : INotifyPropertyChanged

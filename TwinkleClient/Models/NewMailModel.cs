@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TwinkleClient.MailService;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.Client.MailService;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 
-namespace TwinkleClient.Models
+namespace TwinklCRM.Client.Models
 {
     internal sealed class NewMailModel
     {

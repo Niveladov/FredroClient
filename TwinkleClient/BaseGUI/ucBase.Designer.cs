@@ -1,4 +1,4 @@
-﻿namespace TwinkleClient.BaseGUI
+﻿namespace TwinklCRM.Client.BaseGUI
 {
     partial class ucBase
     {

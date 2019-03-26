@@ -1,23 +1,23 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleMailService.Models;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.MailboxService.Models;
 using System.Collections.Generic;
 using System.ServiceModel;
-using TwinkleMailService.ExtraClasses;
+using TwinklCRM.MailboxService.ExtraClasses;
 using System;
 using System.Threading;
-using TwinkleMailService.Models.Enums;
+using TwinklCRM.MailboxService.Models.Enums;
 
-namespace TwinkleMailService
+namespace TwinklCRM.MailboxService
 {
     [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession,
         ConcurrencyMode = ConcurrencyMode.Multiple)]
-    public class MailService : IMailService
+    public class MailboxService : IMailboxService
     {
         private IMailTransferManager _mailTransferManager;
         private IMailDeliveryManager _mailDeliveryManager;
         private IDbDataManager _dbDataManager;
 
-        public MailService()
+        public MailboxService()
         {
             try
             {

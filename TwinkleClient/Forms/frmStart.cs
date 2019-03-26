@@ -2,10 +2,10 @@
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using TwinkleClient.BaseGUI;
-using TwinkleClient.ExtraClasses;
-using TwinkleClient.Models;
-using TwinkleDAL.Models;
+using TwinklCRM.Client.BaseGUI;
+using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.Client.Models;
+using TwinklCRM.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.Forms
+namespace TwinklCRM.Client.Forms
 {
     internal sealed partial class frmStart : TwinkleBaseXtraForm
     {

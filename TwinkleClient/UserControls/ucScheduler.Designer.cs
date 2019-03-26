@@ -1,4 +1,4 @@
-﻿namespace TwinkleClient.UserControls
+﻿namespace TwinklCRM.Client.UserControls
 {
     partial class ucScheduler
     {
@@ -87,14 +87,14 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Вперёд", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons3"))), false, true, "Вперёд"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", true, -1, false, null, false, false, false, null, null, -1),
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Обновить", global::TwinkleClient.Properties.Resources.reload_32x32, false, true, "Обновить"),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Обновить", global::TwinklCRM.Client.Properties.Resources.reload_32x32, false, true, "Обновить"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Увеличить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons4"))), false, true, "06:00 - 23:59"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Уменьшить", ((System.Drawing.Image)(resources.GetObject("groupControlMain.CustomHeaderButtons5"))), false, true, "00:00 - 23:59"),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", null, -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, false, null, false, false, true, null, null, -1),
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Поиск", global::TwinkleClient.Properties.Resources.search_32x32, false, true, "Скрыть поиск")});
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Поиск", global::TwinklCRM.Client.Properties.Resources.search_32x32, false, true, "Скрыть поиск")});
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlMain.Location = new System.Drawing.Point(0, 0);
             this.groupControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

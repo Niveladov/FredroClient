@@ -1,20 +1,20 @@
-﻿using TwinkleMailService;
+﻿using TwinklCRM.MailboxService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using TwinkleSchedulerService;
+using TwinklCRM.SchedulerService;
 using TwinklCRM.BusinessObjectService;
 
-namespace TwinkleMailServiceHost
+namespace TwinklCRM.ServiceHost
 {
     class Program
     {
         static void Main(string[] args)
         {
-            using (var mailServiceHost = new ServiceHost(typeof(MailService)))
+            using (var mailServiceHost = new ServiceHost(typeof(MailboxService.MailboxService)))
             using (var schedulerServiceHost = new ServiceHost(typeof(SchedulerService)))
             using (var businessObjectServiceHost = new ServiceHost(typeof(BusinessObjectService)))
             {

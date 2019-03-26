@@ -1,18 +1,18 @@
 ﻿using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
-using TwinkleClient.BaseGUI;
-using TwinkleClient.ExtraClasses;
-using TwinkleClient.MailService;
-using TwinkleClient.Models;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.Client.BaseGUI;
+using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.Client.MailService;
+using TwinklCRM.Client.Models;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace TwinkleClient.Forms
+namespace TwinklCRM.Client.Forms
 {
     internal sealed partial class frmSendNew : TwinkleBaseXtraForm
     {

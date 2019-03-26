@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraSplashScreen;
-using TwinkleClient.BaseGUI;
+using TwinklCRM.Client.BaseGUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.ExtraClasses
+namespace TwinklCRM.Client.ExtraClasses
 {
     internal sealed class WaitingHelper
     {

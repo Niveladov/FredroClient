@@ -1,9 +1,9 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Threading.Tasks;
-using TwinkleClient.BusinessObjectService;
+using TwinklCRM.Client.BusinessObjectService;
 
-namespace TwinkleClient.Models
+namespace TwinklCRM.Client.Models
 {
     internal sealed class DealModel
     {

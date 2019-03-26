@@ -1,6 +1,6 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
-using TwinkleDAL.Models.DatabaseObjectModels.Views;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwinkleDAL.Models.Contexts
+namespace TwinklCRM.DAL.Models.Contexts
 {
     public sealed class TwinkleDbContext : DbContext
     {

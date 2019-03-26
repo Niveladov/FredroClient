@@ -8,9 +8,9 @@ using System.Windows.Forms;
 using DevExpress.XtraWaitForm;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
-using TwinkleClient.Properties;
+using TwinklCRM.Client.Properties;
 
-namespace TwinkleClient.BaseGUI
+namespace TwinklCRM.Client.BaseGUI
 {
     internal sealed partial class WaitLoadingForm : WaitForm
     {

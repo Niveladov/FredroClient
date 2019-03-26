@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:47867/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:47867/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" />
   <xs:complexType name="ArrayOfDictionaryTripType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryTripType" nillable="true" type="tns:DictionaryTripType" />
@@ -9,7 +9,7 @@
   <xs:element name="ArrayOfDictionaryTripType" nillable="true" type="tns:ArrayOfDictionaryTripType" />
   <xs:complexType name="DictionaryTripType">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinkleDAL.Models.DatabaseObjectModels" base="q1:DbObjectBaseModel">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q1:DbObjectBaseModel">
         <xs:sequence>
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />

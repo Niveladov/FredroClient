@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Remoting;
 using System.ServiceModel;
-using TwinkleClient.BusinessObjectService;
-using TwinkleClient.ExtraClasses;
-using TwinkleClient.SchedulerService;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Views;
+using TwinklCRM.Client.BusinessObjectService;
+using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.Client.SchedulerService;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 
-namespace TwinkleClient.Models
+namespace TwinklCRM.Client.Models
 {
     internal sealed class SchedulerModel : ISchedulerServiceCallback
     {

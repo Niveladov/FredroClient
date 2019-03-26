@@ -1,9 +1,9 @@
-﻿using TwinkleMailService.ExtraClasses;
+﻿using TwinklCRM.MailboxService.ExtraClasses;
 using System;
 using System.IdentityModel.Selectors;
 using System.IdentityModel.Tokens;
 
-namespace TwinkleMailService.Authentication
+namespace TwinklCRM.MailboxService.Authentication
 {
     internal class TwinkleValidator : UserNamePasswordValidator
     {

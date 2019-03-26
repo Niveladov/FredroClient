@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries
+namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
     public sealed class DictionaryTripType : DbObjectBaseModel

@@ -1,5 +1,5 @@
-﻿using TwinkleDAL.Models.Contexts;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+﻿using TwinklCRM.DAL.Models.Contexts;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwinkleMailService.ExtraClasses
+namespace TwinklCRM.MailboxService.ExtraClasses
 {
     internal sealed class SessionContext
     {

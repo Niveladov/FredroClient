@@ -1,11 +1,11 @@
-﻿using TwinkleDAL.Models.DatabaseObjectModels.Tables;
+﻿using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwinkleClient.Models
+namespace TwinklCRM.Client.Models
 {
     internal sealed class PerformerModel
     {

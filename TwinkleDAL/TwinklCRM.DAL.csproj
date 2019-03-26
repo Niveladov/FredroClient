@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0BC763B2-5476-4F9B-A764-C4F1075CC11C}</ProjectGuid>
+    <ProjectGuid>{818F485F-BC1A-4482-9872-E4C3762C866E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TwinkleMailService</RootNamespace>
-    <AssemblyName>TwinkleMailService</AssemblyName>
+    <RootNamespace>TwinklCRM.DAL</RootNamespace>
+    <AssemblyName>TwinklCRM.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,18 +38,11 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="OpenPop, Version=2.0.6.1120, Culture=neutral, PublicKeyToken=6bdb97f144b7efc8, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenPop.NET.2.0.6.1120\lib\net40\OpenPop.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IdentityModel.Selectors" />
-    <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,29 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\TwinkleValidator.cs" />
-    <Compile Include="ExtraClasses\MethodExtensions.cs" />
-    <Compile Include="ExtraClasses\SessionContext.cs" />
-    <Compile Include="IMailService.cs" />
-    <Compile Include="MailService.cs" />
-    <Compile Include="Models\EmailDeliveryManager.cs" />
-    <Compile Include="Models\DbDataManager.cs" />
-    <Compile Include="Models\EmailTransferManager.cs" />
+    <Compile Include="Models\Contexts\TwinkleDbContext.cs" />
+    <Compile Include="Models\Credentials.cs" />
+    <Compile Include="Models\DatabaseObjectModels\DbObjectBaseModel.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\CachedEmailBox.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Customer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServerParam.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryTripType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryVehicleType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\TheMail.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\User.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Vehicle.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Views\ViewAssignedDeal.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Views\ViewVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Enums\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TwinkleDAL\TwinkleDAL.csproj">
-      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
-      <Name>TwinkleDAL</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

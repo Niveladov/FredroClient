@@ -1,6 +1,6 @@
-﻿using TwinkleClient.BaseGUI;
-using TwinkleClient.ExtraClasses;
-using TwinkleClient.Models;
+﻿using TwinklCRM.Client.BaseGUI;
+using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.Client.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.Forms
+namespace TwinklCRM.Client.Forms
 {
     internal partial class frmCustomer : TwinkleBaseXtraForm
     {

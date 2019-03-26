@@ -1,4 +1,4 @@
-﻿namespace TwinkleClient.Forms
+﻿namespace TwinklCRM.Client.Forms
 {
     partial class frmCustomer
     {

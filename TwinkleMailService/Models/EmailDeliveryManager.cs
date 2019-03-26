@@ -1,8 +1,8 @@
-﻿using TwinkleDAL.Models.Contexts;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models;
-using TwinkleMailService.ExtraClasses;
-using TwinkleMailService.Models.Enums;
+﻿using TwinklCRM.DAL.Models.Contexts;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models;
+using TwinklCRM.MailboxService.ExtraClasses;
+using TwinklCRM.MailboxService.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,9 +13,9 @@ using System.ServiceModel;
 using System.Threading;
 using OpenPop.Pop3;
 using OpenPop.Mime;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
-namespace TwinkleMailService.Models
+namespace TwinklCRM.MailboxService.Models
 {
     internal interface IMailDeliveryManager
     {
@@ -53,7 +53,7 @@ namespace TwinkleMailService.Models
             try
             {
                 var allMails = _dbDataManager.GetUserMails();
-                if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allMails);
+                if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewMails(allMails);
                 while (true)
                 {
                     var allNewMails = new List<TheMail>();
@@ -65,7 +65,7 @@ namespace TwinkleMailService.Models
                     }
                     if (allNewMails.Count > 0)
                     {
-                        OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allNewMails);
+                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewMails(allNewMails);
                     }
                     Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
                 }

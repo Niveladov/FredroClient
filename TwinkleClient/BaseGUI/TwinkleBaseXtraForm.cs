@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using TwinkleClient.ExtraClasses;
+using TwinklCRM.Client.ExtraClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.BaseGUI
+namespace TwinklCRM.Client.BaseGUI
 {
     internal partial class TwinkleBaseXtraForm : XtraForm
     {

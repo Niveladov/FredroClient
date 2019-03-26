@@ -1,7 +1,7 @@
-﻿using TwinkleDAL.Models.Contexts;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
-using TwinkleDAL.Models.DatabaseObjectModels.Views;
+﻿using TwinklCRM.DAL.Models.Contexts;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
@@ -18,7 +18,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace TwinkleClient.ExtraClasses
+namespace TwinklCRM.Client.ExtraClasses
 {
     internal static class TwinkleHelper
     {

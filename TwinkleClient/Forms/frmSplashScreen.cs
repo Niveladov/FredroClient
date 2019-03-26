@@ -1,4 +1,4 @@
-﻿using TwinkleClient.BaseGUI;
+﻿using TwinklCRM.Client.BaseGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.Forms
+namespace TwinklCRM.Client.Forms
 {
     internal sealed partial class frmSplashScreen : TwinkleBaseXtraForm
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.UserControls.AuxiliaryUserControls
+namespace TwinklCRM.Client.UserControls.AuxiliaryUserControls
 {
     public partial class ucUserInfo : UserControl
     {

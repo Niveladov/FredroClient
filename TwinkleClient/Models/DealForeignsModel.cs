@@ -1,16 +1,16 @@
-﻿using TwinkleClient.ExtraClasses;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables;
-using TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+﻿using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TwinkleClient.BusinessObjectService;
+using TwinklCRM.Client.BusinessObjectService;
 using System.Collections.ObjectModel;
 
-namespace TwinkleClient.Models
+namespace TwinklCRM.Client.Models
 {
     internal sealed class DealForeignsModel
     {

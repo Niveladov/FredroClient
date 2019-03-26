@@ -1,4 +1,4 @@
-﻿namespace TwinkleClient.Forms
+﻿namespace TwinklCRM.Client.Forms
 {
     partial class frmMain
     {
@@ -41,10 +41,10 @@
             this.peAvatar = new DevExpress.XtraEditors.PictureEdit();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.labelCaption = new DevExpress.XtraEditors.LabelControl();
-            this.search = new TwinkleClient.BaseGUI.CustomEdit();
+            this.search = new TwinklCRM.Client.BaseGUI.CustomEdit();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ucScheduler = new TwinkleClient.UserControls.ucScheduler();
-            this.ucMails = new TwinkleClient.UserControls.ucMails();
+            this.ucScheduler = new TwinklCRM.Client.UserControls.ucScheduler();
+            this.ucMails = new TwinklCRM.Client.UserControls.ucMails();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tcgModes = new DevExpress.XtraLayout.TabbedControlGroup();
             this.lcgMails = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -61,7 +61,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNightMode = new System.Windows.Forms.Button();
             this.btnChangeAccount = new System.Windows.Forms.Button();
-            this.ucUserInfo = new TwinkleClient.UserControls.AuxiliaryUserControls.ucUserInfo();
+            this.ucUserInfo = new TwinklCRM.Client.UserControls.AuxiliaryUserControls.ucUserInfo();
             ((System.ComponentModel.ISupportInitialize)(this.panelLeft)).BeginInit();
             this.panelLeft.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -101,7 +101,7 @@
             this.btnAudits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAudits.FlatAppearance.BorderSize = 0;
             this.btnAudits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAudits.Image = global::TwinkleClient.Properties.Resources.blue_audit_32x32;
+            this.btnAudits.Image = global::TwinklCRM.Client.Properties.Resources.blue_audit_32x32;
             this.btnAudits.Location = new System.Drawing.Point(5, 301);
             this.btnAudits.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAudits.Name = "btnAudits";
@@ -125,7 +125,7 @@
             this.btnMails.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMails.FlatAppearance.BorderSize = 0;
             this.btnMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMails.Image = global::TwinkleClient.Properties.Resources.blue_email_32x32;
+            this.btnMails.Image = global::TwinklCRM.Client.Properties.Resources.blue_email_32x32;
             this.btnMails.Location = new System.Drawing.Point(5, 173);
             this.btnMails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMails.Name = "btnMails";
@@ -139,7 +139,7 @@
             this.btnScheduler.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnScheduler.FlatAppearance.BorderSize = 0;
             this.btnScheduler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScheduler.Image = global::TwinkleClient.Properties.Resources.blue_calendar_32x32;
+            this.btnScheduler.Image = global::TwinklCRM.Client.Properties.Resources.blue_calendar_32x32;
             this.btnScheduler.Location = new System.Drawing.Point(5, 237);
             this.btnScheduler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnScheduler.Name = "btnScheduler";
@@ -153,7 +153,7 @@
             this.btnUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUser.FlatAppearance.BorderSize = 0;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.Image = global::TwinkleClient.Properties.Resources.blue_user_32x32;
+            this.btnUser.Image = global::TwinklCRM.Client.Properties.Resources.blue_user_32x32;
             this.btnUser.Location = new System.Drawing.Point(5, 366);
             this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUser.Name = "btnUser";
@@ -179,7 +179,7 @@
             // 
             this.peAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.peAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.peAvatar.EditValue = global::TwinkleClient.Properties.Resources.circle;
+            this.peAvatar.EditValue = global::TwinklCRM.Client.Properties.Resources.circle;
             this.peAvatar.Location = new System.Drawing.Point(753, 0);
             this.peAvatar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.peAvatar.MaximumSize = new System.Drawing.Size(42, 40);
@@ -419,7 +419,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Image = global::TwinkleClient.Properties.Resources.exit_24x24;
+            this.btnExit.Image = global::TwinklCRM.Client.Properties.Resources.exit_24x24;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(0, 180);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -441,7 +441,7 @@
             this.btnNightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNightMode.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNightMode.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNightMode.Image = global::TwinkleClient.Properties.Resources.night_mode_24x24;
+            this.btnNightMode.Image = global::TwinklCRM.Client.Properties.Resources.night_mode_24x24;
             this.btnNightMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNightMode.Location = new System.Drawing.Point(0, 137);
             this.btnNightMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -462,7 +462,7 @@
             this.btnChangeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeAccount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnChangeAccount.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnChangeAccount.Image = global::TwinkleClient.Properties.Resources.user_account_24x24;
+            this.btnChangeAccount.Image = global::TwinklCRM.Client.Properties.Resources.user_account_24x24;
             this.btnChangeAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChangeAccount.Location = new System.Drawing.Point(0, 94);
             this.btnChangeAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

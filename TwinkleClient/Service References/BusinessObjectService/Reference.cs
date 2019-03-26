@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TwinkleClient.BusinessObjectService {
+namespace TwinklCRM.Client.BusinessObjectService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -16,10 +16,10 @@ namespace TwinkleClient.BusinessObjectService {
     public interface IBusinessObjectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/GetPerformerResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id);
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/GetPerformerResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id);
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeletePerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/DeletePerformerResponse")]
         void DeletePerformer(int id);
@@ -34,16 +34,16 @@ namespace TwinkleClient.BusinessObjectService {
         System.Threading.Tasks.Task UpdatePerformerAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertPerformerResponse")]
-        void InsertPerformer(TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer performer);
+        void InsertPerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertPerformerResponse")]
-        System.Threading.Tasks.Task InsertPerformerAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer performer);
+        System.Threading.Tasks.Task InsertPerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/GetDealResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id);
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/GetDealResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id);
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeleteDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/DeleteDealResponse")]
         void DeleteDeal(int id);
@@ -58,43 +58,43 @@ namespace TwinkleClient.BusinessObjectService {
         System.Threading.Tasks.Task UpdateDealAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertDealResponse")]
-        void InsertDeal(TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal deal);
+        void InsertDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertDealResponse")]
-        System.Threading.Tasks.Task InsertDealAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal deal);
+        System.Threading.Tasks.Task InsertDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllCustomers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllCustomersResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Tables.Customer[] GetAllCustomers();
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer[] GetAllCustomers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllCustomers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllCustomersResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Customer[]> GetAllCustomersAsync();
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer[]> GetAllCustomersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllPerformers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllPerformersResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer[] GetAllPerformers();
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[] GetAllPerformers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllPerformers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllPerformersResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer[]> GetAllPerformersAsync();
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[]> GetAllPerformersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicles", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehiclesResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Tables.Vehicle[] GetAllVehicles();
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle[] GetAllVehicles();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicles", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehiclesResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Vehicle[]> GetAllVehiclesAsync();
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle[]> GetAllVehiclesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse")]
-        TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes();
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse")]
-        System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync();
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IBusinessObjectServiceChannel : TwinkleClient.BusinessObjectService.IBusinessObjectService, System.ServiceModel.IClientChannel {
+    public interface IBusinessObjectServiceChannel : TwinklCRM.Client.BusinessObjectService.IBusinessObjectService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BusinessObjectServiceClient : System.ServiceModel.ClientBase<TwinkleClient.BusinessObjectService.IBusinessObjectService>, TwinkleClient.BusinessObjectService.IBusinessObjectService {
+    public partial class BusinessObjectServiceClient : System.ServiceModel.ClientBase<TwinklCRM.Client.BusinessObjectService.IBusinessObjectService>, TwinklCRM.Client.BusinessObjectService.IBusinessObjectService {
         
         public BusinessObjectServiceClient() {
         }
@@ -115,11 +115,11 @@ namespace TwinkleClient.BusinessObjectService {
                 base(binding, remoteAddress) {
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id) {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id) {
             return base.Channel.GetPerformer(id);
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id) {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id) {
             return base.Channel.GetPerformerAsync(id);
         }
         
@@ -139,19 +139,19 @@ namespace TwinkleClient.BusinessObjectService {
             return base.Channel.UpdatePerformerAsync(id);
         }
         
-        public void InsertPerformer(TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer performer) {
+        public void InsertPerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
             base.Channel.InsertPerformer(performer);
         }
         
-        public System.Threading.Tasks.Task InsertPerformerAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer performer) {
+        public System.Threading.Tasks.Task InsertPerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
             return base.Channel.InsertPerformerAsync(performer);
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id) {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id) {
             return base.Channel.GetDeal(id);
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id) {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id) {
             return base.Channel.GetDealAsync(id);
         }
         
@@ -171,43 +171,43 @@ namespace TwinkleClient.BusinessObjectService {
             return base.Channel.UpdateDealAsync(id);
         }
         
-        public void InsertDeal(TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal deal) {
+        public void InsertDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
             base.Channel.InsertDeal(deal);
         }
         
-        public System.Threading.Tasks.Task InsertDealAsync(TwinkleDAL.Models.DatabaseObjectModels.Tables.Deal deal) {
+        public System.Threading.Tasks.Task InsertDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
             return base.Channel.InsertDealAsync(deal);
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Tables.Customer[] GetAllCustomers() {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer[] GetAllCustomers() {
             return base.Channel.GetAllCustomers();
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Customer[]> GetAllCustomersAsync() {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer[]> GetAllCustomersAsync() {
             return base.Channel.GetAllCustomersAsync();
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer[] GetAllPerformers() {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[] GetAllPerformers() {
             return base.Channel.GetAllPerformers();
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Performer[]> GetAllPerformersAsync() {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[]> GetAllPerformersAsync() {
             return base.Channel.GetAllPerformersAsync();
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Tables.Vehicle[] GetAllVehicles() {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle[] GetAllVehicles() {
             return base.Channel.GetAllVehicles();
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Vehicle[]> GetAllVehiclesAsync() {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle[]> GetAllVehiclesAsync() {
             return base.Channel.GetAllVehiclesAsync();
         }
         
-        public TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes() {
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes() {
             return base.Channel.GetAllTripTypes();
         }
         
-        public System.Threading.Tasks.Task<TwinkleDAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync() {
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync() {
             return base.Channel.GetAllTripTypesAsync();
         }
     }

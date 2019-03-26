@@ -62,9 +62,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TwinkleDAL\TwinkleDAL.csproj">
+    <ProjectReference Include="..\TwinkleDAL\TwinklCRM.DAL.csproj">
       <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
-      <Name>TwinkleDAL</Name>
+      <Name>TwinklCRM.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

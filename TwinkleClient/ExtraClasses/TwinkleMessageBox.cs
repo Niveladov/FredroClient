@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TwinkleClient.ExtraClasses
+namespace TwinklCRM.Client.ExtraClasses
 {
     internal static class TwinkleMessageBox
     {
