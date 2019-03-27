@@ -183,7 +183,7 @@
             this.btnSendNew.Size = new System.Drawing.Size(198, 43);
             this.btnSendNew.TabIndex = 7;
             this.btnSendNew.Text = "Написать";
-            this.btnSendNew.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSendNew.TextColor = System.Drawing.Color.White;
             this.btnSendNew.UseVisualStyleBackColor = true;
             this.btnSendNew.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSendNew_MouseDown);
             this.btnSendNew.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSendNew_MouseUp);
@@ -327,7 +327,13 @@
             // 
             this.wevMails.Appearance.ItemDescriptionNormal.ForeColor = System.Drawing.Color.LightYellow;
             this.wevMails.Appearance.ItemDescriptionNormal.Options.UseForeColor = true;
-            this.wevMails.Appearance.ItemNormal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.wevMails.Appearance.ItemHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.wevMails.Appearance.ItemHovered.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.wevMails.Appearance.ItemHovered.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.wevMails.Appearance.ItemHovered.Options.UseBackColor = true;
+            this.wevMails.Appearance.ItemHovered.Options.UseBorderColor = true;
+            this.wevMails.Appearance.ItemHovered.Options.UseFont = true;
+            this.wevMails.Appearance.ItemNormal.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.wevMails.Appearance.ItemNormal.ForeColor = System.Drawing.Color.LightYellow;
             this.wevMails.Appearance.ItemNormal.Options.UseFont = true;
             this.wevMails.Appearance.ItemNormal.Options.UseForeColor = true;
