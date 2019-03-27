@@ -143,6 +143,16 @@ namespace TwinklCRM.Client.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit_34x24 {
+            get {
+                object obj = ResourceManager.GetObject("exit_34x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_16x16 {
             get {
                 object obj = ResourceManager.GetObject("eye_16x16", resourceCulture);
@@ -276,6 +286,16 @@ namespace TwinklCRM.Client.Properties {
         internal static System.Drawing.Bitmap minimize_24x24 {
             get {
                 object obj = ResourceManager.GetObject("minimize_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap night_34x24 {
+            get {
+                object obj = ResourceManager.GetObject("night_34x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -496,6 +516,16 @@ namespace TwinklCRM.Client.Properties {
         internal static System.Drawing.Bitmap user_account_24x24 {
             get {
                 object obj = ResourceManager.GetObject("user_account_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_account_34x24 {
+            get {
+                object obj = ResourceManager.GetObject("user_account_34x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

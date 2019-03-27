@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelLeft = new DevExpress.XtraEditors.PanelControl();
             this.btnAudits = new System.Windows.Forms.Button();
             this.focusedPanel = new System.Windows.Forms.Panel();
@@ -242,12 +242,12 @@
             this.search.Properties.Appearance.Options.UseForeColor = true;
             this.search.Properties.AutoHeight = false;
             this.search.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            serializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(107)))));
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            serializableAppearanceObject1.Options.UseBackColor = true;
-            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(107)))));
+            serializableAppearanceObject2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            serializableAppearanceObject2.Options.UseBackColor = true;
+            serializableAppearanceObject2.Options.UseFont = true;
             this.search.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search, "", -1, false, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search, "", -1, false, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.search.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.search.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.search.Properties.NullValuePromptShowForEmptyValue = true;
@@ -419,7 +419,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Image = global::TwinklCRM.Client.Properties.Resources.exit_24x24;
+            this.btnExit.Image = global::TwinklCRM.Client.Properties.Resources.exit_34x24;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(0, 180);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -441,7 +441,7 @@
             this.btnNightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNightMode.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNightMode.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNightMode.Image = global::TwinklCRM.Client.Properties.Resources.night_mode_24x24;
+            this.btnNightMode.Image = global::TwinklCRM.Client.Properties.Resources.night_34x24;
             this.btnNightMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNightMode.Location = new System.Drawing.Point(0, 137);
             this.btnNightMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -462,7 +462,7 @@
             this.btnChangeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeAccount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnChangeAccount.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnChangeAccount.Image = global::TwinklCRM.Client.Properties.Resources.user_account_24x24;
+            this.btnChangeAccount.Image = global::TwinklCRM.Client.Properties.Resources.user_account_34x24;
             this.btnChangeAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChangeAccount.Location = new System.Drawing.Point(0, 94);
             this.btnChangeAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -376,6 +376,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\user_account_34x24.png" />
+    <None Include="Resources\night_34x24.png" />
+    <None Include="Resources\exit_34x24.png" />
     <None Include="Service References\BusinessObjectService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
