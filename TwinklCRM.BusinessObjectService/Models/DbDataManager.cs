@@ -14,14 +14,19 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
     {        
         Performer GetPerformer(int id);
         void DeletePerformer(int id);
-        void UpdatePerformer(int id);
+        void UpdatePerformer(Performer performer);
         void InsertPerformer(Performer performer);
         
         Deal GetDeal(int id);
         void DeleteDeal(int id);
-        void UpdateDeal(int id);
+        void UpdateDeal(Deal deal);
         void InsertDeal(Deal deal);
         
+        Customer GetCustomer(int id);
+        void DeleteCustomer(int id);
+        void UpdateCustomer(Customer customer);
+        void InsertCustomer(Customer customer);
+
         IEnumerable<Customer> GetAllCustomers();
         IEnumerable<Performer> GetAllPerformers();
         IEnumerable<Vehicle> GetAllVehicles();
@@ -46,6 +51,16 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
             {
                 var performer = db.Performers.Find(id);
                 db.Performers.Remove(performer);
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteCustomer(int id)
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                var customer = db.Customers.Find(id);
+                db.Customers.Remove(customer);
                 db.SaveChanges();
             }
         }
@@ -102,6 +117,14 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
             }
         }
 
+        public Customer GetCustomer(int id)
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                return db.Customers.Find(id);
+            }
+        }
+
         public void InsertDeal(Deal deal)
         {
             using (var db = new TwinkleDbContext())
@@ -124,12 +147,28 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
             }
         }
 
-        public void UpdateDeal(int id)
+        public void InsertCustomer(Customer customer)
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                customer.CreatedBy = -1;
+                customer.CreationDate = DateTime.Now;
+                db.Customers.Add(customer);
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateDeal(Deal deal)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdatePerformer(int id)
+        public void UpdatePerformer(Performer performer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateCustomer(Customer customer)
         {
             throw new NotImplementedException();
         }

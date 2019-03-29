@@ -9,7 +9,7 @@ namespace TwinklCRM.Client.Models
     {
         private readonly BusinessObjectServiceClient _boServiceClient;
 
-        public Deal CurrentDeal { get; set; }
+        public Deal CurrentDeal { get; }
 
 
         public DealModel(BusinessObjectServiceClient boServiceClient)

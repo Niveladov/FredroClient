@@ -17,7 +17,7 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
         [OperationContract]
         void DeletePerformer(int id);
         [OperationContract]
-        void UpdatePerformer(int id);
+        void UpdatePerformer(Performer performer);
         [OperationContract]
         void InsertPerformer(Performer performer);
 
@@ -26,9 +26,18 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
         [OperationContract]
         void DeleteDeal(int id);
         [OperationContract]
-        void UpdateDeal(int id);
+        void UpdateDeal(Deal deal);
         [OperationContract]
         void InsertDeal(Deal deal);
+
+        [OperationContract]
+        Customer GetCustomer(int id);
+        [OperationContract]
+        void DeleteCustomer(int id);
+        [OperationContract]
+        void UpdateCustomer(Customer customer);
+        [OperationContract]
+        void InsertCustomer(Customer customer);
 
         [OperationContract]
         IEnumerable<Customer> GetAllCustomers();

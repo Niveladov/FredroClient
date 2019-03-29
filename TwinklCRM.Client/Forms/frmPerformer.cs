@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TwinklCRM.Client.BusinessObjectService;
 
 namespace TwinklCRM.Client.Forms
 {
@@ -17,10 +18,10 @@ namespace TwinklCRM.Client.Forms
     {
         private readonly PerformerModel _performerModel;
 
-        public frmPerformer()
+        public frmPerformer(BusinessObjectServiceClient boServiceClient)
         {
             InitializeComponent();
-            _performerModel = new PerformerModel();
+            _performerModel = new PerformerModel(boServiceClient);
             InitControls();
         }
 
@@ -36,11 +37,11 @@ namespace TwinklCRM.Client.Forms
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                await _performerModel.Save();
+                _performerModel.Save();
                 TwinkleMessageBox.ShowSucces("Исполнитель успешно сохранен!");
                 DialogResult = DialogResult.OK;
             }

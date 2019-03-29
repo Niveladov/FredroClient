@@ -31,7 +31,7 @@
   <xs:element name="UpdatePerformer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="performer" nillable="true" type="q2:Performer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -43,7 +43,7 @@
   <xs:element name="InsertPerformer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="performer" nillable="true" type="q2:Performer" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="performer" nillable="true" type="q3:Performer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -62,7 +62,7 @@
   <xs:element name="GetDealResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetDealResult" nillable="true" type="q3:Deal" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetDealResult" nillable="true" type="q4:Deal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -81,7 +81,7 @@
   <xs:element name="UpdateDeal">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="deal" nillable="true" type="q5:Deal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -93,11 +93,61 @@
   <xs:element name="InsertDeal">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="deal" nillable="true" type="q4:Deal" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="deal" nillable="true" type="q6:Deal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertDealResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetCustomerResult" nillable="true" type="q7:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCustomerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="customer" nillable="true" type="q8:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="customer" nillable="true" type="q9:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertCustomerResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -110,7 +160,7 @@
   <xs:element name="GetAllCustomersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllCustomersResult" nillable="true" type="q5:ArrayOfCustomer" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllCustomersResult" nillable="true" type="q10:ArrayOfCustomer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -122,7 +172,7 @@
   <xs:element name="GetAllPerformersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllPerformersResult" nillable="true" type="q6:ArrayOfPerformer" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllPerformersResult" nillable="true" type="q11:ArrayOfPerformer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +184,7 @@
   <xs:element name="GetAllVehiclesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllVehiclesResult" nillable="true" type="q7:ArrayOfVehicle" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="GetAllVehiclesResult" nillable="true" type="q12:ArrayOfVehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -146,7 +196,7 @@
   <xs:element name="GetAllTripTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllTripTypesResult" nillable="true" type="q8:ArrayOfDictionaryTripType" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllTripTypesResult" nillable="true" type="q13:ArrayOfDictionaryTripType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

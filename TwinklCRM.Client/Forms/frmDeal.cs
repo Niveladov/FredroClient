@@ -25,10 +25,12 @@ namespace TwinklCRM.Client.Forms
     {
         private readonly DealModel _dealModel;
         private readonly DealForeignsModel _loadingModel;
+        private BusinessObjectServiceClient _boServiceClient;
 
         public frmDeal(BusinessObjectServiceClient boServiceClient)
         {
             InitializeComponent();
+            _boServiceClient = boServiceClient;
             _dealModel = new DealModel(boServiceClient);
             _loadingModel = new DealForeignsModel(boServiceClient);
             InitControls();
@@ -149,7 +151,7 @@ namespace TwinklCRM.Client.Forms
         {
             if (e.Button.Kind == ButtonPredefines.Plus)
             {
-                using (var frm = new frmPerformer())
+                using (var frm = new frmPerformer(_boServiceClient))
                 {
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
@@ -164,7 +166,7 @@ namespace TwinklCRM.Client.Forms
         {
             if (e.Button.Kind == ButtonPredefines.Plus)
             {
-                using (var frm = new frmCustomer())
+                using (var frm = new frmCustomer(_boServiceClient))
                 {
                     if (frm.ShowDialog() == DialogResult.OK)
                     {

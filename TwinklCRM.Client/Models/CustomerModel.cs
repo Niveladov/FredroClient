@@ -4,26 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TwinklCRM.Client.BusinessObjectService;
 
 namespace TwinklCRM.Client.Models
 {
     internal sealed class CustomerModel
     {
-        public Customer CurrentCustomer { get; set; } = new Customer();
+        private readonly BusinessObjectServiceClient _boServiceClient;
 
-        public async Task Save()
+        public Customer CurrentCustomer { get; }
+
+        public CustomerModel(BusinessObjectServiceClient boServiceClient)
+        {
+            CurrentCustomer = new Customer();
+            _boServiceClient = boServiceClient;
+        }
+
+        public void Save()
         {
             try
             {
-                throw new NotImplementedException();
-                //using (var db = new CustomerContext())
-                //{
-                //    CurrentCustomer.IsDel = false;
-                //    CurrentCustomer.CreatedBy = -1;
-                //    CurrentCustomer.CreationDate = DateTime.Now;
-                //    db.Customers.Add(CurrentCustomer);
-                //    await db.SaveChangesAsync();
-                //}
+                //_boServiceClient.InsertPerformer
             }
             catch
             {

@@ -28,6 +28,18 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
             }
         }
 
+        public void DeleteCustomer(int id)
+        {
+            try
+            {
+                _dataManager.DeleteCustomer(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         public void DeleteDeal(int id)
         {
             try
@@ -100,6 +112,18 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
             }
         }
 
+        public Customer GetCustomer(int id)
+        {
+            try
+            {
+                return _dataManager.GetCustomer(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         public Deal GetDeal(int id)
         {
             try
@@ -117,6 +141,18 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
             try
             {
                 return _dataManager.GetPerformer(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void InsertCustomer(Customer customer)
+        {
+            try
+            {
+                _dataManager.InsertCustomer(customer);
             }
             catch (Exception ex)
             {
@@ -148,11 +184,11 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
             }
         }
 
-        public void UpdateDeal(int id)
+        public void UpdateCustomer(Customer customer)
         {
             try
             {
-                _dataManager.UpdateDeal(id);
+                _dataManager.UpdateCustomer(customer);
             }
             catch (Exception ex)
             {
@@ -160,11 +196,23 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
             }
         }
 
-        public void UpdatePerformer(int id)
+        public void UpdateDeal(Deal deal)
         {
             try
             {
-                _dataManager.UpdatePerformer(id);
+                _dataManager.UpdateDeal(deal);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void UpdatePerformer(Performer performer)
+        {
+            try
+            {
+                _dataManager.UpdatePerformer(performer);
             }
             catch (Exception ex)
             {

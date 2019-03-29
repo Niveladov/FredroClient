@@ -86,6 +86,30 @@
   <wsdl:message name="IBusinessObjectService_InsertDeal_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertDealResponse" />
   </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomerResponse" />
+  </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllCustomers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllCustomers" />
   </wsdl:message>
@@ -142,6 +166,22 @@
     <wsdl:operation name="InsertDeal">
       <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertDeal" message="tns:IBusinessObjectService_InsertDeal_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertDealResponse" message="tns:IBusinessObjectService_InsertDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetCustomer" message="tns:IBusinessObjectService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetCustomerResponse" message="tns:IBusinessObjectService_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteCustomer" message="tns:IBusinessObjectService_DeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteCustomerResponse" message="tns:IBusinessObjectService_DeleteCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateCustomer" message="tns:IBusinessObjectService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateCustomerResponse" message="tns:IBusinessObjectService_UpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertCustomer" message="tns:IBusinessObjectService_InsertCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertCustomerResponse" message="tns:IBusinessObjectService_InsertCustomer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllCustomers" message="tns:IBusinessObjectService_GetAllCustomers_InputMessage" />
@@ -235,6 +275,42 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/InsertCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllCustomers">
       <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllCustomers" style="document" />
       <wsdl:input>
@@ -278,7 +354,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:47868/BusinessObjectService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>EF-01121994\Пользователь</Upn>
+          <Upn>E.Fedoruk@BrainSystems.llc</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
