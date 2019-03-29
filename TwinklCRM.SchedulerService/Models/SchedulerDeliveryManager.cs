@@ -5,6 +5,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 
 namespace TwinklCRM.SchedulerServiceLibrary.Models
 {
@@ -17,51 +19,100 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
     {
         private const int DB_ACCESS_PERIOD = 5000;
         private readonly IDbDataManager _dataManager;
-        private HashSet<string> _assignedAppointmentIds;
-        private HashSet<string> _freeAppointmentIds;
+        private HashSet<long> _assignedAppointmentIds;
+        private HashSet<long> _freeAppointmentIds;
 
         public SchedulerDeliveryManager(IDbDataManager dataManager)
         {
             _dataManager = dataManager;
-            _assignedAppointmentIds = new HashSet<string>();
-            _freeAppointmentIds = new HashSet<string>();
+            _assignedAppointmentIds = new HashSet<long>();
+            _freeAppointmentIds = new HashSet<long>();
         }
 
         public void Join()
         {
             try
             {
-                var assignedAppointments = _dataManager.GetAssignedAppointments().ToList();
-                var freeAppointments = _dataManager.GetFreeAppointments().ToList();
-                if (assignedAppointments.Count > 0)
+                while (true)
                 {
-                    OperationContext.Current.GetCallbackChannel<ISchedulerCallback>()
-                        .SendAssignedAppointments(assignedAppointments);
+                    RefreshAssignedAppointments();
+                    RefreshFreeAppointments();
+                    Thread.Sleep(DB_ACCESS_PERIOD);
                 }
-                if(freeAppointments.Count > 0)
-                {
-                    OperationContext.Current.GetCallbackChannel<ISchedulerCallback>()
-                        .SendFreeAppointments(freeAppointments);
-                }
-                //while (true)
-                //{
-                //    var allNewMails = new List<TheMail>();
-                //    foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
-                //    {
-                //        var serverParams = cachedEmailBox.IncomingEmailServerParam;
-                //        var newMails = FetchNewMails(serverParams, cachedEmailBox);
-                //        allNewMails.AddRange(newMails);
-                //    }
-                //    if (allNewMails.Count > 0)
-                //    {
-                //        OperationContext.Current.GetCallbackChannel<IMailCallback>().SendNewMails(allNewMails);
-                //    }
-                //    Thread.Sleep(DB_ACCESS_PERIOD);
-                //}
             }
             catch
             {
                 throw;
+            }
+        }
+
+        private void RefreshAssignedAppointments()
+        {
+            var assignedAppointments = GetAssignedAppointments();
+            var assignedAppointmentIds = GetAssignedAppointmentIds(assignedAppointments);
+            if (!_assignedAppointmentIds.SetEquals(assignedAppointmentIds))
+            {
+                _assignedAppointmentIds = assignedAppointmentIds;
+                SendAssignedAppointments(assignedAppointments);
+            }
+        }
+
+        private void RefreshFreeAppointments()
+        {
+            var freeAppointments = GetFreeAppointments();
+            var freeAppointmentIds = GetFreeAppointmentIds(freeAppointments);
+            if (!_freeAppointmentIds.SetEquals(freeAppointmentIds))
+            {
+                _freeAppointmentIds = freeAppointmentIds;
+                SendFreeAppointments(freeAppointments);
+            }
+        }
+
+        private List<ViewAssignedDeal> GetAssignedAppointments()
+        {
+            return _dataManager.GetAssignedAppointments().ToList();
+        }
+
+        private List<Deal> GetFreeAppointments()
+        {
+            return _dataManager.GetFreeAppointments().ToList();
+        }
+
+        private HashSet<long> GetAssignedAppointmentIds(List<ViewAssignedDeal> assignedAppointments)
+        {
+            var set = new HashSet<long>();
+            foreach (var appointment in assignedAppointments)
+            {
+                set.Add(appointment.Id.Value);
+            }
+            return set;
+        }
+
+        private HashSet<long> GetFreeAppointmentIds(List<Deal> freeAppointments)
+        {
+            var set = new HashSet<long>();
+            foreach (var appointment in freeAppointments)
+            {
+                set.Add(appointment.Id.Value);
+            }
+            return set;
+        }
+
+        private void SendAssignedAppointments(List<ViewAssignedDeal> assignedAppointments)
+        {
+            if (assignedAppointments.Count > 0)
+            {
+                OperationContext.Current.GetCallbackChannel<ISchedulerCallback>()
+                    .SendAssignedAppointments(assignedAppointments);
+            }
+        }
+
+        private void SendFreeAppointments(List<Deal> freeAppointments)
+        {
+            if (freeAppointments.Count > 0)
+            {
+                OperationContext.Current.GetCallbackChannel<ISchedulerCallback>()
+                    .SendFreeAppointments(freeAppointments);
             }
         }
 
