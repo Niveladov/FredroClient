@@ -15,14 +15,11 @@ namespace TwinklCRM.Client.Models
     {
         private bool _isJoined = false;
         private SchedulerServiceClient _schedulerServiceClient;
-        public BusinessObjectServiceClient BOServiceClient { get; }
 
+        public BusinessObjectServiceClient BOServiceClient { get; }
         public List<ViewVehicle> Resources { get; }
         public ObservableCollection<ViewAssignedDeal> AssignedAppointments { get; }
         public ObservableCollection<Deal> FreeAppointments { get; }
-        
-        //public event EventHandler OnReloadingAssignedAppointments;
-        //public event EventHandler OnReloadingFreeAppointments;
 
         public SchedulerModel(BusinessObjectServiceClient boServiceClient)
         {
