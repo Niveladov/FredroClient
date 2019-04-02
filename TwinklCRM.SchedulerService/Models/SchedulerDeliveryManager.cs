@@ -17,7 +17,7 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
 
     internal sealed class SchedulerDeliveryManager : ISchedulerDeliveryManager
     {
-        private const int DB_ACCESS_PERIOD = 5000;
+        private const int DB_ACCESS_PERIOD = 100;
         private readonly IDbDataManager _dataManager;
         private HashSet<long> _assignedAppointmentIds;
         private HashSet<long> _freeAppointmentIds;
