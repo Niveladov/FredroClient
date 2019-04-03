@@ -60,9 +60,20 @@ namespace TwinklCRM.Client.Forms
             btnUser.Click += OnCategoryBtnClick;
 
             FormClosing += FrmMails_FormClosing;
+
+            search.KeyDown += Search_KeyDown;
         }
 
         #region Event Handlers
+
+        private void Search_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                ucMails.FilterMails(search.Text);
+            }
+        }
+
         private void OnCategoryBtnClick(object sender, EventArgs e)
         {
             var btn = sender as Button;

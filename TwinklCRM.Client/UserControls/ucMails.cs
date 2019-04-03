@@ -75,6 +75,11 @@ namespace TwinklCRM.Client.UserControls
             }
         }
 
+        public void FilterMails(string text)
+        {
+            wevMails.FindFilterText = text;
+        }
+
         private void InitEvents()
         {
             _model.NewMailsRecieved += OnNewMailRecieved;
