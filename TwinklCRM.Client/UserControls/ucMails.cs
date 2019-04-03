@@ -30,6 +30,7 @@ namespace TwinklCRM.Client.UserControls
         private MailModel _model;
         private bool _isInit = false;
         private bool _isMailButtonsVisible = true;
+        private bool _isEnableMailView = true;
         //  ToDo:
         //      to move from field to another place
         private BusinessObjectServiceClient _boServiceClient;
@@ -139,6 +140,22 @@ namespace TwinklCRM.Client.UserControls
             }
         }
 
+        /// <summary>
+        ///     Enable the opening of mail for viewing.
+        /// </summary>
+        private void EnableMailView()
+        {
+            _isEnableMailView = true;
+        }
+
+        /// <summary>
+        ///     Disable the opening of mail for viewing.
+        /// </summary>
+        private void DisableMailView()
+        {
+            _isEnableMailView = false;
+        }
+
         private void FocusInvalidMail()
         {
             wevMails.FocusedRowHandle = -1;
@@ -147,6 +164,128 @@ namespace TwinklCRM.Client.UserControls
         private void ClearControlFocus()
         {
             panelFolders.Focus();
+        }
+
+        private void InitIncomingMailsData()
+        {
+            var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
+            gcMails.DataSource = incomingMails;
+        }
+
+        private void InitOutcomingMailsData()
+        {
+            var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
+            gcMails.DataSource = outgoingMails;
+        }
+
+        private void InitDeletedMailsData()
+        {
+            gcMails.DataSource = null;
+        }
+
+        private void SetIncomingMailsAppearence()
+        {
+            btnInboxMails.Font = new Font("Calibri", 12, FontStyle.Bold);
+            btnInboxMails.ForeColor = Color.DeepSkyBlue;
+
+            var defaultFont = new Font("Calibri", 10.8f , FontStyle.Bold);
+            var defaultColor = Color.Gainsboro;
+            btnOutboxMails.Font = defaultFont;
+            btnOutboxMails.ForeColor = defaultColor;
+            btnDeletedMails.Font = defaultFont;
+            btnDeletedMails.ForeColor = defaultColor;
+        }
+
+        private void SetOutcomingMailsAppearence()
+        {
+            btnOutboxMails.Font = new Font("Calibri", 12, FontStyle.Bold);
+            btnOutboxMails.ForeColor = Color.DeepSkyBlue;
+
+            var defaultFont = new Font("Calibri", 10.8f, FontStyle.Bold);
+            var defaultColor = Color.Gainsboro;
+            btnInboxMails.Font = defaultFont;
+            btnInboxMails.ForeColor = defaultColor;
+            btnDeletedMails.Font = defaultFont;
+            btnDeletedMails.ForeColor = defaultColor;
+        }
+
+        private void SetDeletedMailsAppearence()
+        {
+            btnDeletedMails.Font = new Font("Calibri", 12, FontStyle.Bold);
+            btnDeletedMails.ForeColor = Color.DeepSkyBlue;
+
+            var defaultFont = new Font("Calibri", 10.8f, FontStyle.Bold);
+            var defaultColor = Color.Gainsboro;
+            btnOutboxMails.Font = defaultFont;
+            btnOutboxMails.ForeColor = defaultColor;
+            btnInboxMails.Font = defaultFont;
+            btnInboxMails.ForeColor = defaultColor;
+        }
+
+        private void SetIncomingBehavior()
+        {
+            MarkIncomingTags();
+            SetIncomingMailsAppearence();
+        }
+
+        private void SetOutcomingBehavior()
+        {
+            MarkOutcomingTags();
+            SetOutcomingMailsAppearence();
+        }
+
+        private void SetDeletedBehavior()
+        {
+            MarkDeletedTags();
+            SetDeletedMailsAppearence();
+        }
+
+        private void MarkIncomingTags()
+        {
+            btnInboxMails.Tag = true;
+            btnOutboxMails.Tag = null;
+            btnDeletedMails.Tag = null;
+        }
+
+        private void MarkOutcomingTags()
+        {
+            btnInboxMails.Tag = null;
+            btnOutboxMails.Tag = true;
+            btnDeletedMails.Tag = null;
+        }
+
+        private void MarkDeletedTags()
+        {
+            btnInboxMails.Tag = null;
+            btnOutboxMails.Tag = null;
+            btnDeletedMails.Tag = true;
+        }
+
+        private void IncomingMailsClickActions()
+        {
+            DisableMailView();
+            InitIncomingMailsData();
+            FocusInvalidMail();
+            EnableMailView();
+            SetIncomingBehavior();
+        }
+
+        private void OutcomingMailsClickActions()
+        {
+            DisableMailView();
+            InitOutcomingMailsData();
+            FocusInvalidMail();
+            EnableMailView();
+            SetOutcomingBehavior();
+        }
+
+        private void DeletedMailsClickActions()
+        {
+            DisableMailView();
+            InitDeletedMailsData();
+            FocusInvalidMail();
+            EnableMailView();
+            SetDeletedBehavior();
         }
 
         #region EventHandlers
@@ -164,30 +303,13 @@ namespace TwinklCRM.Client.UserControls
                 switch (btn.Name)
                 {
                     case nameof(btnInboxMails):
-                        var incomingMails = _model.MyMails.Where(x => x.IsIncoming).ToList();
-                        wevMails.FocusedRowChanged -= WevMails_FocusedRowChanged;
-                        gcMails.DataSource = incomingMails;
-                        FocusInvalidMail();
-                        wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
-                        btnInboxMails.Tag = true;
-                        btnOutboxMails.Tag = null;
-                        btnDeletedMails.Tag = null;
+                        IncomingMailsClickActions();
                         break;
                     case nameof(btnOutboxMails):
-                        var outgoingMails = _model.MyMails.Where(x => x.IsOutcoming).ToList();
-                        wevMails.FocusedRowChanged -= WevMails_FocusedRowChanged;
-                        gcMails.DataSource = outgoingMails;
-                        FocusInvalidMail();
-                        wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
-                        btnInboxMails.Tag = null;
-                        btnOutboxMails.Tag = true;
-                        btnDeletedMails.Tag = null;
+                        OutcomingMailsClickActions();
                         break;
                     case nameof(btnDeletedMails):
-                        gcMails.DataSource = null;
-                        btnInboxMails.Tag = null;
-                        btnOutboxMails.Tag = null;
-                        btnDeletedMails.Tag = true;
+                        DeletedMailsClickActions();
                         break;
                 }
             }
@@ -195,7 +317,7 @@ namespace TwinklCRM.Client.UserControls
 
         private void WevMails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (wevMails.IsDataRow(wevMails.FocusedRowHandle))
+            if (_isEnableMailView && wevMails.IsDataRow(wevMails.FocusedRowHandle))
             {
                 var mail = wevMails.GetFocusedRow() as TheMail;
                 SetMailButtonsVisibility(mail.IsIncoming);
