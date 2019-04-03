@@ -155,7 +155,7 @@ namespace TwinklCRM.Client.Forms
 
         private void OnDealPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(Deal.DateStart) && _dealModel.CurrentDeal.DateStart.HasValue)
+            if (e.PropertyName == nameof(Deal.DateStart) && _dealModel.CurrentDeal.DateStart.HasValue && _dealModel.CurrentDeal.DateEnd.HasValue)
             {
                 if (_dealModel.CurrentDeal.DateStart.Value > _dealModel.CurrentDeal.DateEnd.Value)
                 {
@@ -168,7 +168,7 @@ namespace TwinklCRM.Client.Forms
                     EnableBtnSave();
                 }
             }
-            else if (e.PropertyName == nameof(Deal.DateEnd) && _dealModel.CurrentDeal.DateEnd.HasValue)
+            else if (e.PropertyName == nameof(Deal.DateEnd) && _dealModel.CurrentDeal.DateStart.HasValue && _dealModel.CurrentDeal.DateEnd.HasValue)
             {
                 if (_dealModel.CurrentDeal.DateStart.Value > _dealModel.CurrentDeal.DateEnd.Value)
                 {
