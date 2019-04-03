@@ -186,40 +186,49 @@ namespace TwinklCRM.Client.UserControls
         private void SetIncomingMailsAppearence()
         {
             btnInboxMails.Font = new Font("Calibri", 12, FontStyle.Bold);
+            btnInboxMails.Image = Properties.Resources.inbox_blue_16x16;
             btnInboxMails.ForeColor = Color.DeepSkyBlue;
 
             var defaultFont = new Font("Calibri", 10.8f , FontStyle.Bold);
             var defaultColor = Color.Gainsboro;
             btnOutboxMails.Font = defaultFont;
             btnOutboxMails.ForeColor = defaultColor;
+            btnOutboxMails.Image = Properties.Resources.telegram_grey_16x16;
             btnDeletedMails.Font = defaultFont;
             btnDeletedMails.ForeColor = defaultColor;
+            btnDeletedMails.Image = Properties.Resources.deleted_mail_grey_16x16;
         }
 
         private void SetOutcomingMailsAppearence()
         {
             btnOutboxMails.Font = new Font("Calibri", 12, FontStyle.Bold);
             btnOutboxMails.ForeColor = Color.DeepSkyBlue;
+            btnOutboxMails.Image = Properties.Resources.telegram_blue_16x16;
 
             var defaultFont = new Font("Calibri", 10.8f, FontStyle.Bold);
             var defaultColor = Color.Gainsboro;
             btnInboxMails.Font = defaultFont;
             btnInboxMails.ForeColor = defaultColor;
+            btnInboxMails.Image = Properties.Resources.inbox_grey_16x16;
             btnDeletedMails.Font = defaultFont;
             btnDeletedMails.ForeColor = defaultColor;
+            btnDeletedMails.Image = Properties.Resources.deleted_mail_grey_16x16;
         }
 
         private void SetDeletedMailsAppearence()
         {
             btnDeletedMails.Font = new Font("Calibri", 12, FontStyle.Bold);
             btnDeletedMails.ForeColor = Color.DeepSkyBlue;
+            btnDeletedMails.Image = Properties.Resources.deleted_mail_blue_16x16;
 
             var defaultFont = new Font("Calibri", 10.8f, FontStyle.Bold);
             var defaultColor = Color.Gainsboro;
             btnOutboxMails.Font = defaultFont;
             btnOutboxMails.ForeColor = defaultColor;
+            btnOutboxMails.Image = Properties.Resources.telegram_grey_16x16;
             btnInboxMails.Font = defaultFont;
             btnInboxMails.ForeColor = defaultColor;
+            btnInboxMails.Image = Properties.Resources.inbox_grey_16x16;
         }
 
         private void SetIncomingBehavior()

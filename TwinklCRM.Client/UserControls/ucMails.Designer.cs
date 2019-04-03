@@ -208,7 +208,7 @@
             this.btnDeletedMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletedMails.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnDeletedMails.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDeletedMails.Image = global::TwinklCRM.Client.Properties.Resources.deleted_mail_16x16;
+            this.btnDeletedMails.Image = global::TwinklCRM.Client.Properties.Resources.deleted_mail_grey_16x16;
             this.btnDeletedMails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeletedMails.Location = new System.Drawing.Point(5, 95);
             this.btnDeletedMails.Name = "btnDeletedMails";
@@ -229,7 +229,7 @@
             this.btnOutboxMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOutboxMails.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnOutboxMails.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOutboxMails.Image = global::TwinklCRM.Client.Properties.Resources.telegram_16x16;
+            this.btnOutboxMails.Image = global::TwinklCRM.Client.Properties.Resources.telegram_grey_16x16;
             this.btnOutboxMails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOutboxMails.Location = new System.Drawing.Point(5, 49);
             this.btnOutboxMails.Name = "btnOutboxMails";
@@ -250,7 +250,7 @@
             this.btnInboxMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInboxMails.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnInboxMails.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnInboxMails.Image = global::TwinklCRM.Client.Properties.Resources.inbox_16x16;
+            this.btnInboxMails.Image = global::TwinklCRM.Client.Properties.Resources.inbox_grey_16x16;
             this.btnInboxMails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInboxMails.Location = new System.Drawing.Point(5, 3);
             this.btnInboxMails.Name = "btnInboxMails";

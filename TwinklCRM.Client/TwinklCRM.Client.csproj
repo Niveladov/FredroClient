@@ -376,6 +376,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\telegram_grey_16x16.png" />
+    <None Include="Resources\inbox_grey_16x16.png" />
+    <None Include="Resources\deleted_mail_grey_16x16.png" />
+    <None Include="Resources\telegram_blue_16x16.png" />
+    <None Include="Resources\inbox_blue_16x16.png" />
+    <None Include="Resources\deleted_mail_blue_16x16.png" />
     <None Include="Resources\user_account_34x24.png" />
     <None Include="Resources\night_34x24.png" />
     <None Include="Resources\exit_34x24.png" />
