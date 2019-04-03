@@ -214,7 +214,7 @@ namespace TwinklCRM.Client.UserControls
             return itHas;
         }
 
-        private async void SchedulerMain_AppointmentDrop(object sender, AppointmentDragEventArgs e)
+        private void SchedulerMain_AppointmentDrop(object sender, AppointmentDragEventArgs e)
         {
             try
             {
@@ -244,31 +244,33 @@ namespace TwinklCRM.Client.UserControls
                 if (sourceDealId == null)
                 {
                     var dealId = e.SourceAppointment.CustomFields["Id"];
+                    _model.AssignAppointment((int)dealId, vehicleId);
                     //-->
-                    using (var db = new TwinkleDbContext())
-                    {
-                        deal = await db.Deals.FindAsync(dealId);
-                        deal.VehicleId = vehicleId;
-                        await db.SaveChangesAsync();
-                    }
+                    //using (var db = new TwinkleDbContext())
+                    //{
+                    //    deal = await db.Deals.FindAsync(dealId);
+                    //    deal.VehicleId = vehicleId;
+                    //    await db.SaveChangesAsync();
+                    //}
                     //<--
                 }
                 else
                 {
                     var dealId = sourceDealId;
+                    _model.AssignAppointment((int)dealId, vehicleId);
                     //-->
-                    using (var db = new TwinkleDbContext())
-                    {
-                        deal = await db.Deals.FindAsync(dealId);
-                        deal.VehicleId = vehicleId;
-                        await db.SaveChangesAsync();
-                    }
+                    //using (var db = new TwinkleDbContext())
+                    //{
+                    //    deal = await db.Deals.FindAsync(dealId);
+                    //    deal.VehicleId = vehicleId;
+                    //    await db.SaveChangesAsync();
+                    //}
                     //<--
                 }
                 e.Allow = true;
                 schedulerMain.BeginUpdate();
-                schedulerMain.GoToDate(deal.DateStart.Value.Date.AddHours(schedulerMain.Start.Hour));
-                RefreshData();
+                schedulerMain.GoToDate(start.Date.AddHours(schedulerMain.Start.Hour));
+                //RefreshAppointments();
                 schedulerMain.EndUpdate();
             }
             catch (Exception ex)
@@ -278,7 +280,7 @@ namespace TwinklCRM.Client.UserControls
             }
         }
 
-        private void RefreshData()
+        private void RefreshAppointments()
         {
             storageMain.Appointments.DataSource = _model.AssignedAppointments;
             gcFreeDeals.DataSource = _model.FreeAppointments;
@@ -319,7 +321,7 @@ namespace TwinklCRM.Client.UserControls
 
         private void BtnRefreshAction()
         {
-            RefreshData();
+            RefreshAppointments();
         }
 
         private void BtnSearchAction(IBaseButton button)

@@ -62,7 +62,9 @@ namespace TwinklCRM.Client.Forms
         {
             _isEnterPressed = false;
             if (e.KeyCode == Keys.Enter)
+            {
                 _isEnterPressed = true;
+            }
         }
 
         private void InitControls()
@@ -117,7 +119,7 @@ namespace TwinklCRM.Client.Forms
         {
             if (this.Opacity > 0.0)
             {
-                this.Opacity -= 0.05;
+                this.Opacity -= 0.1;
             }
             else
             {

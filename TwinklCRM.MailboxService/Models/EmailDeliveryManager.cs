@@ -53,15 +53,21 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
             try
             {
                 var allMails = _dbDataManager.GetUserMails();
-                if (allMails.Count > 0) OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewMails(allMails);
+                if (allMails.Count > 0)
+                {
+                    OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewMails(allMails);
+                    AddNewMailIds(allMails);
+                }
                 while (true)
                 {
                     var allNewMails = new List<TheMail>();
                     foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
                     {
                         var serverParams = cachedEmailBox.IncomingEmailServerParam;
-                        var newMails = FetchNewMails(serverParams, cachedEmailBox);
+                        var newMessages = FetchNewMails(serverParams, cachedEmailBox);
+                        var newMails = GetNewMails(newMessages, cachedEmailBox);
                         allNewMails.AddRange(newMails);
+                        System.Threading.Tasks.Task.Run(() => InsertMails(newMails));
                     }
                     if (allNewMails.Count > 0)
                     {
@@ -76,45 +82,76 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
             }
         }
 
-        private List<TheMail> FetchNewMails(DictionaryEmailServerParam serverParams, CachedEmailBox cachedEmailBox)
+        private void AddNewMailIds(IEnumerable<TheMail> mails)
         {
-            try
+            foreach (var mail in mails)
             {
-                // The client disconnects from the server when being disposed
-                using (var client = new Pop3Client())
+                TryAddMailId(mail.Id);
+            }
+        }
+
+        private bool TryAddMailId(string mailId)
+        {
+            var isAdded = false;
+            if (!_allMailIds.Contains(mailId))
+            {
+                _allMailIds.Add(mailId);
+                isAdded = true;
+            }
+            return isAdded;
+        }
+
+        private IEnumerable<Message> FetchNewMails(DictionaryEmailServerParam serverParams, CachedEmailBox cachedEmailBox)
+        {
+            //List<Message> allMessages = null;
+            using (var client = new Pop3Client())
+            {
+                // Connect to the server
+                client.Connect(serverParams.Hostname, serverParams.Port, serverParams.UseSsl);
+                // Authenticate ourselves towards the server
+                client.Authenticate($"recent:{cachedEmailBox.Login}", cachedEmailBox.Password);
+                // Get the number of messages in the inbox
+                var messageCount = client.GetMessageCount();
+                // We want to download all messages
+                //allMessages = new List<Message>(messageCount);
+                // Messages are numbered in the interval: [1, messageCount]
+                // Ergo: message numbers are 1-based.
+                // Most servers give the latest message the highest number
+                for (int i = messageCount; i > 0; i--)
                 {
-                    // Connect to the server
-                    client.Connect(serverParams.Hostname, serverParams.Port, serverParams.UseSsl);
-                    // Authenticate ourselves towards the server
-                    client.Authenticate(cachedEmailBox.Login, cachedEmailBox.Password);
-                    // Get the number of messages in the inbox
-                    var messageCount = client.GetMessageCount();
-                    // We want to download all messages
-                    var allMails = new List<TheMail>(messageCount);
-                    // Messages are numbered in the interval: [1, messageCount]
-                    // Ergo: message numbers are 1-based.
-                    // Most servers give the latest message the highest number
-                    for (int i = messageCount; i > 0; i--)
-                    {
-                        var message = client.GetMessage(i);
-                        if (!_allMailIds.Contains(message.Headers.MessageId))
-                        {
-                            var mail = client.GetMessage(i).GetTheMail();
-                            mail.IsOutcoming = (cachedEmailBox.Login == mail.FromAddress);
-                            mail.IsIncoming = (cachedEmailBox.Login == mail.ToAddress);
-                            mail.ChachedEmailBoxId = cachedEmailBox.Id.Value;
-                            _allMailIds.Add(mail.Id);
-                            allMails.Add(mail);
-                            _dbDataManager.InsertMail(mail);
-                        }
-                    }
-                    // Now return the fetched messages
-                    return allMails;
+                    var message = client.GetMessage(i);
+                    yield return message;
+                    //allMessages.Add(message);
                 }
             }
-            catch
+            //return allMessages;
+        }
+
+        private IEnumerable<TheMail> GetNewMails(IEnumerable<Message> messages, CachedEmailBox cachedEmailBox)
+        {
+            foreach(var message in messages)
             {
-                throw;
+                if(TryAddMailId(message.Headers.MessageId))
+                {
+                    var mail = message.GetTheMail();
+                    FillMailExtraFields(mail, cachedEmailBox);
+                    yield return mail;
+                }
+            }
+        }
+
+        private void FillMailExtraFields(TheMail mail, CachedEmailBox cachedEmailBox)
+        {
+            mail.IsOutcoming = (cachedEmailBox.Login == mail.FromAddress);
+            mail.IsIncoming = (cachedEmailBox.Login == mail.ToAddress);
+            mail.ChachedEmailBoxId = cachedEmailBox.Id.Value;
+        }
+
+        private void InsertMails(IEnumerable<TheMail> mails)
+        {
+            foreach (var mail in mails)
+            {
+                _dbDataManager.InsertMail(mail);
             }
         }
 

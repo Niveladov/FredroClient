@@ -9,15 +9,9 @@ using TwinklCRM.Client.Models;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TwinklCRM.Client.BusinessObjectService;
+using System.ComponentModel;
 
 namespace TwinklCRM.Client.Forms
 {
@@ -55,6 +49,8 @@ namespace TwinklCRM.Client.Forms
             route.TextChanged += MemoEdit_TextChanged;
             customer.Properties.ButtonClick += Customer_CustomButtonClick;
             performer.Properties.ButtonClick += Performer_CustomButtonClick;
+
+            _dealModel.CurrentDeal.PropertyChanged += OnDealPropertyChanged;
         }
 
         private void InitControls()
@@ -141,10 +137,50 @@ namespace TwinklCRM.Client.Forms
             lciSave.Visibility = isReadOnly ? LayoutVisibility.Never : LayoutVisibility.Always;
         }
 
+        private void DisableBtnSave()
+        {
+            btnSave.Enabled = false;
+        }
+
+        private void EnableBtnSave()
+        {
+            btnSave.Enabled = true;
+        }
+
         private void MemoEdit_TextChanged(object sender, EventArgs e)
         {
             var memoEdit = sender as MemoEdit;
             if (memoEdit != null) memoEdit.SetScrollBarVisibility();
+        }
+
+        private void OnDealPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Deal.DateStart) && _dealModel.CurrentDeal.DateStart.HasValue)
+            {
+                if (_dealModel.CurrentDeal.DateStart.Value > _dealModel.CurrentDeal.DateEnd.Value)
+                {
+                    start.ErrorText = "Дата начала сделки должна быть меньше даты окончания!";
+                    DisableBtnSave();
+                }
+                else
+                {
+                    start.ErrorText = string.Empty;
+                    EnableBtnSave();
+                }
+            }
+            else if (e.PropertyName == nameof(Deal.DateEnd) && _dealModel.CurrentDeal.DateEnd.HasValue)
+            {
+                if (_dealModel.CurrentDeal.DateStart.Value > _dealModel.CurrentDeal.DateEnd.Value)
+                {
+                    end.ErrorText = "Дата окончания сделки должна быть больше даты начала!";
+                    DisableBtnSave();
+                }
+                else
+                {
+                    end.ErrorText = string.Empty;
+                    EnableBtnSave();
+                }
+            }
         }
 
         private void Performer_CustomButtonClick(object sender, ButtonPressedEventArgs e)
