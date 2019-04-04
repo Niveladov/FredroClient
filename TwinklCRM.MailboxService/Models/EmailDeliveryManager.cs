@@ -107,7 +107,6 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
 
         private IEnumerable<Message> FetchNewMails(DictionaryEmailServerParam serverParams, CachedEmailBox cachedEmailBox)
         {
-            //List<Message> allMessages = null;
             using (var client = new Pop3Client())
             {
                 // Connect to the server
@@ -117,7 +116,6 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
                 // Get the number of messages in the inbox
                 var messageCount = client.GetMessageCount();
                 // We want to download all messages
-                //allMessages = new List<Message>(messageCount);
                 // Messages are numbered in the interval: [1, messageCount]
                 // Ergo: message numbers are 1-based.
                 // Most servers give the latest message the highest number
@@ -125,10 +123,8 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
                 {
                     var message = client.GetMessage(i);
                     yield return message;
-                    //allMessages.Add(message);
                 }
             }
-            //return allMessages;
         }
 
         private IEnumerable<TheMail> GetNewMails(IEnumerable<Message> messages, CachedEmailBox cachedEmailBox)

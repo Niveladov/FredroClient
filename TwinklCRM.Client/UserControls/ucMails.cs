@@ -38,7 +38,7 @@ namespace TwinklCRM.Client.UserControls
         public ucMails()
         {
             InitializeComponent();
-            btnInboxMails.Tag = true;
+            SetIncomingBehavior();
         }
 
         public void Init(BusinessObjectServiceClient boServiceClient, Credentials creds)
@@ -87,7 +87,7 @@ namespace TwinklCRM.Client.UserControls
             btnInboxMails.Click += OnFolderClick;
             btnOutboxMails.Click += OnFolderClick;
             btnDeletedMails.Click += OnFolderClick;
-            
+
             wevMails.FocusedRowChanged += WevMails_FocusedRowChanged;
             btnReply.Click += BtnReply_Click;
             btnSendResponse.Click += BtnSendResponse_Click;
@@ -100,9 +100,11 @@ namespace TwinklCRM.Client.UserControls
 
         private void RefreshData()
         {
+            DisableMailView();
             var mailHandler = wevMails.FocusedRowHandle;
             gcMails.DataSource = GetCurrentFolderMails();
             wevMails.FocusedRowHandle = mailHandler;
+            EnableMailView();
         }
 
         private List<TheMail> GetCurrentFolderMails()
@@ -331,20 +333,27 @@ namespace TwinklCRM.Client.UserControls
 
         private void WevMails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (_isEnableMailView && wevMails.IsDataRow(wevMails.FocusedRowHandle))
+            if (_isEnableMailView && wevMails.IsDataRow(wevMails.FocusedRowHandle) && wevMails.FocusedRowHandle == e.FocusedRowHandle)
             {
                 var mail = wevMails.GetFocusedRow() as TheMail;
                 SetMailButtonsVisibility(mail.IsIncoming);
-                mail.IsRead = true;
-                _model.UpdateMail(mail);
+                if (!mail.IsRead)
+                {
+                    mail.IsRead = true;
+                    _model.UpdateMail(mail);
+                }
+
                 labelSubject.Text = mail.Subject.Length > 60 ? mail.Subject.Substring(0, 60) + "..." : mail.Subject;
                 labelSubject.ToolTip = mail.Subject;
                 labelFrom.Text = mail.FromFullRaw;
                 labelTo.Text = $"кому: {mail.ToFullRaw}".Length > 85 ? $"кому: {mail.ToFullRaw}".Substring(0, 85) + "..." : $"кому: {mail.ToFullRaw}";
                 labelTo.ToolTip = $"кому: {mail.ToFullRaw}";
                 labelDate.Text = $"{CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedDayName(mail.Date.Value.DayOfWeek)}, {mail.Date.Value.ToLongDateString()}";
+
                 meBody.Text = mail.Body;
+
                 SetResponseBodyVisibility(false);
+
                 gcMails.RefreshDataSource();
             }
         }
