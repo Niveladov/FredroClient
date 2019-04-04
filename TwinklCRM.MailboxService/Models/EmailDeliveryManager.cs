@@ -14,6 +14,7 @@ using System.Threading;
 using OpenPop.Pop3;
 using OpenPop.Mime;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
+using System.Threading.Tasks;
 
 namespace TwinklCRM.MailboxServiceLibrary.Models
 {
@@ -65,9 +66,12 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
                     {
                         var serverParams = cachedEmailBox.IncomingEmailServerParam;
                         var newMessages = FetchNewMails(serverParams, cachedEmailBox);
-                        var newMails = GetNewMails(newMessages, cachedEmailBox);
-                        allNewMails.AddRange(newMails);
-                        System.Threading.Tasks.Task.Run(() => InsertMails(newMails));
+                        var newMails = GetNewMails(newMessages, cachedEmailBox).ToList();
+                        if (newMails.Count > 0)
+                        {
+                            allNewMails.AddRange(newMails);
+                            Task.Run(() => InsertMails(newMails)); //think about it
+                        }
                     }
                     if (allNewMails.Count > 0)
                     {
