@@ -25,8 +25,11 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
         {
             using (var db = new TwinkleDbContext())
             {
-                db.Mails.Add(mail);
-                db.SaveChanges();
+                if (!db.Mails.Select(x => x.Id).Contains(mail.Id))
+                {
+                    db.Mails.Add(mail);
+                    db.SaveChanges();
+                }
             }
         }
 

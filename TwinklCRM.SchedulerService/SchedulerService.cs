@@ -9,7 +9,7 @@ using TwinklCRM.SchedulerServiceLibrary.Models;
 
 namespace TwinklCRM.SchedulerServiceLibrary
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single,
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession,
         ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class SchedulerService : ISchedulerService
     {

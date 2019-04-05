@@ -494,11 +494,11 @@
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.statusStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMain";
+            this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.panelLeft)).EndInit();
             this.panelLeft.ResumeLayout(false);
