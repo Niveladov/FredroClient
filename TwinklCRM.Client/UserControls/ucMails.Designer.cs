@@ -180,7 +180,7 @@
             this.btnSendNew.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(119)))), ((int)(((byte)(225)))));
             this.btnSendNew.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(119)))), ((int)(((byte)(225)))));
             this.btnSendNew.OnHoverTextColor = System.Drawing.Color.Gainsboro;
-            this.btnSendNew.Size = new System.Drawing.Size(198, 43);
+            this.btnSendNew.Size = new System.Drawing.Size(198, 53);
             this.btnSendNew.TabIndex = 7;
             this.btnSendNew.Text = "Написать";
             this.btnSendNew.TextColor = System.Drawing.Color.White;
@@ -193,7 +193,7 @@
             this.panelFolders.Controls.Add(this.btnDeletedMails);
             this.panelFolders.Controls.Add(this.btnOutboxMails);
             this.panelFolders.Controls.Add(this.btnInboxMails);
-            this.panelFolders.Location = new System.Drawing.Point(2, 49);
+            this.panelFolders.Location = new System.Drawing.Point(2, 59);
             this.panelFolders.Name = "panelFolders";
             this.panelFolders.Size = new System.Drawing.Size(234, 426);
             this.panelFolders.TabIndex = 6;
@@ -287,11 +287,11 @@
             // 
             this.lciSendNew.Control = this.btnSendNew;
             this.lciSendNew.Location = new System.Drawing.Point(0, 0);
-            this.lciSendNew.MaxSize = new System.Drawing.Size(0, 47);
-            this.lciSendNew.MinSize = new System.Drawing.Size(24, 47);
+            this.lciSendNew.MaxSize = new System.Drawing.Size(0, 57);
+            this.lciSendNew.MinSize = new System.Drawing.Size(24, 57);
             this.lciSendNew.Name = "lciSendNew";
             this.lciSendNew.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 2, 2);
-            this.lciSendNew.Size = new System.Drawing.Size(238, 47);
+            this.lciSendNew.Size = new System.Drawing.Size(238, 57);
             this.lciSendNew.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciSendNew.TextSize = new System.Drawing.Size(0, 0);
             this.lciSendNew.TextVisible = false;

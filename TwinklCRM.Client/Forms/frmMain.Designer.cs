@@ -219,12 +219,12 @@
             // 
             this.labelCaption.Appearance.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCaption.Appearance.ForeColor = System.Drawing.Color.Snow;
-            this.labelCaption.Location = new System.Drawing.Point(69, 9);
+            this.labelCaption.Location = new System.Drawing.Point(134, 9);
             this.labelCaption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelCaption.Name = "labelCaption";
             this.labelCaption.Size = new System.Drawing.Size(98, 22);
             this.labelCaption.TabIndex = 2;
-            this.labelCaption.Text = "Twinkle CRM";
+            this.labelCaption.Text = "Twinkl CRM";
             this.labelCaption.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelCaptionMouseDown);
             this.labelCaption.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LabelCaptionMouseMove);
             this.labelCaption.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LabelCaptionMouseUp);
