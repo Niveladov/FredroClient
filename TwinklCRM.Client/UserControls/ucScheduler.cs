@@ -23,10 +23,12 @@ using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 using TwinklCRM.DAL.Models.Contexts;
 using DevExpress.XtraEditors.ButtonPanel;
 using TwinklCRM.Client.BusinessObjectService;
+using System.ServiceModel;
+using TwinklCRM.Client.SchedulerService;
 
 namespace TwinklCRM.Client.UserControls
 {
-    public partial class ucScheduler : ucBase
+    public partial class ucScheduler : ucBase, ISchedulerServiceCallback
     {
         private GridHitInfo _downHitInfo;
         private WaitingHelper _waitingHelper;
@@ -74,7 +76,8 @@ namespace TwinklCRM.Client.UserControls
         //      initialize uc models
         public void Init(BusinessObjectServiceClient boServiceClient)
         {
-            _model = new SchedulerModel(boServiceClient);
+            var instanceContext = new InstanceContext(this);
+            _model = new SchedulerModel(boServiceClient, instanceContext);
         }
 
         //  summary:
@@ -443,6 +446,7 @@ namespace TwinklCRM.Client.UserControls
         }
 
         #region Appearance
+
         private void ToolTipController_BeforeShow(object sender, ToolTipControllerShowEventArgs e)
         {
             ToolTipController controller = sender as ToolTipController;
@@ -475,6 +479,26 @@ namespace TwinklCRM.Client.UserControls
             //if (e.ViewInfo.DisplayText == String.Empty)
             //e.ViewInfo.ToolTipText = String.Format("Started at {0:g}", e.ViewInfo.Appointment.Start);
         }
+
         #endregion
+
+        #region Service Callback
+
+        public void SendAssignedAppointments(ViewAssignedDeal[] assignedAppointments)
+        {
+            schedulerMain.Storage.BeginUpdate();
+            _model.LoadAssignedAppointments(assignedAppointments);
+            schedulerMain.Storage.EndUpdate();
+        }
+
+        public void SendFreeAppointments(Deal[] freeAppointments)
+        {
+            schedulerMain.Storage.BeginUpdate();
+            _model.LoadFreeAppointments(freeAppointments);
+            schedulerMain.Storage.EndUpdate();
+        }
+
+        #endregion
+
     }
 }

@@ -11,7 +11,7 @@ using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 
 namespace TwinklCRM.Client.Models
 {
-    internal sealed class SchedulerModel : ISchedulerServiceCallback
+    internal sealed class SchedulerModel/* : ISchedulerServiceCallback*/
     {
         private bool _isJoined = false;
         private SchedulerServiceClient _schedulerServiceClient;
@@ -21,12 +21,11 @@ namespace TwinklCRM.Client.Models
         public ObservableCollection<ViewAssignedDeal> AssignedAppointments { get; }
         public ObservableCollection<Deal> FreeAppointments { get; }
 
-        public SchedulerModel(BusinessObjectServiceClient boServiceClient)
+        public SchedulerModel(BusinessObjectServiceClient boServiceClient, InstanceContext instanceContext)
         {
             Resources = new List<ViewVehicle>();
             AssignedAppointments = new ObservableCollection<ViewAssignedDeal>();
             FreeAppointments = new ObservableCollection<Deal>();
-            var instanceContext = new InstanceContext(this);
             _schedulerServiceClient = new SchedulerServiceClient(instanceContext, "NetTcpBinding_ISchedulerService");
             BOServiceClient = boServiceClient;
         }
@@ -131,7 +130,7 @@ namespace TwinklCRM.Client.Models
         }
 
 
-        public void SendAssignedAppointments(ViewAssignedDeal[] assignedAppointments)
+        public void LoadAssignedAppointments(ViewAssignedDeal[] assignedAppointments)
         {
             AssignedAppointments.Clear();
             foreach (var appt in assignedAppointments)
@@ -140,10 +139,10 @@ namespace TwinklCRM.Client.Models
             }
         }
 
-        public void SendFreeAppointments(Deal[] freeAppointments)
+        public void LoadFreeAppointments(Deal[] freeAppointments)
         {
             FreeAppointments.Clear();
-            foreach(var appt in freeAppointments)
+            foreach (var appt in freeAppointments)
             {
                 FreeAppointments.Add(appt);
             }
