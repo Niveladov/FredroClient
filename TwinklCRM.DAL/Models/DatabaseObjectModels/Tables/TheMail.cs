@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
@@ -270,7 +272,13 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
             }
         }
 
-        //[NotMapped]
-        //public Bitmap PictureMail { get; private set; } = Resources.unread_32x32;
+        [NotMapped]
+        public Bitmap PictureMail
+        {
+            get
+            {
+               return this.IsRead ? Properties.Resources.read_mail_32x38 : Properties.Resources.unread_mail_32x32;
+            }
+        } 
     }
 }
