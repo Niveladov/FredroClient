@@ -23,27 +23,29 @@ namespace TwinklCRM.Client.Forms
 
         public frmMain(TwinkleBaseXtraForm splashScreenForm, Credentials creds)
         {
+            InitializeComponent();
+            _dragger = new FormDragger();
+            _sliderAgent = new SlidePanelAgent(ucUserInfo.Width);
             try
             {
-                //throw new Exception("Huesos, axaxa!");
-                InitializeComponent();
-                _dragger = new FormDragger();
-                _sliderAgent = new SlidePanelAgent(ucUserInfo.Width);
+                //throw new ServerException("Huesos, axaxa!");
                 _mainModel = new MainModel();
                 ucMails.Init(_mainModel.BOServiceClient, creds);
                 ucScheduler.Init(_mainModel.BOServiceClient);
-                InitEvents();
-                InitStatusStrip();
             }
             catch (ServerException ex)
             {
                 TwinkleMessageBox.ShowError(ex.Message);
+                Load += (s, e) => Close();
+                return;
             }
             finally
             {
                 splashScreenForm?.Invoke(new Action(() => splashScreenForm.Close()));
                 splashScreenForm?.Dispose();
             }
+            InitEvents();
+            InitStatusStrip();
         }
 
         private void InitStatusStrip()
