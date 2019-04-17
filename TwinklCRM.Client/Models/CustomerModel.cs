@@ -24,7 +24,7 @@ namespace TwinklCRM.Client.Models
         {
             try
             {
-                //_boServiceClient.InsertPerformer
+                _boServiceClient.InsertCustomer(CurrentCustomer);
             }
             catch
             {
