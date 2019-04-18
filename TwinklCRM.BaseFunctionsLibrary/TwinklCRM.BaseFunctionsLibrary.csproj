@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0954284D-1193-4BB2-88D1-EAC760DCCC2C}</ProjectGuid>
+    <ProjectGuid>{6AD49716-0E67-4C3B-86C2-25D47B1201B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TwinklCRM.SchedulerServiceLibrary</RootNamespace>
-    <AssemblyName>TwinklCRM.SchedulerServiceLibrary</AssemblyName>
+    <RootNamespace>TwinklCRM.BaseFunctionsLibrary</RootNamespace>
+    <AssemblyName>TwinklCRM.BaseFunctionsLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,19 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,25 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISchedulerService.cs" />
-    <Compile Include="Models\DbDataManager.cs" />
-    <Compile Include="Models\SchedulerDeliveryManager.cs" />
+    <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchedulerService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TwinklCRM.BaseFunctionsLibrary\TwinklCRM.BaseFunctionsLibrary.csproj">
-      <Project>{6ad49716-0e67-4c3b-86c2-25d47b1201b6}</Project>
-      <Name>TwinklCRM.BaseFunctionsLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TwinklCRM.DAL\TwinklCRM.DAL.csproj">
-      <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
-      <Name>TwinklCRM.DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

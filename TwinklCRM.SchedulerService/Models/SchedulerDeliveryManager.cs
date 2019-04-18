@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TwinklCRM.BaseFunctionsLibrary.Collections;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 
@@ -19,14 +20,14 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
     {
         private const int DB_ACCESS_PERIOD = 100;
         private readonly IDbDataManager _dataManager;
-        private HashSet<long> _assignedAppointmentIds;
-        private HashSet<long> _freeAppointmentIds;
+        private Dictionary<int, int> _assignedAppointmentIds;
+        private HashSet<int> _freeAppointmentIds;
 
         public SchedulerDeliveryManager(IDbDataManager dataManager)
         {
             _dataManager = dataManager;
-            _assignedAppointmentIds = new HashSet<long>();
-            _freeAppointmentIds = new HashSet<long>();
+            _assignedAppointmentIds = new Dictionary<int, int>();
+            _freeAppointmentIds = new HashSet<int>();
         }
 
         public void Join()
@@ -50,7 +51,7 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
         {
             var assignedAppointments = GetAssignedAppointments();
             var assignedAppointmentIds = GetAssignedAppointmentIds(assignedAppointments);
-            if (!_assignedAppointmentIds.SetEquals(assignedAppointmentIds))
+            if (!_assignedAppointmentIds.IsEqual(assignedAppointmentIds))
             {
                 _assignedAppointmentIds = assignedAppointmentIds;
                 SendAssignedAppointments(assignedAppointments);
@@ -78,19 +79,19 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
             return _dataManager.GetFreeAppointments().ToList();
         }
 
-        private HashSet<long> GetAssignedAppointmentIds(List<ViewAssignedDeal> assignedAppointments)
+        private Dictionary<int, int> GetAssignedAppointmentIds(List<ViewAssignedDeal> assignedAppointments)
         {
-            var set = new HashSet<long>();
+            var dictionary = new Dictionary<int, int>();
             foreach (var appointment in assignedAppointments)
             {
-                set.Add(appointment.Id.Value);
+                dictionary.Add(appointment.Id.Value, appointment.VehicleId.Value);
             }
-            return set;
+            return dictionary;
         }
 
-        private HashSet<long> GetFreeAppointmentIds(List<Deal> freeAppointments)
+        private HashSet<int> GetFreeAppointmentIds(List<Deal> freeAppointments)
         {
-            var set = new HashSet<long>();
+            var set = new HashSet<int>();
             foreach (var appointment in freeAppointments)
             {
                 set.Add(appointment.Id.Value);
