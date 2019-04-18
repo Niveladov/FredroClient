@@ -72,15 +72,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TwinklCRM.BusinessObjectService\TwinklCRM.BusinessObjectServiceLibrary.csproj">
+    <ProjectReference Include="..\TwinklCRM.BusinessObjectServiceLibrary\TwinklCRM.BusinessObjectServiceLibrary.csproj">
       <Project>{84947797-99d3-4049-89a7-87ddcea16834}</Project>
       <Name>TwinklCRM.BusinessObjectServiceLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TwinklCRM.MailboxService\TwinklCRM.MailboxServiceLibrary.csproj">
+    <ProjectReference Include="..\TwinklCRM.MailboxServiceLibrary\TwinklCRM.MailboxServiceLibrary.csproj">
       <Project>{0bc763b2-5476-4f9b-a764-c4f1075cc11c}</Project>
       <Name>TwinklCRM.MailboxServiceLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TwinklCRM.SchedulerService\TwinklCRM.SchedulerServiceLibrary.csproj">
+    <ProjectReference Include="..\TwinklCRM.SchedulerServiceLibrary\TwinklCRM.SchedulerServiceLibrary.csproj">
       <Project>{0954284d-1193-4bb2-88d1-eac760dccc2c}</Project>
       <Name>TwinklCRM.SchedulerServiceLibrary</Name>
     </ProjectReference>

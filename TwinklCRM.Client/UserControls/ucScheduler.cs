@@ -242,7 +242,6 @@ namespace TwinklCRM.Client.UserControls
                     e.Allow = false;
                     return;
                 }
-                Deal deal = null;
                 var sourceDealId = e.SourceAppointment.Id;
                 if (sourceDealId == null)
                 {
