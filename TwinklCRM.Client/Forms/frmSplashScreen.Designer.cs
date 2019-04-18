@@ -66,7 +66,7 @@
             this.labelBottom.Size = new System.Drawing.Size(404, 19);
             this.labelBottom.StyleController = this.lcMaim;
             this.labelBottom.TabIndex = 5;
-            this.labelBottom.Text = "Все права защищены законами Вселенной. ®Twinkle Corporation";
+            this.labelBottom.Text = "Все права защищены законами Вселенной. ® iTwinkl Inc";
             // 
             // labelMain
             // 
