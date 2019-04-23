@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using MimeKit;
+using MimeKit.Text;
 
 namespace TwinklCRM.MailboxServiceLibrary.ExtraClasses
 {
@@ -17,7 +19,7 @@ namespace TwinklCRM.MailboxServiceLibrary.ExtraClasses
         const string PLAIN_TEXT = "text/plain";
         const string HTML_TEXT = "text/html";
         
-        internal static TheMail GetTheMail(this Message mail)
+        public static TheMail GetTheMail(this Message mail)
         {
             var attachmentParts = mail.FindAllAttachments();
             var plainTextParts = mail.FindAllMessagePartsWithMediaType(PLAIN_TEXT);
@@ -56,6 +58,28 @@ namespace TwinklCRM.MailboxServiceLibrary.ExtraClasses
                 }
             }
             //---↑↑↑---костыль---↑↑↑---
+            return theMail;
+        }
+
+        public static TheMail GetTheMail(this MimeMessage mimeMessage)
+        {
+            var theMail = new TheMail();
+            theMail.Id = mimeMessage.MessageId;
+
+            MailboxAddress from = mimeMessage.From.Count > 1 ? mimeMessage.Sender : mimeMessage.From.Mailboxes.FirstOrDefault();
+
+            theMail.FromFullRaw = $"{from.Name} <{from.Address}>";
+            theMail.FromAddress = from.Address;
+            theMail.FromDisplayName = from.Name;
+
+            MailboxAddress to = mimeMessage.To.Mailboxes.FirstOrDefault();
+
+            theMail.ToFullRaw = $"{to.Name} <{to.Address}>";
+            theMail.ToAddress = to.Address;
+            theMail.ToDisplayName = to.Name;
+            theMail.Date = mimeMessage.Date.UtcDateTime.ToLocalTime();
+            theMail.Subject = mimeMessage.Subject;
+            theMail.Body = mimeMessage.GetTextBody(TextFormat.Plain);
             return theMail;
         }
     }
