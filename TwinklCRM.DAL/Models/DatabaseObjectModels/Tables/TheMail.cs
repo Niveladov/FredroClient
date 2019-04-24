@@ -28,6 +28,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
         private bool _isIncoming;
         private bool _isRead;
         private int? _chachedEmailBoxId;
+        private int? _emailFolderTypeId;
 
         //properties
         [DataMember]
@@ -207,38 +208,6 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
             }
         }
         [DataMember]
-        public bool IsOutcoming
-        {
-            get
-            {
-                return _isOutcoming;
-            }
-            set
-            {
-                if (value != _isOutcoming)
-                {
-                    _isOutcoming = value;
-                    NotifyPropertyChanged(nameof(IsOutcoming));
-                }
-            }
-        }
-        [DataMember]
-        public bool IsIncoming
-        {
-            get
-            {
-                return _isIncoming;
-            }
-            set
-            {
-                if (value != _isIncoming)
-                {
-                    _isIncoming = value;
-                    NotifyPropertyChanged(nameof(IsIncoming));
-                }
-            }
-        }
-        [DataMember]
         public bool IsRead
         {
             get
@@ -268,6 +237,22 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
                 {
                     _chachedEmailBoxId = value;
                     NotifyPropertyChanged(nameof(ChachedEmailBoxId));
+                }
+            }
+        }
+        [DataMember]
+        public int? EmailFolderTypeId
+        {
+            get
+            {
+                return _emailFolderTypeId;
+            }
+            set
+            {
+                if (value != _emailFolderTypeId)
+                {
+                    _emailFolderTypeId = value;
+                    NotifyPropertyChanged(nameof(EmailFolderTypeId));
                 }
             }
         }

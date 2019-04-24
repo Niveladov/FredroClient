@@ -87,6 +87,11 @@ namespace TwinklCRM.Client.UserControls
         {
             _model.JoinToServer();
         }
+        
+        public void CloseConnection()
+        {
+            _model.CloseServerConnection();
+        }
 
         private void InitEvents()
         {

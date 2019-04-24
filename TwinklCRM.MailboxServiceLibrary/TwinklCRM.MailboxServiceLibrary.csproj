@@ -74,13 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\TwinkleValidator.cs" />
-    <Compile Include="ExtraClasses\MethodExtensions.cs" />
+    <Compile Include="ExtraClasses\Extensions.cs" />
     <Compile Include="ExtraClasses\SessionContext.cs" />
     <Compile Include="IMailboxService.cs" />
     <Compile Include="MailboxService.cs" />
     <Compile Include="Models\EmailDeliveryManager.cs" />
     <Compile Include="Models\DbDataManager.cs" />
     <Compile Include="Models\EmailTransferManager.cs" />
+    <Compile Include="Models\Enums\EmailFolderType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,10 +90,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\Enums\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\TwinklCRM.BaseFunctionsLibrary\TwinklCRM.BaseFunctionsLibrary.csproj">
+      <Project>{6ad49716-0e67-4c3b-86c2-25d47b1201b6}</Project>
+      <Name>TwinklCRM.BaseFunctionsLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TwinklCRM.DAL\TwinklCRM.DAL.csproj">
       <Project>{818f485f-bc1a-4482-9872-e4c3762c866e}</Project>
       <Name>TwinklCRM.DAL</Name>

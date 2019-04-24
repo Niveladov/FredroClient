@@ -61,6 +61,20 @@ namespace TwinklCRM.Client.Models
             }
         }
 
+        public void CloseServerConnection()
+        {
+            try
+            {
+                //_schedulerServiceClient.Stop();
+                _schedulerServiceClient.Close();
+            }
+            catch
+            {
+                _schedulerServiceClient.Abort();
+                throw new ServerException("Опа.. что-то пошло не так");
+            }
+        }
+
         private void LoadResources()
         {
             try

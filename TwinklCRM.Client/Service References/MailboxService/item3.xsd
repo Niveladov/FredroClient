@@ -8,12 +8,11 @@
           <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ChachedEmailBoxId" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmailFolderTypeId" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="FromAddress" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FromDisplayName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FromFullRaw" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="IsIncoming" type="xs:boolean" />
-          <xs:element minOccurs="0" name="IsOutcoming" type="xs:boolean" />
           <xs:element minOccurs="0" name="IsRead" type="xs:boolean" />
           <xs:element minOccurs="0" name="MailedBy" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SignedBy" nillable="true" type="xs:string" />

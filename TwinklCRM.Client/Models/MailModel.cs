@@ -13,28 +13,34 @@ using System.ServiceModel.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
 
 namespace TwinklCRM.Client.Models
 {
     internal sealed class MailModel : IMailboxServiceCallback
     {
+        private readonly Credentials _creds;
         private bool _isJoined = false;
 
         public MailboxServiceClient ServiceClient { get; }
-        public Credentials Creds { get; }
-        public List<TheMail> MyMails { get; }
-        
-        public event EventHandler NewMailsRecieved;
+        public ObservableCollection<TheMail> InboxMails { get; }
+        public ObservableCollection<TheMail> OutboxMails { get; }
+        public ObservableCollection<TheMail> DeletedMails { get; }
+        public ObservableCollection<TheMail> SpamMails { get; }
 
         public MailModel(Credentials creds)
         {
-            Creds = creds;
-            MyMails = new List<TheMail>();
+            _creds = creds;
+            InboxMails = new ObservableCollection<TheMail>();
+            OutboxMails = new ObservableCollection<TheMail>();
+            DeletedMails = new ObservableCollection<TheMail>();
+            SpamMails = new ObservableCollection<TheMail>();
+
             var instanceContext = new InstanceContext(this);
             ServiceClient = new MailboxServiceClient(instanceContext, "NetTcpBinding_IMailboxService");
             ServiceClient.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
-            ServiceClient.ClientCredentials.UserName.UserName = Creds.Login;
-            ServiceClient.ClientCredentials.UserName.Password = Creds.Password;
+            ServiceClient.ClientCredentials.UserName.UserName = _creds.Login;
+            ServiceClient.ClientCredentials.UserName.Password = _creds.Password;
         }
 
         public void JoinToServer()
@@ -73,6 +79,20 @@ namespace TwinklCRM.Client.Models
             }
         }
 
+        public void CloseServerConnection()
+        {
+            try
+            {
+                //ServiceClient.Stop();
+                ServiceClient.Close();
+            }
+            catch
+            {
+                ServiceClient.Abort();
+                throw new ServerException("Опа.. что-то пошло не так");
+            }
+        }
+
         public void SendMail(TheMail mail)
         {
             try
@@ -99,12 +119,40 @@ namespace TwinklCRM.Client.Models
             }
         }
 
-
-        public void SendNewMails(TheMail[] newMails)
+        #region Callback
+        public void SendNewInboxMails(TheMail[] newMails)
         {
-            MyMails.AddRange(newMails);
-            NewMailsRecieved?.Invoke(this, EventArgs.Empty);
+            foreach (var mail in newMails)
+            {
+                InboxMails.Add(mail);
+            }
         }
+
+        public void SendNewOutboxMails(TheMail[] newMails)
+        {
+            foreach (var mail in newMails)
+            {
+                OutboxMails.Add(mail);
+            }
+        }
+
+        public void SendNewDeletedMails(TheMail[] newMails)
+        {
+            foreach (var mail in newMails)
+            {
+                DeletedMails.Add(mail);
+            }
+        }
+
+        public void SendNewSpamMails(TheMail[] newMails)
+        {
+            foreach (var mail in newMails)
+            {
+                SpamMails.Add(mail);
+            }
+        }
+        #endregion
+
     }
 
 }

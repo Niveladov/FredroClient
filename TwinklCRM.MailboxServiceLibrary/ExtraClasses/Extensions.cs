@@ -14,7 +14,7 @@ using MimeKit.Text;
 
 namespace TwinklCRM.MailboxServiceLibrary.ExtraClasses
 {
-    internal static class MethodExtensions
+    internal static class Extensions
     {
         const string PLAIN_TEXT = "text/plain";
         const string HTML_TEXT = "text/html";
@@ -79,7 +79,7 @@ namespace TwinklCRM.MailboxServiceLibrary.ExtraClasses
             theMail.ToDisplayName = to.Name;
             theMail.Date = mimeMessage.Date.UtcDateTime.ToLocalTime();
             theMail.Subject = mimeMessage.Subject;
-            theMail.Body = mimeMessage.GetTextBody(TextFormat.Plain);
+            theMail.Body = mimeMessage.GetTextBody(TextFormat.Plain) ?? mimeMessage.GetTextBody(TextFormat.Html);
             return theMail;
         }
     }
