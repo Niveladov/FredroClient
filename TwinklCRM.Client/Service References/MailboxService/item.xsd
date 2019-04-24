@@ -58,14 +58,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendNewSpamMails">
+  <xs:element name="SendNewDeletedMails">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q6:ArrayOfTheMail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendNewDeletedMails">
+  <xs:element name="SendNewSpamMails">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q7:ArrayOfTheMail" />

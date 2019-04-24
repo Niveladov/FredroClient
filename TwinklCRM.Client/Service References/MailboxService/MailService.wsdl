@@ -277,7 +277,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IMailboxService_SendNewSpamMails_output_policy">
+  <wsp:Policy wsu:Id="NetTcpBinding_IMailboxService_SendNewDeletedMails_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -296,7 +296,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IMailboxService_SendNewDeletedMails_output_policy">
+  <wsp:Policy wsu:Id="NetTcpBinding_IMailboxService_SendNewSpamMails_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -350,11 +350,11 @@
   <wsdl:message name="IMailboxService_SendNewOutboxMails_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:SendNewOutboxMails" />
   </wsdl:message>
-  <wsdl:message name="IMailboxService_SendNewSpamMails_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:SendNewSpamMails" />
-  </wsdl:message>
   <wsdl:message name="IMailboxService_SendNewDeletedMails_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:SendNewDeletedMails" />
+  </wsdl:message>
+  <wsdl:message name="IMailboxService_SendNewSpamMails_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendNewSpamMails" />
   </wsdl:message>
   <wsdl:portType name="IMailboxService">
     <wsdl:operation name="Join">
@@ -380,11 +380,11 @@
     <wsdl:operation name="SendNewOutboxMails">
       <wsdl:output wsaw:Action="http://tempuri.org/IMailboxService/SendNewOutboxMails" message="tns:IMailboxService_SendNewOutboxMails_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SendNewSpamMails">
-      <wsdl:output wsaw:Action="http://tempuri.org/IMailboxService/SendNewSpamMails" message="tns:IMailboxService_SendNewSpamMails_OutputCallbackMessage" />
-    </wsdl:operation>
     <wsdl:operation name="SendNewDeletedMails">
       <wsdl:output wsaw:Action="http://tempuri.org/IMailboxService/SendNewDeletedMails" message="tns:IMailboxService_SendNewDeletedMails_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNewSpamMails">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailboxService/SendNewSpamMails" message="tns:IMailboxService_SendNewSpamMails_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IMailboxService" type="tns:IMailboxService">
@@ -447,17 +447,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SendNewSpamMails">
-      <soap12:operation soapAction="http://tempuri.org/IMailboxService/SendNewSpamMails" style="document" />
-      <wsdl:output>
-        <wsp:PolicyReference URI="#NetTcpBinding_IMailboxService_SendNewSpamMails_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="SendNewDeletedMails">
       <soap12:operation soapAction="http://tempuri.org/IMailboxService/SendNewDeletedMails" style="document" />
       <wsdl:output>
         <wsp:PolicyReference URI="#NetTcpBinding_IMailboxService_SendNewDeletedMails_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewSpamMails">
+      <soap12:operation soapAction="http://tempuri.org/IMailboxService/SendNewSpamMails" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#NetTcpBinding_IMailboxService_SendNewSpamMails_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

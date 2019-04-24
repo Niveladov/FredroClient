@@ -55,11 +55,11 @@ namespace TwinklCRM.Client.MailboxService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewOutboxMails")]
         void SendNewOutboxMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewSpamMails")]
-        void SendNewSpamMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewDeletedMails")]
         void SendNewDeletedMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewSpamMails")]
+        void SendNewSpamMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
