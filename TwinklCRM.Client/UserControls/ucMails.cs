@@ -15,12 +15,11 @@ using TwinklCRM.Client.ExtraClasses;
 using System.Globalization;
 using TwinklCRM.Client.Forms;
 using TwinklCRM.Client.BaseGUI;
-using DevExpress.XtraEditors;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models;
 using System.Runtime.Remoting;
 using TwinklCRM.Client.BusinessObjectService;
-using System.Collections.ObjectModel;
+using DevExpress.Data;
 
 namespace TwinklCRM.Client.UserControls
 {
@@ -32,14 +31,21 @@ namespace TwinklCRM.Client.UserControls
         private bool _isInit = false;
         private bool _isMailButtonsVisible = true;
         private bool _isEnableMailView = true;
-        //  ToDo:
-        //      to move from field to another place
-        private BusinessObjectServiceClient _boServiceClient;
 
         public ucMails()
         {
             InitializeComponent();
             SetInboxBehavior();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            if (!isDesignMode)
+            {
+                meBody.BackColor = lcMessage.BackColor;
+                wevMails.Columns[nameof(TheMail.Date)].SortOrder = ColumnSortOrder.Descending;
+            }
         }
 
         public void Init(BusinessObjectServiceClient boServiceClient, Credentials creds)
@@ -48,9 +54,8 @@ namespace TwinklCRM.Client.UserControls
             {
                 if (!_isInit)
                 {
-                    _model = new MailModel(creds);
+                    _model = new MailModel(creds, boServiceClient);
                     SetInboxMailsDataSource();
-                    _boServiceClient = boServiceClient;
                     InitEvents();
                     SetMailButtonsVisibility(false);
                     SetResponseBodyVisibility(false);
@@ -73,15 +78,6 @@ namespace TwinklCRM.Client.UserControls
             _model.CloseServerConnection();
         }
 
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            if (!isDesignMode)
-            {
-                meBody.BackColor = lcMessage.BackColor;
-            }
-        }
-
         public void FilterMails(string text)
         {
             wevMails.FindFilterText = text;
@@ -102,33 +98,6 @@ namespace TwinklCRM.Client.UserControls
             btnAddDeal.Click += BtnAddDeal_Click;
             meResponseBody.TextChanged += MeResponseBody_TextChanged;
         }
-
-        //private void RefreshData()
-        //{
-        //    DisableMailView();
-        //    var mailHandler = wevMails.FocusedRowHandle;
-        //    gcMails.DataSource = GetCurrentFolderMails();
-        //    wevMails.FocusedRowHandle = mailHandler;
-        //    EnableMailView();
-        //}
-
-        //private ObservableCollection<TheMail> GetCurrentFolderMails()
-        //{
-        //    ObservableCollection<TheMail> mails = null;
-        //    if (btnOutboxMails.Tag != null)
-        //    {
-        //        mails = _model.OutboxMails;
-        //    }
-        //    else if (btnInboxMails.Tag != null)
-        //    {
-        //        mails = _model.InboxMails;
-        //    }
-        //    else if (btnDeletedMails.Tag != null)
-        //    {
-        //        mails = _model.DeletedMails;
-        //    }
-        //    return mails;
-        //}
 
         private void SetResponseBodyVisibility(bool isVisible)
         {
@@ -428,7 +397,7 @@ namespace TwinklCRM.Client.UserControls
 
         private void BtnAddDeal_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmDeal(_boServiceClient))
+            using (var frm = new frmDeal(_model.BoServiceClient))
             {
                 frm.ShowDialog();
             }

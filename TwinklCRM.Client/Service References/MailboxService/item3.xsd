@@ -50,10 +50,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CachedEmailBox" nillable="true" type="tns:CachedEmailBox" />
-  <xs:complexType name="ArrayOfTheMail">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TheMail" nillable="true" type="tns:TheMail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTheMail" nillable="true" type="tns:ArrayOfTheMail" />
 </xs:schema>

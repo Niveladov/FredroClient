@@ -11,7 +11,7 @@ using TwinklCRM.DAL.Models.DatabaseObjectModels.Views;
 
 namespace TwinklCRM.Client.Models
 {
-    internal sealed class SchedulerModel/* : ISchedulerServiceCallback*/
+    internal sealed class SchedulerModel
     {
         private bool _isJoined = false;
         private SchedulerServiceClient _schedulerServiceClient;
@@ -65,7 +65,7 @@ namespace TwinklCRM.Client.Models
         {
             try
             {
-                //_schedulerServiceClient.Stop();
+                _schedulerServiceClient.Stop();
                 _schedulerServiceClient.Close();
             }
             catch

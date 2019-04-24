@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
+using TwinklCRM.Client.BusinessObjectService;
 
 namespace TwinklCRM.Client.Models
 {
@@ -21,16 +22,19 @@ namespace TwinklCRM.Client.Models
     {
         private readonly Credentials _creds;
         private bool _isJoined = false;
-
+        
+        public BusinessObjectServiceClient BoServiceClient { get; }
         public MailboxServiceClient ServiceClient { get; }
+
         public ObservableCollection<TheMail> InboxMails { get; }
         public ObservableCollection<TheMail> OutboxMails { get; }
         public ObservableCollection<TheMail> DeletedMails { get; }
         public ObservableCollection<TheMail> SpamMails { get; }
 
-        public MailModel(Credentials creds)
+        public MailModel(Credentials creds, BusinessObjectServiceClient boServiceClient)
         {
             _creds = creds;
+            BoServiceClient = boServiceClient;
             InboxMails = new ObservableCollection<TheMail>();
             OutboxMails = new ObservableCollection<TheMail>();
             DeletedMails = new ObservableCollection<TheMail>();
@@ -83,7 +87,7 @@ namespace TwinklCRM.Client.Models
         {
             try
             {
-                //ServiceClient.Stop();
+                ServiceClient.Stop();
                 ServiceClient.Close();
             }
             catch
@@ -120,36 +124,24 @@ namespace TwinklCRM.Client.Models
         }
 
         #region Callback
-        public void SendNewInboxMails(TheMail[] newMails)
+        public void SendNewInboxMail(TheMail mail)
         {
-            foreach (var mail in newMails)
-            {
-                InboxMails.Add(mail);
-            }
+            InboxMails.Add(mail);
         }
 
-        public void SendNewOutboxMails(TheMail[] newMails)
+        public void SendNewOutboxMail(TheMail mail)
         {
-            foreach (var mail in newMails)
-            {
-                OutboxMails.Add(mail);
-            }
+            OutboxMails.Add(mail);
         }
 
-        public void SendNewDeletedMails(TheMail[] newMails)
+        public void SendNewDeletedMail(TheMail mail)
         {
-            foreach (var mail in newMails)
-            {
-                DeletedMails.Add(mail);
-            }
+            DeletedMails.Add(mail);
         }
 
-        public void SendNewSpamMails(TheMail[] newMails)
+        public void SendNewSpamMail(TheMail mail)
         {
-            foreach (var mail in newMails)
-            {
-                SpamMails.Add(mail);
-            }
+            SpamMails.Add(mail);
         }
         #endregion
 

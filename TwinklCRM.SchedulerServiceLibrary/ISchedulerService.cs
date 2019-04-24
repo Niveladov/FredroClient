@@ -20,6 +20,12 @@ namespace TwinklCRM.SchedulerServiceLibrary
         void Join();
 
         /// <summary>
+        /// cancel the subscribing
+        /// </summary>
+        [OperationContract(IsOneWay = true)]
+        void Stop();
+
+        /// <summary>
         /// get all resources stored in database
         /// </summary>
         /// <returns>all existing resources stored in database</returns>

@@ -14,7 +14,10 @@ namespace TwinklCRM.MailboxServiceLibrary
     {
         [OperationContract(IsOneWay = true)]
         void Join();
-        
+
+        [OperationContract(IsOneWay = true)]
+        void Stop();
+
         [OperationContract]
         void SendMail(TheMail mail);
 
@@ -31,16 +34,16 @@ namespace TwinklCRM.MailboxServiceLibrary
     public interface IMailboxCallback
     {
         [OperationContract(IsOneWay = true)]
-        void SendNewInboxMails(IEnumerable<TheMail> newMails);
+        void SendNewInboxMail(TheMail mail);
 
         [OperationContract(IsOneWay = true)]
-        void SendNewOutboxMails(IEnumerable<TheMail> newMails);
+        void SendNewOutboxMail(TheMail mail);
 
         [OperationContract(IsOneWay = true)]
-        void SendNewDeletedMails(IEnumerable<TheMail> newMails);
+        void SendNewDeletedMail(TheMail mail);
 
         [OperationContract(IsOneWay = true)]
-        void SendNewSpamMails(IEnumerable<TheMail> newMails);
+        void SendNewSpamMail(TheMail mail);
     }
 
 }

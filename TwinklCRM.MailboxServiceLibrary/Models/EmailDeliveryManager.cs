@@ -25,13 +25,15 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
     internal interface IMailDeliveryManager
     {
         void Join();
+        void Stop();
     }
 
     internal class EmailDeliveryManager : IMailDeliveryManager
     {
         private const int MAIL_SERVER_ACCESS_PERIOD = 5000;
-        private IDbDataManager _dbDataManager;
 
+        private bool _isCanceled;
+        private IDbDataManager _dbDataManager;
         private HashSet<string> _inboxMailIds;
         private HashSet<string> _outboxMailIds;
         private HashSet<string> _spamMailIds;
@@ -41,6 +43,7 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
         {
             try
             {
+                _isCanceled = false;
                 _inboxMailIds = new HashSet<string>();
                 _outboxMailIds = new HashSet<string>();
                 _spamMailIds = new HashSet<string>();
@@ -69,26 +72,30 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
 
                 if (allStoredEmails.InboxEmails.Count > 0)
                 {
-                    OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewInboxMails(allStoredEmails.InboxEmails);
+                    allStoredEmails.InboxEmails.ForEach(mail => 
+                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewInboxMail(mail));
                     InitMailIds(allStoredEmails.InboxEmails, EmailFolderType.Inbox);
                 }
                 if (allStoredEmails.OutboxEmails.Count > 0)
                 {
-                    OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewOutboxMails(allStoredEmails.OutboxEmails);
+                    allStoredEmails.OutboxEmails.ForEach(mail =>
+                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewOutboxMail(mail));
                     InitMailIds(allStoredEmails.OutboxEmails, EmailFolderType.Outbox);
                 }
                 if (allStoredEmails.SpamEmails.Count > 0)
                 {
-                    OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewSpamMails(allStoredEmails.SpamEmails);
+                    allStoredEmails.SpamEmails.ForEach(mail =>
+                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewSpamMail(mail));
                     InitMailIds(allStoredEmails.SpamEmails, EmailFolderType.Spam);
                 }
                 if (allStoredEmails.DeletedEmails.Count > 0)
                 {
-                    OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewDeletedMails(allStoredEmails.DeletedEmails);
+                    allStoredEmails.DeletedEmails.ForEach(mail =>
+                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewDeletedMail(mail));
                     InitMailIds(allStoredEmails.DeletedEmails, EmailFolderType.Deleted);
                 }
 
-                while (true)
+                while (!_isCanceled)
                 {
                     var allNewMails = new Emails();
                     foreach (var cachedEmailBox in SessionContext.Instance.CurrentUser.ChachedEmailBoxes)
@@ -120,19 +127,23 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
                     
                     if (allNewMails.InboxEmails.Count > 0)
                     {
-                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewInboxMails(allNewMails.InboxEmails);
+                        allNewMails.InboxEmails.ForEach(mail =>
+                            OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewInboxMail(mail));
                     }
                     if (allNewMails.OutboxEmails.Count > 0)
                     {
-                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewOutboxMails(allNewMails.OutboxEmails);
+                        allNewMails.OutboxEmails.ForEach(mail =>
+                            OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewOutboxMail(mail));
                     }
                     if (allNewMails.SpamEmails.Count > 0)
                     {
-                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewSpamMails(allNewMails.SpamEmails);
+                        allNewMails.SpamEmails.ForEach(mail =>
+                            OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewSpamMail(mail));
                     }
                     if (allNewMails.DeletedEmails.Count > 0)
                     {
-                        OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewDeletedMails(allNewMails.DeletedEmails);
+                        allNewMails.DeletedEmails.ForEach(mail =>
+                            OperationContext.Current.GetCallbackChannel<IMailboxCallback>().SendNewDeletedMail(mail));
                     }
 
                     Thread.Sleep(MAIL_SERVER_ACCESS_PERIOD);
@@ -142,6 +153,11 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
             {
                 throw;
             }
+        }
+
+        public void Stop()
+        {
+            _isCanceled = true;
         }
 
         private Emails GetEmails(List<TheMail> mails)
@@ -305,7 +321,7 @@ namespace TwinklCRM.MailboxServiceLibrary.Models
                 _dbDataManager.InsertMail(mail);
             }
         }
-        
+
         private class Emails
         {
             public List<TheMail> InboxEmails { get; } = new List<TheMail>();

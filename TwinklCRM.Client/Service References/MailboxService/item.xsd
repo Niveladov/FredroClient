@@ -6,6 +6,11 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Stop">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SendMail">
     <xs:complexType>
       <xs:sequence>
@@ -44,31 +49,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendNewInboxMails">
+  <xs:element name="SendNewInboxMail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q4:ArrayOfTheMail" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="mail" nillable="true" type="q4:TheMail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendNewOutboxMails">
+  <xs:element name="SendNewOutboxMail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q5:ArrayOfTheMail" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="mail" nillable="true" type="q5:TheMail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendNewDeletedMails">
+  <xs:element name="SendNewDeletedMail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q6:ArrayOfTheMail" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="mail" nillable="true" type="q6:TheMail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SendNewSpamMails">
+  <xs:element name="SendNewSpamMail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="newMails" nillable="true" type="q7:ArrayOfTheMail" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables" minOccurs="0" name="mail" nillable="true" type="q7:TheMail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

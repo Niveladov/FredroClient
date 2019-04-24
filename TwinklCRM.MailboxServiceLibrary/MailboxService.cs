@@ -43,6 +43,18 @@ namespace TwinklCRM.MailboxServiceLibrary
             }
         }
 
+        public void Stop()
+        {
+            try
+            {
+                _mailDeliveryManager.Stop();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         public void SendMail(TheMail mail)
         {
             try
@@ -90,7 +102,6 @@ namespace TwinklCRM.MailboxServiceLibrary
                 throw new FaultException(ex.Message);
             }
         }
-
     }
 
 }

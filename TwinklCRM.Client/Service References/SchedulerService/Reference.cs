@@ -21,6 +21,12 @@ namespace TwinklCRM.Client.SchedulerService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISchedulerService/Join")]
         System.Threading.Tasks.Task JoinAsync();
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISchedulerService/Stop")]
+        void Stop();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISchedulerService/Stop")]
+        System.Threading.Tasks.Task StopAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchedulerService/GetResources", ReplyAction="http://tempuri.org/ISchedulerService/GetResourcesResponse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle[] GetResources();
         
@@ -90,6 +96,14 @@ namespace TwinklCRM.Client.SchedulerService {
         
         public System.Threading.Tasks.Task JoinAsync() {
             return base.Channel.JoinAsync();
+        }
+        
+        public void Stop() {
+            base.Channel.Stop();
+        }
+        
+        public System.Threading.Tasks.Task StopAsync() {
+            return base.Channel.StopAsync();
         }
         
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle[] GetResources() {

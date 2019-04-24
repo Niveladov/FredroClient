@@ -41,6 +41,9 @@
   <wsdl:message name="ISchedulerService_Join_InputMessage">
     <wsdl:part name="parameters" element="tns:Join" />
   </wsdl:message>
+  <wsdl:message name="ISchedulerService_Stop_InputMessage">
+    <wsdl:part name="parameters" element="tns:Stop" />
+  </wsdl:message>
   <wsdl:message name="ISchedulerService_GetResources_InputMessage">
     <wsdl:part name="parameters" element="tns:GetResources" />
   </wsdl:message>
@@ -65,6 +68,9 @@
   <wsdl:portType name="ISchedulerService">
     <wsdl:operation name="Join">
       <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/Join" message="tns:ISchedulerService_Join_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Stop">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/Stop" message="tns:ISchedulerService_Stop_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetResources">
       <wsdl:input wsaw:Action="http://tempuri.org/ISchedulerService/GetResources" message="tns:ISchedulerService_GetResources_InputMessage" />
@@ -91,6 +97,12 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="Join">
       <soap12:operation soapAction="http://tempuri.org/ISchedulerService/Join" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Stop">
+      <soap12:operation soapAction="http://tempuri.org/ISchedulerService/Stop" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

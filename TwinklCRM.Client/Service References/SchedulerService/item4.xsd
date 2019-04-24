@@ -7,6 +7,11 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Stop">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetResources">
     <xs:complexType>
       <xs:sequence />

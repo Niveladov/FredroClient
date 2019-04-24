@@ -14,17 +14,20 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
     internal interface ISchedulerDeliveryManager
     {
         void Join();
+        void Stop();
     }
 
     internal sealed class SchedulerDeliveryManager : ISchedulerDeliveryManager
     {
         private const int DB_ACCESS_PERIOD = 100;
+        private bool _isCanceled;
         private readonly IDbDataManager _dataManager;
         private Dictionary<int, int> _assignedAppointmentIds;
         private HashSet<int> _freeAppointmentIds;
 
         public SchedulerDeliveryManager(IDbDataManager dataManager)
         {
+            _isCanceled = false;
             _dataManager = dataManager;
             _assignedAppointmentIds = new Dictionary<int, int>();
             _freeAppointmentIds = new HashSet<int>();
@@ -34,7 +37,7 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
         {
             try
             {
-                while (true)
+                while (!_isCanceled)
                 {
                     RefreshAssignedAppointments();
                     RefreshFreeAppointments();
@@ -45,6 +48,11 @@ namespace TwinklCRM.SchedulerServiceLibrary.Models
             {
                 throw;
             }
+        }
+
+        public void Stop()
+        {
+            _isCanceled = true;
         }
 
         private void RefreshAssignedAppointments()

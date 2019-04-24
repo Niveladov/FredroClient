@@ -21,6 +21,12 @@ namespace TwinklCRM.Client.MailboxService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/Join")]
         System.Threading.Tasks.Task JoinAsync();
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/Stop")]
+        void Stop();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/Stop")]
+        System.Threading.Tasks.Task StopAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMailboxService/SendMail", ReplyAction="http://tempuri.org/IMailboxService/SendMailResponse")]
         void SendMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
@@ -49,17 +55,17 @@ namespace TwinklCRM.Client.MailboxService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMailboxServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewInboxMails")]
-        void SendNewInboxMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewInboxMail")]
+        void SendNewInboxMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewOutboxMails")]
-        void SendNewOutboxMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewOutboxMail")]
+        void SendNewOutboxMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewDeletedMails")]
-        void SendNewDeletedMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewDeletedMail")]
+        void SendNewDeletedMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewSpamMails")]
-        void SendNewSpamMails(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail[] newMails);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMailboxService/SendNewSpamMail")]
+        void SendNewSpamMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -96,6 +102,14 @@ namespace TwinklCRM.Client.MailboxService {
         
         public System.Threading.Tasks.Task JoinAsync() {
             return base.Channel.JoinAsync();
+        }
+        
+        public void Stop() {
+            base.Channel.Stop();
+        }
+        
+        public System.Threading.Tasks.Task StopAsync() {
+            return base.Channel.StopAsync();
         }
         
         public void SendMail(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.TheMail mail) {

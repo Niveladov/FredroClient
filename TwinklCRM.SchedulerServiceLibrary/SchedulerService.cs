@@ -53,6 +53,18 @@ namespace TwinklCRM.SchedulerServiceLibrary
             }
         }
 
+        public void Stop()
+        {
+            try
+            {
+                _deliveryManager.Stop();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         public void AssignAppointment(int appointmentId, int resourceId)
         {
             try
