@@ -54,29 +54,30 @@
             this.lcMaim.Controls.Add(this.labelMain);
             this.lcMaim.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMaim.Location = new System.Drawing.Point(0, 0);
+            this.lcMaim.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcMaim.Name = "lcMaim";
             this.lcMaim.Root = this.lcgMail;
-            this.lcMaim.Size = new System.Drawing.Size(500, 250);
+            this.lcMaim.Size = new System.Drawing.Size(583, 308);
             this.lcMaim.TabIndex = 0;
             // 
             // labelBottom
             // 
-            this.labelBottom.Location = new System.Drawing.Point(84, 219);
+            this.labelBottom.Location = new System.Drawing.Point(98, 270);
             this.labelBottom.Name = "labelBottom";
-            this.labelBottom.Size = new System.Drawing.Size(404, 19);
+            this.labelBottom.Size = new System.Drawing.Size(471, 24);
             this.labelBottom.StyleController = this.lcMaim;
             this.labelBottom.TabIndex = 5;
             this.labelBottom.Text = "Все права защищены законами Вселенной. ® iTwinkl Inc";
             // 
             // labelMain
             // 
-            this.labelMain.Appearance.Font = new System.Drawing.Font("Navy Queen LT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMain.Location = new System.Drawing.Point(84, 104);
+            this.labelMain.Appearance.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelMain.Location = new System.Drawing.Point(98, 128);
             this.labelMain.Name = "labelMain";
-            this.labelMain.Size = new System.Drawing.Size(332, 42);
+            this.labelMain.Size = new System.Drawing.Size(387, 53);
             this.labelMain.StyleController = this.lcMaim;
             this.labelMain.TabIndex = 4;
-            this.labelMain.Text = "Twinkle CRM";
+            this.labelMain.Text = "Twinkle CRM ";
             // 
             // lcgMail
             // 
@@ -111,18 +112,18 @@
             rowDefinition2,
             rowDefinition3,
             rowDefinition4});
-            this.lcgMail.Size = new System.Drawing.Size(500, 250);
+            this.lcgMail.Size = new System.Drawing.Size(583, 308);
             this.lcgMail.TextVisible = false;
             // 
             // lciLabel
             // 
             this.lciLabel.Control = this.labelMain;
-            this.lciLabel.Location = new System.Drawing.Point(72, 92);
+            this.lciLabel.Location = new System.Drawing.Point(84, 114);
             this.lciLabel.MinSize = new System.Drawing.Size(67, 17);
             this.lciLabel.Name = "lciLabel";
             this.lciLabel.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciLabel.OptionsTableLayoutItem.RowIndex = 1;
-            this.lciLabel.Size = new System.Drawing.Size(336, 46);
+            this.lciLabel.Size = new System.Drawing.Size(391, 57);
             this.lciLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciLabel.TextSize = new System.Drawing.Size(0, 0);
             this.lciLabel.TextVisible = false;
@@ -130,25 +131,26 @@
             // lciLabelBottom
             // 
             this.lciLabelBottom.Control = this.labelBottom;
-            this.lciLabelBottom.Location = new System.Drawing.Point(72, 207);
+            this.lciLabelBottom.Location = new System.Drawing.Point(84, 256);
             this.lciLabelBottom.MinSize = new System.Drawing.Size(67, 17);
             this.lciLabelBottom.Name = "lciLabelBottom";
             this.lciLabelBottom.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lciLabelBottom.OptionsTableLayoutItem.ColumnSpan = 2;
             this.lciLabelBottom.OptionsTableLayoutItem.RowIndex = 3;
-            this.lciLabelBottom.Size = new System.Drawing.Size(408, 23);
+            this.lciLabelBottom.Size = new System.Drawing.Size(475, 28);
             this.lciLabelBottom.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciLabelBottom.TextSize = new System.Drawing.Size(0, 0);
             this.lciLabelBottom.TextVisible = false;
             // 
             // frmSplashScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 250);
+            this.ClientSize = new System.Drawing.Size(583, 308);
             this.Controls.Add(this.lcMaim);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmSplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSplashScreen";
