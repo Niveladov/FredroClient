@@ -158,6 +158,12 @@
     <Compile Include="ExtraClasses\TwinkleHelper.cs" />
     <Compile Include="ExtraClasses\TwinkleMessageBox.cs" />
     <Compile Include="ExtraClasses\WaitingHelper.cs" />
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,7 @@
     <Compile Include="Forms\frmStart.Designer.cs">
       <DependentUpon>frmStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\FormDragger.cs" />
     <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\MainModel.cs" />
@@ -259,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseGUI\WaitLoadingForm.resx">
       <DependentUpon>WaitLoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMails.resx">
       <DependentUpon>frmMails.cs</DependentUpon>
@@ -376,6 +386,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\user_white_32x32.png" />
+    <None Include="Resources\user_blue_32x32.png" />
+    <None Include="Resources\password_unlock_white_32x32.png" />
+    <None Include="Resources\password_unlock_blue_32x32.png" />
+    <None Include="Resources\password_lock_white_32x32.png" />
+    <None Include="Resources\password_lock_blue_32x32.png" />
+    <None Include="Resources\arrows_blue_64x64.png" />
     <None Include="Resources\telegram_grey_16x16.png" />
     <None Include="Resources\inbox_grey_16x16.png" />
     <None Include="Resources\deleted_mail_grey_16x16.png" />

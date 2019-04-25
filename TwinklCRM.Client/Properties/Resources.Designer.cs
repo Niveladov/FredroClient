@@ -63,6 +63,16 @@ namespace TwinklCRM.Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrows_blue_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("arrows_blue_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ava_32x32 {
             get {
                 object obj = ResourceManager.GetObject("ava_32x32", resourceCulture);
@@ -353,6 +363,46 @@ namespace TwinklCRM.Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap password_lock_blue_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("password_lock_blue_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap password_lock_white_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("password_lock_white_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap password_unlock_blue_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("password_unlock_blue_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap password_unlock_white_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("password_unlock_white_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pink_calendar_32x32 {
             get {
                 object obj = ResourceManager.GetObject("pink_calendar_32x32", resourceCulture);
@@ -586,6 +636,26 @@ namespace TwinklCRM.Client.Properties {
         internal static System.Drawing.Bitmap user_account_34x24 {
             get {
                 object obj = ResourceManager.GetObject("user_account_34x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_blue_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("user_blue_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_white_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("user_white_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

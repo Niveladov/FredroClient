@@ -8,8 +8,11 @@ namespace TwinklCRM.DAL.Models
 {
     public sealed class Credentials
     {
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public const string DefaultLogin = "Логин";
+        public const string DefaultPassword = "Пароль";
+
+        public string Login { get; set; } = DefaultLogin;
+        public string Password { get; set; } = DefaultPassword;
     }
 
 }

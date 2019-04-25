@@ -28,8 +28,9 @@ namespace TwinklCRM.Client
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
-            Application.Run(new Forms.frmStart());
+            //Application.Run(new Forms.frmStart());
+            Application.Run(new Forms.frmLogin());
         }
-        
+
     }
 }

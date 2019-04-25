@@ -214,12 +214,6 @@ namespace TwinklCRM.Client.Forms
         #endregion
 
         #region Helper classes
-        private class FormDragger
-        {
-            public bool IsDrag = false;
-            public Point StartPoint = new Point(0, 0);
-        }
-
         private class SlidePanelAgent
         {
             public int PanelMaxWidth { get; }
