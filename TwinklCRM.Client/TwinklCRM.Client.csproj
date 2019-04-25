@@ -386,11 +386,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_email_32x32.ico" />
+    <None Include="Resources\password_unlock_white_32x32.png" />
+    <None Include="Resources\password_lock_white_32x32.png" />
+    <None Include="Resources\password_unlock_blue_32x32.png" />
     <None Include="Resources\user_white_32x32.png" />
     <None Include="Resources\user_blue_32x32.png" />
-    <None Include="Resources\password_unlock_white_32x32.png" />
-    <None Include="Resources\password_unlock_blue_32x32.png" />
-    <None Include="Resources\password_lock_white_32x32.png" />
     <None Include="Resources\password_lock_blue_32x32.png" />
     <None Include="Resources\arrows_blue_64x64.png" />
     <None Include="Resources\telegram_grey_16x16.png" />
