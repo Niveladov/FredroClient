@@ -31,18 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.peArrows = new DevExpress.XtraEditors.PictureEdit();
             this.peUsername = new DevExpress.XtraEditors.PictureEdit();
-            this.tbUsername = new System.Windows.Forms.TextBox();
             this.panelUsername = new System.Windows.Forms.Panel();
             this.panelPassword = new System.Windows.Forms.Panel();
-            this.tbPassword = new System.Windows.Forms.TextBox();
             this.pePassword = new DevExpress.XtraEditors.PictureEdit();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panelTop = new System.Windows.Forms.Panel();
+            this.teUsername = new DevExpress.XtraEditors.TextEdit();
+            this.tePassword = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.peArrows.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pePassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // peArrows
@@ -59,6 +61,9 @@
             this.peArrows.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.peArrows.Size = new System.Drawing.Size(56, 64);
             this.peArrows.TabIndex = 0;
+            this.peArrows.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DraggedControl_MouseDown);
+            this.peArrows.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DraggedControl_MouseMove);
+            this.peArrows.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DraggedControl_MouseUp);
             // 
             // peUsername
             // 
@@ -75,19 +80,6 @@
             this.peUsername.Size = new System.Drawing.Size(28, 32);
             this.peUsername.TabIndex = 1;
             // 
-            // tbUsername
-            // 
-            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbUsername.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.tbUsername.Location = new System.Drawing.Point(77, 142);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(186, 25);
-            this.tbUsername.TabIndex = 2;
-            this.tbUsername.Text = "Логин";
-            this.tbUsername.Enter += new System.EventHandler(this.tbUsername_Enter);
-            // 
             // panelUsername
             // 
             this.panelUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
@@ -103,19 +95,6 @@
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(219, 1);
             this.panelPassword.TabIndex = 6;
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.tbPassword.Location = new System.Drawing.Point(77, 204);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(186, 25);
-            this.tbPassword.TabIndex = 3;
-            this.tbPassword.Text = "Пароль";
-            this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
             // 
             // pePassword
             // 
@@ -173,9 +152,45 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(285, 30);
             this.panelTop.TabIndex = 7;
-            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTop_MouseDown);
-            this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelTop_MouseMove);
-            this.panelTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelTop_MouseUp);
+            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DraggedControl_MouseDown);
+            this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DraggedControl_MouseMove);
+            this.panelTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DraggedControl_MouseUp);
+            // 
+            // teUsername
+            // 
+            this.teUsername.Location = new System.Drawing.Point(78, 139);
+            this.teUsername.Name = "teUsername";
+            this.teUsername.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.teUsername.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.teUsername.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.teUsername.Properties.Appearance.Options.UseBackColor = true;
+            this.teUsername.Properties.Appearance.Options.UseFont = true;
+            this.teUsername.Properties.Appearance.Options.UseForeColor = true;
+            this.teUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.teUsername.Properties.NullValuePrompt = "Логин";
+            this.teUsername.Properties.NullValuePromptShowForEmptyValue = true;
+            this.teUsername.Size = new System.Drawing.Size(185, 28);
+            this.teUsername.TabIndex = 8;
+            this.teUsername.Enter += new System.EventHandler(this.TeUsername_Enter);
+            // 
+            // tePassword
+            // 
+            this.tePassword.Location = new System.Drawing.Point(78, 201);
+            this.tePassword.Name = "tePassword";
+            this.tePassword.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.tePassword.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tePassword.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.tePassword.Properties.Appearance.Options.UseBackColor = true;
+            this.tePassword.Properties.Appearance.Options.UseFont = true;
+            this.tePassword.Properties.Appearance.Options.UseForeColor = true;
+            this.tePassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tePassword.Properties.NullValuePrompt = "Пароль";
+            this.tePassword.Properties.NullValuePromptShowForEmptyValue = true;
+            this.tePassword.Properties.PasswordChar = '*';
+            this.tePassword.Size = new System.Drawing.Size(185, 28);
+            this.tePassword.TabIndex = 9;
+            this.tePassword.TextChanged += new System.EventHandler(this.TePassword_TextChanged);
+            this.tePassword.Enter += new System.EventHandler(this.TePassword_Enter);
             // 
             // frmLogin
             // 
@@ -184,14 +199,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 440);
+            this.Controls.Add(this.tePassword);
+            this.Controls.Add(this.teUsername);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panelPassword);
-            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.pePassword);
             this.Controls.Add(this.panelUsername);
-            this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.peUsername);
             this.Controls.Add(this.peArrows);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -201,8 +216,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.peArrows.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pePassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -210,14 +226,14 @@
 
         private DevExpress.XtraEditors.PictureEdit peArrows;
         private DevExpress.XtraEditors.PictureEdit peUsername;
-        private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Panel panelUsername;
         private System.Windows.Forms.Panel panelPassword;
-        private System.Windows.Forms.TextBox tbPassword;
         private DevExpress.XtraEditors.PictureEdit pePassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel panelTop;
+        private DevExpress.XtraEditors.TextEdit teUsername;
+        private DevExpress.XtraEditors.TextEdit tePassword;
     }
 }

@@ -17,14 +17,12 @@ namespace TwinklCRM.Client.Forms
     internal partial class frmLogin : TwinkleBaseXtraForm
     {
         private readonly FormDragger _dragger;
-        private readonly ErrorProvider _errorProvider;
         private readonly Credentials _creds;
         private bool _isEnterPressed;
         public frmLogin()
         {
             InitializeComponent();
             _dragger = new FormDragger();
-            _errorProvider = new ErrorProvider();
             _creds = new Credentials();
             InitControls();
             InitEvents();
@@ -32,36 +30,35 @@ namespace TwinklCRM.Client.Forms
 
         private void InitEvents()
         {
-            tbUsername.KeyDown += CredentialControl_KeyDown;
-            tbPassword.KeyDown += CredentialControl_KeyDown;
+            teUsername.KeyDown += CredentialControl_KeyDown;
+            tePassword.KeyDown += CredentialControl_KeyDown;
 
-            tbUsername.KeyPress += CredentialControl_KeyPress;
-            tbPassword.KeyPress += CredentialControl_KeyPress;
+            teUsername.KeyPress += CredentialControl_KeyPress;
+            tePassword.KeyPress += CredentialControl_KeyPress;
         }
 
         private void InitControls()
         {
-            tbUsername.DataBindings.Add(new Binding("Text", _creds, nameof(_creds.Login),
+            teUsername.DataBindings.Add(new Binding("EditValue", _creds, nameof(_creds.Login),
                 true, DataSourceUpdateMode.OnPropertyChanged));
-            tbPassword.DataBindings.Add(new Binding("Text", _creds, nameof(_creds.Password),
+            tePassword.DataBindings.Add(new Binding("EditValue", _creds, nameof(_creds.Password),
                 true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
         private void OpenMail()
         {
-            if (string.IsNullOrWhiteSpace(_creds.Login) || _creds.Login == Credentials.DefaultLogin)
+            if (string.IsNullOrWhiteSpace(_creds.Login))
             {
-                _errorProvider.Clear();
-                _errorProvider.SetError(tbUsername, "Ошибка. Необходимо ввести логин");
+                teUsername.ErrorText = "Ошибка. Необходимо ввести логин";
             }
-            else if (string.IsNullOrWhiteSpace(_creds.Password) || _creds.Password == Credentials.DefaultPassword)
+            else if (string.IsNullOrWhiteSpace(_creds.Password))
             {
-                _errorProvider.Clear();
-                _errorProvider.SetError(tbPassword, "Ошибка. Необходимо ввести пароль");
+                tePassword.ErrorText = "Ошибка. Необходимо ввести пароль";
             }
             else
             {
-                _errorProvider.Clear();
+                teUsername.ErrorText = string.Empty;
+                tePassword.ErrorText = string.Empty;
                 Hide();
                 var splashForm = new frmSplashScreen();
                 var splashScreenThread = new Thread(new ThreadStart(()
@@ -81,7 +78,7 @@ namespace TwinklCRM.Client.Forms
         {
             if (_isEnterPressed)
             {
-                //OpenMail();
+                OpenMail();
             }
         }
 
@@ -94,38 +91,46 @@ namespace TwinklCRM.Client.Forms
             }
         }
 
-        private void tbUsername_Enter(object sender, EventArgs e)
+        private void TeUsername_Enter(object sender, EventArgs e)
         {
-            tbUsername.Clear();
             peUsername.Image = Properties.Resources.user_blue_32x32;
             panelUsername.BackColor = Color.FromArgb(3, 186, 255); //blue
-            tbUsername.ForeColor = Color.FromArgb(3, 186, 255); //blue
+            teUsername.ForeColor = Color.FromArgb(3, 186, 255); //blue
 
-            pePassword.Image = Properties.Resources.password_lock_white_32x32;
+            pePassword.Image = string.IsNullOrWhiteSpace(tePassword.EditValue.ToString()) ? 
+                Properties.Resources.password_lock_white_32x32 :
+                Properties.Resources.password_unlock_white_32x32;
             panelPassword.BackColor = Color.FromArgb(247, 247, 247); //white
-            tbPassword.ForeColor = Color.FromArgb(247, 247, 247); //white
+            tePassword.ForeColor = Color.FromArgb(247, 247, 247); //white
         }
 
-        private void tbPassword_Enter(object sender, EventArgs e)
+        private void TePassword_Enter(object sender, EventArgs e)
         {
-            tbPassword.Clear();
-            tbPassword.PasswordChar = '*';
-            pePassword.Image = Properties.Resources.password_lock_blue_32x32;
+            pePassword.Image = string.IsNullOrWhiteSpace(tePassword.EditValue.ToString()) ? 
+                Properties.Resources.password_lock_blue_32x32 :
+                Properties.Resources.password_unlock_blue_32x32;
             panelPassword.BackColor = Color.FromArgb(3, 186, 255); //blue
-            tbPassword.ForeColor = Color.FromArgb(3, 186, 255); //blue
+            tePassword.ForeColor = Color.FromArgb(3, 186, 255); //blue
 
             peUsername.Image = Properties.Resources.user_white_32x32;
             panelUsername.BackColor = Color.FromArgb(247, 247, 247); //white
-            tbUsername.ForeColor = Color.FromArgb(247, 247, 247); //white
+            teUsername.ForeColor = Color.FromArgb(247, 247, 247); //white
         }
 
-        private void PanelTop_MouseDown(object sender, MouseEventArgs e)
+        private void TePassword_TextChanged(object sender, EventArgs e)
+        {
+            pePassword.Image = string.IsNullOrWhiteSpace(tePassword.EditValue.ToString()) ?
+                ( tePassword.IsEditorActive ? Properties.Resources.password_lock_blue_32x32 : Properties.Resources.password_lock_white_32x32) :
+                ( tePassword.IsEditorActive ? Properties.Resources.password_unlock_blue_32x32 : Properties.Resources.password_unlock_white_32x32);
+        }
+
+        private void DraggedControl_MouseDown(object sender, MouseEventArgs e)
         {
             _dragger.IsDrag = true;
             _dragger.StartPoint = new Point(e.X, e.Y);
         }
 
-        private void PanelTop_MouseMove(object sender, MouseEventArgs e)
+        private void DraggedControl_MouseMove(object sender, MouseEventArgs e)
         {
             if (_dragger.IsDrag)
             {
@@ -134,7 +139,7 @@ namespace TwinklCRM.Client.Forms
             }
         }
 
-        private void PanelTop_MouseUp(object sender, MouseEventArgs e)
+        private void DraggedControl_MouseUp(object sender, MouseEventArgs e)
         {
             _dragger.IsDrag = false;
         }
