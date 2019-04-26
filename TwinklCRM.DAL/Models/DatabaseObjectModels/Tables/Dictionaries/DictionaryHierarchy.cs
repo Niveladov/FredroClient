@@ -22,9 +22,9 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 
         //private fields
         private string _name;
+        private string _caption;
         private int? _parentId;
         private bool _isCategory;
-        private string _caption;
 
         //properties
         [DataMember]
@@ -40,6 +40,22 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
                 {
                     _name = value;
                     NotifyPropertyChanged(nameof(Name));
+                }
+            }
+        }
+        [DataMember]
+        public string Caption
+        {
+            get
+            {
+                return _caption;
+            }
+            set
+            {
+                if (value != _caption)
+                {
+                    _caption = value;
+                    NotifyPropertyChanged(nameof(Caption));
                 }
             }
         }
@@ -72,22 +88,6 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
                 {
                     _isCategory = value;
                     NotifyPropertyChanged(nameof(IsCategory));
-                }
-            }
-        }
-        [DataMember]
-        public string Caption
-        {
-            get
-            {
-                return _caption;
-            }
-            set
-            {
-                if (value != _caption)
-                {
-                    _caption = value;
-                    NotifyPropertyChanged(nameof(Caption));
                 }
             }
         }
