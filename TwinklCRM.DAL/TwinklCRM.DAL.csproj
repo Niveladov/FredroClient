@@ -60,6 +60,7 @@
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailFolderType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServerParam.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryHierarchy.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryTripType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryVehicleType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />

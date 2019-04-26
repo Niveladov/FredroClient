@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
-    public sealed class DictionaryEmailFolderType : DbObjectBaseModel
+    public sealed class DictionaryHierarchy : DbObjectBaseModel
     {
         //default properties
         [DataMember]
@@ -22,7 +22,9 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 
         //private fields
         private string _name;
-        private string _code;
+        private int? _parentId;
+        private bool _isCategory;
+        private string _caption;
 
         //properties
         [DataMember]
@@ -42,18 +44,50 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
-        public string Code
+        public int? ParentId
         {
             get
             {
-                return _code;
+                return _parentId;
             }
             set
             {
-                if (value != _code)
+                if (value != _parentId)
                 {
-                    _code = value;
-                    NotifyPropertyChanged(nameof(Code));
+                    _parentId = value;
+                    NotifyPropertyChanged(nameof(ParentId));
+                }
+            }
+        }
+        [DataMember]
+        public bool IsCategory
+        {
+            get
+            {
+                return _isCategory;
+            }
+            set
+            {
+                if (value != _isCategory)
+                {
+                    _isCategory = value;
+                    NotifyPropertyChanged(nameof(IsCategory));
+                }
+            }
+        }
+        [DataMember]
+        public string Caption
+        {
+            get
+            {
+                return _caption;
+            }
+            set
+            {
+                if (value != _caption)
+                {
+                    _caption = value;
+                    NotifyPropertyChanged(nameof(Caption));
                 }
             }
         }
