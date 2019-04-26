@@ -67,6 +67,10 @@
             // nbcHeirarchy
             // 
             this.nbcHeirarchy.ActiveGroup = this.nbgHierarchy;
+            this.nbcHeirarchy.Appearance.GroupHeader.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nbcHeirarchy.Appearance.GroupHeader.Options.UseFont = true;
+            this.nbcHeirarchy.Appearance.NavigationPaneHeader.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nbcHeirarchy.Appearance.NavigationPaneHeader.Options.UseFont = true;
             this.nbcHeirarchy.Controls.Add(this.navBarGroupControlContainer1);
             this.nbcHeirarchy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nbcHeirarchy.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
@@ -96,24 +100,35 @@
             this.navBarGroupControlContainer1.Appearance.Options.UseBackColor = true;
             this.navBarGroupControlContainer1.Controls.Add(this.tlDictionaries);
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(425, 514);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(425, 502);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // tlDictionaries
             // 
+            this.tlDictionaries.Appearance.Row.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tlDictionaries.Appearance.Row.Options.UseFont = true;
+            this.tlDictionaries.Appearance.SelectedRow.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tlDictionaries.Appearance.SelectedRow.Options.UseFont = true;
+            this.tlDictionaries.ColumnPanelRowHeight = 30;
             this.tlDictionaries.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.tlcCaption});
             this.tlDictionaries.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlDictionaries.Location = new System.Drawing.Point(0, 0);
             this.tlDictionaries.Name = "tlDictionaries";
-            this.tlDictionaries.Size = new System.Drawing.Size(425, 514);
+            this.tlDictionaries.Size = new System.Drawing.Size(425, 502);
             this.tlDictionaries.TabIndex = 0;
             // 
             // tlcCaption
             // 
+            this.tlcCaption.AppearanceCell.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tlcCaption.AppearanceCell.Options.UseFont = true;
+            this.tlcCaption.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tlcCaption.AppearanceHeader.Options.UseFont = true;
             this.tlcCaption.Caption = "Название";
             this.tlcCaption.FieldName = "Caption";
             this.tlcCaption.Name = "tlcCaption";
+            this.tlcCaption.OptionsColumn.AllowEdit = false;
+            this.tlcCaption.OptionsColumn.ReadOnly = true;
             this.tlcCaption.Visible = true;
             this.tlcCaption.VisibleIndex = 0;
             // 

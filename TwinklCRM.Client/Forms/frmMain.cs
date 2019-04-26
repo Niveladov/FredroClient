@@ -32,6 +32,7 @@ namespace TwinklCRM.Client.Forms
                 _mainModel = new MainModel();
                 ucMails.Init(_mainModel.BOServiceClient, creds);
                 ucScheduler.Init(_mainModel.BOServiceClient);
+                ucHierarchy.Init(_mainModel.BOServiceClient);
             }
             catch (ServerException ex)
             {

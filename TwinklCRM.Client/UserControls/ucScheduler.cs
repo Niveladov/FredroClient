@@ -30,8 +30,8 @@ namespace TwinklCRM.Client.UserControls
 {
     public partial class ucScheduler : ucBase, ISchedulerServiceCallback
     {
+        private readonly WaitingHelper _waitingHelper;
         private GridHitInfo _downHitInfo;
-        private WaitingHelper _waitingHelper;
         private Deal _popupDeal;
         private SchedulerModel _model;
 
