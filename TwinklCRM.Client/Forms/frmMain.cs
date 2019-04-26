@@ -50,7 +50,7 @@ namespace TwinklCRM.Client.Forms
 
         private void InitStatusStrip()
         {
-            statusStrip.Items[0].Text = "Демо версия клиента Twinkle.";
+            statusStrip.Items[0].Text = "Демо версия клиента TwinklCRM.";
             statusStrip.Items[1].Text = ""; // "Евгений Федорук, +7(952)383-23-01";
         }
 
@@ -122,24 +122,7 @@ namespace TwinklCRM.Client.Forms
             _dragger.IsDrag = false;
             if (this.Location.Y < 5)
             {
-                //StartPosition = FormStartPosition.Manual;
-                //var allScreens = Screen.AllScreens;
-                //var xLocation = this.Location.X;
-                //var currentScreen = allScreens.Single(x => (x.Bounds.X < xLocation && (x.Bounds.X + x.Bounds.Width) > xLocation));
-                //setFormLocation(this, currentScreen);
-                //this.MaximizedBounds = currentScreen.Bounds;
-                //this.Location = currentScreen.Bounds.Location;
-                //this.SetDisplayRectLocation(currentScreen.Bounds.Location.X, currentScreen.Bounds.Location.Y);
-                //this.SetBounds(currentScreen.Bounds.X, currentScreen.Bounds.Y, currentScreen.Bounds.Width, currentScreen.Bounds.Height);
-                //this.SetBounds()
-                ////this.TopMost = true;
-                //this.FormBorderStyle = FormBorderStyle.FixedDialog;
                 this.WindowState = FormWindowState.Maximized;
-                //this.FormBorderStyle = FormBorderStyle.None;
-                //this.SetBounds(currentScreen.Bounds.X, currentScreen.Bounds.Y, currentScreen.Bounds.Width, currentScreen.Bounds.Height);
-                //this.SetDesktopBounds(currentScreen.Bounds.X, currentScreen.Bounds.Y, currentScreen.Bounds.Width, currentScreen.Bounds.Height);
-                //this.WindowState = FormWindowState.Normal;
-                //this.WindowState = FormWindowState.Maximized;
             }
         }
 
