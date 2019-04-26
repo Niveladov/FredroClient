@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TwinklCRM.Client.BaseGUI;
 using TwinklCRM.Client.BusinessObjectService;
 using TwinklCRM.Client.ExtraClasses;
+using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
 namespace TwinklCRM.Client.UserControls
 {
@@ -17,6 +18,7 @@ namespace TwinklCRM.Client.UserControls
     {
         private readonly WaitingHelper _waitingHelper;
         private BusinessObjectServiceClient _boServiceClient;
+        private string _dataSourceTableName;
 
         public ucHierarchy()
         {
@@ -55,8 +57,40 @@ namespace TwinklCRM.Client.UserControls
 
         private void InitEvents()
         {
-            //throw new NotImplementedException();
+            tlDictionaries.FocusedNodeChanged += TlDictionaries_FocusedNodeChanged;
         }
 
+        private void TlDictionaries_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            var isCategory = (bool?)e.Node[nameof(DictionaryHierarchy.IsCategory)];
+            if (isCategory.HasValue && !isCategory.Value)
+            {
+                _dataSourceTableName = e.Node[nameof(DictionaryHierarchy.Name)].ToString();
+                RefreshCurrentDictionary();
+            }
+        }
+
+        private void RefreshCurrentDictionary()
+        {
+            switch (_dataSourceTableName)
+            {
+                case nameof(DictionaryEmailFolderType):
+                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllEmailFolderTypes();
+                    break;
+                case nameof(DictionaryEmailServer):
+                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllEmailServers();
+                    break;
+                case nameof(DictionaryEmailServerParam):
+                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllEmailServerParams();
+                    break;
+                case nameof(DictionaryTripType):
+                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllTripTypes();
+                    break;
+                case nameof(DictionaryVehicleType):
+                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllVehicleTypes();
+                    break;
+            }
+
+        }
     }
 }

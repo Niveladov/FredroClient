@@ -161,6 +161,7 @@
             // 
             this.gvCurrentDictionary.GridControl = this.gcCurrentDictionary;
             this.gvCurrentDictionary.Name = "gvCurrentDictionary";
+            this.gvCurrentDictionary.OptionsBehavior.Editable = false;
             // 
             // ucHierarchy
             // 
