@@ -262,7 +262,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
         {
             get
             {
-               return this.IsRead ? Properties.Resources.read_mail_32x38 : Properties.Resources.unread_mail_32x32;
+               return this.IsRead ? Properties.Resources.read_mail_32x38 : Properties.Resources.unread_mail_blue_32x32;
             }
         } 
     }

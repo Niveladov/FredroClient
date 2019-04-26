@@ -148,23 +148,11 @@
   <data name="menu_icon3_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu_icon3_64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="read_32x38" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\read_32x38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="read_email_512x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\read_email_512x612.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="settings_icon1_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_icon1_64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_icon2_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_icon2_64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="unread_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\unread_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="unread_email_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\unread_email_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
