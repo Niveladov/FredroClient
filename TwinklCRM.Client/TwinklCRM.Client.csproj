@@ -328,7 +328,12 @@
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.CachedEmailBox.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Views.ViewVehicle.datasource" />

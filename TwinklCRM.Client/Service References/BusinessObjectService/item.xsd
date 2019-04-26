@@ -200,4 +200,64 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllVehicleTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllVehicleTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllVehicleTypesResult" nillable="true" type="q14:ArrayOfDictionaryVehicleType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailFolderTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailFolderTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllEmailFolderTypesResult" nillable="true" type="q15:ArrayOfDictionaryEmailFolderType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailServers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailServersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllEmailServersResult" nillable="true" type="q16:ArrayOfDictionaryEmailServer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailServerParams">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailServerParamsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllEmailServerParamsResult" nillable="true" type="q17:ArrayOfDictionaryEmailServerParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllHierarchies">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllHierarchiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" minOccurs="0" name="GetAllHierarchiesResult" nillable="true" type="q18:ArrayOfDictionaryHierarchy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

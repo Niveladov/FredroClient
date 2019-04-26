@@ -134,6 +134,36 @@
   <wsdl:message name="IBusinessObjectService_GetAllTripTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTripTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicleTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleTypes" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicleTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllEmailFolderTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailFolderTypes" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllEmailFolderTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailFolderTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllEmailServers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailServers" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllEmailServers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllEmailServerParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailServerParams" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllEmailServerParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmailServerParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllHierarchies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHierarchies" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllHierarchies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHierarchiesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBusinessObjectService">
     <wsdl:operation name="GetPerformer">
       <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetPerformer" message="tns:IBusinessObjectService_GetPerformer_InputMessage" />
@@ -198,6 +228,26 @@
     <wsdl:operation name="GetAllTripTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes" message="tns:IBusinessObjectService_GetAllTripTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse" message="tns:IBusinessObjectService_GetAllTripTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes" message="tns:IBusinessObjectService_GetAllVehicleTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypesResponse" message="tns:IBusinessObjectService_GetAllVehicleTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailFolderTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes" message="tns:IBusinessObjectService_GetAllEmailFolderTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypesResponse" message="tns:IBusinessObjectService_GetAllEmailFolderTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailServers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServers" message="tns:IBusinessObjectService_GetAllEmailServers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServersResponse" message="tns:IBusinessObjectService_GetAllEmailServers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailServerParams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams" message="tns:IBusinessObjectService_GetAllEmailServerParams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParamsResponse" message="tns:IBusinessObjectService_GetAllEmailServerParams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHierarchies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchies" message="tns:IBusinessObjectService_GetAllHierarchies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchiesResponse" message="tns:IBusinessObjectService_GetAllHierarchies_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IBusinessObjectService" type="tns:IBusinessObjectService">
@@ -340,6 +390,51 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllTripTypes">
       <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleTypes">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailFolderTypes">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailServers">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmailServerParams">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHierarchies">
+      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllHierarchies" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -110,6 +110,36 @@ namespace TwinklCRM.Client.BusinessObjectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypesResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[] GetAllVehicleTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypesResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypesResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType[] GetAllEmailFolderTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypesResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType[]> GetAllEmailFolderTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServersResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[] GetAllEmailServers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServersResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[]> GetAllEmailServersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParamsResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam[] GetAllEmailServerParams();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParamsResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam[]> GetAllEmailServerParamsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchies", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllHierarchiesResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[] GetAllHierarchies();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchies", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllHierarchiesResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[]> GetAllHierarchiesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -265,6 +295,46 @@ namespace TwinklCRM.Client.BusinessObjectService {
         
         public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync() {
             return base.Channel.GetAllTripTypesAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[] GetAllVehicleTypes() {
+            return base.Channel.GetAllVehicleTypes();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync() {
+            return base.Channel.GetAllVehicleTypesAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType[] GetAllEmailFolderTypes() {
+            return base.Channel.GetAllEmailFolderTypes();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType[]> GetAllEmailFolderTypesAsync() {
+            return base.Channel.GetAllEmailFolderTypesAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[] GetAllEmailServers() {
+            return base.Channel.GetAllEmailServers();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[]> GetAllEmailServersAsync() {
+            return base.Channel.GetAllEmailServersAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam[] GetAllEmailServerParams() {
+            return base.Channel.GetAllEmailServerParams();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam[]> GetAllEmailServerParamsAsync() {
+            return base.Channel.GetAllEmailServerParamsAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[] GetAllHierarchies() {
+            return base.Channel.GetAllHierarchies();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[]> GetAllHierarchiesAsync() {
+            return base.Channel.GetAllHierarchiesAsync();
         }
     }
 }
