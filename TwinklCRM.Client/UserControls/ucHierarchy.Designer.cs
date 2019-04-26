@@ -60,7 +60,7 @@
             this.sccMain.Panel2.Controls.Add(this.groupCurrentDictionary);
             this.sccMain.Panel2.Text = "Panel2";
             this.sccMain.Size = new System.Drawing.Size(832, 582);
-            this.sccMain.SplitterPosition = 322;
+            this.sccMain.SplitterPosition = 425;
             this.sccMain.TabIndex = 0;
             this.sccMain.Text = "splitContainerControl1";
             // 
@@ -73,12 +73,12 @@
             this.nbgHierarchy});
             this.nbcHeirarchy.Location = new System.Drawing.Point(0, 0);
             this.nbcHeirarchy.Name = "nbcHeirarchy";
-            this.nbcHeirarchy.OptionsNavPane.ExpandedWidth = 322;
+            this.nbcHeirarchy.OptionsNavPane.ExpandedWidth = 425;
             this.nbcHeirarchy.OptionsNavPane.ShowExpandButton = false;
             this.nbcHeirarchy.OptionsNavPane.ShowOverflowPanel = false;
             this.nbcHeirarchy.OptionsNavPane.ShowSplitter = false;
             this.nbcHeirarchy.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.nbcHeirarchy.Size = new System.Drawing.Size(322, 582);
+            this.nbcHeirarchy.Size = new System.Drawing.Size(425, 582);
             this.nbcHeirarchy.TabIndex = 0;
             // 
             // nbgHierarchy
@@ -96,7 +96,7 @@
             this.navBarGroupControlContainer1.Appearance.Options.UseBackColor = true;
             this.navBarGroupControlContainer1.Controls.Add(this.tlDictionaries);
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(322, 514);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(425, 514);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // tlDictionaries
@@ -106,7 +106,7 @@
             this.tlDictionaries.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlDictionaries.Location = new System.Drawing.Point(0, 0);
             this.tlDictionaries.Name = "tlDictionaries";
-            this.tlDictionaries.Size = new System.Drawing.Size(322, 514);
+            this.tlDictionaries.Size = new System.Drawing.Size(425, 514);
             this.tlDictionaries.TabIndex = 0;
             // 
             // tlcCaption
@@ -128,7 +128,7 @@
             this.groupCurrentDictionary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupCurrentDictionary.Location = new System.Drawing.Point(0, 0);
             this.groupCurrentDictionary.Name = "groupCurrentDictionary";
-            this.groupCurrentDictionary.Size = new System.Drawing.Size(504, 582);
+            this.groupCurrentDictionary.Size = new System.Drawing.Size(401, 582);
             this.groupCurrentDictionary.TabIndex = 0;
             // 
             // gcCurrentDictionary
@@ -137,7 +137,7 @@
             this.gcCurrentDictionary.Location = new System.Drawing.Point(2, 45);
             this.gcCurrentDictionary.MainView = this.gvCurrentDictionary;
             this.gcCurrentDictionary.Name = "gcCurrentDictionary";
-            this.gcCurrentDictionary.Size = new System.Drawing.Size(500, 535);
+            this.gcCurrentDictionary.Size = new System.Drawing.Size(397, 535);
             this.gcCurrentDictionary.TabIndex = 0;
             this.gcCurrentDictionary.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCurrentDictionary});

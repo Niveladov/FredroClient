@@ -43,6 +43,7 @@
             this.labelCaption = new DevExpress.XtraEditors.LabelControl();
             this.search = new TwinklCRM.Client.BaseGUI.CustomEdit();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.ucHierarchy = new TwinklCRM.Client.UserControls.ucHierarchy();
             this.ucScheduler = new TwinklCRM.Client.UserControls.ucScheduler();
             this.ucMails = new TwinklCRM.Client.UserControls.ucMails();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -51,7 +52,8 @@
             this.lciMails = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgScheduler = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciScheduler = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lcgAudits = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lcgHierarchy = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciHierarchy = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgUser = new DevExpress.XtraLayout.LayoutControlGroup();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -75,7 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciMails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgScheduler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciScheduler)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgAudits)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgHierarchy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciHierarchy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgUser)).BeginInit();
             this.statusStrip.SuspendLayout();
             this.panelSlide.SuspendLayout();
@@ -89,10 +92,10 @@
             this.panelLeft.Controls.Add(this.btnScheduler);
             this.panelLeft.Controls.Add(this.btnUser);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 40);
+            this.panelLeft.Location = new System.Drawing.Point(0, 49);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(60, 427);
+            this.panelLeft.Size = new System.Drawing.Size(70, 526);
             this.panelLeft.TabIndex = 0;
             // 
             // btnAudits
@@ -102,10 +105,10 @@
             this.btnAudits.FlatAppearance.BorderSize = 0;
             this.btnAudits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAudits.Image = global::TwinklCRM.Client.Properties.Resources.blue_audit_32x32;
-            this.btnAudits.Location = new System.Drawing.Point(5, 301);
+            this.btnAudits.Location = new System.Drawing.Point(6, 370);
             this.btnAudits.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAudits.Name = "btnAudits";
-            this.btnAudits.Size = new System.Drawing.Size(51, 41);
+            this.btnAudits.Size = new System.Drawing.Size(59, 50);
             this.btnAudits.TabIndex = 5;
             this.btnAudits.UseVisualStyleBackColor = true;
             // 
@@ -113,10 +116,10 @@
             // 
             this.focusedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.focusedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.focusedPanel.Location = new System.Drawing.Point(0, 173);
+            this.focusedPanel.Location = new System.Drawing.Point(0, 213);
             this.focusedPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.focusedPanel.Name = "focusedPanel";
-            this.focusedPanel.Size = new System.Drawing.Size(5, 41);
+            this.focusedPanel.Size = new System.Drawing.Size(6, 50);
             this.focusedPanel.TabIndex = 3;
             // 
             // btnMails
@@ -126,10 +129,10 @@
             this.btnMails.FlatAppearance.BorderSize = 0;
             this.btnMails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMails.Image = global::TwinklCRM.Client.Properties.Resources.blue_email_32x32;
-            this.btnMails.Location = new System.Drawing.Point(5, 173);
+            this.btnMails.Location = new System.Drawing.Point(6, 213);
             this.btnMails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMails.Name = "btnMails";
-            this.btnMails.Size = new System.Drawing.Size(51, 41);
+            this.btnMails.Size = new System.Drawing.Size(59, 50);
             this.btnMails.TabIndex = 4;
             this.btnMails.UseVisualStyleBackColor = true;
             // 
@@ -140,10 +143,10 @@
             this.btnScheduler.FlatAppearance.BorderSize = 0;
             this.btnScheduler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnScheduler.Image = global::TwinklCRM.Client.Properties.Resources.blue_calendar_32x32;
-            this.btnScheduler.Location = new System.Drawing.Point(5, 237);
+            this.btnScheduler.Location = new System.Drawing.Point(6, 292);
             this.btnScheduler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnScheduler.Name = "btnScheduler";
-            this.btnScheduler.Size = new System.Drawing.Size(51, 41);
+            this.btnScheduler.Size = new System.Drawing.Size(59, 50);
             this.btnScheduler.TabIndex = 4;
             this.btnScheduler.UseVisualStyleBackColor = true;
             // 
@@ -154,10 +157,10 @@
             this.btnUser.FlatAppearance.BorderSize = 0;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUser.Image = global::TwinklCRM.Client.Properties.Resources.blue_user_32x32;
-            this.btnUser.Location = new System.Drawing.Point(5, 366);
+            this.btnUser.Location = new System.Drawing.Point(6, 450);
             this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(51, 41);
+            this.btnUser.Size = new System.Drawing.Size(59, 50);
             this.btnUser.TabIndex = 2;
             this.btnUser.UseVisualStyleBackColor = true;
             // 
@@ -172,7 +175,7 @@
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(795, 40);
+            this.panelTop.Size = new System.Drawing.Size(927, 49);
             this.panelTop.TabIndex = 4;
             // 
             // peAvatar
@@ -180,10 +183,10 @@
             this.peAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.peAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.peAvatar.EditValue = global::TwinklCRM.Client.Properties.Resources.circle;
-            this.peAvatar.Location = new System.Drawing.Point(753, 0);
+            this.peAvatar.Location = new System.Drawing.Point(878, 0);
             this.peAvatar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.peAvatar.MaximumSize = new System.Drawing.Size(42, 40);
-            this.peAvatar.MinimumSize = new System.Drawing.Size(42, 40);
+            this.peAvatar.MaximumSize = new System.Drawing.Size(49, 49);
+            this.peAvatar.MinimumSize = new System.Drawing.Size(49, 49);
             this.peAvatar.Name = "peAvatar";
             this.peAvatar.Properties.AllowFocused = false;
             this.peAvatar.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -192,7 +195,7 @@
             this.peAvatar.Properties.ReadOnly = true;
             this.peAvatar.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.peAvatar.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.peAvatar.Size = new System.Drawing.Size(42, 40);
+            this.peAvatar.Size = new System.Drawing.Size(49, 49);
             this.peAvatar.TabIndex = 7;
             this.peAvatar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.peAvatar_MouseClick);
             this.peAvatar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.peAvatar_MouseDown);
@@ -210,7 +213,7 @@
             this.btnMinimize.Location = new System.Drawing.Point(3, 2);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(54, 35);
+            this.btnMinimize.Size = new System.Drawing.Size(63, 43);
             this.btnMinimize.TabIndex = 5;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -219,10 +222,10 @@
             // 
             this.labelCaption.Appearance.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCaption.Appearance.ForeColor = System.Drawing.Color.Snow;
-            this.labelCaption.Location = new System.Drawing.Point(134, 9);
+            this.labelCaption.Location = new System.Drawing.Point(156, 11);
             this.labelCaption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelCaption.Name = "labelCaption";
-            this.labelCaption.Size = new System.Drawing.Size(98, 22);
+            this.labelCaption.Size = new System.Drawing.Size(108, 27);
             this.labelCaption.TabIndex = 2;
             this.labelCaption.Text = "Twinkl CRM";
             this.labelCaption.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelCaptionMouseDown);
@@ -231,7 +234,7 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(350, -2);
+            this.search.Location = new System.Drawing.Point(408, -2);
             this.search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search.Name = "search";
             this.search.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(107)))));
@@ -252,35 +255,44 @@
             this.search.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.search.Properties.NullValuePromptShowForEmptyValue = true;
             this.search.Properties.UseDefaultMode = true;
-            this.search.Size = new System.Drawing.Size(300, 44);
+            this.search.Size = new System.Drawing.Size(350, 44);
             this.search.TabIndex = 1;
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.ucHierarchy);
             this.lcMain.Controls.Add(this.ucScheduler);
             this.lcMain.Controls.Add(this.ucMails);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(60, 40);
+            this.lcMain.Location = new System.Drawing.Point(70, 49);
+            this.lcMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(487, 260, 532, 350);
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(735, 427);
+            this.lcMain.Size = new System.Drawing.Size(857, 526);
             this.lcMain.TabIndex = 5;
+            // 
+            // ucHierarchy
+            // 
+            this.ucHierarchy.Location = new System.Drawing.Point(1, 1);
+            this.ucHierarchy.Name = "ucHierarchy";
+            this.ucHierarchy.Size = new System.Drawing.Size(854, 523);
+            this.ucHierarchy.TabIndex = 6;
             // 
             // ucScheduler
             // 
             this.ucScheduler.Location = new System.Drawing.Point(1, 1);
-            this.ucScheduler.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ucScheduler.Margin = new System.Windows.Forms.Padding(2);
             this.ucScheduler.Name = "ucScheduler";
-            this.ucScheduler.Size = new System.Drawing.Size(733, 425);
+            this.ucScheduler.Size = new System.Drawing.Size(854, 523);
             this.ucScheduler.TabIndex = 5;
             // 
             // ucMails
             // 
             this.ucMails.Location = new System.Drawing.Point(1, 1);
-            this.ucMails.Margin = new System.Windows.Forms.Padding(4);
+            this.ucMails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucMails.Name = "ucMails";
-            this.ucMails.Size = new System.Drawing.Size(733, 425);
+            this.ucMails.Size = new System.Drawing.Size(854, 523);
             this.ucMails.TabIndex = 4;
             // 
             // lcgMain
@@ -291,7 +303,7 @@
             this.tcgModes});
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "Root";
-            this.lcgMain.Size = new System.Drawing.Size(735, 427);
+            this.lcgMain.Size = new System.Drawing.Size(857, 526);
             this.lcgMain.TextVisible = false;
             // 
             // tcgModes
@@ -303,11 +315,11 @@
             this.tcgModes.SelectedTabPage = this.lcgMails;
             this.tcgModes.SelectedTabPageIndex = 0;
             this.tcgModes.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.tcgModes.Size = new System.Drawing.Size(735, 427);
+            this.tcgModes.Size = new System.Drawing.Size(857, 526);
             this.tcgModes.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lcgMails,
             this.lcgScheduler,
-            this.lcgAudits,
+            this.lcgHierarchy,
             this.lcgUser});
             // 
             // lcgMails
@@ -316,7 +328,7 @@
             this.lciMails});
             this.lcgMails.Location = new System.Drawing.Point(0, 0);
             this.lcgMails.Name = "lcgMails";
-            this.lcgMails.Size = new System.Drawing.Size(733, 425);
+            this.lcgMails.Size = new System.Drawing.Size(854, 523);
             // 
             // lciMails
             // 
@@ -324,7 +336,7 @@
             this.lciMails.Location = new System.Drawing.Point(0, 0);
             this.lciMails.Name = "lciMails";
             this.lciMails.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciMails.Size = new System.Drawing.Size(733, 425);
+            this.lciMails.Size = new System.Drawing.Size(854, 523);
             this.lciMails.TextSize = new System.Drawing.Size(0, 0);
             this.lciMails.TextVisible = false;
             // 
@@ -335,7 +347,7 @@
             this.lciScheduler});
             this.lcgScheduler.Location = new System.Drawing.Point(0, 0);
             this.lcgScheduler.Name = "lcgScheduler";
-            this.lcgScheduler.Size = new System.Drawing.Size(733, 425);
+            this.lcgScheduler.Size = new System.Drawing.Size(854, 523);
             // 
             // lciScheduler
             // 
@@ -343,21 +355,33 @@
             this.lciScheduler.Location = new System.Drawing.Point(0, 0);
             this.lciScheduler.Name = "lciScheduler";
             this.lciScheduler.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lciScheduler.Size = new System.Drawing.Size(733, 425);
+            this.lciScheduler.Size = new System.Drawing.Size(854, 523);
             this.lciScheduler.TextSize = new System.Drawing.Size(0, 0);
             this.lciScheduler.TextVisible = false;
             // 
-            // lcgAudits
+            // lcgHierarchy
             // 
-            this.lcgAudits.Location = new System.Drawing.Point(0, 0);
-            this.lcgAudits.Name = "lcgAudits";
-            this.lcgAudits.Size = new System.Drawing.Size(733, 425);
+            this.lcgHierarchy.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lciHierarchy});
+            this.lcgHierarchy.Location = new System.Drawing.Point(0, 0);
+            this.lcgHierarchy.Name = "lcgHierarchy";
+            this.lcgHierarchy.Size = new System.Drawing.Size(854, 523);
+            // 
+            // lciHierarchy
+            // 
+            this.lciHierarchy.Control = this.ucHierarchy;
+            this.lciHierarchy.Location = new System.Drawing.Point(0, 0);
+            this.lciHierarchy.Name = "lciHierarchy";
+            this.lciHierarchy.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lciHierarchy.Size = new System.Drawing.Size(854, 523);
+            this.lciHierarchy.TextSize = new System.Drawing.Size(0, 0);
+            this.lciHierarchy.TextVisible = false;
             // 
             // lcgUser
             // 
             this.lcgUser.Location = new System.Drawing.Point(0, 0);
             this.lcgUser.Name = "lcgUser";
-            this.lcgUser.Size = new System.Drawing.Size(733, 425);
+            this.lcgUser.Size = new System.Drawing.Size(854, 523);
             // 
             // statusStrip
             // 
@@ -368,16 +392,17 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip.Location = new System.Drawing.Point(0, 467);
+            this.statusStrip.Location = new System.Drawing.Point(0, 575);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(795, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip.Size = new System.Drawing.Size(927, 27);
             this.statusStrip.TabIndex = 8;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(101, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(115, 22);
             this.toolStripStatusLabel1.Text = "toolStripLeftText";
             // 
             // toolStripStatusLabel2
@@ -385,7 +410,7 @@
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(679, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(795, 22);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "tsslRightText";
             this.toolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -403,10 +428,10 @@
             this.panelSlide.Controls.Add(this.btnChangeAccount);
             this.panelSlide.Controls.Add(this.ucUserInfo);
             this.panelSlide.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelSlide.Location = new System.Drawing.Point(795, 40);
+            this.panelSlide.Location = new System.Drawing.Point(927, 49);
             this.panelSlide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSlide.Name = "panelSlide";
-            this.panelSlide.Size = new System.Drawing.Size(0, 427);
+            this.panelSlide.Size = new System.Drawing.Size(0, 526);
             this.panelSlide.TabIndex = 9;
             // 
             // btnExit
@@ -421,10 +446,10 @@
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnExit.Image = global::TwinklCRM.Client.Properties.Resources.exit_34x24;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 180);
+            this.btnExit.Location = new System.Drawing.Point(0, 222);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(300, 38);
+            this.btnExit.Size = new System.Drawing.Size(350, 47);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "   Выйти";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -443,10 +468,10 @@
             this.btnNightMode.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnNightMode.Image = global::TwinklCRM.Client.Properties.Resources.night_34x24;
             this.btnNightMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNightMode.Location = new System.Drawing.Point(0, 137);
+            this.btnNightMode.Location = new System.Drawing.Point(0, 169);
             this.btnNightMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNightMode.Name = "btnNightMode";
-            this.btnNightMode.Size = new System.Drawing.Size(300, 38);
+            this.btnNightMode.Size = new System.Drawing.Size(350, 47);
             this.btnNightMode.TabIndex = 2;
             this.btnNightMode.Text = "   Ночной режим: вкл";
             this.btnNightMode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -464,10 +489,10 @@
             this.btnChangeAccount.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnChangeAccount.Image = global::TwinklCRM.Client.Properties.Resources.user_account_34x24;
             this.btnChangeAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangeAccount.Location = new System.Drawing.Point(0, 94);
+            this.btnChangeAccount.Location = new System.Drawing.Point(0, 116);
             this.btnChangeAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChangeAccount.Name = "btnChangeAccount";
-            this.btnChangeAccount.Size = new System.Drawing.Size(300, 38);
+            this.btnChangeAccount.Size = new System.Drawing.Size(350, 47);
             this.btnChangeAccount.TabIndex = 1;
             this.btnChangeAccount.Text = "   Сменить аккаунт";
             this.btnChangeAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -477,25 +502,24 @@
             // 
             this.ucUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ucUserInfo.Location = new System.Drawing.Point(0, 0);
-            this.ucUserInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ucUserInfo.MaximumSize = new System.Drawing.Size(300, 81);
-            this.ucUserInfo.MinimumSize = new System.Drawing.Size(300, 81);
+            this.ucUserInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.ucUserInfo.MaximumSize = new System.Drawing.Size(350, 100);
+            this.ucUserInfo.MinimumSize = new System.Drawing.Size(350, 100);
             this.ucUserInfo.Name = "ucUserInfo";
-            this.ucUserInfo.Size = new System.Drawing.Size(300, 81);
+            this.ucUserInfo.Size = new System.Drawing.Size(350, 100);
             this.ucUserInfo.TabIndex = 0;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 489);
+            this.ClientSize = new System.Drawing.Size(927, 602);
             this.Controls.Add(this.panelSlide);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.statusStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
@@ -514,7 +538,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciMails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgScheduler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciScheduler)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgAudits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgHierarchy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciHierarchy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgUser)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
@@ -544,7 +569,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciScheduler;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMails;
         private DevExpress.XtraLayout.LayoutControlItem lciMails;
-        private DevExpress.XtraLayout.LayoutControlGroup lcgAudits;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgHierarchy;
         private DevExpress.XtraLayout.LayoutControlGroup lcgUser;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -556,5 +581,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnNightMode;
         private System.Windows.Forms.Button btnChangeAccount;
+        private UserControls.ucHierarchy ucHierarchy;
+        private DevExpress.XtraLayout.LayoutControlItem lciHierarchy;
     }
 }

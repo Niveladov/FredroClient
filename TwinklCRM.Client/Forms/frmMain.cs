@@ -92,7 +92,7 @@ namespace TwinklCRM.Client.Forms
                         tcgModes.SelectedTabPage = lcgScheduler;
                         break;
                     case nameof(btnAudits):
-                        tcgModes.SelectedTabPage = lcgAudits;
+                        tcgModes.SelectedTabPage = lcgHierarchy;
                         break;
                     case nameof(btnUser):
                         tcgModes.SelectedTabPage = lcgUser;
