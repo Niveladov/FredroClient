@@ -26,9 +26,10 @@ namespace TwinklCRM.DAL.Models.Contexts
 
         #region Dictionary tables
         public DbSet<DictionaryEmailServer> EmailServers { get; set; }
+        public DbSet<DictionaryEmailServerParam> EmailServerParams { get; set; }
+        public DbSet<DictionaryEmailFolderType> EmailFolderTypes { get; set; }
         public DbSet<DictionaryVehicleType> VehicleTypes { get; set; }
         public DbSet<DictionaryTripType> TripTypes { get; set; }
-        public DbSet<DictionaryEmailFolderType> EmailFolderTypes { get; set; }
         public DbSet<DictionaryHierarchy> Hierarchies { get; set; }
         #endregion
 

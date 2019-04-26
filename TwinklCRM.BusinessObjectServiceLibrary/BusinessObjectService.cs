@@ -220,6 +220,66 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
             }
         }
 
+        public IEnumerable<DictionaryVehicleType> GetAllVehicleTypes()
+        {
+            try
+            {
+                return _dataManager.GetAllVehicleTypes();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public IEnumerable<DictionaryEmailFolderType> GetAllEmailFolderTypes()
+        {
+            try
+            {
+                return _dataManager.GetAllEmailFolderTypes();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public IEnumerable<DictionaryEmailServer> GetAllEmailServers()
+        {
+            try
+            {
+                return _dataManager.GetAllEmailServers();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public IEnumerable<DictionaryEmailServerParam> GetAllEmailServerParams()
+        {
+            try
+            {
+                return _dataManager.GetAllEmailServerParams();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public IEnumerable<DictionaryHierarchy> GetAllHierarchies()
+        {
+            try
+            {
+                return _dataManager.GetAllHierarchies();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
     }
 
 

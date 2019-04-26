@@ -31,6 +31,11 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
         IEnumerable<Performer> GetAllPerformers();
         IEnumerable<Vehicle> GetAllVehicles();
         IEnumerable<DictionaryTripType> GetAllTripTypes();
+        IEnumerable<DictionaryVehicleType> GetAllVehicleTypes();
+        IEnumerable<DictionaryEmailFolderType> GetAllEmailFolderTypes();
+        IEnumerable<DictionaryEmailServer> GetAllEmailServers();
+        IEnumerable<DictionaryEmailServerParam> GetAllEmailServerParams();
+        IEnumerable<DictionaryHierarchy> GetAllHierarchies();
     }
 
     internal sealed class DbDataManager : IDbDataManager
@@ -171,6 +176,51 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
         public void UpdateCustomer(Customer customer)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<DictionaryVehicleType> GetAllVehicleTypes()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.VehicleTypes.Load();
+                return db.VehicleTypes.ToList();
+            }
+        }
+
+        public IEnumerable<DictionaryEmailFolderType> GetAllEmailFolderTypes()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.EmailFolderTypes.Load();
+                return db.EmailFolderTypes.ToList();
+            }
+        }
+
+        public IEnumerable<DictionaryEmailServer> GetAllEmailServers()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.EmailServers.Load();
+                return db.EmailServers.ToList();
+            }
+        }
+
+        public IEnumerable<DictionaryEmailServerParam> GetAllEmailServerParams()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.EmailServerParams.Load();
+                return db.EmailServerParams.ToList();
+            }
+        }
+
+        public IEnumerable<DictionaryHierarchy> GetAllHierarchies()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.Hierarchies.Load();
+                return db.Hierarchies.ToList();
+            }
         }
     }
 }
