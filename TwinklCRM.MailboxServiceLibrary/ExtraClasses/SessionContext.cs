@@ -59,5 +59,17 @@ namespace TwinklCRM.MailboxServiceLibrary.ExtraClasses
             }
         }
 
+        public static void DisposeInstance()
+        {
+            try
+            {
+                if (_instance != null) _instance = null;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
     }
 }

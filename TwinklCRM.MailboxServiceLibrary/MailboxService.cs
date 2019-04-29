@@ -48,6 +48,7 @@ namespace TwinklCRM.MailboxServiceLibrary
             try
             {
                 _mailDeliveryManager.Stop();
+                SessionContext.DisposeInstance();
             }
             catch (Exception ex)
             {

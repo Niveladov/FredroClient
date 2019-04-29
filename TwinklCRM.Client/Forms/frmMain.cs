@@ -184,15 +184,15 @@ namespace TwinklCRM.Client.Forms
         private void FrmMails_FormClosing(object sender, FormClosingEventArgs e)
         {
             var result = TwinkleMessageBox.ShowQuestionYesNo("Вы хотите выйти?");
-            if (result == DialogResult.No)
+            if (result == DialogResult.Yes)
             {
                 ucMails.CloseConnection();
                 ucScheduler.CloseConnection();
-                e.Cancel = true;
+                e.Cancel = false;
             }
             else
             {
-                e.Cancel = false;
+                e.Cancel = true;
             }
         }
         #endregion
