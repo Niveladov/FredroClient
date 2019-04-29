@@ -37,7 +37,7 @@
             this.tlcCaption = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupCurrentDictionary = new DevExpress.XtraEditors.GroupControl();
             this.gcCurrentDictionary = new TwinklCRM.Client.BaseGUI.GridControlBase();
-            this.gvCurrentDictionary = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvCurrentDictionary = new TwinklCRM.Client.BaseGUI.GridViewBase();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).BeginInit();
             this.sccMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbcHeirarchy)).BeginInit();
@@ -149,11 +149,12 @@
             // gcCurrentDictionary
             // 
             this.gcCurrentDictionary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcCurrentDictionary.HideReferenceFields = true;
             this.gcCurrentDictionary.Location = new System.Drawing.Point(2, 45);
             this.gcCurrentDictionary.MainView = this.gvCurrentDictionary;
             this.gcCurrentDictionary.Name = "gcCurrentDictionary";
             this.gcCurrentDictionary.Size = new System.Drawing.Size(397, 535);
-            this.gcCurrentDictionary.TabIndex = 0;
+            this.gcCurrentDictionary.TabIndex = 1;
             this.gcCurrentDictionary.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCurrentDictionary});
             // 
@@ -194,6 +195,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn tlcCaption;
         private DevExpress.XtraEditors.GroupControl groupCurrentDictionary;
         private BaseGUI.GridControlBase gcCurrentDictionary;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvCurrentDictionary;
+        private BaseGUI.GridViewBase gvCurrentDictionary;
     }
 }

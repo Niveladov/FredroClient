@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using TwinklCRM.DAL.Attributes;
 
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
@@ -60,6 +61,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [RelatedTable(typeof(DictionaryHierarchy))]
         public int? ParentId
         {
             get
