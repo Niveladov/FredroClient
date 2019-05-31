@@ -55,6 +55,17 @@
     <Compile Include="BusinessObjectService.cs" />
     <Compile Include="IBusinessObjectService.cs" />
     <Compile Include="Models\DbDataManager.cs" />
+    <Compile Include="Models\Interfaces\ICustomer.cs" />
+    <Compile Include="Models\Interfaces\IDbDataManager.cs" />
+    <Compile Include="Models\Interfaces\IDeal.cs" />
+    <Compile Include="Models\Interfaces\IDictionaryEmailFolderType.cs" />
+    <Compile Include="Models\Interfaces\IDictionaryEmailServer.cs" />
+    <Compile Include="Models\Interfaces\IDictionaryEmailServerParam.cs" />
+    <Compile Include="Models\Interfaces\IDictionaryHierarchy.cs" />
+    <Compile Include="Models\Interfaces\IDictionaryTripType.cs" />
+    <Compile Include="Models\Interfaces\IDictionaryVehicleType.cs" />
+    <Compile Include="Models\Interfaces\IPerformer.cs" />
+    <Compile Include="Models\Interfaces\IVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

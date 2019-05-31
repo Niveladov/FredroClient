@@ -62,17 +62,7 @@ namespace TwinklCRM.Client.UserControls
         private void InitEvents()
         {
             tlDictionaries.FocusedNodeChanged += TlDictionaries_FocusedNodeChanged;
-        }
-
-        private void TlDictionaries_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
-        {
-            var isCategory = (bool?)e.Node[nameof(DictionaryHierarchy.IsCategory)];
-            if (isCategory.HasValue && !isCategory.Value)
-            {
-                _dataSourceTableName = e.Node[nameof(DictionaryHierarchy.Name)].ToString();
-                RefreshCurrentDictionary();
-                InitColumnEditors();
-            }
+            groupCurrentDictionary.CustomButtonClick += GroupCurrentDictionary_CustomButtonClick;
         }
 
         private void RefreshCurrentDictionary()
@@ -162,6 +152,79 @@ namespace TwinklCRM.Client.UserControls
             }
             return dataSource;
         }
+
+        private void AddNewRow()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void EditRow()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteRow()
+        {
+            if (TwinkleMessageBox.ShowQuestionYesNo("Вы уверены, что хотите удалить запись?") == DialogResult.Yes)
+            {
+                _waitingHelper.Show();
+                var rowId = (int?)gvCurrentDictionary.GetFocusedRowCellValue("Id");
+                if (rowId.HasValue)
+                {
+                    //var sourceObject = Activator.
+                }
+                _waitingHelper.Hide();
+            }
+
+            //if (GetItemId > 0)
+            //{
+            //    object source = Activator.CreateInstance(TableDataSourceType != null ? TableDataSourceType : dataSourceType);
+            //    ((MyBaseModel)source).Delete(GetItemId);
+            //    InitData();
+            //}
+        }
+
+        private void RefreshData()
+        {
+            _waitingHelper.Show();
+            InitData();
+            _waitingHelper.Hide();
+        }
+
+        #region Event Handlers
+
+        private void GroupCurrentDictionary_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
+        {
+            switch (e.Button.Properties.Caption)
+            {
+                case "btnAdd":
+                    AddNewRow();
+                    break;
+                case "btnEdit":
+                    EditRow();
+                    break;
+                case "btnDelete":
+                    DeleteRow();
+                    break;
+                case "btnRefresh":
+                    RefreshData();
+                    break;
+            }
+
+        }
+
+        private void TlDictionaries_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            var isCategory = (bool?)e.Node[nameof(DictionaryHierarchy.IsCategory)];
+            if (isCategory.HasValue && !isCategory.Value)
+            {
+                _dataSourceTableName = e.Node[nameof(DictionaryHierarchy.Name)].ToString();
+                RefreshCurrentDictionary();
+                InitColumnEditors();
+            }
+        }
+
+        #endregion
 
     }
 }

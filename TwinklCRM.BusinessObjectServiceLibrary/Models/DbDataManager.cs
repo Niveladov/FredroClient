@@ -4,40 +4,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TwinklCRM.BusinessObjectServiceLibrary.Models.Interfaces;
 using TwinklCRM.DAL.Models.Contexts;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
 namespace TwinklCRM.BusinessObjectServiceLibrary.Models
 {
-    internal interface IDbDataManager
-    {        
-        Performer GetPerformer(int id);
-        void DeletePerformer(int id);
-        void UpdatePerformer(Performer performer);
-        void InsertPerformer(Performer performer);
-        
-        Deal GetDeal(int id);
-        void DeleteDeal(int id);
-        void UpdateDeal(Deal deal);
-        void InsertDeal(Deal deal);
-        
-        Customer GetCustomer(int id);
-        void DeleteCustomer(int id);
-        void UpdateCustomer(Customer customer);
-        void InsertCustomer(Customer customer);
-
-        IEnumerable<Customer> GetAllCustomers();
-        IEnumerable<Performer> GetAllPerformers();
-        IEnumerable<Vehicle> GetAllVehicles();
-        IEnumerable<DictionaryTripType> GetAllTripTypes();
-        IEnumerable<DictionaryVehicleType> GetAllVehicleTypes();
-        IEnumerable<DictionaryEmailFolderType> GetAllEmailFolderTypes();
-        IEnumerable<DictionaryEmailServer> GetAllEmailServers();
-        IEnumerable<DictionaryEmailServerParam> GetAllEmailServerParams();
-        IEnumerable<DictionaryHierarchy> GetAllHierarchies();
-    }
-
     internal sealed class DbDataManager : IDbDataManager
     {
         public void DeleteDeal(int id)
@@ -222,5 +195,151 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
                 return db.Hierarchies.ToList();
             }
         }
+
+        public IEnumerable<Deal> GetAllDeals()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Vehicle GetVehicle(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteVehicle(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateVehicle(Vehicle vehicle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertVehicle(Vehicle vehicle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DictionaryTripType GetTripType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteTripType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateTripType(DictionaryTripType tripType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertTripType(DictionaryTripType tripType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DictionaryVehicleType GetVehicleType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteVehicleType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateVehicleType(DictionaryVehicleType vehicleType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertVehicleType(DictionaryVehicleType vehicleType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DictionaryEmailFolderType GetEmailFolderType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteEmailFolderType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateEmailFolderType(DictionaryEmailFolderType emailFolderType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertEmailFolderType(DictionaryEmailFolderType emailFolderType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DictionaryEmailServer GetEmailServer(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteEmailServer(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateEmailServer(DictionaryEmailServer emailServer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertEmailServer(DictionaryEmailServer emailServer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DictionaryEmailServerParam GetEmailServerParam(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteEmailServerParam(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateEmailServerParam(DictionaryEmailServerParam emailServerParam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertEmailServerParam(DictionaryEmailServerParam emailServerParam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DictionaryHierarchy GetHierarchy(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteHierarchy(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateHierarchy(DictionaryHierarchy hierarchy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertHierarchy(DictionaryHierarchy hierarchy)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

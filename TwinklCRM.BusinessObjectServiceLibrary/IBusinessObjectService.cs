@@ -24,6 +24,9 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
         [OperationContract]
         void InsertPerformer(Performer performer);
 
+        [OperationContract]
+        IEnumerable<Performer> GetAllPerformers();
+
 
         [OperationContract]
         Deal GetDeal(int id);
@@ -50,12 +53,9 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
         [OperationContract]
         void InsertCustomer(Customer customer);
 
-
         [OperationContract]
         IEnumerable<Customer> GetAllCustomers();
 
-        [OperationContract]
-        IEnumerable<Performer> GetAllPerformers();
 
         [OperationContract]
         IEnumerable<Vehicle> GetAllVehicles();
