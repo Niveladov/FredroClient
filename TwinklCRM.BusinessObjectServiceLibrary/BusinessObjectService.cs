@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using TwinklCRM.BusinessObjectServiceLibrary.Models;
+using TwinklCRM.BusinessObjectServiceLibrary.Models.Interfaces;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables;
 using TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries;
 
