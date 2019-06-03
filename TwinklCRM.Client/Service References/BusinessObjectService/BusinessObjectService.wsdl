@@ -38,54 +38,6 @@
       <xsd:import schemaLocation="http://localhost:47867/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IBusinessObjectService_GetPerformer_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPerformer" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_GetPerformer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPerformerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_DeletePerformer_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePerformer" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_DeletePerformer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePerformerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_UpdatePerformer_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePerformer" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_UpdatePerformer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePerformerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_InsertPerformer_InputMessage">
-    <wsdl:part name="parameters" element="tns:InsertPerformer" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_InsertPerformer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InsertPerformerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_GetDeal_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDeal" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_GetDeal_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDealResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_DeleteDeal_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteDeal" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_DeleteDeal_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteDealResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_UpdateDeal_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateDeal" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_UpdateDeal_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateDealResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_InsertDeal_InputMessage">
-    <wsdl:part name="parameters" element="tns:InsertDeal" />
-  </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_InsertDeal_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InsertDealResponse" />
-  </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetCustomer_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomer" />
   </wsdl:message>
@@ -116,11 +68,89 @@
   <wsdl:message name="IBusinessObjectService_GetAllCustomers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllCustomersResponse" />
   </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDeal" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllDeals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeals" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllDeals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDealsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetPerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetPerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerformerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeletePerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeletePerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePerformerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdatePerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdatePerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePerformerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertPerformer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPerformer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertPerformer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPerformerResponse" />
+  </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllPerformers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPerformers" />
   </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllPerformers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPerformersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleResponse" />
   </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllVehicles_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllVehicles" />
@@ -128,17 +158,29 @@
   <wsdl:message name="IBusinessObjectService_GetAllVehicles_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllVehiclesResponse" />
   </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_GetAllTripTypes_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllTripTypes" />
+  <wsdl:message name="IBusinessObjectService_GetEmailFolderType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailFolderType" />
   </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_GetAllTripTypes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllTripTypesResponse" />
+  <wsdl:message name="IBusinessObjectService_GetEmailFolderType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailFolderTypeResponse" />
   </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_GetAllVehicleTypes_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllVehicleTypes" />
+  <wsdl:message name="IBusinessObjectService_DeleteEmailFolderType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailFolderType" />
   </wsdl:message>
-  <wsdl:message name="IBusinessObjectService_GetAllVehicleTypes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllVehicleTypesResponse" />
+  <wsdl:message name="IBusinessObjectService_DeleteEmailFolderType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailFolderTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateEmailFolderType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmailFolderType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateEmailFolderType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmailFolderTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertEmailFolderType_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmailFolderType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertEmailFolderType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmailFolderTypeResponse" />
   </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllEmailFolderTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmailFolderTypes" />
@@ -146,11 +188,59 @@
   <wsdl:message name="IBusinessObjectService_GetAllEmailFolderTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmailFolderTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetEmailServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailServer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetEmailServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteEmailServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailServer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteEmailServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateEmailServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmailServer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateEmailServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmailServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertEmailServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmailServer" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertEmailServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmailServerResponse" />
+  </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllEmailServers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmailServers" />
   </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllEmailServers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmailServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetEmailServerParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailServerParam" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetEmailServerParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailServerParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteEmailServerParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailServerParam" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteEmailServerParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailServerParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateEmailServerParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmailServerParam" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateEmailServerParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmailServerParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertEmailServerParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmailServerParam" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertEmailServerParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmailServerParamResponse" />
   </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllEmailServerParams_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmailServerParams" />
@@ -158,175 +248,303 @@
   <wsdl:message name="IBusinessObjectService_GetAllEmailServerParams_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmailServerParamsResponse" />
   </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHierarchyResponse" />
+  </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllHierarchies_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllHierarchies" />
   </wsdl:message>
   <wsdl:message name="IBusinessObjectService_GetAllHierarchies_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllHierarchiesResponse" />
   </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetTripType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTripType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetTripType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTripTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteTripType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTripType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteTripType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTripTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateTripType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTripType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateTripType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTripTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertTripType_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTripType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertTripType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTripTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllTripTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTripTypes" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllTripTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTripTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetVehicleType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetVehicleType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteVehicleType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteVehicleType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateVehicleType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateVehicleType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertVehicleType_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleType" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertVehicleType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicleTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleTypes" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicleTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleTypesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBusinessObjectService">
-    <wsdl:operation name="GetPerformer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetPerformer" message="tns:IBusinessObjectService_GetPerformer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetPerformerResponse" message="tns:IBusinessObjectService_GetPerformer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeletePerformer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/DeletePerformer" message="tns:IBusinessObjectService_DeletePerformer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/DeletePerformerResponse" message="tns:IBusinessObjectService_DeletePerformer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdatePerformer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdatePerformer" message="tns:IBusinessObjectService_UpdatePerformer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdatePerformerResponse" message="tns:IBusinessObjectService_UpdatePerformer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="InsertPerformer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertPerformer" message="tns:IBusinessObjectService_InsertPerformer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertPerformerResponse" message="tns:IBusinessObjectService_InsertPerformer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDeal">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetDeal" message="tns:IBusinessObjectService_GetDeal_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetDealResponse" message="tns:IBusinessObjectService_GetDeal_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteDeal">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteDeal" message="tns:IBusinessObjectService_DeleteDeal_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteDealResponse" message="tns:IBusinessObjectService_DeleteDeal_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateDeal">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateDeal" message="tns:IBusinessObjectService_UpdateDeal_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateDealResponse" message="tns:IBusinessObjectService_UpdateDeal_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="InsertDeal">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertDeal" message="tns:IBusinessObjectService_InsertDeal_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertDealResponse" message="tns:IBusinessObjectService_InsertDeal_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetCustomer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetCustomer" message="tns:IBusinessObjectService_GetCustomer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetCustomerResponse" message="tns:IBusinessObjectService_GetCustomer_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomer" message="tns:IBusinessObjectService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetCustomerResponse" message="tns:IBusinessObjectService_GetCustomer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteCustomer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteCustomer" message="tns:IBusinessObjectService_DeleteCustomer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/DeleteCustomerResponse" message="tns:IBusinessObjectService_DeleteCustomer_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/DeleteCustomer" message="tns:IBusinessObjectService_DeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/DeleteCustomerResponse" message="tns:IBusinessObjectService_DeleteCustomer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateCustomer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateCustomer" message="tns:IBusinessObjectService_UpdateCustomer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/UpdateCustomerResponse" message="tns:IBusinessObjectService_UpdateCustomer_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/UpdateCustomer" message="tns:IBusinessObjectService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/UpdateCustomerResponse" message="tns:IBusinessObjectService_UpdateCustomer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertCustomer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertCustomer" message="tns:IBusinessObjectService_InsertCustomer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/InsertCustomerResponse" message="tns:IBusinessObjectService_InsertCustomer_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/InsertCustomer" message="tns:IBusinessObjectService_InsertCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/InsertCustomerResponse" message="tns:IBusinessObjectService_InsertCustomer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllCustomers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllCustomers" message="tns:IBusinessObjectService_GetAllCustomers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllCustomersResponse" message="tns:IBusinessObjectService_GetAllCustomers_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetAllCustomers" message="tns:IBusinessObjectService_GetAllCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetAllCustomersResponse" message="tns:IBusinessObjectService_GetAllCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDealService/GetDeal" message="tns:IBusinessObjectService_GetDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDealService/GetDealResponse" message="tns:IBusinessObjectService_GetDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDealService/DeleteDeal" message="tns:IBusinessObjectService_DeleteDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDealService/DeleteDealResponse" message="tns:IBusinessObjectService_DeleteDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDealService/UpdateDeal" message="tns:IBusinessObjectService_UpdateDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDealService/UpdateDealResponse" message="tns:IBusinessObjectService_UpdateDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDealService/InsertDeal" message="tns:IBusinessObjectService_InsertDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDealService/InsertDealResponse" message="tns:IBusinessObjectService_InsertDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDealService/GetAllDeals" message="tns:IBusinessObjectService_GetAllDeals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDealService/GetAllDealsResponse" message="tns:IBusinessObjectService_GetAllDeals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformerSevice/GetPerformer" message="tns:IBusinessObjectService_GetPerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformerSevice/GetPerformerResponse" message="tns:IBusinessObjectService_GetPerformer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformerSevice/DeletePerformer" message="tns:IBusinessObjectService_DeletePerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformerSevice/DeletePerformerResponse" message="tns:IBusinessObjectService_DeletePerformer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformerSevice/UpdatePerformer" message="tns:IBusinessObjectService_UpdatePerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformerSevice/UpdatePerformerResponse" message="tns:IBusinessObjectService_UpdatePerformer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPerformer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformerSevice/InsertPerformer" message="tns:IBusinessObjectService_InsertPerformer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformerSevice/InsertPerformerResponse" message="tns:IBusinessObjectService_InsertPerformer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllPerformers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllPerformers" message="tns:IBusinessObjectService_GetAllPerformers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllPerformersResponse" message="tns:IBusinessObjectService_GetAllPerformers_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformerSevice/GetAllPerformers" message="tns:IBusinessObjectService_GetAllPerformers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformerSevice/GetAllPerformersResponse" message="tns:IBusinessObjectService_GetAllPerformers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleService/GetVehicle" message="tns:IBusinessObjectService_GetVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleService/GetVehicleResponse" message="tns:IBusinessObjectService_GetVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleService/DeleteVehicle" message="tns:IBusinessObjectService_DeleteVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleService/DeleteVehicleResponse" message="tns:IBusinessObjectService_DeleteVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleService/UpdateVehicle" message="tns:IBusinessObjectService_UpdateVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleService/UpdateVehicleResponse" message="tns:IBusinessObjectService_UpdateVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleService/InsertVehicle" message="tns:IBusinessObjectService_InsertVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleService/InsertVehicleResponse" message="tns:IBusinessObjectService_InsertVehicle_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllVehicles">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehicles" message="tns:IBusinessObjectService_GetAllVehicles_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehiclesResponse" message="tns:IBusinessObjectService_GetAllVehicles_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleService/GetAllVehicles" message="tns:IBusinessObjectService_GetAllVehicles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleService/GetAllVehiclesResponse" message="tns:IBusinessObjectService_GetAllVehicles_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllTripTypes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes" message="tns:IBusinessObjectService_GetAllTripTypes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse" message="tns:IBusinessObjectService_GetAllTripTypes_OutputMessage" />
+    <wsdl:operation name="GetEmailFolderType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetEmailFolderType" message="tns:IBusinessObjectService_GetEmailFolderType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetEmailFolderTypeResponse" message="tns:IBusinessObjectService_GetEmailFolderType_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllVehicleTypes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes" message="tns:IBusinessObjectService_GetAllVehicleTypes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypesResponse" message="tns:IBusinessObjectService_GetAllVehicleTypes_OutputMessage" />
+    <wsdl:operation name="DeleteEmailFolderType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/DeleteEmailFolderType" message="tns:IBusinessObjectService_DeleteEmailFolderType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/DeleteEmailFolderTypeResponse" message="tns:IBusinessObjectService_DeleteEmailFolderType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmailFolderType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/UpdateEmailFolderType" message="tns:IBusinessObjectService_UpdateEmailFolderType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/UpdateEmailFolderTypeResponse" message="tns:IBusinessObjectService_UpdateEmailFolderType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmailFolderType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/InsertEmailFolderType" message="tns:IBusinessObjectService_InsertEmailFolderType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/InsertEmailFolderTypeResponse" message="tns:IBusinessObjectService_InsertEmailFolderType_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllEmailFolderTypes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes" message="tns:IBusinessObjectService_GetAllEmailFolderTypes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypesResponse" message="tns:IBusinessObjectService_GetAllEmailFolderTypes_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetAllEmailFolderTypes" message="tns:IBusinessObjectService_GetAllEmailFolderTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetAllEmailFolderTypesResponse" message="tns:IBusinessObjectService_GetAllEmailFolderTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/GetEmailServer" message="tns:IBusinessObjectService_GetEmailServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/GetEmailServerResponse" message="tns:IBusinessObjectService_GetEmailServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/DeleteEmailServer" message="tns:IBusinessObjectService_DeleteEmailServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/DeleteEmailServerResponse" message="tns:IBusinessObjectService_DeleteEmailServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmailServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/UpdateEmailServer" message="tns:IBusinessObjectService_UpdateEmailServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/UpdateEmailServerResponse" message="tns:IBusinessObjectService_UpdateEmailServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmailServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/InsertEmailServer" message="tns:IBusinessObjectService_InsertEmailServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/InsertEmailServerResponse" message="tns:IBusinessObjectService_InsertEmailServer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllEmailServers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServers" message="tns:IBusinessObjectService_GetAllEmailServers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServersResponse" message="tns:IBusinessObjectService_GetAllEmailServers_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/GetAllEmailServers" message="tns:IBusinessObjectService_GetAllEmailServers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerService/GetAllEmailServersResponse" message="tns:IBusinessObjectService_GetAllEmailServers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailServerParam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/GetEmailServerParam" message="tns:IBusinessObjectService_GetEmailServerParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/GetEmailServerParamResponse" message="tns:IBusinessObjectService_GetEmailServerParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailServerParam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/DeleteEmailServerParam" message="tns:IBusinessObjectService_DeleteEmailServerParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/DeleteEmailServerParamResponse" message="tns:IBusinessObjectService_DeleteEmailServerParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmailServerParam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/UpdateEmailServerParam" message="tns:IBusinessObjectService_UpdateEmailServerParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/UpdateEmailServerParamResponse" message="tns:IBusinessObjectService_UpdateEmailServerParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmailServerParam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/InsertEmailServerParam" message="tns:IBusinessObjectService_InsertEmailServerParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/InsertEmailServerParamResponse" message="tns:IBusinessObjectService_InsertEmailServerParam_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllEmailServerParams">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams" message="tns:IBusinessObjectService_GetAllEmailServerParams_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParamsResponse" message="tns:IBusinessObjectService_GetAllEmailServerParams_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/GetAllEmailServerParams" message="tns:IBusinessObjectService_GetAllEmailServerParams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryEmailServerParamService/GetAllEmailServerParamsResponse" message="tns:IBusinessObjectService_GetAllEmailServerParams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/GetHierarchy" message="tns:IBusinessObjectService_GetHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/GetHierarchyResponse" message="tns:IBusinessObjectService_GetHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/DeleteHierarchy" message="tns:IBusinessObjectService_DeleteHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/DeleteHierarchyResponse" message="tns:IBusinessObjectService_DeleteHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/UpdateHierarchy" message="tns:IBusinessObjectService_UpdateHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/UpdateHierarchyResponse" message="tns:IBusinessObjectService_UpdateHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/InsertHierarchy" message="tns:IBusinessObjectService_InsertHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/InsertHierarchyResponse" message="tns:IBusinessObjectService_InsertHierarchy_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllHierarchies">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchies" message="tns:IBusinessObjectService_GetAllHierarchies_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchiesResponse" message="tns:IBusinessObjectService_GetAllHierarchies_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/GetAllHierarchies" message="tns:IBusinessObjectService_GetAllHierarchies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryHierarchyService/GetAllHierarchiesResponse" message="tns:IBusinessObjectService_GetAllHierarchies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/GetTripType" message="tns:IBusinessObjectService_GetTripType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/GetTripTypeResponse" message="tns:IBusinessObjectService_GetTripType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTripType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/DeleteTripType" message="tns:IBusinessObjectService_DeleteTripType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/DeleteTripTypeResponse" message="tns:IBusinessObjectService_DeleteTripType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/UpdateTripType" message="tns:IBusinessObjectService_UpdateTripType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/UpdateTripTypeResponse" message="tns:IBusinessObjectService_UpdateTripType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTripType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/InsertTripType" message="tns:IBusinessObjectService_InsertTripType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/InsertTripTypeResponse" message="tns:IBusinessObjectService_InsertTripType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTripTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/GetAllTripTypes" message="tns:IBusinessObjectService_GetAllTripTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryTripTypeService/GetAllTripTypesResponse" message="tns:IBusinessObjectService_GetAllTripTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/GetVehicleType" message="tns:IBusinessObjectService_GetVehicleType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/GetVehicleTypeResponse" message="tns:IBusinessObjectService_GetVehicleType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/DeleteVehicleType" message="tns:IBusinessObjectService_DeleteVehicleType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/DeleteVehicleTypeResponse" message="tns:IBusinessObjectService_DeleteVehicleType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/UpdateVehicleType" message="tns:IBusinessObjectService_UpdateVehicleType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/UpdateVehicleTypeResponse" message="tns:IBusinessObjectService_UpdateVehicleType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicleType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/InsertVehicleType" message="tns:IBusinessObjectService_InsertVehicleType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/InsertVehicleTypeResponse" message="tns:IBusinessObjectService_InsertVehicleType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypes" message="tns:IBusinessObjectService_GetAllVehicleTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypesResponse" message="tns:IBusinessObjectService_GetAllVehicleTypes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IBusinessObjectService" type="tns:IBusinessObjectService">
     <wsp:PolicyReference URI="#NetTcpBinding_IBusinessObjectService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="GetPerformer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetPerformer" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeletePerformer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/DeletePerformer" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdatePerformer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/UpdatePerformer" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="InsertPerformer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/InsertPerformer" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDeal">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetDeal" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteDeal">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/DeleteDeal" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateDeal">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/UpdateDeal" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="InsertDeal">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/InsertDeal" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetCustomer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetCustomer" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICustomerService/GetCustomer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -335,7 +553,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteCustomer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/DeleteCustomer" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICustomerService/DeleteCustomer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -344,7 +562,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateCustomer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/UpdateCustomer" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICustomerService/UpdateCustomer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -353,7 +571,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="InsertCustomer">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/InsertCustomer" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICustomerService/InsertCustomer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -362,7 +580,88 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllCustomers">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllCustomers" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICustomerService/GetAllCustomers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeal">
+      <soap12:operation soapAction="http://tempuri.org/IDealService/GetDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeal">
+      <soap12:operation soapAction="http://tempuri.org/IDealService/DeleteDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeal">
+      <soap12:operation soapAction="http://tempuri.org/IDealService/UpdateDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDeal">
+      <soap12:operation soapAction="http://tempuri.org/IDealService/InsertDeal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeals">
+      <soap12:operation soapAction="http://tempuri.org/IDealService/GetAllDeals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformer">
+      <soap12:operation soapAction="http://tempuri.org/IPerformerSevice/GetPerformer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerformer">
+      <soap12:operation soapAction="http://tempuri.org/IPerformerSevice/DeletePerformer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerformer">
+      <soap12:operation soapAction="http://tempuri.org/IPerformerSevice/UpdatePerformer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPerformer">
+      <soap12:operation soapAction="http://tempuri.org/IPerformerSevice/InsertPerformer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -371,7 +670,43 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllPerformers">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllPerformers" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IPerformerSevice/GetAllPerformers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IVehicleService/GetVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IVehicleService/DeleteVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IVehicleService/UpdateVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IVehicleService/InsertVehicle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -380,7 +715,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllVehicles">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllVehicles" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IVehicleService/GetAllVehicles" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -388,8 +723,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllTripTypes">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypes" style="document" />
+    <wsdl:operation name="GetEmailFolderType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailFolderTypeService/GetEmailFolderType" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -397,8 +732,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllVehicleTypes">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes" style="document" />
+    <wsdl:operation name="DeleteEmailFolderType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailFolderTypeService/DeleteEmailFolderType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmailFolderType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailFolderTypeService/UpdateEmailFolderType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmailFolderType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailFolderTypeService/InsertEmailFolderType" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -407,7 +760,43 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllEmailFolderTypes">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailFolderTypeService/GetAllEmailFolderTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailServer">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerService/GetEmailServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailServer">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerService/DeleteEmailServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmailServer">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerService/UpdateEmailServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmailServer">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerService/InsertEmailServer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -416,7 +805,43 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllEmailServers">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServers" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerService/GetAllEmailServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailServerParam">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerParamService/GetEmailServerParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailServerParam">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerParamService/DeleteEmailServerParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmailServerParam">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerParamService/UpdateEmailServerParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmailServerParam">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerParamService/InsertEmailServerParam" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -425,7 +850,43 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllEmailServerParams">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryEmailServerParamService/GetAllEmailServerParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchy">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryHierarchyService/GetHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHierarchy">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryHierarchyService/DeleteHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHierarchy">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryHierarchyService/UpdateHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHierarchy">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryHierarchyService/InsertHierarchy" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -434,7 +895,97 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllHierarchies">
-      <soap12:operation soapAction="http://tempuri.org/IBusinessObjectService/GetAllHierarchies" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryHierarchyService/GetAllHierarchies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryTripTypeService/GetTripType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTripType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryTripTypeService/DeleteTripType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryTripTypeService/UpdateTripType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTripType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryTripTypeService/InsertTripType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTripTypes">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryTripTypeService/GetAllTripTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleTypeService/GetVehicleType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleTypeService/DeleteVehicleType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleTypeService/UpdateVehicleType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicleType">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleTypeService/InsertVehicleType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleTypes">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

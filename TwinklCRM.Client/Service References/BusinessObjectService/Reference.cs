@@ -15,131 +15,323 @@ namespace TwinklCRM.Client.BusinessObjectService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BusinessObjectService.IBusinessObjectService")]
     public interface IBusinessObjectService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/GetPerformerResponse")]
-        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/GetPerformerResponse")]
-        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeletePerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/DeletePerformerResponse")]
-        void DeletePerformer(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeletePerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/DeletePerformerResponse")]
-        System.Threading.Tasks.Task DeletePerformerAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/UpdatePerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/UpdatePerformerResponse")]
-        void UpdatePerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/UpdatePerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/UpdatePerformerResponse")]
-        System.Threading.Tasks.Task UpdatePerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertPerformerResponse")]
-        void InsertPerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertPerformer", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertPerformerResponse")]
-        System.Threading.Tasks.Task InsertPerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/GetDealResponse")]
-        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/GetDealResponse")]
-        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeleteDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/DeleteDealResponse")]
-        void DeleteDeal(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeleteDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/DeleteDealResponse")]
-        System.Threading.Tasks.Task DeleteDealAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/UpdateDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/UpdateDealResponse")]
-        void UpdateDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/UpdateDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/UpdateDealResponse")]
-        System.Threading.Tasks.Task UpdateDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertDealResponse")]
-        void InsertDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertDeal", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertDealResponse")]
-        System.Threading.Tasks.Task InsertDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/GetCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer GetCustomer(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/GetCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer> GetCustomerAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeleteCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/DeleteCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/DeleteCustomer", ReplyAction="http://tempuri.org/ICustomerService/DeleteCustomerResponse")]
         void DeleteCustomer(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/DeleteCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/DeleteCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/DeleteCustomer", ReplyAction="http://tempuri.org/ICustomerService/DeleteCustomerResponse")]
         System.Threading.Tasks.Task DeleteCustomerAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/UpdateCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/UpdateCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/UpdateCustomer", ReplyAction="http://tempuri.org/ICustomerService/UpdateCustomerResponse")]
         void UpdateCustomer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer customer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/UpdateCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/UpdateCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/UpdateCustomer", ReplyAction="http://tempuri.org/ICustomerService/UpdateCustomerResponse")]
         System.Threading.Tasks.Task UpdateCustomerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer customer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/InsertCustomer", ReplyAction="http://tempuri.org/ICustomerService/InsertCustomerResponse")]
         void InsertCustomer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer customer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/InsertCustomer", ReplyAction="http://tempuri.org/IBusinessObjectService/InsertCustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/InsertCustomer", ReplyAction="http://tempuri.org/ICustomerService/InsertCustomerResponse")]
         System.Threading.Tasks.Task InsertCustomerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer customer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllCustomers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllCustomersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetAllCustomers", ReplyAction="http://tempuri.org/ICustomerService/GetAllCustomersResponse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer[] GetAllCustomers();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllCustomers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllCustomersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetAllCustomers", ReplyAction="http://tempuri.org/ICustomerService/GetAllCustomersResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer[]> GetAllCustomersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllPerformers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllPerformersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/GetDeal", ReplyAction="http://tempuri.org/IDealService/GetDealResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/GetDeal", ReplyAction="http://tempuri.org/IDealService/GetDealResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/DeleteDeal", ReplyAction="http://tempuri.org/IDealService/DeleteDealResponse")]
+        void DeleteDeal(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/DeleteDeal", ReplyAction="http://tempuri.org/IDealService/DeleteDealResponse")]
+        System.Threading.Tasks.Task DeleteDealAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/UpdateDeal", ReplyAction="http://tempuri.org/IDealService/UpdateDealResponse")]
+        void UpdateDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/UpdateDeal", ReplyAction="http://tempuri.org/IDealService/UpdateDealResponse")]
+        System.Threading.Tasks.Task UpdateDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/InsertDeal", ReplyAction="http://tempuri.org/IDealService/InsertDealResponse")]
+        void InsertDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/InsertDeal", ReplyAction="http://tempuri.org/IDealService/InsertDealResponse")]
+        System.Threading.Tasks.Task InsertDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/GetAllDeals", ReplyAction="http://tempuri.org/IDealService/GetAllDealsResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal[] GetAllDeals();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDealService/GetAllDeals", ReplyAction="http://tempuri.org/IDealService/GetAllDealsResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal[]> GetAllDealsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/GetPerformer", ReplyAction="http://tempuri.org/IPerformerSevice/GetPerformerResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/GetPerformer", ReplyAction="http://tempuri.org/IPerformerSevice/GetPerformerResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/DeletePerformer", ReplyAction="http://tempuri.org/IPerformerSevice/DeletePerformerResponse")]
+        void DeletePerformer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/DeletePerformer", ReplyAction="http://tempuri.org/IPerformerSevice/DeletePerformerResponse")]
+        System.Threading.Tasks.Task DeletePerformerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/UpdatePerformer", ReplyAction="http://tempuri.org/IPerformerSevice/UpdatePerformerResponse")]
+        void UpdatePerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/UpdatePerformer", ReplyAction="http://tempuri.org/IPerformerSevice/UpdatePerformerResponse")]
+        System.Threading.Tasks.Task UpdatePerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/InsertPerformer", ReplyAction="http://tempuri.org/IPerformerSevice/InsertPerformerResponse")]
+        void InsertPerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/InsertPerformer", ReplyAction="http://tempuri.org/IPerformerSevice/InsertPerformerResponse")]
+        System.Threading.Tasks.Task InsertPerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/GetAllPerformers", ReplyAction="http://tempuri.org/IPerformerSevice/GetAllPerformersResponse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[] GetAllPerformers();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllPerformers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllPerformersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPerformerSevice/GetAllPerformers", ReplyAction="http://tempuri.org/IPerformerSevice/GetAllPerformersResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[]> GetAllPerformersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicles", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehiclesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/GetVehicle", ReplyAction="http://tempuri.org/IVehicleService/GetVehicleResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle GetVehicle(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/GetVehicle", ReplyAction="http://tempuri.org/IVehicleService/GetVehicleResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle> GetVehicleAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/DeleteVehicle", ReplyAction="http://tempuri.org/IVehicleService/DeleteVehicleResponse")]
+        void DeleteVehicle(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/DeleteVehicle", ReplyAction="http://tempuri.org/IVehicleService/DeleteVehicleResponse")]
+        System.Threading.Tasks.Task DeleteVehicleAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/UpdateVehicle", ReplyAction="http://tempuri.org/IVehicleService/UpdateVehicleResponse")]
+        void UpdateVehicle(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/UpdateVehicle", ReplyAction="http://tempuri.org/IVehicleService/UpdateVehicleResponse")]
+        System.Threading.Tasks.Task UpdateVehicleAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/InsertVehicle", ReplyAction="http://tempuri.org/IVehicleService/InsertVehicleResponse")]
+        void InsertVehicle(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/InsertVehicle", ReplyAction="http://tempuri.org/IVehicleService/InsertVehicleResponse")]
+        System.Threading.Tasks.Task InsertVehicleAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/GetAllVehicles", ReplyAction="http://tempuri.org/IVehicleService/GetAllVehiclesResponse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle[] GetAllVehicles();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicles", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehiclesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehicleService/GetAllVehicles", ReplyAction="http://tempuri.org/IVehicleService/GetAllVehiclesResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle[]> GetAllVehiclesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse")]
-        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/GetEmailFolderTypeResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType GetEmailFolderType(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllTripTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllTripTypesResponse")]
-        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/GetEmailFolderTypeResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType> GetEmailFolderTypeAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypesResponse")]
-        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[] GetAllVehicleTypes();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/DeleteEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/DeleteEmailFolderTypeRespons" +
+            "e")]
+        void DeleteEmailFolderType(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllVehicleTypesResponse")]
-        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/DeleteEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/DeleteEmailFolderTypeRespons" +
+            "e")]
+        System.Threading.Tasks.Task DeleteEmailFolderTypeAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/UpdateEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/UpdateEmailFolderTypeRespons" +
+            "e")]
+        void UpdateEmailFolderType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/UpdateEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/UpdateEmailFolderTypeRespons" +
+            "e")]
+        System.Threading.Tasks.Task UpdateEmailFolderTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/InsertEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/InsertEmailFolderTypeRespons" +
+            "e")]
+        void InsertEmailFolderType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/InsertEmailFolderType", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/InsertEmailFolderTypeRespons" +
+            "e")]
+        System.Threading.Tasks.Task InsertEmailFolderTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetAllEmailFolderTypes", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/GetAllEmailFolderTypesRespon" +
+            "se")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType[] GetAllEmailFolderTypes();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypes", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailFolderTypesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailFolderTypeService/GetAllEmailFolderTypes", ReplyAction="http://tempuri.org/IDictionaryEmailFolderTypeService/GetAllEmailFolderTypesRespon" +
+            "se")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType[]> GetAllEmailFolderTypesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/GetEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/GetEmailServerResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer GetEmailServer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/GetEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/GetEmailServerResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer> GetEmailServerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/DeleteEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/DeleteEmailServerResponse")]
+        void DeleteEmailServer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/DeleteEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/DeleteEmailServerResponse")]
+        System.Threading.Tasks.Task DeleteEmailServerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/UpdateEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/UpdateEmailServerResponse")]
+        void UpdateEmailServer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/UpdateEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/UpdateEmailServerResponse")]
+        System.Threading.Tasks.Task UpdateEmailServerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/InsertEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/InsertEmailServerResponse")]
+        void InsertEmailServer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/InsertEmailServer", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/InsertEmailServerResponse")]
+        System.Threading.Tasks.Task InsertEmailServerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/GetAllEmailServers", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/GetAllEmailServersResponse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[] GetAllEmailServers();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServers", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerService/GetAllEmailServers", ReplyAction="http://tempuri.org/IDictionaryEmailServerService/GetAllEmailServersResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[]> GetAllEmailServersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParamsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/GetEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/GetEmailServerParamResponse" +
+            "")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam GetEmailServerParam(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/GetEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/GetEmailServerParamResponse" +
+            "")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam> GetEmailServerParamAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/DeleteEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/DeleteEmailServerParamRespo" +
+            "nse")]
+        void DeleteEmailServerParam(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/DeleteEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/DeleteEmailServerParamRespo" +
+            "nse")]
+        System.Threading.Tasks.Task DeleteEmailServerParamAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/UpdateEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/UpdateEmailServerParamRespo" +
+            "nse")]
+        void UpdateEmailServerParam(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/UpdateEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/UpdateEmailServerParamRespo" +
+            "nse")]
+        System.Threading.Tasks.Task UpdateEmailServerParamAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/InsertEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/InsertEmailServerParamRespo" +
+            "nse")]
+        void InsertEmailServerParam(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/InsertEmailServerParam", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/InsertEmailServerParamRespo" +
+            "nse")]
+        System.Threading.Tasks.Task InsertEmailServerParamAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/GetAllEmailServerParams", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/GetAllEmailServerParamsResp" +
+            "onse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam[] GetAllEmailServerParams();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParams", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllEmailServerParamsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryEmailServerParamService/GetAllEmailServerParams", ReplyAction="http://tempuri.org/IDictionaryEmailServerParamService/GetAllEmailServerParamsResp" +
+            "onse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam[]> GetAllEmailServerParamsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchies", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllHierarchiesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/GetHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/GetHierarchyResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy GetHierarchy(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/GetHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/GetHierarchyResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy> GetHierarchyAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/DeleteHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/DeleteHierarchyResponse")]
+        void DeleteHierarchy(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/DeleteHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/DeleteHierarchyResponse")]
+        System.Threading.Tasks.Task DeleteHierarchyAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/UpdateHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/UpdateHierarchyResponse")]
+        void UpdateHierarchy(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/UpdateHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/UpdateHierarchyResponse")]
+        System.Threading.Tasks.Task UpdateHierarchyAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/InsertHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/InsertHierarchyResponse")]
+        void InsertHierarchy(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/InsertHierarchy", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/InsertHierarchyResponse")]
+        System.Threading.Tasks.Task InsertHierarchyAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/GetAllHierarchies", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/GetAllHierarchiesResponse")]
         TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[] GetAllHierarchies();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessObjectService/GetAllHierarchies", ReplyAction="http://tempuri.org/IBusinessObjectService/GetAllHierarchiesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryHierarchyService/GetAllHierarchies", ReplyAction="http://tempuri.org/IDictionaryHierarchyService/GetAllHierarchiesResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[]> GetAllHierarchiesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/GetTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/GetTripTypeResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType GetTripType(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/GetTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/GetTripTypeResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType> GetTripTypeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/DeleteTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/DeleteTripTypeResponse")]
+        void DeleteTripType(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/DeleteTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/DeleteTripTypeResponse")]
+        System.Threading.Tasks.Task DeleteTripTypeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/UpdateTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/UpdateTripTypeResponse")]
+        void UpdateTripType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/UpdateTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/UpdateTripTypeResponse")]
+        System.Threading.Tasks.Task UpdateTripTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/InsertTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/InsertTripTypeResponse")]
+        void InsertTripType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/InsertTripType", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/InsertTripTypeResponse")]
+        System.Threading.Tasks.Task InsertTripTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/GetAllTripTypes", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/GetAllTripTypesResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryTripTypeService/GetAllTripTypes", ReplyAction="http://tempuri.org/IDictionaryTripTypeService/GetAllTripTypesResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/GetVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/GetVehicleTypeResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType GetVehicleType(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/GetVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/GetVehicleTypeResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType> GetVehicleTypeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/DeleteVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/DeleteVehicleTypeResponse")]
+        void DeleteVehicleType(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/DeleteVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/DeleteVehicleTypeResponse")]
+        System.Threading.Tasks.Task DeleteVehicleTypeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/UpdateVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/UpdateVehicleTypeResponse")]
+        void UpdateVehicleType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/UpdateVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/UpdateVehicleTypeResponse")]
+        System.Threading.Tasks.Task UpdateVehicleTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/InsertVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/InsertVehicleTypeResponse")]
+        void InsertVehicleType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/InsertVehicleType", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/InsertVehicleTypeResponse")]
+        System.Threading.Tasks.Task InsertVehicleTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypes", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypesResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[] GetAllVehicleTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypes", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypesResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,70 +359,6 @@ namespace TwinklCRM.Client.BusinessObjectService {
         
         public BusinessObjectServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id) {
-            return base.Channel.GetPerformer(id);
-        }
-        
-        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id) {
-            return base.Channel.GetPerformerAsync(id);
-        }
-        
-        public void DeletePerformer(int id) {
-            base.Channel.DeletePerformer(id);
-        }
-        
-        public System.Threading.Tasks.Task DeletePerformerAsync(int id) {
-            return base.Channel.DeletePerformerAsync(id);
-        }
-        
-        public void UpdatePerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
-            base.Channel.UpdatePerformer(performer);
-        }
-        
-        public System.Threading.Tasks.Task UpdatePerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
-            return base.Channel.UpdatePerformerAsync(performer);
-        }
-        
-        public void InsertPerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
-            base.Channel.InsertPerformer(performer);
-        }
-        
-        public System.Threading.Tasks.Task InsertPerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
-            return base.Channel.InsertPerformerAsync(performer);
-        }
-        
-        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id) {
-            return base.Channel.GetDeal(id);
-        }
-        
-        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id) {
-            return base.Channel.GetDealAsync(id);
-        }
-        
-        public void DeleteDeal(int id) {
-            base.Channel.DeleteDeal(id);
-        }
-        
-        public System.Threading.Tasks.Task DeleteDealAsync(int id) {
-            return base.Channel.DeleteDealAsync(id);
-        }
-        
-        public void UpdateDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
-            base.Channel.UpdateDeal(deal);
-        }
-        
-        public System.Threading.Tasks.Task UpdateDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
-            return base.Channel.UpdateDealAsync(deal);
-        }
-        
-        public void InsertDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
-            base.Channel.InsertDeal(deal);
-        }
-        
-        public System.Threading.Tasks.Task InsertDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
-            return base.Channel.InsertDealAsync(deal);
         }
         
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Customer GetCustomer(int id) {
@@ -273,12 +401,116 @@ namespace TwinklCRM.Client.BusinessObjectService {
             return base.Channel.GetAllCustomersAsync();
         }
         
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal GetDeal(int id) {
+            return base.Channel.GetDeal(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal> GetDealAsync(int id) {
+            return base.Channel.GetDealAsync(id);
+        }
+        
+        public void DeleteDeal(int id) {
+            base.Channel.DeleteDeal(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteDealAsync(int id) {
+            return base.Channel.DeleteDealAsync(id);
+        }
+        
+        public void UpdateDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
+            base.Channel.UpdateDeal(deal);
+        }
+        
+        public System.Threading.Tasks.Task UpdateDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
+            return base.Channel.UpdateDealAsync(deal);
+        }
+        
+        public void InsertDeal(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
+            base.Channel.InsertDeal(deal);
+        }
+        
+        public System.Threading.Tasks.Task InsertDealAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal deal) {
+            return base.Channel.InsertDealAsync(deal);
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal[] GetAllDeals() {
+            return base.Channel.GetAllDeals();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Deal[]> GetAllDealsAsync() {
+            return base.Channel.GetAllDealsAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer GetPerformer(int id) {
+            return base.Channel.GetPerformer(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer> GetPerformerAsync(int id) {
+            return base.Channel.GetPerformerAsync(id);
+        }
+        
+        public void DeletePerformer(int id) {
+            base.Channel.DeletePerformer(id);
+        }
+        
+        public System.Threading.Tasks.Task DeletePerformerAsync(int id) {
+            return base.Channel.DeletePerformerAsync(id);
+        }
+        
+        public void UpdatePerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
+            base.Channel.UpdatePerformer(performer);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
+            return base.Channel.UpdatePerformerAsync(performer);
+        }
+        
+        public void InsertPerformer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
+            base.Channel.InsertPerformer(performer);
+        }
+        
+        public System.Threading.Tasks.Task InsertPerformerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer performer) {
+            return base.Channel.InsertPerformerAsync(performer);
+        }
+        
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[] GetAllPerformers() {
             return base.Channel.GetAllPerformers();
         }
         
         public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer[]> GetAllPerformersAsync() {
             return base.Channel.GetAllPerformersAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle GetVehicle(int id) {
+            return base.Channel.GetVehicle(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle> GetVehicleAsync(int id) {
+            return base.Channel.GetVehicleAsync(id);
+        }
+        
+        public void DeleteVehicle(int id) {
+            base.Channel.DeleteVehicle(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteVehicleAsync(int id) {
+            return base.Channel.DeleteVehicleAsync(id);
+        }
+        
+        public void UpdateVehicle(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle) {
+            base.Channel.UpdateVehicle(vehicle);
+        }
+        
+        public System.Threading.Tasks.Task UpdateVehicleAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle) {
+            return base.Channel.UpdateVehicleAsync(vehicle);
+        }
+        
+        public void InsertVehicle(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle) {
+            base.Channel.InsertVehicle(vehicle);
+        }
+        
+        public System.Threading.Tasks.Task InsertVehicleAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle vehicle) {
+            return base.Channel.InsertVehicleAsync(vehicle);
         }
         
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle[] GetAllVehicles() {
@@ -289,20 +521,36 @@ namespace TwinklCRM.Client.BusinessObjectService {
             return base.Channel.GetAllVehiclesAsync();
         }
         
-        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes() {
-            return base.Channel.GetAllTripTypes();
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType GetEmailFolderType(int id) {
+            return base.Channel.GetEmailFolderType(id);
         }
         
-        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync() {
-            return base.Channel.GetAllTripTypesAsync();
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType> GetEmailFolderTypeAsync(int id) {
+            return base.Channel.GetEmailFolderTypeAsync(id);
         }
         
-        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[] GetAllVehicleTypes() {
-            return base.Channel.GetAllVehicleTypes();
+        public void DeleteEmailFolderType(int id) {
+            base.Channel.DeleteEmailFolderType(id);
         }
         
-        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync() {
-            return base.Channel.GetAllVehicleTypesAsync();
+        public System.Threading.Tasks.Task DeleteEmailFolderTypeAsync(int id) {
+            return base.Channel.DeleteEmailFolderTypeAsync(id);
+        }
+        
+        public void UpdateEmailFolderType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType) {
+            base.Channel.UpdateEmailFolderType(emailFolderType);
+        }
+        
+        public System.Threading.Tasks.Task UpdateEmailFolderTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType) {
+            return base.Channel.UpdateEmailFolderTypeAsync(emailFolderType);
+        }
+        
+        public void InsertEmailFolderType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType) {
+            base.Channel.InsertEmailFolderType(emailFolderType);
+        }
+        
+        public System.Threading.Tasks.Task InsertEmailFolderTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType emailFolderType) {
+            return base.Channel.InsertEmailFolderTypeAsync(emailFolderType);
         }
         
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailFolderType[] GetAllEmailFolderTypes() {
@@ -313,12 +561,76 @@ namespace TwinklCRM.Client.BusinessObjectService {
             return base.Channel.GetAllEmailFolderTypesAsync();
         }
         
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer GetEmailServer(int id) {
+            return base.Channel.GetEmailServer(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer> GetEmailServerAsync(int id) {
+            return base.Channel.GetEmailServerAsync(id);
+        }
+        
+        public void DeleteEmailServer(int id) {
+            base.Channel.DeleteEmailServer(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteEmailServerAsync(int id) {
+            return base.Channel.DeleteEmailServerAsync(id);
+        }
+        
+        public void UpdateEmailServer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer) {
+            base.Channel.UpdateEmailServer(emailServer);
+        }
+        
+        public System.Threading.Tasks.Task UpdateEmailServerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer) {
+            return base.Channel.UpdateEmailServerAsync(emailServer);
+        }
+        
+        public void InsertEmailServer(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer) {
+            base.Channel.InsertEmailServer(emailServer);
+        }
+        
+        public System.Threading.Tasks.Task InsertEmailServerAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer emailServer) {
+            return base.Channel.InsertEmailServerAsync(emailServer);
+        }
+        
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[] GetAllEmailServers() {
             return base.Channel.GetAllEmailServers();
         }
         
         public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServer[]> GetAllEmailServersAsync() {
             return base.Channel.GetAllEmailServersAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam GetEmailServerParam(int id) {
+            return base.Channel.GetEmailServerParam(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam> GetEmailServerParamAsync(int id) {
+            return base.Channel.GetEmailServerParamAsync(id);
+        }
+        
+        public void DeleteEmailServerParam(int id) {
+            base.Channel.DeleteEmailServerParam(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteEmailServerParamAsync(int id) {
+            return base.Channel.DeleteEmailServerParamAsync(id);
+        }
+        
+        public void UpdateEmailServerParam(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam) {
+            base.Channel.UpdateEmailServerParam(emailServerParam);
+        }
+        
+        public System.Threading.Tasks.Task UpdateEmailServerParamAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam) {
+            return base.Channel.UpdateEmailServerParamAsync(emailServerParam);
+        }
+        
+        public void InsertEmailServerParam(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam) {
+            base.Channel.InsertEmailServerParam(emailServerParam);
+        }
+        
+        public System.Threading.Tasks.Task InsertEmailServerParamAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam emailServerParam) {
+            return base.Channel.InsertEmailServerParamAsync(emailServerParam);
         }
         
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam[] GetAllEmailServerParams() {
@@ -329,12 +641,124 @@ namespace TwinklCRM.Client.BusinessObjectService {
             return base.Channel.GetAllEmailServerParamsAsync();
         }
         
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy GetHierarchy(int id) {
+            return base.Channel.GetHierarchy(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy> GetHierarchyAsync(int id) {
+            return base.Channel.GetHierarchyAsync(id);
+        }
+        
+        public void DeleteHierarchy(int id) {
+            base.Channel.DeleteHierarchy(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteHierarchyAsync(int id) {
+            return base.Channel.DeleteHierarchyAsync(id);
+        }
+        
+        public void UpdateHierarchy(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy) {
+            base.Channel.UpdateHierarchy(hierarchy);
+        }
+        
+        public System.Threading.Tasks.Task UpdateHierarchyAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy) {
+            return base.Channel.UpdateHierarchyAsync(hierarchy);
+        }
+        
+        public void InsertHierarchy(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy) {
+            base.Channel.InsertHierarchy(hierarchy);
+        }
+        
+        public System.Threading.Tasks.Task InsertHierarchyAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy hierarchy) {
+            return base.Channel.InsertHierarchyAsync(hierarchy);
+        }
+        
         public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[] GetAllHierarchies() {
             return base.Channel.GetAllHierarchies();
         }
         
         public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy[]> GetAllHierarchiesAsync() {
             return base.Channel.GetAllHierarchiesAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType GetTripType(int id) {
+            return base.Channel.GetTripType(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType> GetTripTypeAsync(int id) {
+            return base.Channel.GetTripTypeAsync(id);
+        }
+        
+        public void DeleteTripType(int id) {
+            base.Channel.DeleteTripType(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteTripTypeAsync(int id) {
+            return base.Channel.DeleteTripTypeAsync(id);
+        }
+        
+        public void UpdateTripType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType) {
+            base.Channel.UpdateTripType(tripType);
+        }
+        
+        public System.Threading.Tasks.Task UpdateTripTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType) {
+            return base.Channel.UpdateTripTypeAsync(tripType);
+        }
+        
+        public void InsertTripType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType) {
+            base.Channel.InsertTripType(tripType);
+        }
+        
+        public System.Threading.Tasks.Task InsertTripTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType tripType) {
+            return base.Channel.InsertTripTypeAsync(tripType);
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[] GetAllTripTypes() {
+            return base.Channel.GetAllTripTypes();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType[]> GetAllTripTypesAsync() {
+            return base.Channel.GetAllTripTypesAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType GetVehicleType(int id) {
+            return base.Channel.GetVehicleType(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType> GetVehicleTypeAsync(int id) {
+            return base.Channel.GetVehicleTypeAsync(id);
+        }
+        
+        public void DeleteVehicleType(int id) {
+            base.Channel.DeleteVehicleType(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteVehicleTypeAsync(int id) {
+            return base.Channel.DeleteVehicleTypeAsync(id);
+        }
+        
+        public void UpdateVehicleType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType) {
+            base.Channel.UpdateVehicleType(vehicleType);
+        }
+        
+        public System.Threading.Tasks.Task UpdateVehicleTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType) {
+            return base.Channel.UpdateVehicleTypeAsync(vehicleType);
+        }
+        
+        public void InsertVehicleType(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType) {
+            base.Channel.InsertVehicleType(vehicleType);
+        }
+        
+        public System.Threading.Tasks.Task InsertVehicleTypeAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType vehicleType) {
+            return base.Channel.InsertVehicleTypeAsync(vehicleType);
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[] GetAllVehicleTypes() {
+            return base.Channel.GetAllVehicleTypes();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync() {
+            return base.Channel.GetAllVehicleTypesAsync();
         }
     }
 }

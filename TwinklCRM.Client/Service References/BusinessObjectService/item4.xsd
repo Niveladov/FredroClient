@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:47867/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" />
-  <xs:complexType name="ArrayOfDictionaryTripType">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryTripType" nillable="true" type="tns:DictionaryTripType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDictionaryTripType" nillable="true" type="tns:ArrayOfDictionaryTripType" />
-  <xs:complexType name="DictionaryTripType">
+  <xs:complexType name="DictionaryEmailFolderType">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q1:DbObjectBaseModel">
         <xs:sequence>
@@ -21,57 +15,16 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="DictionaryTripType" nillable="true" type="tns:DictionaryTripType" />
-  <xs:complexType name="ArrayOfDictionaryVehicleType">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryVehicleType" nillable="true" type="tns:DictionaryVehicleType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDictionaryVehicleType" nillable="true" type="tns:ArrayOfDictionaryVehicleType" />
-  <xs:complexType name="DictionaryVehicleType">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q2:DbObjectBaseModel">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DictionaryVehicleType" nillable="true" type="tns:DictionaryVehicleType" />
+  <xs:element name="DictionaryEmailFolderType" nillable="true" type="tns:DictionaryEmailFolderType" />
   <xs:complexType name="ArrayOfDictionaryEmailFolderType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEmailFolderType" nillable="true" type="tns:DictionaryEmailFolderType" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDictionaryEmailFolderType" nillable="true" type="tns:ArrayOfDictionaryEmailFolderType" />
-  <xs:complexType name="DictionaryEmailFolderType">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q3:DbObjectBaseModel">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DictionaryEmailFolderType" nillable="true" type="tns:DictionaryEmailFolderType" />
-  <xs:complexType name="ArrayOfDictionaryEmailServer">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEmailServer" nillable="true" type="tns:DictionaryEmailServer" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDictionaryEmailServer" nillable="true" type="tns:ArrayOfDictionaryEmailServer" />
   <xs:complexType name="DictionaryEmailServer">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q4:DbObjectBaseModel">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q2:DbObjectBaseModel">
         <xs:sequence>
           <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -85,15 +38,15 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DictionaryEmailServer" nillable="true" type="tns:DictionaryEmailServer" />
-  <xs:complexType name="ArrayOfDictionaryEmailServerParam">
+  <xs:complexType name="ArrayOfDictionaryEmailServer">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEmailServerParam" nillable="true" type="tns:DictionaryEmailServerParam" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEmailServer" nillable="true" type="tns:DictionaryEmailServer" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfDictionaryEmailServerParam" nillable="true" type="tns:ArrayOfDictionaryEmailServerParam" />
+  <xs:element name="ArrayOfDictionaryEmailServer" nillable="true" type="tns:ArrayOfDictionaryEmailServer" />
   <xs:complexType name="DictionaryEmailServerParam">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q5:DbObjectBaseModel">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q3:DbObjectBaseModel">
         <xs:sequence>
           <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
@@ -110,15 +63,15 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DictionaryEmailServerParam" nillable="true" type="tns:DictionaryEmailServerParam" />
-  <xs:complexType name="ArrayOfDictionaryHierarchy">
+  <xs:complexType name="ArrayOfDictionaryEmailServerParam">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryHierarchy" nillable="true" type="tns:DictionaryHierarchy" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEmailServerParam" nillable="true" type="tns:DictionaryEmailServerParam" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfDictionaryHierarchy" nillable="true" type="tns:ArrayOfDictionaryHierarchy" />
+  <xs:element name="ArrayOfDictionaryEmailServerParam" nillable="true" type="tns:ArrayOfDictionaryEmailServerParam" />
   <xs:complexType name="DictionaryHierarchy">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q6:DbObjectBaseModel">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q4:DbObjectBaseModel">
         <xs:sequence>
           <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
@@ -133,4 +86,51 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DictionaryHierarchy" nillable="true" type="tns:DictionaryHierarchy" />
+  <xs:complexType name="ArrayOfDictionaryHierarchy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryHierarchy" nillable="true" type="tns:DictionaryHierarchy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDictionaryHierarchy" nillable="true" type="tns:ArrayOfDictionaryHierarchy" />
+  <xs:complexType name="DictionaryTripType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q5:DbObjectBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DictionaryTripType" nillable="true" type="tns:DictionaryTripType" />
+  <xs:complexType name="ArrayOfDictionaryTripType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryTripType" nillable="true" type="tns:DictionaryTripType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDictionaryTripType" nillable="true" type="tns:ArrayOfDictionaryTripType" />
+  <xs:complexType name="DictionaryVehicleType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q6:DbObjectBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DictionaryVehicleType" nillable="true" type="tns:DictionaryVehicleType" />
+  <xs:complexType name="ArrayOfDictionaryVehicleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryVehicleType" nillable="true" type="tns:DictionaryVehicleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDictionaryVehicleType" nillable="true" type="tns:ArrayOfDictionaryVehicleType" />
 </xs:schema>
