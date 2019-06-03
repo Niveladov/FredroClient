@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Columns;
 using System.Reflection;
 using DevExpress.XtraEditors.Repository;
 using TwinklCRM.DAL.Attributes;
+using TwinklCRM.DAL.Models.DatabaseObjectModels;
 
 namespace TwinklCRM.Client.UserControls
 {
@@ -59,6 +60,11 @@ namespace TwinklCRM.Client.UserControls
             tlDictionaries.DataSource = _boServiceClient.GetAllHierarchies();
         }
 
+        private void RefreshData()
+        {
+            InitData();
+        }
+
         private void InitEvents()
         {
             tlDictionaries.FocusedNodeChanged += TlDictionaries_FocusedNodeChanged;
@@ -67,35 +73,17 @@ namespace TwinklCRM.Client.UserControls
 
         private void RefreshCurrentDictionary()
         {
-            switch (_dataSourceTableName)
-            {
-                case nameof(DictionaryEmailFolderType):
-                    gvCurrentDictionary.DataSourceType = typeof(DictionaryEmailFolderType);
-                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllEmailFolderTypes();
-                    break;
-                case nameof(DictionaryEmailServer):
-                    gvCurrentDictionary.DataSourceType = typeof(DictionaryEmailServer);
-                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllEmailServers();
-                    break;
-                case nameof(DictionaryEmailServerParam):
-                    gvCurrentDictionary.DataSourceType = typeof(DictionaryEmailServerParam);
-                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllEmailServerParams();
-                    break;
-                case nameof(DictionaryTripType):
-                    gvCurrentDictionary.DataSourceType = typeof(DictionaryTripType);
-                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllTripTypes();
-                    break;
-                case nameof(DictionaryVehicleType):
-                    gvCurrentDictionary.DataSourceType = typeof(DictionaryVehicleType);
-                    gcCurrentDictionary.DataSource = _boServiceClient.GetAllVehicleTypes();
-                    break;
-            }
+            Type dataSourceType = null;
+            var dataSource = GetAll(_dataSourceTableName, out dataSourceType);
+
+            gvCurrentDictionary.DataSourceType = dataSourceType;
+            gcCurrentDictionary.DataSource = dataSource;
         }
 
         private void InitColumnEditors()
         {
             var dataSourceType = gvCurrentDictionary.DataSourceType;
-            
+
             foreach (var property in dataSourceType.GetProperties())
             {
                 var column = gvCurrentDictionary.Columns.ColumnByFieldName(property.Name);
@@ -125,11 +113,35 @@ namespace TwinklCRM.Client.UserControls
             }
             return result;
         }
+
+        private DbObjectBaseModel[] GetAll(string dataSourceTableName, out Type dataSourceType)
+        { 
+            switch (dataSourceTableName)
+            {
+                case nameof(DictionaryEmailFolderType):
+                    dataSourceType = typeof(DictionaryEmailFolderType);
+                    return _boServiceClient.GetAllEmailFolderTypes();
+                case nameof(DictionaryEmailServer):
+                    dataSourceType = typeof(DictionaryEmailServer);
+                    return _boServiceClient.GetAllEmailServers();
+                case nameof(DictionaryEmailServerParam):
+                    dataSourceType = typeof(DictionaryEmailServerParam);
+                    return _boServiceClient.GetAllEmailServerParams();
+                case nameof(DictionaryTripType):
+                    dataSourceType = typeof(DictionaryTripType);
+                    return _boServiceClient.GetAllTripTypes();
+                case nameof(DictionaryVehicleType):
+                    dataSourceType = typeof(DictionaryVehicleType);
+                    return _boServiceClient.GetAllVehicleTypes();
+                default:
+                    dataSourceType = null;
+                    return null;
+            }
+        }
         
-        private object GetDataSourceByType(Type dataSourceType)
+        private DbObjectBaseModel[] GetDataSourceByType(Type dataSourceType)
         {
-            object dataSource = null;
-            var repositoryEditor = new RepositoryItemSearchLookUpEdit();
+            DbObjectBaseModel[] dataSource = null;
             if (dataSourceType == typeof(DictionaryEmailFolderType))
             {
                 dataSource = _boServiceClient.GetAllEmailFolderTypes();
@@ -153,14 +165,38 @@ namespace TwinklCRM.Client.UserControls
             return dataSource;
         }
 
+        private void DeleteObject(Type dataSourceType, int objectId)
+        {
+            if (dataSourceType == typeof(DictionaryEmailFolderType))
+            {
+                _boServiceClient.DeleteEmailFolderType(objectId);
+            }
+            else if (dataSourceType == typeof(DictionaryEmailServer))
+            {
+                _boServiceClient.DeleteEmailServer(objectId);
+            }
+            else if (dataSourceType == typeof(DictionaryEmailServerParam))
+            {
+                _boServiceClient.DeleteEmailServerParam(objectId);
+            }
+            else if (dataSourceType == typeof(DictionaryTripType))
+            {
+                _boServiceClient.DeleteTripType(objectId);
+            }
+            else if (dataSourceType == typeof(DictionaryVehicleType))
+            {
+                _boServiceClient.DeleteVehicleType(objectId);
+            }
+        }
+
         private void AddNewRow()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void EditRow()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void DeleteRow()
@@ -171,24 +207,12 @@ namespace TwinklCRM.Client.UserControls
                 var rowId = (int?)gvCurrentDictionary.GetFocusedRowCellValue("Id");
                 if (rowId.HasValue)
                 {
-                    //var sourceObject = Activator.
+                    var dataSourceType = gvCurrentDictionary.DataSourceType;
+                    DeleteObject(dataSourceType, rowId.Value);
+                    RefreshData();
                 }
                 _waitingHelper.Hide();
             }
-
-            //if (GetItemId > 0)
-            //{
-            //    object source = Activator.CreateInstance(TableDataSourceType != null ? TableDataSourceType : dataSourceType);
-            //    ((MyBaseModel)source).Delete(GetItemId);
-            //    InitData();
-            //}
-        }
-
-        private void RefreshData()
-        {
-            _waitingHelper.Show();
-            InitData();
-            _waitingHelper.Hide();
         }
 
         #region Event Handlers
