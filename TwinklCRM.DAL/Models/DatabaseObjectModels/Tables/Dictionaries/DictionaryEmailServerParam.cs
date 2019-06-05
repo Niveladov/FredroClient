@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -32,6 +33,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
         //properties
         [DataMember]
         [RelatedTable(typeof(DictionaryEmailServer))]
+        [DisplayName("Почтовый сервер")]
         public int? EmailServerId
         {
             get
@@ -48,6 +50,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Название хоста")]
         public string Hostname
         {
             get
@@ -64,6 +67,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Использовать Ssl")]
         public bool UseSsl
         {
             get
@@ -80,6 +84,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Номер порта")]
         public int Port
         {
             get
@@ -96,6 +101,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Для исходящих сообщений")]
         public bool? IsOutgoing
         {
             get
@@ -112,6 +118,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Для входящих сообщений")]
         public bool? IsIncoming
         {
             get

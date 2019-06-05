@@ -16,6 +16,7 @@ using System.Reflection;
 using DevExpress.XtraEditors.Repository;
 using TwinklCRM.DAL.Attributes;
 using TwinklCRM.DAL.Models.DatabaseObjectModels;
+using TwinklCRM.DAL.Extensions;
 
 namespace TwinklCRM.Client.UserControls
 {
@@ -24,6 +25,10 @@ namespace TwinklCRM.Client.UserControls
         private readonly WaitingHelper _waitingHelper;
         private BusinessObjectServiceClient _boServiceClient;
         private string _dataSourceTableName;
+
+        private Type DataSourceType => gvCurrentDictionary.DataSourceType;
+        private int? RowItemId => (int?)gvCurrentDictionary.GetFocusedRowCellValue("Id");
+
 
         public ucHierarchy()
         {
@@ -82,14 +87,12 @@ namespace TwinklCRM.Client.UserControls
 
         private void InitColumnEditors()
         {
-            var dataSourceType = gvCurrentDictionary.DataSourceType;
-
-            foreach (var property in dataSourceType.GetProperties())
+            foreach (var property in DataSourceType.GetProperties())
             {
                 var column = gvCurrentDictionary.Columns.ColumnByFieldName(property.Name);
                 if (column != null && column.Visible)
                 {
-                    var dictionaryType = GetDictionaryTypeByAttr(property);
+                    var dictionaryType = property.GetDictionaryTypeByAttr();
                     if (dictionaryType != null)
                     {
                         var repositoryEditor = new RepositoryItemSearchLookUpEdit();
@@ -98,20 +101,6 @@ namespace TwinklCRM.Client.UserControls
                     }
                 }
             }
-        }
-
-        private Type GetDictionaryTypeByAttr(PropertyInfo dataSourceProp)
-        {
-            Type result = null;
-            if (dataSourceProp != null)
-            {
-                var relatedTableAttr = (RelatedTableAttribute)dataSourceProp.GetCustomAttributes(typeof(RelatedTableAttribute), true).FirstOrDefault();
-                if (relatedTableAttr != null)
-                {
-                    result = relatedTableAttr.RelatedDictionaryType;
-                }
-            }
-            return result;
         }
 
         private DbObjectBaseModel[] GetAll(string dataSourceTableName, out Type dataSourceType)
@@ -191,7 +180,14 @@ namespace TwinklCRM.Client.UserControls
 
         private void AddNewRow()
         {
-            //throw new NotImplementedException();
+            var sourceObject = Activator.CreateInstance(DataSourceType);
+            using (var frm = new DictionaryEditBaseForm(sourceObject, _boServiceClient))
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshData();
+                }
+            }
         }
 
         private void EditRow()
@@ -204,11 +200,9 @@ namespace TwinklCRM.Client.UserControls
             if (TwinkleMessageBox.ShowQuestionYesNo("Вы уверены, что хотите удалить запись?") == DialogResult.Yes)
             {
                 _waitingHelper.Show();
-                var rowId = (int?)gvCurrentDictionary.GetFocusedRowCellValue("Id");
-                if (rowId.HasValue)
+                if (RowItemId.HasValue)
                 {
-                    var dataSourceType = gvCurrentDictionary.DataSourceType;
-                    DeleteObject(dataSourceType, rowId.Value);
+                    DeleteObject(DataSourceType, RowItemId.Value);
                     RefreshData();
                 }
                 _waitingHelper.Hide();

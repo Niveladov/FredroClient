@@ -125,6 +125,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseGUI\DictionaryEditBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseGUI\DictionaryEditBaseForm.Designer.cs">
+      <DependentUpon>DictionaryEditBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseGUI\GridControlBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     <Compile Include="UserControls\ucScheduler.Designer.cs">
       <DependentUpon>ucScheduler.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaseGUI\DictionaryEditBaseForm.resx">
+      <DependentUpon>DictionaryEditBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseGUI\TwinkleBaseXtraForm.resx">
       <DependentUpon>TwinkleBaseXtraForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
@@ -23,6 +24,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 
         //properties
         [DataMember]
+        [DisplayName("Заголовок")]
         public string Caption
         {
             get
@@ -39,6 +41,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Код")]
         public string Code
         {
             get
@@ -55,6 +58,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Адрес почтового сервиса")]
         public string OriginClientUrl
         {
             get

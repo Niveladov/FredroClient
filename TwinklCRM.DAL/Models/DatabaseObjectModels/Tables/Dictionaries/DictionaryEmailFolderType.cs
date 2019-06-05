@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -26,6 +27,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 
         //properties
         [DataMember]
+        [DisplayName("Название")]
         public string Name
         {
             get
@@ -42,6 +44,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Код")]
         public string Code
         {
             get

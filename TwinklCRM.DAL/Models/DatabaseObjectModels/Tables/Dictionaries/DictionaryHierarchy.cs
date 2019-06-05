@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -29,6 +30,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 
         //properties
         [DataMember]
+        [DisplayName("Название")]
         public string Name
         {
             get
@@ -45,6 +47,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Заголовок")]
         public string Caption
         {
             get
@@ -62,6 +65,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
         }
         [DataMember]
         [RelatedTable(typeof(DictionaryHierarchy))]
+        [DisplayName("Родитель")]
         public int? ParentId
         {
             get
@@ -78,6 +82,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
             }
         }
         [DataMember]
+        [DisplayName("Является категорией")]
         public bool IsCategory
         {
             get
