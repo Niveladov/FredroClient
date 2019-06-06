@@ -28,6 +28,7 @@ namespace TwinklCRM.Client.UserControls
 
         private Type DataSourceType => gvCurrentDictionary.DataSourceType;
         private int? RowItemId => (int?)gvCurrentDictionary.GetFocusedRowCellValue("Id");
+        private string Caption => tlDictionaries.FocusedNode[nameof(DictionaryHierarchy.Caption)].ToString();
 
 
         public ucHierarchy()
@@ -181,7 +182,7 @@ namespace TwinklCRM.Client.UserControls
         private void AddNewRow()
         {
             var sourceObject = Activator.CreateInstance(DataSourceType);
-            using (var frm = new DictionaryEditBaseForm(sourceObject, _boServiceClient))
+            using (var frm = new DictionaryEditBaseForm(sourceObject, _boServiceClient, Caption))
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {

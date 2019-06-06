@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraLayout;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,13 @@ namespace TwinklCRM.Client.BaseGUI
         private BusinessObjectServiceClient _boServiceClient;
         private string[] _systemFields = new string[] { "Id", "CreatedBy", "IsDel", "CreationDate" };
 
-        public DictionaryEditBaseForm(object dataSource, BusinessObjectServiceClient boServiceClient)
+        public DictionaryEditBaseForm(object dataSource, BusinessObjectServiceClient boServiceClient, string caption)
         {
             InitializeComponent();
             _dataSource = dataSource;
             _boServiceClient = boServiceClient;
             CreateDataSourceControls();
+            Text = caption;
         }
 
         private bool PropertyCanBeChanged(PropertyInfo property)
@@ -95,77 +97,121 @@ namespace TwinklCRM.Client.BaseGUI
                     var searchLookUpEdit = new SearchLookUpEdit();
 
                     searchLookUpEdit.Name = property.Name;
-                    searchLookUpEdit.Properties.AppearanceFocused.BackColor = Color.Transparent;
                     searchLookUpEdit.Properties.PopupFindMode = FindMode.Default;
                     searchLookUpEdit.Properties.TextEditStyle = TextEditStyles.Standard;
                     searchLookUpEdit.Properties.PopupFilterMode = PopupFilterMode.Default;
                     searchLookUpEdit.Properties.PopupFilterMode = PopupFilterMode.Default;
-                    searchLookUpEdit.Properties.NullText = "Введите значение";
-
-                    this.Controls.Add(searchLookUpEdit);
-                    controlItem.Control = searchLookUpEdit;
-
+                    searchLookUpEdit.Properties.AllowFocused = false;
+                    searchLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+                    searchLookUpEdit.Properties.NullValuePrompt = "Выберите значение...";
+                    
                     searchLookUpEdit.Properties.Buttons.Add(new EditorButton() { Caption = "Добавить", Kind = ButtonPredefines.Plus });
                     searchLookUpEdit.Properties.Buttons.Add(new EditorButton() { Caption = "Изменить", Kind = ButtonPredefines.Right});
                     searchLookUpEdit.EditValueChanged += (o, a) =>
                     {
                         var sle = (SearchLookUpEdit)o;
-                        sle.Properties.Buttons[2].Visible = sle.EditValue != null && sle.EditValue != DBNull.Value;
+                        sle.Properties.Buttons[2].Visible = sle.EditValue != null;
                     };
-                    searchLookUpEdit.ButtonPressed += new ButtonPressedEventHandler(SearchLookUpEdit_ButtonPressed);
+                    searchLookUpEdit.ButtonPressed += SearchLookUpEdit_ButtonPressed;
+                    searchLookUpEdit.CustomDisplayText += SearchLookUpEdit_CustomDisplayText;
 
                     searchLookUpEdit.Properties.DataSource = GetDataSourceByType(dictionaryType);
-                    searchLookUpEdit.Properties.DisplayMember = "Name";
                     searchLookUpEdit.Properties.ValueMember = "Id";
+                    searchLookUpEdit.Properties.PopulateViewColumns();
                     GridViewHelper.LoadDefaultColumnSettings(searchLookUpEdit.Properties.View, true);
                     searchLookUpEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-                    
+
+                    lcMain.Controls.Add(searchLookUpEdit);
+                    controlItem.Control = searchLookUpEdit;
                 }
-                else if (property.PropertyType == typeof(DateTime) || property.PropertyType == typeof(Nullable<DateTime>))
+                else if (property.PropertyType == typeof(DateTime) || property.PropertyType == typeof(DateTime?))
                 {
                     var dateEdit = new DateEdit();
                     dateEdit.Name = property.Name;
+                    dateEdit.Properties.NullValuePromptShowForEmptyValue = true;
+                    dateEdit.Properties.NullValuePrompt = "Введите значение...";
                     dateEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+
                     lcMain.Controls.Add(dateEdit);
                     controlItem.Control = dateEdit;
                 }
-                else if (property.PropertyType == typeof(bool) || property.PropertyType == typeof(Nullable<bool>))
+                else if (property.PropertyType == typeof(bool) || property.PropertyType == typeof(bool?))
                 {
                     var checkEdit = new CheckEdit();
                     checkEdit.Name = property.Name;
+                    checkEdit.Text = string.Empty;
                     checkEdit.DataBindings.Add(new Binding("Checked", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+
                     lcMain.Controls.Add(checkEdit);
                     controlItem.Control = checkEdit;
                 }
-                else if (property.PropertyType == typeof(long) || property.PropertyType == typeof(Nullable<long>) || property.PropertyType == typeof(int) || property.PropertyType == typeof(Nullable<int>))
+                else if (property.PropertyType == typeof(long) || property.PropertyType == typeof(long?) || property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
                 {
                     var spinEdit = new SpinEdit();
                     spinEdit.Name = property.Name;
+                    spinEdit.Properties.IsFloatValue = false;
                     spinEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+
                     lcMain.Controls.Add(spinEdit);
                     controlItem.Control = spinEdit;
                 }
-                else if (property.PropertyType == typeof(decimal) || property.PropertyType == typeof(Nullable<decimal>))
+                else if (property.PropertyType == typeof(decimal) || property.PropertyType == typeof(decimal?))
                 {
-                    SpinEdit te = new SpinEdit();
-                    te.Name = property.Name;
-                    te.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-                    lcMain.Controls.Add(te);
-                    controlItem.Control = te;
+                    SpinEdit spinEdit = new SpinEdit();
+                    spinEdit.Name = property.Name;
+                    spinEdit.Properties.IsFloatValue = true;
+                    spinEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+
+                    lcMain.Controls.Add(spinEdit);
+                    controlItem.Control = spinEdit;
                 }
                 else
                 {
-                    TextEdit te = new TextEdit();
-                    te.Name = property.Name;
-                    te.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-                    lcMain.Controls.Add(te);
-                    controlItem.Control = te;
+                    TextEdit textEdit = new TextEdit();
+                    textEdit.Name = property.Name;
+                    textEdit.Properties.NullValuePromptShowForEmptyValue = true;
+                    textEdit.Properties.NullValuePrompt = "Введите значение...";
+                    textEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+
+                    lcMain.Controls.Add(textEdit);
+                    controlItem.Control = textEdit;
                 }
 
                 lcMain.EndUpdate();
             }
         }
-        
+
+        private string GetDisplayText(SearchLookUpEdit sle)
+        {
+            if (sle.EditValue == null || string.IsNullOrEmpty(sle.EditValue.ToString()))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                List<string> listOfValues = new List<string>();
+                var dictionaryType = sle.Tag as Type;
+                foreach (GridColumn column in sle.Properties.View.Columns)
+                {
+                    if (column.Visible)
+                    {
+                        var value = sle.Properties.View.GetFocusedRowCellValue(column);
+                        if (value != null)
+                        {
+                            listOfValues.Add(value.ToString());
+                        }
+                    }
+                }
+                return string.Join(" | ", listOfValues);
+            }
+        }
+
+        private void SearchLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            var sle = sender as SearchLookUpEdit;
+            e.DisplayText = GetDisplayText(sle);
+        }
+
         private void SearchLookUpEdit_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
             //var sle = (SearchLookUpEdit)sender;
