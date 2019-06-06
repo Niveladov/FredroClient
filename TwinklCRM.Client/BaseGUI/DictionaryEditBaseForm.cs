@@ -179,17 +179,6 @@ namespace TwinklCRM.Client.BaseGUI
 
         private void Save(DbObjectBaseModel targetObject)
         {
-            //switch (actionType)
-            //{
-            //    case FormActionType.Edit:
-            //        ((MyBaseModel)DataSource).Update();
-            //        result = dataSource.GetType().GetProperty("id").GetValue(dataSource, null);
-            //        break;
-            //    case FormActionType.Create:
-            //        result = ((MyBaseModel)DataSource).Insert();
-            //        actionType = FormActionType.Edit;
-            //        break;
-            //}
             var dataSourceType = _dataSource.GetType();
             if (dataSourceType.GetProperty("Id").GetValue(_dataSource) != null)
             {

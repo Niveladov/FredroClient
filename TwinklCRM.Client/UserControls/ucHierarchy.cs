@@ -66,18 +66,13 @@ namespace TwinklCRM.Client.UserControls
             tlDictionaries.DataSource = _boServiceClient.GetAllHierarchies();
         }
 
-        private void RefreshData()
-        {
-            InitData();
-        }
-
         private void InitEvents()
         {
             tlDictionaries.FocusedNodeChanged += TlDictionaries_FocusedNodeChanged;
             groupCurrentDictionary.CustomButtonClick += GroupCurrentDictionary_CustomButtonClick;
         }
 
-        private void RefreshCurrentDictionary()
+        private void RefreshCurrentDictionaryData()
         {
             Type dataSourceType = null;
             var dataSource = GetAll(_dataSourceTableName, out dataSourceType);
@@ -185,19 +180,28 @@ namespace TwinklCRM.Client.UserControls
             var sourceModel = sourceObject as DbObjectBaseModel;
             if (sourceModel != null)
             {
-                using (var frm = new DictionaryEditBaseForm(sourceModel, _boServiceClient, Caption))
-                {
-                    if (frm.ShowDialog() == DialogResult.OK)
-                    {
-                        RefreshData();
-                    }
-                }
+                OpenDictionaryEditForm(sourceModel);
             }
         }
 
         private void EditRow()
         {
-            //throw new NotImplementedException();
+            var sourceModel = gvCurrentDictionary.GetFocusedRow() as DbObjectBaseModel;
+            if (sourceModel != null)
+            {
+                OpenDictionaryEditForm(sourceModel);
+            }
+        }
+
+        private void OpenDictionaryEditForm(DbObjectBaseModel sourceModel)
+        {
+            using (var frm = new DictionaryEditBaseForm(sourceModel, _boServiceClient, Caption))
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshCurrentDictionaryData();
+                }
+            }
         }
 
         private void DeleteRow()
@@ -208,7 +212,7 @@ namespace TwinklCRM.Client.UserControls
                 if (RowItemId.HasValue)
                 {
                     DeleteObject(DataSourceType, RowItemId.Value);
-                    RefreshData();
+                    RefreshCurrentDictionaryData();
                 }
                 _waitingHelper.Hide();
             }
@@ -230,7 +234,7 @@ namespace TwinklCRM.Client.UserControls
                     DeleteRow();
                     break;
                 case "btnRefresh":
-                    RefreshData();
+                    RefreshCurrentDictionaryData();
                     break;
             }
 
@@ -242,7 +246,7 @@ namespace TwinklCRM.Client.UserControls
             if (isCategory.HasValue && !isCategory.Value)
             {
                 _dataSourceTableName = e.Node[nameof(DictionaryHierarchy.Name)].ToString();
-                RefreshCurrentDictionary();
+                RefreshCurrentDictionaryData();
                 InitColumnEditors();
             }
         }
