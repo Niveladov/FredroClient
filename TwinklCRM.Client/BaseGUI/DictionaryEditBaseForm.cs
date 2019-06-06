@@ -23,48 +23,17 @@ namespace TwinklCRM.Client.BaseGUI
 {
     internal partial class DictionaryEditBaseForm : TwinkleBaseXtraForm
     {
-        private object _dataSource;
+        private DbObjectBaseModel _dataSource;
         private BusinessObjectServiceClient _boServiceClient;
         private string[] _systemFields = new string[] { "Id", "CreatedBy", "IsDel", "CreationDate" };
 
-        public DictionaryEditBaseForm(object dataSource, BusinessObjectServiceClient boServiceClient, string caption)
+        public DictionaryEditBaseForm(DbObjectBaseModel dataSource, BusinessObjectServiceClient boServiceClient, string caption)
         {
             InitializeComponent();
             _dataSource = dataSource;
             _boServiceClient = boServiceClient;
             CreateDataSourceControls();
             Text = caption;
-        }
-
-        private bool PropertyCanBeChanged(PropertyInfo property)
-        {
-            return !(_systemFields.Contains(property.Name) || property.PropertyType == typeof(byte[]));
-        }
-
-        private DbObjectBaseModel[] GetDataSourceByType(Type dataSourceType)
-        {
-            DbObjectBaseModel[] dataSource = null;
-            if (dataSourceType == typeof(DictionaryEmailFolderType))
-            {
-                dataSource = _boServiceClient.GetAllEmailFolderTypes();
-            }
-            else if (dataSourceType == typeof(DictionaryEmailServer))
-            {
-                dataSource = _boServiceClient.GetAllEmailServers();
-            }
-            else if (dataSourceType == typeof(DictionaryEmailServerParam))
-            {
-                dataSource = _boServiceClient.GetAllEmailServerParams();
-            }
-            else if (dataSourceType == typeof(DictionaryTripType))
-            {
-                dataSource = _boServiceClient.GetAllTripTypes();
-            }
-            else if (dataSourceType == typeof(DictionaryVehicleType))
-            {
-                dataSource = _boServiceClient.GetAllVehicleTypes();
-            }
-            return dataSource;
         }
 
         private void CreateDataSourceControls()
@@ -91,93 +60,202 @@ namespace TwinklCRM.Client.BaseGUI
                 controlItem.Text = property.GetFieldCaptionByAttr();
                 controlItem.Name = "lci" + property.Name;
 
-                var dictionaryType = property.GetDictionaryTypeByAttr();
-                if (dictionaryType != null)
-                {
-                    var searchLookUpEdit = new SearchLookUpEdit();
+                var editControl = GetPropertyEditControl(property);
 
-                    searchLookUpEdit.Name = property.Name;
-                    searchLookUpEdit.Properties.PopupFindMode = FindMode.Default;
-                    searchLookUpEdit.Properties.TextEditStyle = TextEditStyles.Standard;
-                    searchLookUpEdit.Properties.PopupFilterMode = PopupFilterMode.Default;
-                    searchLookUpEdit.Properties.PopupFilterMode = PopupFilterMode.Default;
-                    searchLookUpEdit.Properties.AllowFocused = false;
-                    searchLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
-                    searchLookUpEdit.Properties.NullValuePrompt = "Выберите значение...";
-                    
-                    searchLookUpEdit.Properties.Buttons.Add(new EditorButton() { Caption = "Добавить", Kind = ButtonPredefines.Plus });
-                    searchLookUpEdit.Properties.Buttons.Add(new EditorButton() { Caption = "Изменить", Kind = ButtonPredefines.Right});
-                    searchLookUpEdit.EditValueChanged += (o, a) =>
-                    {
-                        var sle = (SearchLookUpEdit)o;
-                        sle.Properties.Buttons[2].Visible = sle.EditValue != null;
-                    };
-                    searchLookUpEdit.ButtonPressed += SearchLookUpEdit_ButtonPressed;
-                    searchLookUpEdit.CustomDisplayText += SearchLookUpEdit_CustomDisplayText;
-
-                    searchLookUpEdit.Properties.DataSource = GetDataSourceByType(dictionaryType);
-                    searchLookUpEdit.Properties.ValueMember = "Id";
-                    searchLookUpEdit.Properties.PopulateViewColumns();
-                    GridViewHelper.LoadDefaultColumnSettings(searchLookUpEdit.Properties.View, true);
-                    searchLookUpEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-
-                    lcMain.Controls.Add(searchLookUpEdit);
-                    controlItem.Control = searchLookUpEdit;
-                }
-                else if (property.PropertyType == typeof(DateTime) || property.PropertyType == typeof(DateTime?))
-                {
-                    var dateEdit = new DateEdit();
-                    dateEdit.Name = property.Name;
-                    dateEdit.Properties.NullValuePromptShowForEmptyValue = true;
-                    dateEdit.Properties.NullValuePrompt = "Введите значение...";
-                    dateEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-
-                    lcMain.Controls.Add(dateEdit);
-                    controlItem.Control = dateEdit;
-                }
-                else if (property.PropertyType == typeof(bool) || property.PropertyType == typeof(bool?))
-                {
-                    var checkEdit = new CheckEdit();
-                    checkEdit.Name = property.Name;
-                    checkEdit.Text = string.Empty;
-                    checkEdit.DataBindings.Add(new Binding("Checked", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-
-                    lcMain.Controls.Add(checkEdit);
-                    controlItem.Control = checkEdit;
-                }
-                else if (property.PropertyType == typeof(long) || property.PropertyType == typeof(long?) || property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
-                {
-                    var spinEdit = new SpinEdit();
-                    spinEdit.Name = property.Name;
-                    spinEdit.Properties.IsFloatValue = false;
-                    spinEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-
-                    lcMain.Controls.Add(spinEdit);
-                    controlItem.Control = spinEdit;
-                }
-                else if (property.PropertyType == typeof(decimal) || property.PropertyType == typeof(decimal?))
-                {
-                    SpinEdit spinEdit = new SpinEdit();
-                    spinEdit.Name = property.Name;
-                    spinEdit.Properties.IsFloatValue = true;
-                    spinEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-
-                    lcMain.Controls.Add(spinEdit);
-                    controlItem.Control = spinEdit;
-                }
-                else
-                {
-                    TextEdit textEdit = new TextEdit();
-                    textEdit.Name = property.Name;
-                    textEdit.Properties.NullValuePromptShowForEmptyValue = true;
-                    textEdit.Properties.NullValuePrompt = "Введите значение...";
-                    textEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
-
-                    lcMain.Controls.Add(textEdit);
-                    controlItem.Control = textEdit;
-                }
-
+                lcMain.Controls.Add(editControl);
+                controlItem.Control = editControl;
+                
                 lcMain.EndUpdate();
+            }
+        }
+
+        private BaseEdit GetPropertyEditControl(PropertyInfo property)
+        {
+            var dictionaryType = property.GetDictionaryTypeByAttr();
+            if (dictionaryType != null)
+            {
+                var searchLookUpEdit = new SearchLookUpEdit();
+
+                searchLookUpEdit.Name = property.Name;
+                searchLookUpEdit.Properties.PopupFindMode = FindMode.Default;
+                searchLookUpEdit.Properties.TextEditStyle = TextEditStyles.Standard;
+                searchLookUpEdit.Properties.PopupFilterMode = PopupFilterMode.Default;
+                searchLookUpEdit.Properties.PopupFilterMode = PopupFilterMode.Default;
+                searchLookUpEdit.Properties.AllowFocused = false;
+                searchLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+                searchLookUpEdit.Properties.NullValuePrompt = "Выберите значение...";
+
+                searchLookUpEdit.Properties.Buttons.Add(new EditorButton() { Caption = "Добавить", Kind = ButtonPredefines.Plus });
+                searchLookUpEdit.Properties.Buttons.Add(new EditorButton() { Caption = "Изменить", Kind = ButtonPredefines.Right });
+                searchLookUpEdit.EditValueChanged += (o, a) =>
+                {
+                    var sle = (SearchLookUpEdit)o;
+                    sle.Properties.Buttons[2].Visible = sle.EditValue != null;
+                };
+                searchLookUpEdit.ButtonPressed += SearchLookUpEdit_ButtonPressed;
+                searchLookUpEdit.CustomDisplayText += SearchLookUpEdit_CustomDisplayText;
+
+                searchLookUpEdit.Properties.DataSource = GetAll(dictionaryType);
+                searchLookUpEdit.Properties.ValueMember = "Id";
+                searchLookUpEdit.Properties.PopulateViewColumns();
+                GridViewHelper.LoadDefaultColumnSettings(searchLookUpEdit.Properties.View, true);
+                searchLookUpEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+                return searchLookUpEdit;
+            }
+            else if (property.PropertyType == typeof(DateTime) || property.PropertyType == typeof(DateTime?))
+            {
+                var dateEdit = new DateEdit();
+                dateEdit.Name = property.Name;
+                dateEdit.Properties.NullValuePromptShowForEmptyValue = true;
+                dateEdit.Properties.NullValuePrompt = "Введите значение...";
+                dateEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+                return dateEdit;
+            }
+            else if (property.PropertyType == typeof(bool) || property.PropertyType == typeof(bool?))
+            {
+                var checkEdit = new CheckEdit();
+                checkEdit.Name = property.Name;
+                checkEdit.Text = string.Empty;
+                checkEdit.DataBindings.Add(new Binding("Checked", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+                return checkEdit;
+            }
+            else if (property.PropertyType == typeof(long) || property.PropertyType == typeof(long?) || property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
+            {
+                var spinEdit = new SpinEdit();
+                spinEdit.Name = property.Name;
+                spinEdit.Properties.IsFloatValue = false;
+                spinEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+                return spinEdit;
+            }
+            else if (property.PropertyType == typeof(decimal) || property.PropertyType == typeof(decimal?))
+            {
+                SpinEdit spinEdit = new SpinEdit();
+                spinEdit.Name = property.Name;
+                spinEdit.Properties.IsFloatValue = true;
+                spinEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+                return spinEdit;
+            }
+            else
+            {
+                TextEdit textEdit = new TextEdit();
+                textEdit.Name = property.Name;
+                textEdit.Properties.NullValuePromptShowForEmptyValue = true;
+                textEdit.Properties.NullValuePrompt = "Введите значение...";
+                textEdit.DataBindings.Add(new Binding("EditValue", _dataSource, property.Name, true, DataSourceUpdateMode.OnPropertyChanged));
+                return textEdit;
+            }
+        }
+
+        private bool PropertyCanBeChanged(PropertyInfo property)
+        {
+            return !(_systemFields.Contains(property.Name) || property.PropertyType == typeof(byte[]));
+        }
+
+        private DbObjectBaseModel[] GetAll(Type dataSourceType)
+        {
+            DbObjectBaseModel[] dataSource = null;
+            if (dataSourceType == typeof(DictionaryEmailFolderType))
+            {
+                dataSource = _boServiceClient.GetAllEmailFolderTypes();
+            }
+            else if (dataSourceType == typeof(DictionaryEmailServer))
+            {
+                dataSource = _boServiceClient.GetAllEmailServers();
+            }
+            else if (dataSourceType == typeof(DictionaryEmailServerParam))
+            {
+                dataSource = _boServiceClient.GetAllEmailServerParams();
+            }
+            else if (dataSourceType == typeof(DictionaryTripType))
+            {
+                dataSource = _boServiceClient.GetAllTripTypes();
+            }
+            else if (dataSourceType == typeof(DictionaryVehicleType))
+            {
+                dataSource = _boServiceClient.GetAllVehicleTypes();
+            }
+            return dataSource;
+        }
+
+        private void Save(DbObjectBaseModel targetObject)
+        {
+            //switch (actionType)
+            //{
+            //    case FormActionType.Edit:
+            //        ((MyBaseModel)DataSource).Update();
+            //        result = dataSource.GetType().GetProperty("id").GetValue(dataSource, null);
+            //        break;
+            //    case FormActionType.Create:
+            //        result = ((MyBaseModel)DataSource).Insert();
+            //        actionType = FormActionType.Edit;
+            //        break;
+            //}
+            var dataSourceType = _dataSource.GetType();
+            if (dataSourceType.GetProperty("Id").GetValue(_dataSource) != null)
+            {
+                Update(_dataSource);
+            }
+            else
+            {
+                Insert(_dataSource);
+            }
+        }
+
+        private void Insert(DbObjectBaseModel targetObject)
+        {
+            if (targetObject is DictionaryEmailFolderType)
+            {
+                var emailFolderType = targetObject as DictionaryEmailFolderType;
+                _boServiceClient.InsertEmailFolderType(emailFolderType);
+            }
+            else if (targetObject is DictionaryEmailServer)
+            {
+                var emailServer = targetObject as DictionaryEmailServer;
+                _boServiceClient.InsertEmailServer(emailServer);
+            }
+            else if (targetObject is DictionaryEmailServerParam)
+            {
+                var emailServerParam = targetObject as DictionaryEmailServerParam;
+                _boServiceClient.InsertEmailServerParam(emailServerParam);
+            }
+            else if (targetObject is DictionaryTripType)
+            {
+                var tripType = targetObject as DictionaryTripType;
+                _boServiceClient.InsertTripType(tripType);
+            }
+            else if (targetObject is DictionaryVehicleType)
+            {
+                var vehicleType = targetObject as DictionaryVehicleType;
+                _boServiceClient.InsertVehicleType(vehicleType);
+            }
+        }
+
+        private void Update(DbObjectBaseModel targetObject)
+        {
+            if (targetObject is DictionaryEmailFolderType)
+            {
+                var emailFolderType = targetObject as DictionaryEmailFolderType;
+                _boServiceClient.UpdateEmailFolderType(emailFolderType);
+            }
+            else if (targetObject is DictionaryEmailServer)
+            {
+                var emailServer = targetObject as DictionaryEmailServer;
+                _boServiceClient.UpdateEmailServer(emailServer);
+            }
+            else if (targetObject is DictionaryEmailServerParam)
+            {
+                var emailServerParam = targetObject as DictionaryEmailServerParam;
+                _boServiceClient.UpdateEmailServerParam(emailServerParam);
+            }
+            else if (targetObject is DictionaryTripType)
+            {
+                var tripType = targetObject as DictionaryTripType;
+                _boServiceClient.UpdateTripType(tripType);
+            }
+            else if (targetObject is DictionaryVehicleType)
+            {
+                var vehicleType = targetObject as DictionaryVehicleType;
+                _boServiceClient.UpdateVehicleType(vehicleType);
             }
         }
 
@@ -264,25 +342,7 @@ namespace TwinklCRM.Client.BaseGUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //switch (actionType)
-            //{
-            //    case FormActionType.Edit:
-            //        ((MyBaseModel)DataSource).Update();
-            //        result = dataSource.GetType().GetProperty("id").GetValue(dataSource, null);
-            //        break;
-            //    case FormActionType.Create:
-            //        result = ((MyBaseModel)DataSource).Insert();
-            //        actionType = FormActionType.Edit;
-            //        break;
-            //}
-            if (_dataSource.GetType().GetProperty("Id").GetValue(_dataSource) != null)
-            {
-                //Update
-            }
-            else
-            {
-                //Create
-            }
+            Save(_dataSource);
             DialogResult = DialogResult.OK;
         }
     }

@@ -182,11 +182,15 @@ namespace TwinklCRM.Client.UserControls
         private void AddNewRow()
         {
             var sourceObject = Activator.CreateInstance(DataSourceType);
-            using (var frm = new DictionaryEditBaseForm(sourceObject, _boServiceClient, Caption))
+            var sourceModel = sourceObject as DbObjectBaseModel;
+            if (sourceModel != null)
             {
-                if (frm.ShowDialog() == DialogResult.OK)
+                using (var frm = new DictionaryEditBaseForm(sourceModel, _boServiceClient, Caption))
                 {
-                    RefreshData();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        RefreshData();
+                    }
                 }
             }
         }
