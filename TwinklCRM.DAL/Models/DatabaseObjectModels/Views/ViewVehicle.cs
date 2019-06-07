@@ -15,6 +15,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Views
         private string _registrationNumber; //номер
         private short? _passengersCount; //кол-во пассажиров   
         private int? _parentId; //тип ТС        
+        private string _color;  
 
         //properties
         [DataMember]
@@ -78,6 +79,22 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Views
                 {
                     _parentId = value;
                     NotifyPropertyChanged(nameof(ParentId));
+                }
+            }
+        }
+        [DataMember]
+        public string Color
+        {
+            get
+            {
+                return _color;
+            }
+            set
+            {
+                if (value != _color)
+                {
+                    _color = value;
+                    NotifyPropertyChanged(nameof(Color));
                 }
             }
         }

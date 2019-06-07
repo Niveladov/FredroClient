@@ -95,6 +95,8 @@ namespace TwinklCRM.Client.UserControls
 
         private void InitEvents()
         {
+            resourcesTreeMain.CustomDrawNodeCell += ResourcesTreeMain_CustomDrawNodeCell;
+
             gvFreeDeals.MouseDown += GvFreeDeals_MouseDown;
             gvFreeDeals.MouseMove += GvFreeDeals_MouseMove;
 
@@ -116,6 +118,7 @@ namespace TwinklCRM.Client.UserControls
             storageMain.Resources.Mappings.Id = nameof(ViewVehicle.Id);
             storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
             storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
+            storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.Color);
 
             storageMain.Appointments.DataSource = _model.AssignedAppointments;
             storageMain.Appointments.Mappings.AppointmentId = nameof(ViewAssignedDeal.Id);
@@ -450,6 +453,19 @@ namespace TwinklCRM.Client.UserControls
         }
 
         #region Appearance
+
+        private void ResourcesTreeMain_CustomDrawNodeCell(object sender, DevExpress.XtraTreeList.CustomDrawNodeCellEventArgs e)
+        {
+            if (schedulerMain.Storage != null)
+            {
+                object resourceId = e.Node.GetValue("Id");
+                Resource resource = storageMain.Resources.GetResourceById(resourceId);
+                if (resource != null && e.Column.FieldName == nameof(ViewVehicle.PassengersCount))
+                {
+                    e.Appearance.BackColor = resource.Color;
+                }
+            }
+        }
 
         private void ToolTipController_BeforeShow(object sender, ToolTipControllerShowEventArgs e)
         {
