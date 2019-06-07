@@ -106,6 +106,7 @@ namespace TwinklCRM.Client.UserControls
             schedulerMain.PopupMenuShowing += SchedulerMain_PopupMenuShowing;
             //schedulerMain.SelectionChanged += SchedulerMain_SelectionChanged;
             schedulerMain.EditAppointmentFormShowing += SchedulerMain_EditAppointmentFormShowing;
+            schedulerMain.AppointmentViewInfoCustomizing += SchedulerMain_AppointmentViewInfoCustomizing1;
 
             groupControlMain.CustomButtonClick += GroupControlMain_CustomButtonClick;
 
@@ -118,7 +119,7 @@ namespace TwinklCRM.Client.UserControls
             storageMain.Resources.Mappings.Id = nameof(ViewVehicle.Id);
             storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
             storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
-            storageMain.Resources.Mappings.Color = nameof(ViewVehicle.SystemColor);
+            //storageMain.Resources.Mappings.Color = nameof(ViewVehicle.SystemColor);
 
             storageMain.Appointments.DataSource = _model.AssignedAppointments;
             storageMain.Appointments.Mappings.AppointmentId = nameof(ViewAssignedDeal.Id);
@@ -132,6 +133,7 @@ namespace TwinklCRM.Client.UserControls
             storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("Id", nameof(Deal.Id)));
             storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("PassengersCount", nameof(ViewAssignedDeal.PassengersCount)));
             storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("TripTypeName", nameof(ViewAssignedDeal.TripTypeName)));
+            storageMain.Appointments.CustomFieldMappings.Add(new AppointmentCustomFieldMapping("Color", nameof(ViewAssignedDeal.Color)));
         }
 
         private void InitGrids()
@@ -454,14 +456,26 @@ namespace TwinklCRM.Client.UserControls
 
         #region Appearance
 
+        private void SchedulerMain_AppointmentViewInfoCustomizing1(object sender, AppointmentViewInfoCustomizingEventArgs e)
+        {
+            var appointment = e.ViewInfo.Appointment;
+            var color = e.ViewInfo.Appointment.CustomFields["Color"]?.ToString();
+            if (!string.IsNullOrWhiteSpace(color))
+            {
+                e.ViewInfo.Appearance.BackColor = ColorTranslator.FromHtml(color);
+                e.ViewInfo.Appearance.ForeColor = Color.WhiteSmoke;
+            }
+        }
+
         private void ResourcesTreeMain_CustomDrawNodeCell(object sender, DevExpress.XtraTreeList.CustomDrawNodeCellEventArgs e)
         {
             if (schedulerMain.Storage != null)
             {
                 var resourceTreeData = resourcesTreeMain.GetDataRecordByNode(e.Node) as ResourceTreeData;
-                if (resourceTreeData != null && resourceTreeData.Resource != null && e.Column.FieldName == nameof(ViewVehicle.PassengersCount))
+                var viewVehicle = storageMain.Resources.GetObjectRow(resourceTreeData.Resource) as ViewVehicle;
+                if (viewVehicle != null && e.Column.FieldName == nameof(ViewVehicle.PassengersCount))
                 {
-                    e.Appearance.BackColor = resourceTreeData.Resource.Color;
+                    e.Appearance.BackColor = ColorTranslator.FromHtml(viewVehicle.Color);
                 }
             }
         }

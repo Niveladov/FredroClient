@@ -28,6 +28,7 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Views
         private string _description; //описание
         private short? _passengersCount;
         private string _tripTypeName;
+        private string _color;
 
         //properties
         [DataMember]
@@ -203,6 +204,22 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Views
                 {
                     _tripTypeName = value;
                     NotifyPropertyChanged(nameof(TripTypeName));
+                }
+            }
+        }
+        [DataMember]
+        public string Color
+        {
+            get
+            {
+                return _color;
+            }
+            set
+            {
+                if (value != _color)
+                {
+                    _color = value;
+                    NotifyPropertyChanged(nameof(Color));
                 }
             }
         }
