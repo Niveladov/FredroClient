@@ -10,7 +10,7 @@ using TwinklCRM.DAL.Attributes;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
-    public class DictionaryEmailServerParam : DbObjectBaseModel
+    public partial class DictionaryEmailServerParam : DbObjectBaseModel
     {
         //default properties
         [DataMember]

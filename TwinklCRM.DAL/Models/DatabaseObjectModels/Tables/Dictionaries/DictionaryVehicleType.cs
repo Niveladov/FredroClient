@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
-    public sealed class DictionaryVehicleType : DbObjectBaseModel
+    public partial class DictionaryVehicleType : DbObjectBaseModel
     {
         //default properties
         [DataMember]

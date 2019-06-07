@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class CachedEmailBox : DbObjectBaseModel
+    public partial class CachedEmailBox : DbObjectBaseModel
     {
         //default properties
         [DataMember]

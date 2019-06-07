@@ -118,7 +118,7 @@ namespace TwinklCRM.Client.UserControls
             storageMain.Resources.Mappings.Id = nameof(ViewVehicle.Id);
             storageMain.Resources.Mappings.Caption = nameof(ViewVehicle.Name);
             storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.ParentId);
-            storageMain.Resources.Mappings.ParentId = nameof(ViewVehicle.Color);
+            storageMain.Resources.Mappings.Color = nameof(ViewVehicle.SystemColor);
 
             storageMain.Appointments.DataSource = _model.AssignedAppointments;
             storageMain.Appointments.Mappings.AppointmentId = nameof(ViewAssignedDeal.Id);
@@ -458,11 +458,10 @@ namespace TwinklCRM.Client.UserControls
         {
             if (schedulerMain.Storage != null)
             {
-                object resourceId = e.Node.GetValue("Id");
-                Resource resource = storageMain.Resources.GetResourceById(resourceId);
-                if (resource != null && e.Column.FieldName == nameof(ViewVehicle.PassengersCount))
+                var resourceTreeData = resourcesTreeMain.GetDataRecordByNode(e.Node) as ResourceTreeData;
+                if (resourceTreeData != null && resourceTreeData.Resource != null && e.Column.FieldName == nameof(ViewVehicle.PassengersCount))
                 {
-                    e.Appearance.BackColor = resource.Color;
+                    e.Appearance.BackColor = resourceTreeData.Resource.Color;
                 }
             }
         }

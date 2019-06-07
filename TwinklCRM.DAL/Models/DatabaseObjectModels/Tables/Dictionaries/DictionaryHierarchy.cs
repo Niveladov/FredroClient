@@ -10,7 +10,7 @@ using TwinklCRM.DAL.Attributes;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
-    public sealed class DictionaryHierarchy : DbObjectBaseModel
+    public partial class DictionaryHierarchy : DbObjectBaseModel
     {
         //default properties
         [DataMember]

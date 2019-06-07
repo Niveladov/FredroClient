@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class Deal : DbObjectBaseModel
+    public partial class Deal : DbObjectBaseModel
     {
         //default properties
         [DataMember]

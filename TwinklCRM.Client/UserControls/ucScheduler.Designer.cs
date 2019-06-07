@@ -236,6 +236,10 @@
             this.schedulerMain.Views.WorkWeekView.Enabled = false;
             this.schedulerMain.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             // 
+            // storageMain
+            // 
+            this.storageMain.Resources.ColorSaving = DevExpress.XtraScheduler.ColorSavingType.Color;
+            // 
             // toolTipController
             // 
             this.toolTipController.AutoPopDelay = 15000;

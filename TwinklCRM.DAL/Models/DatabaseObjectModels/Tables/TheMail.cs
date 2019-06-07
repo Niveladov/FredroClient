@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
 {
     [DataContract]
-    public sealed class TheMail : DbObjectBaseModel
+    public partial class TheMail : DbObjectBaseModel
     {
         //default properties
         [DataMember]
@@ -24,8 +24,6 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
         private string _mailedBy; //отправлено через
         private string _signedBy; //подписано
         private string _body;
-        private bool _isOutcoming;
-        private bool _isIncoming;
         private bool _isRead;
         private int? _chachedEmailBoxId;
         private int? _emailFolderTypeId;
@@ -257,13 +255,5 @@ namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables
             }
         }
 
-        [NotMapped]
-        public Bitmap PictureMail
-        {
-            get
-            {
-               return this.IsRead ? Properties.Resources.read_mail_32x38 : Properties.Resources.unread_mail_blue_32x32;
-            }
-        } 
     }
 }

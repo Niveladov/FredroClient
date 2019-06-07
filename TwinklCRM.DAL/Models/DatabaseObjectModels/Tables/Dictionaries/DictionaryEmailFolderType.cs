@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
-    public sealed class DictionaryEmailFolderType : DbObjectBaseModel
+    public partial class DictionaryEmailFolderType : DbObjectBaseModel
     {
         //default properties
         [DataMember]

@@ -66,10 +66,12 @@
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryHierarchy.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryTripType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryVehicleType.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Partial\TheMail.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Performer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\TheMail.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\User.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Vehicle.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Views\Partial\ViewVehicle.cs" />
     <Compile Include="Models\DatabaseObjectModels\Views\ViewAssignedDeal.cs" />
     <Compile Include="Models\DatabaseObjectModels\Views\ViewVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
