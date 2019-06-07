@@ -338,6 +338,36 @@
   <wsdl:message name="IBusinessObjectService_GetAllVehicleTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllVehicleTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetVehicleCapacityColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleCapacityColor" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetVehicleCapacityColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleCapacityColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteVehicleCapacityColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleCapacityColor" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_DeleteVehicleCapacityColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleCapacityColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateVehicleCapacityColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleCapacityColor" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_UpdateVehicleCapacityColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleCapacityColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertVehicleCapacityColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleCapacityColor" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_InsertVehicleCapacityColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleCapacityColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicleCapacityColors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleCapacityColors" />
+  </wsdl:message>
+  <wsdl:message name="IBusinessObjectService_GetAllVehicleCapacityColors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleCapacityColorsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBusinessObjectService">
     <wsdl:operation name="GetCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomer" message="tns:IBusinessObjectService_GetCustomer_InputMessage" />
@@ -538,6 +568,26 @@
     <wsdl:operation name="GetAllVehicleTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypes" message="tns:IBusinessObjectService_GetAllVehicleTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypesResponse" message="tns:IBusinessObjectService_GetAllVehicleTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleCapacityColor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetVehicleCapacityColor" message="tns:IBusinessObjectService_GetVehicleCapacityColor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetVehicleCapacityColorResponse" message="tns:IBusinessObjectService_GetVehicleCapacityColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleCapacityColor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/DeleteVehicleCapacityColor" message="tns:IBusinessObjectService_DeleteVehicleCapacityColor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/DeleteVehicleCapacityColorResponse" message="tns:IBusinessObjectService_DeleteVehicleCapacityColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleCapacityColor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/UpdateVehicleCapacityColor" message="tns:IBusinessObjectService_UpdateVehicleCapacityColor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/UpdateVehicleCapacityColorResponse" message="tns:IBusinessObjectService_UpdateVehicleCapacityColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicleCapacityColor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/InsertVehicleCapacityColor" message="tns:IBusinessObjectService_InsertVehicleCapacityColor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/InsertVehicleCapacityColorResponse" message="tns:IBusinessObjectService_InsertVehicleCapacityColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleCapacityColors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetAllVehicleCapacityColors" message="tns:IBusinessObjectService_GetAllVehicleCapacityColors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetAllVehicleCapacityColorsResponse" message="tns:IBusinessObjectService_GetAllVehicleCapacityColors_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IBusinessObjectService" type="tns:IBusinessObjectService">
@@ -986,6 +1036,51 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllVehicleTypes">
       <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleCapacityColor">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetVehicleCapacityColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleCapacityColor">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/DeleteVehicleCapacityColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleCapacityColor">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/UpdateVehicleCapacityColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicleCapacityColor">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/InsertVehicleCapacityColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleCapacityColors">
+      <soap12:operation soapAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetAllVehicleCapacityColors" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

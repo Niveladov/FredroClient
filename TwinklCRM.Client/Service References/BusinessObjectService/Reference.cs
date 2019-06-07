@@ -332,6 +332,56 @@ namespace TwinklCRM.Client.BusinessObjectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypes", ReplyAction="http://tempuri.org/IDictionaryVehicleTypeService/GetAllVehicleTypesResponse")]
         System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetVehicleCapacityColor" +
+            "", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetVehicleCapacityColor" +
+            "Response")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor GetVehicleCapacityColor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetVehicleCapacityColor" +
+            "", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetVehicleCapacityColor" +
+            "Response")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor> GetVehicleCapacityColorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/DeleteVehicleCapacityCo" +
+            "lor", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/DeleteVehicleCapacityCo" +
+            "lorResponse")]
+        void DeleteVehicleCapacityColor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/DeleteVehicleCapacityCo" +
+            "lor", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/DeleteVehicleCapacityCo" +
+            "lorResponse")]
+        System.Threading.Tasks.Task DeleteVehicleCapacityColorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/UpdateVehicleCapacityCo" +
+            "lor", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/UpdateVehicleCapacityCo" +
+            "lorResponse")]
+        void UpdateVehicleCapacityColor(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/UpdateVehicleCapacityCo" +
+            "lor", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/UpdateVehicleCapacityCo" +
+            "lorResponse")]
+        System.Threading.Tasks.Task UpdateVehicleCapacityColorAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/InsertVehicleCapacityCo" +
+            "lor", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/InsertVehicleCapacityCo" +
+            "lorResponse")]
+        void InsertVehicleCapacityColor(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/InsertVehicleCapacityCo" +
+            "lor", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/InsertVehicleCapacityCo" +
+            "lorResponse")]
+        System.Threading.Tasks.Task InsertVehicleCapacityColorAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetAllVehicleCapacityCo" +
+            "lors", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetAllVehicleCapacityCo" +
+            "lorsResponse")]
+        TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor[] GetAllVehicleCapacityColors();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetAllVehicleCapacityCo" +
+            "lors", ReplyAction="http://tempuri.org/IDictionaryVehicleCapacityColorService/GetAllVehicleCapacityCo" +
+            "lorsResponse")]
+        System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor[]> GetAllVehicleCapacityColorsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -759,6 +809,46 @@ namespace TwinklCRM.Client.BusinessObjectService {
         
         public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType[]> GetAllVehicleTypesAsync() {
             return base.Channel.GetAllVehicleTypesAsync();
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor GetVehicleCapacityColor(int id) {
+            return base.Channel.GetVehicleCapacityColor(id);
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor> GetVehicleCapacityColorAsync(int id) {
+            return base.Channel.GetVehicleCapacityColorAsync(id);
+        }
+        
+        public void DeleteVehicleCapacityColor(int id) {
+            base.Channel.DeleteVehicleCapacityColor(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteVehicleCapacityColorAsync(int id) {
+            return base.Channel.DeleteVehicleCapacityColorAsync(id);
+        }
+        
+        public void UpdateVehicleCapacityColor(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType) {
+            base.Channel.UpdateVehicleCapacityColor(emailFolderType);
+        }
+        
+        public System.Threading.Tasks.Task UpdateVehicleCapacityColorAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType) {
+            return base.Channel.UpdateVehicleCapacityColorAsync(emailFolderType);
+        }
+        
+        public void InsertVehicleCapacityColor(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType) {
+            base.Channel.InsertVehicleCapacityColor(emailFolderType);
+        }
+        
+        public System.Threading.Tasks.Task InsertVehicleCapacityColorAsync(TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor emailFolderType) {
+            return base.Channel.InsertVehicleCapacityColorAsync(emailFolderType);
+        }
+        
+        public TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor[] GetAllVehicleCapacityColors() {
+            return base.Channel.GetAllVehicleCapacityColors();
+        }
+        
+        public System.Threading.Tasks.Task<TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor[]> GetAllVehicleCapacityColorsAsync() {
+            return base.Channel.GetAllVehicleCapacityColorsAsync();
         }
     }
 }

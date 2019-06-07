@@ -719,11 +719,11 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
             }
         }
 
-        public IEnumerable<DictionaryVehicleCapacityColor> GetVehicleCapacityColors()
+        public IEnumerable<DictionaryVehicleCapacityColor> GetAllVehicleCapacityColors()
         {
             try
             {
-                return _dataManager.GetVehicleCapacityColors();
+                return _dataManager.GetAllVehicleCapacityColors();
             }
             catch (Exception ex)
             {

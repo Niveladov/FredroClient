@@ -118,6 +118,9 @@ namespace TwinklCRM.Client.UserControls
                 case nameof(DictionaryVehicleType):
                     dataSourceType = typeof(DictionaryVehicleType);
                     return _boServiceClient.GetAllVehicleTypes();
+                case nameof(DictionaryVehicleCapacityColor):
+                    dataSourceType = typeof(DictionaryVehicleCapacityColor);
+                    return _boServiceClient.GetAllVehicleCapacityColors();
                 default:
                     dataSourceType = null;
                     return null;
@@ -147,6 +150,10 @@ namespace TwinklCRM.Client.UserControls
             {
                 dataSource = _boServiceClient.GetAllVehicleTypes();
             }
+            else if (dataSourceType == typeof(DictionaryVehicleCapacityColor))
+            {
+                dataSource = _boServiceClient.GetAllVehicleCapacityColors();
+            }
             return dataSource;
         }
 
@@ -171,6 +178,10 @@ namespace TwinklCRM.Client.UserControls
             else if (dataSourceType == typeof(DictionaryVehicleType))
             {
                 _boServiceClient.DeleteVehicleType(objectId);
+            }
+            else if (dataSourceType == typeof(DictionaryVehicleCapacityColor))
+            {
+                _boServiceClient.DeleteVehicleCapacityColor(objectId);
             }
         }
 

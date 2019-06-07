@@ -14,7 +14,7 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models.Interfaces
         void DeleteVehicleCapacityColor(int id);
         void UpdateVehicleCapacityColor(DictionaryVehicleCapacityColor emailFolderType);
         void InsertVehicleCapacityColor(DictionaryVehicleCapacityColor emailFolderType);
-        IEnumerable<DictionaryVehicleCapacityColor> GetVehicleCapacityColors();
+        IEnumerable<DictionaryVehicleCapacityColor> GetAllVehicleCapacityColors();
     }
     
     [ServiceContract]
@@ -33,7 +33,7 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models.Interfaces
         void InsertVehicleCapacityColor(DictionaryVehicleCapacityColor emailFolderType);
 
         [OperationContract]
-        IEnumerable<DictionaryVehicleCapacityColor> GetVehicleCapacityColors();
+        IEnumerable<DictionaryVehicleCapacityColor> GetAllVehicleCapacityColors();
     }
 
 }

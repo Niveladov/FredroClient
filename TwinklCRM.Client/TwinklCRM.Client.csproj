@@ -347,6 +347,7 @@
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryEmailServerParam.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryHierarchy.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryTripType.datasource" />
+    <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleCapacityColor.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries.DictionaryVehicleType.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Performer.datasource" />
     <None Include="Properties\DataSources\TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Vehicle.datasource" />

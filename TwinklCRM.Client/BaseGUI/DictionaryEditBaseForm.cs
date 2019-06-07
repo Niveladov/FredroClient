@@ -151,6 +151,19 @@ namespace TwinklCRM.Client.BaseGUI
             return !(_systemFields.Contains(property.Name) || property.PropertyType == typeof(byte[]));
         }
 
+        private void Save(DbObjectBaseModel targetObject)
+        {
+            var dataSourceType = _dataSource.GetType();
+            if (dataSourceType.GetProperty("Id").GetValue(_dataSource) != null)
+            {
+                Update(_dataSource);
+            }
+            else
+            {
+                Insert(_dataSource);
+            }
+        }
+
         private DbObjectBaseModel[] GetAll(Type dataSourceType)
         {
             DbObjectBaseModel[] dataSource = null;
@@ -174,20 +187,11 @@ namespace TwinklCRM.Client.BaseGUI
             {
                 dataSource = _boServiceClient.GetAllVehicleTypes();
             }
+            else if (dataSourceType == typeof(DictionaryVehicleCapacityColor))
+            {
+                dataSource = _boServiceClient.GetAllVehicleCapacityColors();
+            }
             return dataSource;
-        }
-
-        private void Save(DbObjectBaseModel targetObject)
-        {
-            var dataSourceType = _dataSource.GetType();
-            if (dataSourceType.GetProperty("Id").GetValue(_dataSource) != null)
-            {
-                Update(_dataSource);
-            }
-            else
-            {
-                Insert(_dataSource);
-            }
         }
 
         private void Insert(DbObjectBaseModel targetObject)
@@ -217,6 +221,11 @@ namespace TwinklCRM.Client.BaseGUI
                 var vehicleType = targetObject as DictionaryVehicleType;
                 _boServiceClient.InsertVehicleType(vehicleType);
             }
+            else if (targetObject is DictionaryVehicleCapacityColor)
+            {
+                var vehicleCapacityColor = targetObject as DictionaryVehicleCapacityColor;
+                _boServiceClient.InsertVehicleCapacityColor(vehicleCapacityColor);
+            }
         }
 
         private void Update(DbObjectBaseModel targetObject)
@@ -245,6 +254,11 @@ namespace TwinklCRM.Client.BaseGUI
             {
                 var vehicleType = targetObject as DictionaryVehicleType;
                 _boServiceClient.UpdateVehicleType(vehicleType);
+            }
+            else if (targetObject is DictionaryVehicleCapacityColor)
+            {
+                var vehicleCapacityColor = targetObject as DictionaryVehicleCapacityColor;
+                _boServiceClient.UpdateVehicleCapacityColor(vehicleCapacityColor);
             }
         }
 

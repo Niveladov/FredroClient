@@ -574,7 +574,7 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
             }
         }
 
-        public IEnumerable<DictionaryVehicleCapacityColor> GetVehicleCapacityColors()
+        public IEnumerable<DictionaryVehicleCapacityColor> GetAllVehicleCapacityColors()
         {
             using (var db = new TwinkleDbContext())
             {

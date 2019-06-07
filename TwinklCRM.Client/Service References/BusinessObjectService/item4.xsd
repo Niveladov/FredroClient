@@ -133,4 +133,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDictionaryVehicleType" nillable="true" type="tns:ArrayOfDictionaryVehicleType" />
+  <xs:complexType name="DictionaryVehicleCapacityColor">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/TwinklCRM.DAL.Models.DatabaseObjectModels" base="q7:DbObjectBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDel" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaxCapacity" type="xs:short" />
+          <xs:element minOccurs="0" name="MinCapacity" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DictionaryVehicleCapacityColor" nillable="true" type="tns:DictionaryVehicleCapacityColor" />
+  <xs:complexType name="ArrayOfDictionaryVehicleCapacityColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionaryVehicleCapacityColor" nillable="true" type="tns:DictionaryVehicleCapacityColor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDictionaryVehicleCapacityColor" nillable="true" type="tns:ArrayOfDictionaryVehicleCapacityColor" />
 </xs:schema>
