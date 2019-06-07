@@ -213,6 +213,7 @@
             this.schedulerMain.Views.MonthView.Enabled = false;
             this.schedulerMain.Views.TimelineView.AppointmentDisplayOptions.SnapToCellsMode = DevExpress.XtraScheduler.AppointmentSnapToCellsMode.Never;
             this.schedulerMain.Views.TimelineView.AppointmentDisplayOptions.TimeDisplayType = DevExpress.XtraScheduler.AppointmentTimeDisplayType.Text;
+            this.schedulerMain.Views.TimelineView.GroupSeparatorWidth = 1;
             this.schedulerMain.Views.TimelineView.ResourcesPerPage = 12;
             timeScaleYear1.Enabled = false;
             timeScaleQuarter1.Enabled = false;
