@@ -59,6 +59,7 @@
     <Compile Include="Models\DatabaseObjectModels\Tables\CachedEmailBox.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Customer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Deal.cs" />
+    <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryColorsOfVehicleCapacity.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailFolderType.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServer.cs" />
     <Compile Include="Models\DatabaseObjectModels\Tables\Dictionaries\DictionaryEmailServerParam.cs" />
