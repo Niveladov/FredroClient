@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace TwinklCRM.DAL.Models.DatabaseObjectModels.Tables.Dictionaries
 {
     [DataContract]
-    public sealed class DictionaryColorsOfVehicleCapacity : DbObjectBaseModel
+    public sealed class DictionaryVehicleCapacityColor : DbObjectBaseModel
     {
         //default properties
         [DataMember]

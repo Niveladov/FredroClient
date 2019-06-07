@@ -533,6 +533,58 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models
 
         #endregion
 
+        #region DictionaryVehicleCapacityColorService
+
+        public DictionaryVehicleCapacityColor GetVehicleCapacityColor(int id)
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                return db.VehicleCapacityColors.Find(id);
+            }
+        }
+
+        public void DeleteVehicleCapacityColor(int id)
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                var vehicleCapacityColor = db.VehicleCapacityColors.Find(id);
+                db.VehicleCapacityColors.Remove(vehicleCapacityColor);
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateVehicleCapacityColor(DictionaryVehicleCapacityColor vehicleCapacityColor)
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.Entry(vehicleCapacityColor).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+
+        public void InsertVehicleCapacityColor(DictionaryVehicleCapacityColor vehicleCapacityColor)
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                vehicleCapacityColor.CreatedBy = -1;
+                vehicleCapacityColor.IsDel = false;
+                vehicleCapacityColor.CreationDate = DateTime.Now;
+                db.VehicleCapacityColors.Add(vehicleCapacityColor);
+                db.SaveChanges();
+            }
+        }
+
+        public IEnumerable<DictionaryVehicleCapacityColor> GetVehicleCapacityColors()
+        {
+            using (var db = new TwinkleDbContext())
+            {
+                db.VehicleCapacityColors.Load();
+                return db.VehicleCapacityColors.ToList();
+            }
+        }
+        
+        #endregion
+
     }
 
 }

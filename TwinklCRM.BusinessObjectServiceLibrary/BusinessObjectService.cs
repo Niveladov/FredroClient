@@ -669,6 +669,69 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
 
         #endregion
 
+        #region DictionaryVehicleCapacityColor
+        
+        public DictionaryVehicleCapacityColor GetVehicleCapacityColor(int id)
+        {
+            try
+            {
+                return _dataManager.GetVehicleCapacityColor(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void DeleteVehicleCapacityColor(int id)
+        {
+            try
+            {
+                _dataManager.DeleteVehicleCapacityColor(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void UpdateVehicleCapacityColor(DictionaryVehicleCapacityColor emailFolderType)
+        {
+            try
+            {
+                _dataManager.UpdateVehicleCapacityColor(emailFolderType);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void InsertVehicleCapacityColor(DictionaryVehicleCapacityColor emailFolderType)
+        {
+            try
+            {
+                _dataManager.InsertVehicleCapacityColor(emailFolderType);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public IEnumerable<DictionaryVehicleCapacityColor> GetVehicleCapacityColors()
+        {
+            try
+            {
+                return _dataManager.GetVehicleCapacityColors();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        #endregion
     }
-    
+
 }

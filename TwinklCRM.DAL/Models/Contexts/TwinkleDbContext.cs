@@ -31,6 +31,7 @@ namespace TwinklCRM.DAL.Models.Contexts
         public DbSet<DictionaryVehicleType> VehicleTypes { get; set; }
         public DbSet<DictionaryTripType> TripTypes { get; set; }
         public DbSet<DictionaryHierarchy> Hierarchies { get; set; }
+        public DbSet<DictionaryVehicleCapacityColor> VehicleCapacityColors { get; set; }
         #endregion
 
         #region Views

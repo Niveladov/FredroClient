@@ -13,7 +13,8 @@ namespace TwinklCRM.BusinessObjectServiceLibrary
     [ServiceContract]
     public interface IBusinessObjectService : ICustomerService, IDealService, IPerformerSevice, IVehicleService,
                 IDictionaryEmailFolderTypeService, IDictionaryEmailServerService, IDictionaryEmailServerParamService,
-                IDictionaryHierarchyService, IDictionaryTripTypeService, IDictionaryVehicleTypeService
+                IDictionaryHierarchyService, IDictionaryTripTypeService, IDictionaryVehicleTypeService,
+                IDictionaryVehicleCapacityColorService
     {
     }
 }

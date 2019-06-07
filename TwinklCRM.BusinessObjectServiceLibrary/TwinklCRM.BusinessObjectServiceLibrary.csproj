@@ -58,6 +58,7 @@
     <Compile Include="Models\Interfaces\ICustomer.cs" />
     <Compile Include="Models\Interfaces\IDbDataManager.cs" />
     <Compile Include="Models\Interfaces\IDeal.cs" />
+    <Compile Include="Models\Interfaces\IDictionaryColorsOfVehicleCapacity.cs" />
     <Compile Include="Models\Interfaces\IDictionaryEmailFolderType.cs" />
     <Compile Include="Models\Interfaces\IDictionaryEmailServer.cs" />
     <Compile Include="Models\Interfaces\IDictionaryEmailServerParam.cs" />

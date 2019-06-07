@@ -9,7 +9,8 @@ namespace TwinklCRM.BusinessObjectServiceLibrary.Models.Interfaces
 {
     internal interface IDbDataManager : IPerformer, IDeal, ICustomer, IVehicle, 
         IDictionaryTripType, IDictionaryVehicleType, IDictionaryEmailFolderType, 
-        IDictionaryEmailServer, IDictionaryEmailServerParam, IDictionaryHierarchy
+        IDictionaryEmailServer, IDictionaryEmailServerParam, IDictionaryHierarchy,
+        IDictionaryVehicleCapacityColor
     {
     }
 
